@@ -17,7 +17,7 @@
      border-radius: 0;
      background-color: #fff;
      border-color: #ccc;
-     background-image:url(otis_redding.png); background-repeat:repeat;
+     background-image: image-url("otis_redding.png"); background-repeat:repeat;
  }
 
 .navbar-inverse h3 a,
@@ -42,7 +42,7 @@
 
 /* Background pattern from subtlepatterns.com */
 body {
-    background-image:url(billie_holiday.png); background-repeat:repeat;
+    background-image: image-url("billie_holiday.png"); background-repeat:repeat;
 }
 
 .get-started {

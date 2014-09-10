@@ -1,0 +1,39 @@
+ <div class="panel">
+   <div class="panel-heading">
+      <h2 class="panel-title">Explore.</h2>
+    </div>
+    <div class="panel-body">
+      <div class="col-sm-2 col-md-3">
+        <div class="thumbnail">
+          <%= link_to("?f%5BsourceResource_type_s%5D%5B%5D=image") do %>
+            <span class="icon-search icon-picture"></span>
+          <% end %>
+          <h3>Images</h3>
+        </div>
+      </div>
+      <div class="col-sm-2 col-md-3">
+        <div class="thumbnail">
+          <%= link_to("?f%5BsourceResource_type_s%5D%5B%5D=sound") do %>
+            <span class="icon-search icon-headphones"></span>
+          <% end %>
+          <h3>Audio</h3>
+        </div>
+      </div>
+      <div class="col-sm-2 col-md-3">  
+        <div class="thumbnail">
+          <%= link_to("?f%5BsourceResource_type_s%5D%5B%5D=moving+image") do %>
+            <span class="icon-search icon-video"></span>
+          <% end %>
+        <h3>Video</h3>
+        </div>
+      </div>
+      <div class="col-sm-2 col-md-3">  
+        <div class="thumbnail">
+          <%= link_to("?f%5BsourceResource_type_s%5D%5B%5D=text") do %>
+            <span class="icon-search icon-doc-text"></span>
+          <% end %>
+        <h3>Text</h3>
+        </div>
+      </div>
+    </div>
+  </div>

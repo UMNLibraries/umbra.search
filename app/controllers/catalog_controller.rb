@@ -5,10 +5,12 @@ class CatalogController < ApplicationController
   include Blacklight::Catalog
 
   configure_blacklight do |config|
+    config.index.thumbnail_field = :object_s
+
     ## Default parameters to send to solr for all search-like requests. See also SolrHelper#solr_search_params
     config.default_solr_params = { 
       :qt => 'search',
-      :rows => 50 
+      :rows => 50
     }
     
     # solr path which will be added to solr base url before the other solr params.
@@ -30,7 +32,7 @@ class CatalogController < ApplicationController
 
     # solr field configuration for search results/index views
     config.index.title_field = 'title_display'
-    config.index.display_type_field = 'format'
+    config.index.display_type_field = 'sourceResource_type_s'
 
     # solr field configuration for document/show views
     #config.show.title_field = 'title_display'
@@ -55,13 +57,15 @@ class CatalogController < ApplicationController
     #
     # :show may be set to false if you don't want the facet to be drawn in the 
     # facet bar
+
+    config.add_facet_field 'subject_topic_facet', :label => 'Topic', :limit => 20
+    config.add_facet_field 'sourceResource_type_s', :label => 'Type'
     config.add_facet_field 'format', :label => 'Format'
     config.add_facet_field 'pub_date', :label => 'Publication Year', :single => true
-    config.add_facet_field 'subject_topic_facet', :label => 'Topic', :limit => 20 
     config.add_facet_field 'language_facet', :label => 'Language', :limit => true 
-    config.add_facet_field 'lc_1letter_facet', :label => 'Call Number' 
     config.add_facet_field 'subject_geo_facet', :label => 'Region' 
-    config.add_facet_field 'subject_era_facet', :label => 'Era'  
+    config.add_facet_field 'subject_era_facet', :label => 'Era'
+    config.add_facet_field 'sourceResource_creator_display', :label => 'Creator'
 
     config.add_facet_field 'example_pivot_field', :label => 'Pivot Field', :pivot => ['format', 'language_facet']
 
@@ -79,19 +83,10 @@ class CatalogController < ApplicationController
 
     # solr fields to be displayed in the index (search results) view
     #   The ordering of the field names is the order of the display 
-    config.add_index_field 'title_display', :label => 'Title'
-    config.add_index_field 'title_vern_display', :label => 'Title'
-    config.add_index_field 'author_display', :label => 'Author'
-    config.add_index_field 'author_vern_display', :label => 'Author'
-    config.add_index_field 'format', :label => 'Format'
-    config.add_index_field 'language_facet', :label => 'Language'
-    config.add_index_field 'published_display', :label => 'Published'
-    config.add_index_field 'published_vern_display', :label => 'Published'
-    config.add_index_field 'lc_callnum_display', :label => 'Call number'
+    config.add_index_field 'sourceResource_creator_display'
 
     # solr fields to be displayed in the show (single result) view
     #   The ordering of the field names is the order of the display 
-    config.add_show_field 'title_display', :label => 'Title'
     config.add_show_field 'title_vern_display', :label => 'Title'
     config.add_show_field 'subtitle_display', :label => 'Subtitle'
     config.add_show_field 'subtitle_vern_display', :label => 'Subtitle'
@@ -105,6 +100,7 @@ class CatalogController < ApplicationController
     config.add_show_field 'published_vern_display', :label => 'Published'
     config.add_show_field 'lc_callnum_display', :label => 'Call number'
     config.add_show_field 'isbn_t', :label => 'ISBN'
+    config.add_show_field 'sourceResource_type_s', :label => 'Type'
 
     # "fielded" search configuration. Used by pulldown among other places.
     # For supported keys in hash, see rdoc for Blacklight::SearchFields

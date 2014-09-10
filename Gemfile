@@ -51,3 +51,5 @@ group :test, :development do
   # Quite logs down by removing asset requests
   gem 'quiet_assets'
 end
+
+gem 'fontello_rails_converter'

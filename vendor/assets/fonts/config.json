@@ -1,0 +1,34 @@
+{
+  "name": "aath",
+  "css_prefix_text": "icon-",
+  "css_use_suffix": false,
+  "hinting": true,
+  "units_per_em": 1000,
+  "ascent": 850,
+  "glyphs": [
+    {
+      "uid": "5408be43f7c42bccee419c6be53fdef5",
+      "css": "doc-text",
+      "code": 59393,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "f27bba41a700af51a4dd23cf4edea61d",
+      "css": "headphones",
+      "code": 59392,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "c23a66951b34ed7d449688d559afb213",
+      "css": "video",
+      "code": 59394,
+      "src": "websymbols"
+    },
+    {
+      "uid": "baa375529925294ea0a2bc889c93ba2d",
+      "css": "picture",
+      "code": 59395,
+      "src": "websymbols"
+    }
+  ]
+}

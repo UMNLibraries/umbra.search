@@ -13,7 +13,7 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer',  platforms: :ruby
+gem 'therubyracer',  platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -40,6 +40,7 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 gem 'blacklight'
+gem 'capistrano-rvm'
 
 group :test, :development do
   # Debug seems to have trouble w/ Ruby 2.x, byebug is a replacment
@@ -50,6 +51,6 @@ group :test, :development do
   gem 'coderay', '~> 1.0.5'
   # Quite logs down by removing asset requests
   gem 'quiet_assets'
+  gem 'fontello_rails_converter'
+  gem 'capistrano', '~> 3.2.0'
 end
-
-gem 'fontello_rails_converter'

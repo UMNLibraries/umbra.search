@@ -22,13 +22,11 @@ set :use_sudo,    false
 
 # server 'hub.lib.umn.edu', user: 'deploy', roles: %w{web app}, :primary => true
 
-set :rvm_ruby_version, 'ruby-2.1.2@aath'
-
 # If you are using Passenger mod_rails uncomment this:
 namespace :deploy do
   task :start do
     on roles(:app) do
-      run "#touch #{File.join(current_path,'tmp','restart.txt')}"
+      execute "#touch #{File.join(current_path,'tmp','restart.txt')}"
     end
   end
 
@@ -39,7 +37,19 @@ namespace :deploy do
   desc "Restart Application"
   task :restart do
     on roles(:app) do
-      run "#touch #{File.join(current_path,'tmp','restart.txt')}"
+      execute "#touch #{File.join(current_path,'tmp','restart.txt')}"
     end
   end
+
+  desc "Symlinks the extra files in the shared directory"
+  task :symlink_extra do
+    on roles(:app) do
+      execute "ln -nfs #{deploy_to}/shared/config/database.yml #{release_path}/config/database.yml"
+      execute "ln -nfs #{deploy_to}/shared/config/secrets.yml #{release_path}/config/secrets.yml"
+    end
+  end
+
+  before 'deploy:symlink:shared', 'deploy:symlink_extra'
 end
+
+

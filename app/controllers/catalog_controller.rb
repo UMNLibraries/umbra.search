@@ -33,8 +33,6 @@ class CatalogController < ApplicationController
     # solr field configuration for search results/index views
     config.index.title_field = 'title_display'
     config.index.display_type_field = 'sourceResource_type_s'
-    config.index.display_type_field = 'sourceResource_date_displaydate_s'
-    config.index.display_type_field = 'dataProvider_s'
 
     # solr field configuration for document/show views
     #config.show.title_field = 'title_display'

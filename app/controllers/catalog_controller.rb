@@ -97,6 +97,7 @@ class CatalogController < ApplicationController
     config.add_show_field 'sourceResource_type_s', :label => 'Type'
     config.add_show_field 'dataProvider_s', :label => 'Provided By'
     config.add_show_field 'sourceResource_description_txt', :label => 'Description'
+    config.add_show_field 'id', :label => 'ID'
 
     # "fielded" search configuration. Used by pulldown among other places.
     # For supported keys in hash, see rdoc for Blacklight::SearchFields

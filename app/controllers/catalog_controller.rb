@@ -79,6 +79,7 @@ class CatalogController < ApplicationController
     # solr fields to be displayed in the index (search results) view
     #   The ordering of the field names is the order of the display
     config.add_index_field 'sourceResource_creator_display'
+    config.add_index_field 'dataProvider_s', :label => 'Provided By'
 
     # solr fields to be displayed in the show (single result) view
     #   The ordering of the field names is the order of the display
@@ -96,6 +97,7 @@ class CatalogController < ApplicationController
     config.add_show_field 'lc_callnum_display', :label => 'Call number'
     config.add_show_field 'isbn_t', :label => 'ISBN'
     config.add_show_field 'sourceResource_type_s', :label => 'Type'
+    config.add_show_field 'dataProvider_s', :label => 'Provided By'
     config.add_show_field 'sourceResource_description_txt', :label => 'Description'
 
     # "fielded" search configuration. Used by pulldown among other places.

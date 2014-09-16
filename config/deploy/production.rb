@@ -24,20 +24,22 @@ set :use_sudo,    false
 
 # If you are using Passenger mod_rails uncomment this:
 namespace :deploy do
-  task :start do
-    on roles(:app) do
-      execute "#touch #{File.join(current_path,'tmp','restart.txt')}"
+  desc 'Restart application'
+  task :restart do
+    on roles(:app), in: :sequence, wait: 5 do
+      # Restarts Phusion Passenger
+      execute :touch, release_path.join('tmp/restart.txt')
     end
   end
 
-  task :stop do
-    # Do nothing.
-  end
+  after :publishing, :restart
 
-  desc "Restart Application"
-  task :restart do
-    on roles(:app) do
-      execute "#touch #{File.join(current_path,'tmp','restart.txt')}"
+  after :restart, :clear_cache do
+    on roles(:web), in: :groups, limit: 3, wait: 10 do
+      # Here we can do anything such as:
+      # within release_path do
+      #   execute :rake, 'cache:clear'
+      # end
     end
   end
 

@@ -3,33 +3,53 @@
 <%
  img = document.fetch('object_s', false).to_s
  thumb_url = document.fetch('isShownAt_s', false)
- description = document.fetch('sourceResource_collection_description_txt', false)
+ description = document.fetch('sourceResource_description_txt', false)
+ subjects = document.fetch('subject_topic_facet', false)
 %>
 
 <%- if img %>
-<div class="document-thumbnail search-thumbnail">
-  <img src="<%= "#{img}" %>">
-</div>
+  <div class="document-thumbnail show-thumbnail">
+    <img src="<%= "#{img}" %>">
+    <% if thumb_url %>
+      <div class="caption">
+       <p> <a class="btn btn-primary" href="<%= thumb_url %>">Learn More <span class="glyphicon glyphicon-new-window"></span></a></p>
+      </div>
+    <% end %>
+  </div>
 <%- end %>
 
 <dl class="dl-horizontal  dl-invert">
-  <% if thumb_url %>
-    <dt class="blacklight-is_shown_at">View At:&nbsp;</dt>
-    <dd class="blacklight-is_shown_at"><a href="<%= document['isShownAt_s'] %>"><%= thumb_url %></a></dd>
-  <% end %>
-
   <% document_show_fields(document).each do |solr_fname, field| -%>
     <% if should_render_show_field? document, field %>
       <dt class="blacklight-<%= solr_fname.parameterize %>"><%= render_document_show_field_label document, :field => solr_fname %>&nbsp; </dt>
       <dd class="blacklight-<%= solr_fname.parameterize %>"><%= render_document_show_field_value document, :field => solr_fname %></dd>
     <% end -%>
   <% end -%>
-
-
-  <% if description %>
-    <span class="section-label">Description</span>
-    <div class="well">
-       <%= description %>
-    </div>
-  <% end %>
+    <% if subjects %>
+      <dt class="blacklight-is_shown_at">Subjects:&nbsp;</dt>
+      <dd>
+      <div class="blacklight-subjects">
+        <ul>
+          <% subjects.each do |subject| %>
+            <li><%= link_to subject, "/?f%5Bsubject_topic_facet%5D%5B%5D=#{subject}&q=&search_field=all_fields" %></li>
+          <% end %>
+        </ul>
+      </div>
+      </dd>
+    <% end %>
+    <% if description %>
+      <dt class="blacklight-is_shown_at">Description:&nbsp;</dt>
+      <dd>
+        <div class="blacklight-description">
+          <div class="blacklight-description-text"><%= description %></div>
+        </div>
+      </dd>
+        <% if thumb_url %>
+        <dt class="blacklight-is_shown_at">URL:&nbsp;</dt>
+        <dd class="blacklight-is_shown_at"><a href="<%= thumb_url %>"><%= thumb_url %></a></dd>
+      <% end %>
+    <% end %>
 </dl>
+
+
+  <small>Record ID: <%= document.id %></small>

@@ -89,6 +89,10 @@ body {
   font-size: 4em;
 }
 
+.show-thumbnail {
+  text-align: center;
+}
+
 .dl-horizontal dd {
     margin-left: 0;
 }
@@ -121,6 +125,35 @@ body {
     font-size: 2em;
 }
 
-.section-label {
-  color: #777777;
+.blacklight-description {
+  margin: 0 0 0 160px;
+}
+
+.blacklight-subjects ul {
+  margin: -3px 0 0 120px;
+  list-style: none;
+}
+
+.blacklight-subjects li,
+.blacklight-subjects li a {
+  line-height: 2;
+  display: block;
+  width: 100%;
+  text-decoration: none;
+}
+
+.blacklight-subjects li {
+  border-radius: 4px;
+}
+
+.blacklight-subjects li:hover {
+  background-color: #eee;
+}
+
+.blacklight-subjects .nav > li > a {
+  padding-left: -10px;
+}
+
+.show-thumbnail .btn {
+  margin-top: 10px;
 }

@@ -84,17 +84,13 @@ class CatalogController < ApplicationController
     config.add_show_field 'sourceResource_creator_display', :label => 'Creator'
     config.add_show_field 'sourceResource_contributor_s', :label => 'Contributors'
     config.add_show_field 'sourceResource_date_displaydate_s', :label => 'Date'
+    config.add_show_field 'dataProvider_s', :label => 'Contributing Institution'
     config.add_show_field 'sourceResource_publisher_s', :label => 'Publisher'
     config.add_show_field 'language_facet', :label => 'Language'
     config.add_show_field 'sourceResource_extent_s', :label => 'Extent'
     config.add_show_field 'sourceResource_collection_title_s', :label => 'Collection'
-    config.add_show_field 'sourceResource_type_s', :label => 'Type'
     config.add_show_field 'sourceResource_format_s', :label => 'Format'
-    config.add_show_field 'dataProvider_s', :label => 'Provided By'
-    config.add_show_field 'intermediateProvider_s', :label => 'Source'
-    config.add_show_field 'id', :label => 'Record ID'
-
-
+    config.add_show_field 'sourceResource_type_s', :label => 'Type'
 
     # "fielded" search configuration. Used by pulldown among other places.
     # For supported keys in hash, see rdoc for Blacklight::SearchFields

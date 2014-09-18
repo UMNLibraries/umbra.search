@@ -59,7 +59,7 @@ class CatalogController < ApplicationController
     # facet bar
 
     config.add_facet_field 'subject_topic_facet', :label => 'Topic', :limit => 20
-    config.add_facet_field 'sourceResource_type_s', :label => 'Type'
+    config.add_facet_field 'sourceResource_type_s', :label => 'Type', :limit => 4
     config.add_facet_field 'pub_date', :label => 'Publication Year', :single => true
     config.add_facet_field 'language_facet', :label => 'Language', :limit => true 
     config.add_facet_field 'subject_geo_facet', :label => 'Region' 

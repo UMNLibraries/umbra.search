@@ -81,8 +81,18 @@ body {
 }
 
 .document-thumbnail img {
-  max-width: 100%;
+  max-width:  100%;
   max-height: 100%;
+}
+
+.document-thumbnail.show-thumbnail img{
+  max-width:  200px;
+  max-height: 200px;
+}
+
+.document-thumbnail.show-thumbnail {
+ width: 200px;
+ height: 200px;
 }
 
 .document-thumbnail.glyphs {

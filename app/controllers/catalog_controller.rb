@@ -64,10 +64,10 @@ class CatalogController < ApplicationController
     config.add_facet_field 'creator_facet', :label => 'Creator', :limit => 20
     config.add_facet_field 'pub_date', :label => 'Publication Year', :single => true
     config.add_facet_field 'language_facet', :label => 'Language', :limit => true
-    config.add_facet_field 'sourceResource_spatial_state_s', :label => 'State'
-    config.add_facet_field 'sourceResource_spatial_city_s', :label => 'City'
-    config.add_facet_field 'sourceResource_spatial_county_s', :label => 'County'
-    config.add_facet_field 'sourceResource_spatial_region_s', :label => 'Region'
+    config.add_facet_field 'sourceResource_spatial_state_s', :label => 'State', :limit => 10
+    config.add_facet_field 'sourceResource_spatial_city_s', :label => 'City', :limit => 10
+    config.add_facet_field 'sourceResource_spatial_county_s', :label => 'County', :limit => 10
+    config.add_facet_field 'sourceResource_spatial_region_s', :label => 'Region', :limit => 10
 
     # Have BL send all facet field names to Solr, which has been the default
     # previously. Simply remove these lines if you'd rather use Solr request

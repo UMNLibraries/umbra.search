@@ -63,12 +63,10 @@ class CatalogController < ApplicationController
     config.add_facet_field 'subject_topic_facet', :label => 'Subject', :limit => 20
     config.add_facet_field 'pub_date', :label => 'Publication Year', :single => true
     config.add_facet_field 'language_facet', :label => 'Language', :limit => true
-    config.add_facet_field 'subject_geo_facet', :label => 'Region'
-    config.add_facet_field 'subject_era_facet', :label => 'Era'
-    config.add_facet_field 'sourceResource_creator_display', :label => 'Creator'
     config.add_facet_field 'sourceResource_spatial_state_s', :label => 'State'
     config.add_facet_field 'sourceResource_spatial_city_s', :label => 'City'
     config.add_facet_field 'sourceResource_spatial_county_s', :label => 'County'
+    config.add_facet_field 'sourceResource_spatial_region_s', :label => 'Region'
 
     # Have BL send all facet field names to Solr, which has been the default
     # previously. Simply remove these lines if you'd rather use Solr request
@@ -79,7 +77,6 @@ class CatalogController < ApplicationController
     #   The ordering of the field names is the order of the display
     config.add_index_field 'sourceResource_creator_display'
     config.add_index_field 'dataProvider_s', :label => 'Provided By'
-    config.add_index_field 'sourceResource_location_facet_display', :label => 'Location'
 
     # solr fields to be displayed in the show (single result) view
     #   The ordering of the field names is the order of the display

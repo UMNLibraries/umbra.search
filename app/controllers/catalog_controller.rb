@@ -89,6 +89,8 @@ class CatalogController < ApplicationController
     config.add_show_field 'language_facet', :label => 'Language'
     config.add_show_field 'sourceResource_extent_s', :label => 'Extent'
     config.add_show_field 'sourceResource_collection_title_s', :label => 'Collection'
+    config.add_show_field 'sourceResource_description_txt', :label => 'Description'
+    config.add_show_field 'sourceResource_rights_s', :label => 'Rights'
     config.add_show_field 'sourceResource_format_s', :label => 'Format'
     config.add_show_field 'sourceResource_type_s', :label => 'Type'
     # "fielded" search configuration. Used by pulldown among other places.

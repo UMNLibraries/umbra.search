@@ -3,9 +3,7 @@
 <%
  img          = document.fetch('object_s', false).to_s
  thumb_url    = document.fetch('isShownAt_s', false)
- description  = document.fetch('sourceResource_description_txt', false)
  subjects     = document.fetch('subject_topic_facet', false)
- rights       = document.fetch('sourceResource_rights_s', false)
 %>
 
 <%- if img %>
@@ -23,7 +21,11 @@
   <% document_show_fields(document).each do |solr_fname, field| -%>
     <% if should_render_show_field? document, field %>
       <dt class="blacklight-<%= solr_fname.parameterize %>"><%= render_document_show_field_label document, :field => solr_fname %>&nbsp; </dt>
-      <dd class="blacklight-<%= solr_fname.parameterize %>"><%= render_document_show_field_value document, :field => solr_fname %></dd>
+      <dd class="blacklight-<%= solr_fname.parameterize %>">
+        <div class="blacklight-description blacklight-show-text-section">
+          <%= render_document_show_field_value document, :field => solr_fname %>
+        </div>
+      </dd>
     <% end -%>
   <% end -%>
     <% if subjects %>
@@ -38,25 +40,9 @@
       </div>
       </dd>
     <% end %>
-    <% if description %>
-      <dt class="blacklight-is_shown_at">Description:&nbsp;</dt>
-      <dd>
-        <div class="blacklight-description blacklight-show-text-section">
-          <div class="blacklight-description-text"><%= description %></div>
-        </div>
-      </dd>
-      <% if rights %>
-          <dt class="blacklight-is_shown_at">Rights:&nbsp;</dt>
-          <dd class="blacklight-is_shown_at">
-            <div class="blacklight-description blacklight-show-text-section">
-              <%= rights %>
-            </div>
-          </dd>
-      <% end %>
-      <% if thumb_url %>
-        <dt class="blacklight-is_shown_at">URL:&nbsp;</dt>
-        <dd class="blacklight-is_shown_at"><a href="<%= thumb_url %>"><%= thumb_url %></a></dd>
-      <% end %>
+    <% if thumb_url %>
+      <dt class="blacklight-is_shown_at">URL:&nbsp;</dt>
+      <dd class="blacklight-is_shown_at"><a href="<%= thumb_url %>"><%= thumb_url %></a></dd>
     <% end %>
 
 </dl>

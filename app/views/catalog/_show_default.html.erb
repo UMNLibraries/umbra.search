@@ -1,10 +1,11 @@
 <%# default partial to display solr document fields in catalog show view -%>
 
 <%
- img = document.fetch('object_s', false).to_s
- thumb_url = document.fetch('isShownAt_s', false)
- description = document.fetch('sourceResource_description_txt', false)
- subjects = document.fetch('subject_topic_facet', false)
+ img          = document.fetch('object_s', false).to_s
+ thumb_url    = document.fetch('isShownAt_s', false)
+ description  = document.fetch('sourceResource_description_txt', false)
+ subjects     = document.fetch('subject_topic_facet', false)
+ rights       = document.fetch('sourceResource_rights_s', false)
 %>
 
 <%- if img %>
@@ -44,11 +45,16 @@
           <div class="blacklight-description-text"><%= description %></div>
         </div>
       </dd>
-        <% if thumb_url %>
+      <% if rights %>
+          <dt class="blacklight-is_shown_at">Rights:&nbsp;</dt>
+          <dd class="blacklight-is_shown_at"><%= rights %></dd>
+      <% end %>
+      <% if thumb_url %>
         <dt class="blacklight-is_shown_at">URL:&nbsp;</dt>
         <dd class="blacklight-is_shown_at"><a href="<%= thumb_url %>"><%= thumb_url %></a></dd>
       <% end %>
     <% end %>
+
 </dl>
 
 

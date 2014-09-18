@@ -46,7 +46,7 @@ module FacetsHelper
         'icon-video'
       when 'Text'
         'icon-doc-text'
-      when 'Sound'
+      when 'Audio'
         'icon-headphones'
       end
     end

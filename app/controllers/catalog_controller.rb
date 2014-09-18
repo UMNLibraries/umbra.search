@@ -10,6 +10,7 @@ class CatalogController < ApplicationController
     ## Default parameters to send to solr for all search-like requests. See also SolrHelper#solr_search_params
     config.default_solr_params = {
       :qt => 'search_dpla',
+      :fl => '*',
       :rows => 50
     }
 
@@ -58,13 +59,16 @@ class CatalogController < ApplicationController
     # :show may be set to false if you don't want the facet to be drawn in the
     # facet bar
 
-    config.add_facet_field 'subject_topic_facet', :label => 'Topic', :limit => 20
     config.add_facet_field 'sourceResource_type_s', :label => 'Type', :limit => 4
+    config.add_facet_field 'subject_topic_facet', :label => 'Subject', :limit => 20
     config.add_facet_field 'pub_date', :label => 'Publication Year', :single => true
-    config.add_facet_field 'language_facet', :label => 'Language', :limit => true 
-    config.add_facet_field 'subject_geo_facet', :label => 'Region' 
+    config.add_facet_field 'language_facet', :label => 'Language', :limit => true
+    config.add_facet_field 'subject_geo_facet', :label => 'Region'
     config.add_facet_field 'subject_era_facet', :label => 'Era'
     config.add_facet_field 'sourceResource_creator_display', :label => 'Creator'
+    config.add_facet_field 'sourceResource_spatial_state_s', :label => 'State'
+    config.add_facet_field 'sourceResource_spatial_city_s', :label => 'City'
+    config.add_facet_field 'sourceResource_spatial_county_s', :label => 'County'
 
     # Have BL send all facet field names to Solr, which has been the default
     # previously. Simply remove these lines if you'd rather use Solr request
@@ -75,15 +79,27 @@ class CatalogController < ApplicationController
     #   The ordering of the field names is the order of the display
     config.add_index_field 'sourceResource_creator_display'
     config.add_index_field 'dataProvider_s', :label => 'Provided By'
+    config.add_index_field 'sourceResource_location_facet_display', :label => 'Location'
 
     # solr fields to be displayed in the show (single result) view
     #   The ordering of the field names is the order of the display
+    config.add_show_field 'sourceResource_creator_display', :label => 'Creator'
+    config.add_show_field 'sourceResource_contributor_s', :label => 'Contributors'
+    config.add_show_field 'sourceResource_date_displaydate_s', :label => 'Date'
+    config.add_show_field 'sourceResource_publisher_s', :label => 'Publisher'
     config.add_show_field 'language_facet', :label => 'Language'
+    config.add_show_field 'sourceResource_extent_s', :label => 'Extent'
+    config.add_show_field 'sourceResource_collection_title_s', :label => 'Collection'
     config.add_show_field 'sourceResource_type_s', :label => 'Type'
+    config.add_show_field 'sourceResource_format_s', :label => 'Format'
+
+    config.add_show_field 'isShownAt_s', :label => 'Shown At'
     config.add_show_field 'dataProvider_s', :label => 'Provided By'
     config.add_show_field 'intermediateProvider_s', :label => 'Source'
     config.add_show_field 'sourceResource_description_txt', :label => 'Description'
     config.add_show_field 'id', :label => 'Record ID'
+
+
 
     # "fielded" search configuration. Used by pulldown among other places.
     # For supported keys in hash, see rdoc for Blacklight::SearchFields

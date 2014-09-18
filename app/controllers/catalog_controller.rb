@@ -90,8 +90,6 @@ class CatalogController < ApplicationController
     config.add_show_field 'sourceResource_collection_title_s', :label => 'Collection'
     config.add_show_field 'sourceResource_type_s', :label => 'Type'
     config.add_show_field 'sourceResource_format_s', :label => 'Format'
-
-    config.add_show_field 'isShownAt_s', :label => 'Shown At'
     config.add_show_field 'dataProvider_s', :label => 'Provided By'
     config.add_show_field 'intermediateProvider_s', :label => 'Source'
     config.add_show_field 'sourceResource_description_txt', :label => 'Description'

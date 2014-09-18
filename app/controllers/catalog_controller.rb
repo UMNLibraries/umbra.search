@@ -92,7 +92,6 @@ class CatalogController < ApplicationController
     config.add_show_field 'sourceResource_format_s', :label => 'Format'
     config.add_show_field 'dataProvider_s', :label => 'Provided By'
     config.add_show_field 'intermediateProvider_s', :label => 'Source'
-    config.add_show_field 'sourceResource_description_txt', :label => 'Description'
     config.add_show_field 'id', :label => 'Record ID'
 
 

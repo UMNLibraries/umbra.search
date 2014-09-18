@@ -1,7 +1,10 @@
 <%# default partial to display solr document fields in catalog show view -%>
 
-<% img = document.fetch('object_s', false).to_s %>
-<% thumb_url = document.fetch('isShownAt_s', false) %>
+<%
+ img = document.fetch('object_s', false).to_s
+ thumb_url = document.fetch('isShownAt_s', false)
+ description = document.fetch('sourceResource_collection_description_txt', false)
+%>
 
 <%- if img %>
 <div class="document-thumbnail search-thumbnail">
@@ -21,4 +24,12 @@
       <dd class="blacklight-<%= solr_fname.parameterize %>"><%= render_document_show_field_value document, :field => solr_fname %></dd>
     <% end -%>
   <% end -%>
+
+
+  <% if description %>
+    <span class="section-label">Description</span>
+    <div class="well">
+       <%= description %>
+    </div>
+  <% end %>
 </dl>

@@ -38,15 +38,24 @@ module FacetsHelper
   private
     # include values on type fields - we use these to 
     def type_class(val)
+      val = type_use_vernacular(val)
       case val
-      when 'image'
+      when 'Image'
         'icon-picture'
-      when 'moving image'
+      when 'Video'
         'icon-video'
-      when 'text'
+      when 'Text'
         'icon-doc-text'
-      when 'sound'
+      when 'Sound'
         'icon-headphones'
       end
+    end
+
+    def type_use_vernacular(val)
+      val.gsub!(/moving image/, 'Video')
+      val.gsub!(/image/, 'Image')
+      val.gsub!(/text/, 'Text')
+      val.gsub!(/sound/, 'Audio')
+      val
     end
 end

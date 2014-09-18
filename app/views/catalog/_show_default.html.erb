@@ -47,7 +47,11 @@
       </dd>
       <% if rights %>
           <dt class="blacklight-is_shown_at">Rights:&nbsp;</dt>
-          <dd class="blacklight-is_shown_at blacklight-show-text-section"><%= rights %></dd>
+          <dd class="blacklight-is_shown_at">
+            <div class="blacklight-description blacklight-show-text-section">
+              <%= rights %>
+            </div>
+          </dd>
       <% end %>
       <% if thumb_url %>
         <dt class="blacklight-is_shown_at">URL:&nbsp;</dt>

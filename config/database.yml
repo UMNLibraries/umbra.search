@@ -15,10 +15,10 @@ default: &default
   pool: 5
   username: <%= ENV['AATH_SEARCH_DB_USERNAME'] %>
   password: <%= ENV['AATH_SEARCH_DB_PASSWORD'] %>
-  socket: /var/run/mysqld/mysqld.sock
 
 development:
   <<: *default
+  socket: /var/run/mysqld/mysqld.sock
   database: <%= ENV['AATH_SEARCH_DB_NAME'] %>
 
 # Warning: The database defined as "test" will be erased and
@@ -51,6 +51,7 @@ test:
 #
 production:
   <<: *default
+  socket: /var/lib/mysql/mysql.sock
   database: <%= ENV['AATH_SEARCH_DB_NAME'] %>
   username: <%= ENV['AATH_SEARCH_DB_USERNAME'] %>
   password: <%= ENV['AATH_SEARCH_DB_PASSWORD'] %>

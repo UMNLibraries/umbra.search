@@ -139,28 +139,27 @@ body {
   margin: 0 0 0 160px;
 }
 
-.blacklight-subjects ul {
+.blacklight-link-list ul {
   margin: -3px 0 0 120px;
   list-style: none;
 }
 
-.blacklight-subjects li,
-.blacklight-subjects li a {
+.blacklight-link-list li,
+.blacklight-link-list li a {
   line-height: 2;
-  display: block;
   width: 100%;
   text-decoration: none;
 }
 
-.blacklight-subjects li {
+.blacklight-link-list li {
   border-radius: 4px;
 }
 
-.blacklight-subjects li:hover {
+.blacklight-link-list li:hover {
   background-color: #eee;
 }
 
-.blacklight-subjects .nav > li > a {
+.blacklight-link-list .nav > li > a {
   padding-left: -10px;
 }
 

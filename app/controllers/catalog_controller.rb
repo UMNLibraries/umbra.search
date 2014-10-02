@@ -70,7 +70,7 @@ class CatalogController < ApplicationController
     config.add_facet_field 'sourceResource_spatial_county_s', :label => 'County', :limit => 10
     config.add_facet_field 'sourceResource_spatial_region_s', :label => 'Region', :limit => 10
     config.add_facet_field 'dataProvider_s', :label => 'Contributing Institution', :limit => 10
-    config.add_facet_field 'sourceResource_collection_title_s', :label => 'Contributing Institution Collection', :limit => 10
+    config.add_facet_field 'sourceResource_collection_title_s', :label => 'From Collection', :limit => 10
     # Have BL send all facet field names to Solr, which has been the default
     # previously. Simply remove these lines if you'd rather use Solr request
     # handler defaults, or have no facets.
@@ -86,12 +86,10 @@ class CatalogController < ApplicationController
     config.add_show_field 'sourceResource_creator_display', :label => 'Creators'
     config.add_show_field 'sourceResource_contributor_s', :label => 'Contributors'
     config.add_show_field 'sourceResource_date_displaydate_s', :label => 'Created Date'
-    config.add_show_field 'dataProvider_s', :label => 'Contributing Institution'
     config.add_show_field 'sourceResource_publisher_s', :label => 'Publisher'
     config.add_show_field 'language_facet', :label => 'Language'
     config.add_show_field 'sourceResource_extent_s', :label => 'Extent'
     config.add_show_field 'sourceResource_description_txt', :label => 'Description'
-    config.add_show_field 'sourceResource_rights_s', :label => 'Rights'
     config.add_show_field 'sourceResource_format_s', :label => 'Format'
     config.add_show_field 'sourceResource_type_s', :label => 'Type'
     # "fielded" search configuration. Used by pulldown among other places.
@@ -133,11 +131,11 @@ class CatalogController < ApplicationController
       }
     end
 
-    config.add_search_field('author') do |field|
-      field.solr_parameters = { :'spellcheck.dictionary' => 'author' }
+    config.add_search_field('creatpr') do |field|
+      field.solr_parameters = { :'spellcheck.dictionary' => 'creatpr' }
       field.solr_local_parameters = {
-        :qf => '$author_qf',
-        :pf => '$author_pf'
+        :qf => '$creatpr_qf',
+        :pf => '$creatpr_pf'
       }
     end
 

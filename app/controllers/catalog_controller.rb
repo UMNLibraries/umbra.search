@@ -11,7 +11,8 @@ class CatalogController < ApplicationController
     config.default_solr_params = {
       :qt => 'search_dpla',
       :fl => '*',
-      :rows => 50
+      :rows => 50,
+      :bq => 'sourceResource_type_s:text^50.0'
     }
 
     # solr path which will be added to solr base url before the other solr params.

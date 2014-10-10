@@ -56,4 +56,5 @@ group :test, :development do
   gem 'capistrano-rails', '~> 1.1'
   gem 'capistrano-bundler', '~> 1.1.2'
   gem 'capistrano-rvm'
+  gem 'rspec-rails', '>3.0'
 end

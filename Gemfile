@@ -58,4 +58,5 @@ group :test, :development do
   gem 'capistrano-bundler', '~> 1.1.2'
   gem 'capistrano-rvm'
   gem 'rspec-rails', '>3.0'
+  gem 'capybara'
 end

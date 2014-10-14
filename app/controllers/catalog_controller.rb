@@ -37,6 +37,8 @@ class CatalogController < ApplicationController
     # solr field configuration for search results/index views
     config.index.title_field = 'title_display'
     config.index.display_type_field = 'sourceResource_type_s'
+    config.index.thumbnail_method = :cached_thumbnail_tag
+    config.show.thumbnail_method = :cached_thumbnail_tag
 
     # solr field configuration for document/show views
     #config.show.title_field = 'title_display'

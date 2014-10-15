@@ -42,6 +42,7 @@ gem 'spring',        group: :development
 
 gem 'blacklight'
 gem 'rails_autolink'
+gem 'haml'
 
 group :test, :development do
   # Debug seems to have trouble w/ Ruby 2.x, byebug is a replacment

@@ -1,0 +1,60 @@
+-# TODO: Move this stuff out of the view and refactor this view generally, it's messy
+- document      = @document
+- img           = document.fetch('object_s', false).to_s
+- thumb_url     = document.fetch('isShownAt_s', false)
+- subjects      = document.fetch('subject_topic_facet', false)
+- subjects      = document.fetch('subject_topic_facet', false)
+- rights        = document.fetch('sourceResource_rights_s', false)
+- data_provider = document.fetch('dataProvider_s', false)
+- provider_name = document.fetch('provider_name_s', false)
+- collection    = document.fetch('sourceResource_collection_title_s', false)
+- display_title = document.fetch('title_display', false)
+
+- @page_title = t('blacklight.search.show.title', :document_title => document_show_html_title, :application_name => application_name).html_safe
+- content_for(:head) { render_link_rel_alternates }
+
+- content_for(:secondary_navbar) {render partial:'show_nav'}
+
+%section#metadata
+  %div.container
+    %div.row
+      %div.col-xs-12.col-sm-6.col-md-6.col-lg-6
+        %div.row
+          %div.col-xs-3.col-sm-4.col-md-3.col-lg-3
+            %img{alt:display_title, src:img, style:'margin-top:20px;', width:'200%'}
+
+        / http://blacktheater.lib.umn.edu/catalog/e317664305effc523856d5abdc3c580e
+        %h1.h3{style:'font-style:italic;'}= display_title
+        %h2.h4{style:'color:#777777'}= render_document_show_field_value document, :field => 'sourceResource_creator_display'
+
+        %h3.h4 Description
+        %p= render_document_show_field_value document, :field => 'sourceResource_description_txt'
+
+        %a.btn.btn-default.btn-lg{href:thumb_url} View Original
+
+        %div#technical-metadata
+          - document_show_fields(document).each do |solr_fname, field|
+            - if should_render_show_field? document, field
+              %dt{class:"blacklight-#{solr_fname.parameterize}"}= render_document_show_field_label document, :field => solr_fname
+              %dd{class:"blacklight-#{solr_fname.parameterize}"}
+                %div
+                  = render_document_show_field_value document, :field => solr_fname
+
+        %h4 Contributing Partner
+        = provider_name
+        =# image_tag 'smithsonian.png', {class:'img-responsive', style:'max-height:40px;', alt:'Smithsonian Institution'}
+
+      %div.col-xs-12.col-sm-5.col-sm-offset-1{style:'border-left:1px solid #efefef;'}
+        %div.row{style:'margin-top:20px;'}
+          %div.col-sm-12
+            %h3.h4 Place / TODO
+            %div#map
+
+            %h3.h4 Subjects
+            %ol.list-unstyled.subjects
+              - subjects.each do |subject_heading|
+                %li
+                  %a.label.label-default{href:''}= subject_heading
+
+            %h4 Related Images in UMBRA
+            TODO

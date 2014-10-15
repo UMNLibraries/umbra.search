@@ -13,13 +13,6 @@
           border-radius: $radius;
 }
 
-.navbar-inverse {
-     border-radius: 0;
-     background-color: #fff;
-     border-color: #ccc;
-     background-image: image-url("otis_redding.png"); background-repeat:repeat;
- }
-
 .navbar-inverse h3 {
   letter-spacing: 25px;
 }
@@ -48,11 +41,6 @@
 
 .input-group-btn.home {
     border-bottom-left-radius: 10;
-}
-
-/* Background pattern from subtlepatterns.com */
-body {
-    background-image: image-url("billie_holiday.png"); background-repeat:repeat;
 }
 
 .get-started {

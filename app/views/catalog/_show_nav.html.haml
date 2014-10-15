@@ -1,0 +1,17 @@
+%section{style:'background-color:#efefef;'}
+  %div.navbar.navbar-default.navbar-static-top
+    %div.container
+      %h1.sr-only Item Actions
+      = render partial: 'show_tools'
+
+      %ul.nav.navbar-nav.navbar-right
+        %li
+          %p.navbar-text
+            %strong
+              %a
+                Result
+                =item_page_entry_info
+        %li
+          %div.btn-group
+            %button.btn.btn-default.navbar-btn= link_to_previous_document @previous_document
+            %button.btn.btn-default.navbar-btn= link_to_next_document @next_document

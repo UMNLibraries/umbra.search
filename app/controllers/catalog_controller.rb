@@ -4,6 +4,8 @@ class CatalogController < ApplicationController
 
   include Blacklight::Catalog
 
+  layout 'umbra'   # use layouts/umbra instead of default layouts/blacklight
+
   configure_blacklight do |config|
     config.index.thumbnail_field = :object_s
 
@@ -83,15 +85,19 @@ class CatalogController < ApplicationController
 
     # solr fields to be displayed in the show (single result) view
     #   The ordering of the field names is the order of the display
-    config.add_show_field 'sourceResource_creator_display', :label => 'Creators'
+
+    #config.add_show_field 'sourceResource_creator_display', :label => 'Creators'
+    #config.add_show_field 'sourceResource_description_txt', :label => 'Description'
+
+    config.add_show_field 'sourceResource_type_s', :label => 'Type'
+    config.add_show_field 'sourceResource_format_s', :label => 'Format'
+    config.add_show_field 'id', :label => 'Record ID'
+
     config.add_show_field 'sourceResource_contributor_s', :label => 'Contributors'
     config.add_show_field 'sourceResource_date_displaydate_s', :label => 'Created Date'
     config.add_show_field 'sourceResource_publisher_s', :label => 'Publisher'
     config.add_show_field 'language_facet', :label => 'Language'
     config.add_show_field 'sourceResource_extent_s', :label => 'Extent'
-    config.add_show_field 'sourceResource_description_txt', :label => 'Description'
-    config.add_show_field 'sourceResource_format_s', :label => 'Format'
-    config.add_show_field 'sourceResource_type_s', :label => 'Type'
     # "fielded" search configuration. Used by pulldown among other places.
     # For supported keys in hash, see rdoc for Blacklight::SearchFields
     #

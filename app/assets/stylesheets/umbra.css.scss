@@ -1,0 +1,55 @@
+// Navbar
+.navbar {
+  margin-bottom:0px;
+}
+
+// Masonry Items
+.item{
+  width:  80px;
+  height: 80px;
+  float: left;
+  margin: 5px;
+  border: 1px solid #333;
+  overflow: hidden;
+}
+
+.item.w2 {
+  width:  180px;
+  height: 180px;
+}
+
+// Subjects
+ol.subjects {
+  list-style: none;
+
+  li {
+    display:inline;
+
+    a.label.label-default {
+      font-weight: normal;
+    }
+  }
+}
+
+
+#footer {
+  margin-top:40px;
+  border-top:10px solid #CCC;
+  background-color: #efefef;
+  padding-bottom:100px;
+
+  a {
+    color:#333;
+  }
+}
+
+#map { height: 180px; }
+
+#technical-metadata{
+  border-top:1px solid #CCC;
+  border-bottom:1px solid #CCC;
+
+  font-size:0.85em;
+  margin:2em 0;
+  padding:1em 0 0 0;
+}

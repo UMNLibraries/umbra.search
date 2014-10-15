@@ -1,24 +1,76 @@
-<div id="header-navbar" class="navbar navbar-inverse navbar-static-top" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#user-util-collapse">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-        <h3><%= link_to application_name, root_path %></h3>
-        <h4 class="tagline"><%= tagline %></h4>
-    </div>
-
-    <div class="collapse navbar-collapse" id="user-util-collapse">
-      <%= render :partial=>'/user_util_links' %>
+<a class="sr-only" href="#main">Skip to main content</a>
+<header class="navbar navbar-static-top navbar-inverse">
+  <div class="navbar">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">&diamond; UMBRA</a>
+        <button class="navbar-toggle" data-target=".bs-navbar-collapse" data-toggle="collapse" id="primary-nav-toggle" type="button">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav class="navbar-collapse bs-navbar-collapse collapse" role="navigation">
+        <ul class="nav navbar-nav navbar-right" id="primary-nav">
+          <li><%= render_search_bar  %></li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              Browse
+              <b class="caret"></b>
+            </a>
+            <ul aria-labelledby="browse" class="dropdown-menu" id="browse" role="menu">
+              <li role="presentation">
+                <a href="/browse?type=author">Authors</a>
+              </li>
+              <li role="presentation">
+                <a href="/handle/11299/1">Collections</a>
+              </li>
+              <li role="presentation">
+                <a href="/browse?type=dateissued">Dates</a>
+              </li>
+              <li role="presentation">
+                <a href="/browse?type=subject">Subjects</a>
+              </li>
+              <li role="presentation">
+                <a href="/browse?type=title">Titles</a>
+              </li>
+              <li role="presentation">
+                <a href="/browse?type=dc_type">Types</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              <i class="icon-help-circled"></i>
+              Help
+              <b class="caret"></b>
+            </a>
+            <ul aria-labelledby="help" class="dropdown-menu" id="help" role="menu">
+              <li role="presentation">
+                <a href="/pages/about">About the UDC</a>
+              </li>
+              <li role="presentation">
+                <a href="/pages/how-to-submit">How to Submit</a>
+              </li>
+              <li role="presentation">
+                <a href="/pages/policies">Policies and Terms of Use</a>
+              </li>
+              <!--<li role="presentation">
+                <a href="/drum">Data Repository of U of M</a>
+              </li>-->
+              <li role="presentation">
+                <a href="/pages/contact-us">Contact Us</a>
+              </li>
+            </ul>
+          </li>
+          <li class="dropdown" id="nav-sign-in">
+            <a href="/submissions">
+              <i class="icon-user"></i>
+              Sign in
+            </a>
+          </li>
+        </ul>
+      </nav>
     </div>
   </div>
-</div>
-
-<div id="search-navbar" class="navbar navbar-default navbar-static-top" role="navigation">
-  <div class="container">
-    <%= render_search_bar  %>
-  </div>
-</div>
+</header>

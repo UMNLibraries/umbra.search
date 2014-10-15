@@ -10,7 +10,7 @@ class DocumentPresenter < Blacklight::DocumentPresenter
   # @param [Blacklight::Solr::Configuration::SolrField] solr field configuration
   # @return [String]
   def render_field_value value=nil, field_config=nil
-    safe_values = Array(value).collect { |x| x.respond_to?(:force_encoding) ? auto_link(x.force_encoding("UTF-8")) : auto_link(x) }
+    safe_values = Array(value).collect { |x| x.respond_to?(:force_encoding) ? auto_link(x.force_encoding("UTF-8"), :link => :urls) : auto_link(x, :link => :urls) }
 
     if field_config and field_config.itemprop
       safe_values = safe_values.map { |x| content_tag :span, x, :itemprop => field_config.itemprop }

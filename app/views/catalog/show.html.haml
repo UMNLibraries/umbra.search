@@ -54,7 +54,7 @@
             %ol.list-unstyled.subjects
               - subjects.each do |subject_heading|
                 %li
-                  %a.label.label-default{href:''}= subject_heading
+                  %a.label.label-default{href:url_for(action:'index', "f[subject_topic_facet][]"=>subject_heading)}= subject_heading
 
             %h4 Related Images in UMBRA
             TODO

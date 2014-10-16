@@ -5,7 +5,7 @@
     <div class="panel-body">
       <div class="col-sm-2 col-md-3">
         <div class="thumbnail">
-          <%= link_to("?f%5BsourceResource_type_s%5D%5B%5D=text") do %>
+          <%= link_to(url_for(action:'index', "f[sourceResource_type_s][]"=>"text")) do %>
             <span class="icon-search icon-doc-text"></span>
           <% end %>
         <h3>Text</h3>
@@ -13,7 +13,7 @@
       </div>
       <div class="col-sm-2 col-md-3">
         <div class="thumbnail">
-          <%= link_to("?f%5BsourceResource_type_s%5D%5B%5D=image") do %>
+          <%= link_to(url_for(action:'index', "f[sourceResource_type_s][]"=>"image")) do %>
             <span class="icon-search icon-picture"></span>
           <% end %>
           <h3>Image</h3>
@@ -21,7 +21,7 @@
       </div>
       <div class="col-sm-2 col-md-3">
         <div class="thumbnail">
-          <%= link_to("?f%5BsourceResource_type_s%5D%5B%5D=moving+image") do %>
+          <%= link_to(url_for(action:'index', "f[sourceResource_type_s][]"=>"moving image")) do %>
             <span class="icon-search icon-video"></span>
           <% end %>
         <h3>Video</h3>
@@ -29,7 +29,7 @@
       </div>
       <div class="col-sm-2 col-md-3">
         <div class="thumbnail">
-          <%= link_to("?f%5BsourceResource_type_s%5D%5B%5D=sound") do %>
+          <%= link_to(url_for(action:'index', "f[sourceResource_type_s][]"=>"sound")) do %>
             <span class="icon-search icon-headphones"></span>
           <% end %>
           <h3>Sound</h3>

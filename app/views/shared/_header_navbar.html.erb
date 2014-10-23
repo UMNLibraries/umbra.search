@@ -2,18 +2,20 @@
 <header class="navbar navbar-static-top navbar-inverse">
   <div class="navbar">
     <div class="container">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="/">&diamond; UMBRA</a>
-        <button class="navbar-toggle" data-target=".bs-navbar-collapse" data-toggle="collapse" id="primary-nav-toggle" type="button">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-      </div>
       <nav class="navbar-collapse bs-navbar-collapse collapse" role="navigation">
-        <ul class="nav navbar-nav navbar-right" id="primary-nav">
+        <div id="left-of-search" class="col-md-5 col-sm-6">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="/">&diamond; UMBRA</a>
+            <button class="navbar-toggle" data-target=".bs-navbar-collapse" data-toggle="collapse" id="primary-nav-toggle" type="button">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+        </div>
+        <ul class="nav navbar-nav navbar-left" id="primary-nav">
           <li><%= render_search_bar  %></li>
-          <li class="dropdown">
+<!--           <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
               Browse
               <b class="caret"></b>
@@ -38,8 +40,8 @@
                 <a href="/browse?type=dc_type">Types</a>
               </li>
             </ul>
-          </li>
-          <li>
+          </li> -->
+<!--           <li>
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
               <i class="icon-help-circled"></i>
               Help
@@ -55,20 +57,11 @@
               <li role="presentation">
                 <a href="/pages/policies">Policies and Terms of Use</a>
               </li>
-              <!--<li role="presentation">
-                <a href="/drum">Data Repository of U of M</a>
-              </li>-->
               <li role="presentation">
                 <a href="/pages/contact-us">Contact Us</a>
               </li>
             </ul>
-          </li>
-          <li class="dropdown" id="nav-sign-in">
-            <a href="/submissions">
-              <i class="icon-user"></i>
-              Sign in
-            </a>
-          </li>
+          </li> -->
         </ul>
       </nav>
     </div>

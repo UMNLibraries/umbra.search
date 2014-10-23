@@ -14,6 +14,8 @@ describe FacetsHelper, :type => :helper do
     expect(helper.render_selected_facet_value(type_facet_solr_field, type_facet_item)).to include('icon-picture')
     type_facet_item.value = "moving image"
     expect(helper.render_selected_facet_value(type_facet_solr_field, type_facet_item)).to include('icon-video')
+    type_facet_item.value = "video"
+    expect(helper.render_selected_facet_value(type_facet_solr_field, type_facet_item)).to include('icon-video')
     type_facet_item.value = "text"
     expect(helper.render_selected_facet_value(type_facet_solr_field, type_facet_item)).to include('icon-doc-text')
     type_facet_item.value = "sound"

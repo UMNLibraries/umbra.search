@@ -38,7 +38,7 @@ module FacetsHelper
     case val
     when 'image'
       'icon-picture'
-    when 'moving image'
+    when 'video'
       'icon-video'
     when 'text'
       'icon-doc-text'

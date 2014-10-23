@@ -20,7 +20,8 @@
       %div.col-xs-12.col-sm-6.col-md-6.col-lg-6
         %div.row
           %div.col-xs-3.col-sm-4.col-md-3.col-lg-3
-            %img{alt:display_title, src:img, style:'margin-top:20px;', width:'200%'}
+            = link_to thumb_url do
+              %img{alt:display_title, src:img, style:'margin-top:20px;', width:'200%'}
 
         / http://blacktheater.lib.umn.edu/catalog/e317664305effc523856d5abdc3c580e
         %h1.h3{style:'font-style:italic;'}= display_title

@@ -3,7 +3,6 @@
 - img           = document.fetch('object_s', false).to_s
 - thumb_url     = document.fetch('isShownAt_s', false)
 - subjects      = document.fetch('subject_topic_facet', false)
-- subjects      = document.fetch('subject_topic_facet', false)
 - rights        = document.fetch('sourceResource_rights_s', false)
 - data_provider = document.fetch('dataProvider_s', false)
 - provider_name = document.fetch('provider_name_s', false)
@@ -50,11 +49,12 @@
             %h3.h4 Place / TODO
             %div#map
 
-            %h3.h4 Subjects
-            %ol.list-unstyled.subjects
-              - subjects.each do |subject_heading|
-                %li
-                  %a.label.label-default{href:url_for(action:'index', "f[subject_topic_facet][]"=>subject_heading)}= subject_heading
+            - if subjects
+              %h3.h4 Subjects 
+              %ol.list-unstyled.subjects
+                - subjects.each do |subject_heading|
+                  %li
+                    %a.label.label-default{href:url_for(action:'index', "f[subject_topic_facet][]"=>subject_heading)}= subject_heading
 
             %h4 Related Images in UMBRA
             TODO

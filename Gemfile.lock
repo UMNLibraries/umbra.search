@@ -68,6 +68,9 @@ GEM
     capistrano-rvm (0.1.1)
       capistrano (~> 3.0)
       sshkit (~> 1.2)
+    capistrano-sidekiq (0.3.8)
+      capistrano
+      sidekiq
     capybara (2.4.3)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -250,6 +253,7 @@ DEPENDENCIES
   capistrano-bundler (~> 1.1.2)
   capistrano-rails (~> 1.1)
   capistrano-rvm
+  capistrano-sidekiq
   capybara
   coderay (~> 1.0.5)
   coffee-rails (~> 4.0.0)

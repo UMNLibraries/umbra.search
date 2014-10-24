@@ -62,4 +62,6 @@ group :test, :development do
   gem 'capistrano-rvm'
   gem 'rspec-rails', '>3.0'
   gem 'capybara'
+  gem 'capistrano-sidekiq'
+  gem 'capistrano-rvm'
 end

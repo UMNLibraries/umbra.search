@@ -56,13 +56,3 @@ namespace :deploy do
   end
 
 end
-
-after 'deploy:update_code', 'deploy:symlink_extra'
-
-namespace :deploy do
-  desc "Symlinks the extra files in the shared directory"
-  task :symlink_extra, :roles => :app do
-    run "ln -nfs #{deploy_to}/shared/config/database.yml #{release_path}/config/database.yml"
-    run "ln -nfs #{deploy_to}/shared/config/secrets.yml #{release_path}/config/secrets.yml"
-  end
-end

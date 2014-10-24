@@ -12,6 +12,7 @@
 - @page_title = t('blacklight.search.show.title', :document_title => document_show_html_title, :application_name => application_name).html_safe
 - content_for(:head) { render_link_rel_alternates }
 
+- content_for(:secondary_navbar) {render 'share', :id => document.id}
 - content_for(:secondary_navbar) {render partial:'show_nav'}
 
 %section#metadata
@@ -28,7 +29,9 @@
         %h2.h4{style:'color:#777777'}= render_document_show_field_value document, :field => 'sourceResource_creator_display'
 
         %h3.h4 Description
-        %p= render_document_show_field_value document, :field => 'sourceResource_description_txt'
+        - content = render_document_show_field_value document, :field => 'sourceResource_description_txt'
+        %meta{property:"og:description"}= content
+        %p= content
 
         %a.btn.btn-default.btn-lg{href:thumb_url} View Original
 

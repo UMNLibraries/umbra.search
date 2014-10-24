@@ -1,0 +1,13 @@
+%div.modal.fade{"id" => "share-modal-sm", "tabindex" => "-1", "role" => "dialog", "aria-labelledby" => "sharelabel", "aria-hidden" => "true"}
+  %div.modal-dialog
+    %div.modal-content
+      %div.modal-header
+        %button.close{"data-dismiss" => "modal"}
+          %span{"aria-hidden" => "true"} &times;
+          %span.sr-only Close
+        %h4.modal-title{"id" => "sharelabel"} Share
+      %div.modal-body
+        %div.fb-share-button.social-button{"data-href" => "http://blacktheater.lib.umn.edu/catalog/#{id}", "data-width" => "100", "data-layout" => "button_count"}
+        %div
+          %a.twitter-share-button.social-button{"href" =>"https://twitter.com/share", "data-hashtags" => "umbra-history"} Tweet
+        %div{"style" => "clear:both"}

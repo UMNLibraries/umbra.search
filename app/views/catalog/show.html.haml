@@ -43,8 +43,9 @@
                 %div
                   = render_document_show_field_value document, :field => solr_fname
 
-        %h4 Contributing Partner
-        = provider_name
+        %h4 Record Provided By
+        = data_provider
+
         =# image_tag 'smithsonian.png', {class:'img-responsive', style:'max-height:40px;', alt:'Smithsonian Institution'}
 
       %div.col-xs-12.col-sm-5.col-sm-offset-1{style:'border-left:1px solid #efefef;'}

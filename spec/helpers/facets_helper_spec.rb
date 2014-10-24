@@ -12,8 +12,6 @@ describe FacetsHelper, :type => :helper do
     type_facet_solr_field = "type_facet"
     type_facet_item = Blacklight::SolrResponse::Facets::FacetItem.new "image", 38000
     expect(helper.render_selected_facet_value(type_facet_solr_field, type_facet_item)).to include('icon-picture')
-    type_facet_item.value = "moving image"
-    expect(helper.render_selected_facet_value(type_facet_solr_field, type_facet_item)).to include('icon-video')
     type_facet_item.value = "video"
     expect(helper.render_selected_facet_value(type_facet_solr_field, type_facet_item)).to include('icon-video')
     type_facet_item.value = "text"

@@ -20,4 +20,4 @@ export AATH_SEARCH_TEST_DB_NAME=aath_search_test
 `rails s`
 
 ### To start workers
-`bundle exec sidekiq`
+`bundle exec sidekiq -C config/sidekiq.yml`

@@ -9,20 +9,14 @@ class FileCache < ActiveRecord::Base
 
   # Store the content from the given url in S3
   def self.store(url)
-    local_filepath =  local_filepath_for(url)
-    FileUtils.mkdir_p(File.dirname(local_filepath)) unless Dir.exists?(File.dirname(local_filepath))
+    local_filepath = local_filepath_for(url)
+    init_thumbnail_cache_dir!(local_filepath)
     file_cache_record = FileCache.new(url:url, filepath:local_filepath)
-    begin
-      http_response = open(url)
-      file_cache_record.content_type = http_response.content_type
-    rescue OpenURI::HTTPError => error
-      http_response = error.io
-      file_cache_record.content_type =  http_response.status.first
-      file_cache_record.valid_content = false
-    end
+    http_response = fetch_remote_image(url)
 
     if remote_file_is_valid?(http_response)
       file_cache_record.valid_content = true
+      file_cache_record.content_type = http_response.content_type
       File.open(local_filepath, 'wb') do |file|
         file << http_response.read
       end
@@ -31,6 +25,20 @@ class FileCache < ActiveRecord::Base
     end
     file_cache_record.save
     file_cache_record
+  end
+
+  # Make sure the cache directory for our files exists
+  def self.init_thumbnail_cache_dir!(local_filepath)
+    FileUtils.mkdir_p(File.dirname(local_filepath)) unless Dir.exists?(File.dirname(local_filepath))
+  end
+
+  # Any kind of error retrieving the file returns false, ultimately resulting
+  # in this file being
+  # flagged as invalid
+  def self.fetch_remote_image(url)
+    open(url)
+  rescue
+    false
   end
 
   # Generate a persistent path for storing a copy of the file
@@ -49,6 +57,7 @@ class FileCache < ActiveRecord::Base
   private
 
   def self.remote_file_is_valid?(http_response)
+    return false if !http_response
     unwanted_content_types = ["text/html"]
     if (http_response.status.first != "200") || (unwanted_content_types.include?(http_response.content_type))
       return false

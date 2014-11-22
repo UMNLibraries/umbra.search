@@ -34,7 +34,7 @@ describe FileCache, :type => :model do
       filecache_record = FileCache.store(sample_url)
       expect(filecache_record).to be_persisted
       expect(filecache_record.valid_content).to eq false
-      expect(filecache_record.content_type).to eq "400"
+      expect(filecache_record.content_type).to eq nil
     end
   end
 end

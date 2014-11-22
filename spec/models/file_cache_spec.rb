@@ -26,12 +26,21 @@ describe FileCache, :type => :model do
       expect(filecache_record).to be_persisted
       expect(filecache_record.valid_content).to eq false
     end
-    it "should flag 404 errors" do
+    it "should set items 404 errors to invalid" do
       io_dbl = double(status:["400", "Not found"])
       error = OpenURI::HTTPError.new("404 Not Found", io_dbl)
       allow(FileCache).to receive(:open).with(sample_url).and_raise(error)
       expect(File).to receive(:open).never
       filecache_record = FileCache.store(sample_url)
+      expect(filecache_record).to be_persisted
+      expect(filecache_record.valid_content).to eq false
+      expect(filecache_record.content_type).to eq nil
+    end
+    it "should set items with bad addresses to invalid" do
+      bad_sample_url = "http://trollface-lolcat-bravo.io"
+      error = Socket::SocketError.new('SocketError: getaddrinfo: Name or service not known')
+      allow(FileCache).to receive(:open).with(bad_sample_url).and_raise(error)
+      filecache_record = FileCache.store(bad_sample_url)
       expect(filecache_record).to be_persisted
       expect(filecache_record.valid_content).to eq false
       expect(filecache_record.content_type).to eq nil

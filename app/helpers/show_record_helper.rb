@@ -53,4 +53,12 @@ module ShowRecordHelper
   def sound_icon
     link_to raw("<span alt=\"#{display_title}\" class=\"icon-search icon-headphones\"></span>"), thumb_url
   end
+
+  def description
+    @document.fetch('sourceResource_description_txt', false)
+  end
+
+  def set_page_title!
+    @page_title = t('blacklight.search.show.title', :document_title => document_show_html_title, :application_name => application_name).html_safe
+  end
 end

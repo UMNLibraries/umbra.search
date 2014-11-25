@@ -1,9 +1,8 @@
 -# See helpers/show_record_helper.rb
-- document      = @document
+- document = @document
+- set_page_title!
 
-- @page_title = t('blacklight.search.show.title', :document_title => document_show_html_title, :application_name => application_name).html_safe
 - content_for(:head) { render_link_rel_alternates }
-
 - content_for(:secondary_navbar) {render 'share', :id => document.id}
 - content_for(:secondary_navbar) {render partial:'show_nav'}
 
@@ -19,9 +18,10 @@
         %h1.h3{style:'font-style:italic;'}= display_title
         %h2.h4{style:'color:#777777'}= render_document_show_field_value document, :field => 'sourceResource_creator_display'
 
-        %h3.h4 Description
-        - content = render_document_show_field_value document, :field => 'sourceResource_description_txt'
-        %meta{property:"og:description"}= content
+        - if description
+          %h3.h4 Description
+          - content = render_document_show_field_value document, :field => 'sourceResource_description_txt'
+          %meta{property:"og:description"}= content
 
         %div.row
         %a.btn.btn-default.btn-lg{href:thumb_url} View Original
@@ -33,11 +33,13 @@
                 %div
                   = render_document_show_field_value document, :field => solr_fname
 
-        %h4 From Collection
-        = collection
+        - if collection
+          %h4 From Collection
+          = collection
 
-        %h4 Record Provided By
-        = data_provider
+        - if data_provider
+          %h4 Record Provided By
+          = data_provider
 
         =# image_tag 'smithsonian.png', {class:'img-responsive', style:'max-height:40px;', alt:'Smithsonian Institution'}
 

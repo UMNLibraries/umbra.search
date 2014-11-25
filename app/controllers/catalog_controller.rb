@@ -4,6 +4,12 @@ class CatalogController < ApplicationController
 
   include Blacklight::Catalog
 
+  # Override blacklights limit param for facets.
+  # See: def solr_facet_params - blacklight-5.7.2/lib/blacklight/solr_helper.rb
+  def facet_list_limit
+    (params[:limit]) ? params[:limit] : 20
+  end
+
   layout 'umbra'   # use layouts/umbra instead of default layouts/blacklight
 
   configure_blacklight do |config|

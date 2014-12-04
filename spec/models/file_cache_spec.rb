@@ -38,7 +38,7 @@ describe FileCache, :type => :model do
     end
     it "should set items with bad addresses to invalid" do
       bad_sample_url = "http://trollface-lolcat-bravo.io"
-      error = Socket::SocketError.new('SocketError: getaddrinfo: Name or service not known')
+      error = SocketError.new('SocketError: getaddrinfo: Name or service not known')
       allow(FileCache).to receive(:open).with(bad_sample_url).and_raise(error)
       filecache_record = FileCache.store(bad_sample_url)
       expect(filecache_record).to be_persisted

@@ -47,6 +47,8 @@ class CatalogController < ApplicationController
     config.index.thumbnail_method = :cached_thumbnail_tag
     config.show.thumbnail_method = :cached_thumbnail_tag
 
+    config.view.gallery.partials = [:index]
+    config.view.gallery.icon_class = "glyphicon-th"
     # solr field configuration for document/show views
     #config.show.title_field = 'title_display'
     #config.show.display_type_field = 'format'

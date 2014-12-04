@@ -1,10 +1,10 @@
 <% unless has_search_parameters? %>
     <%= render 'home' %>
 <% else %>
-  <div id="sidebar" class="col-md-5 col-sm-6">
+  <div id="sidebar" class="col-md-3 col-sm-5">
     <%= render 'search_sidebar' %>
   </div>
-  <div id="content" class="col-md-6 col-sm-6">
+  <div id="content" class="col-md-9 col-sm-7">
     <%= render 'search_results' %>
   </div>
 </div>

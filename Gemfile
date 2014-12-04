@@ -41,6 +41,7 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 gem 'blacklight'
+gem 'blacklight_range_limit'
 gem 'rails_autolink'
 gem 'haml'
 gem 'aws-sdk', '< 2'

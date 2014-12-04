@@ -76,6 +76,8 @@ class CatalogController < ApplicationController
     config.add_facet_field 'creator_facet', :label => 'Creator', :limit => 20
     config.add_facet_field 'pub_date', :label => 'Publication Year', :single => true
     config.add_facet_field 'language_facet', :label => 'Language', :limit => true
+    # Note: This tries to set assumed_boundaries for blacklight_range_limit, but it's not working.  Leaving the value set in case it gets fixed in future releases of blacklight_range_limit
+    config.add_facet_field 'sourceResource_date_begin_i', :label => 'Year', :range => {:assumed_boundaries => [1100, Time.now.year + 2]}
     config.add_facet_field 'sourceResource_spatial_state_s', :label => 'State', :limit => 10
     config.add_facet_field 'sourceResource_spatial_city_s', :label => 'City', :limit => 10
     config.add_facet_field 'sourceResource_spatial_county_s', :label => 'County', :limit => 10

@@ -14,7 +14,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # Had to downgrade therubyracer due to segfaults outlined here: https://github.com/metaskills/less-rails/issues/95
-gem 'therubyracer', '~> 0.11.4'
+gem 'therubyracer', '~> 0.11.3' unless RUBY_PLATFORM =~ /darwin/i
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

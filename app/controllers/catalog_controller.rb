@@ -3,6 +3,7 @@
 class CatalogController < ApplicationController  
 
   include Blacklight::Catalog
+  include BlacklightMoreLikeThis::SolrHelperExtension
 
   # Override blacklights limit param for facets.
   # See: def solr_facet_params - blacklight-5.7.2/lib/blacklight/solr_helper.rb

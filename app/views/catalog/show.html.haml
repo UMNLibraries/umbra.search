@@ -53,5 +53,7 @@
                   %li
                     %a.label.label-default{href:url_for(action:'index', "f[subject_topic_facet][]"=>subject_heading)}= subject_heading
 
-            %h4 Related Images in UMBRA
-            TODO
+            %h4 Related Content in UMBRA
+            .related
+              - document.more_like_this.each do |related_document|
+                =render_thumbnail_tag(related_document)

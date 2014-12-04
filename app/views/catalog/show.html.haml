@@ -1,5 +1,5 @@
 -# See helpers/show_record_helper.rb
-- document = @document
+- document ||= @document
 - set_page_title!
 
 - content_for(:head) { render_link_rel_alternates }

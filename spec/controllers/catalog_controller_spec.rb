@@ -6,4 +6,9 @@ describe CatalogController, :type => :controller do
     expect( subject.blacklight_config.view_config(:index).thumbnail_method ).to eq(:cached_thumbnail_tag)
     expect( subject.blacklight_config.view_config(:show).thumbnail_method ).to eq(:cached_thumbnail_tag)
   end
+
+  it "should include 'more like this' behaviors" do
+    expect(controller.class.included_modules).to include BlacklightMoreLikeThis::SolrHelperExtension
+    expect(controller.class.solr_search_params_logic).to include :add_solr_mlt_parameters
+  end
 end

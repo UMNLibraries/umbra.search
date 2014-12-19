@@ -46,6 +46,7 @@ gem 'rails_autolink'
 gem 'haml'
 gem 'aws-sdk', '< 2'
 gem 'sidekiq'
+gem 'devise'
 
 group :test, :development do
   # Debug seems to have trouble w/ Ruby 2.x, byebug is a replacment

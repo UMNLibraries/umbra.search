@@ -4,7 +4,7 @@
 
 @import 'blacklight/blacklight';
 
-@import 'aath';
+@import 'blacklight_folders/blacklight_folders';@import 'aath';
 
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;

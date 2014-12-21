@@ -39,14 +39,15 @@ gem 'spring',        group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-
-gem 'blacklight'
+gem 'blacklight_folders', :path => "/home/fenne035/dev/blacklight_folders"
+gem 'blacklight', :path => "/home/fenne035/dev/blacklight"
 gem 'blacklight_range_limit'
 gem 'rails_autolink'
 gem 'haml'
 gem 'aws-sdk', '< 2'
 gem 'sidekiq'
 gem 'devise'
+gem "devise-guests"
 
 group :test, :development do
   # Debug seems to have trouble w/ Ruby 2.x, byebug is a replacment

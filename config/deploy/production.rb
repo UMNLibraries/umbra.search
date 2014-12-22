@@ -15,6 +15,8 @@ set :use_sudo,    false
 
 set :rvm_ruby_string, "ruby-2.1.5"
 
+set :branch, "folders"
+
 # Extended Server Syntax
 # ======================
 # This can be used to drop a more detailed server definition into the

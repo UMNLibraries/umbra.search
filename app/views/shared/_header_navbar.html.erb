@@ -86,7 +86,12 @@
                 <% end %>
               </li>
             <% else %>
-              <li><%= link_to "Login / Register", new_user_session_path %></li>
+              <li>
+                <%= link_to new_user_session_path, method: :delete, title: "Sign Out" do %>
+                  <span class="hidden-sm">Login / Register</span>
+                  <span class="hidden-md hidden-lg hidden-xs">Login</span>
+                <% end %>
+              </li>
             <% end %>
           </ul>
         </div><!--/.nav-collapse -->

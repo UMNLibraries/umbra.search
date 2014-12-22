@@ -39,8 +39,8 @@ gem 'spring',        group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-gem 'blacklight_folders', :path => "/home/fenne035/dev/blacklight_folders"
-gem 'blacklight', :path => "/home/fenne035/dev/blacklight"
+gem 'blacklight_folders'
+gem 'blacklight'
 gem 'blacklight_range_limit'
 gem 'rails_autolink'
 gem 'haml'

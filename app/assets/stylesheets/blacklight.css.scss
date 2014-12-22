@@ -18,12 +18,14 @@
 }
 
 .navbar-inverse h3 a,
-#user-util-collapse a {
+#user-util-collapse a,
+.authentication-info a {
     color: #DDDDDD;
 }
 
 .navbar-inverse h3 a:hover,
-#user-util-collapse a:hover {
+#user-util-collapse a:hover,
+.authentication-info a:hover {
     color: #FEFEFE;
     text-decoration: none;
 }

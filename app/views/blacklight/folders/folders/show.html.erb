@@ -38,6 +38,6 @@
   <%= render 'tools' %>
 
   <div id="documents">
-    <%= render partial: 'folder_item', collection: @folder.items, locals: { docs: @folder.documents } %>
+    <%= render 'document_gallery', documents: @folder.documents %>
   </div>
 </div>

@@ -44,7 +44,7 @@ en:
     folders:
       add_to_folder:
         select:
-          prompt: "Add to folder"
+          prompt: "Add to exhibit"
       show:
         add_to_folder:
           select:

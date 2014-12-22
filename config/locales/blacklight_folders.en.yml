@@ -1,0 +1,73 @@
+en:
+  helpers:
+    action:
+      edit_long: "Edit %{model}"
+      blacklight/folders/folder:
+        delete:    "Delete Collection"
+        create:    "Create a New Collection"
+        edit_long: "Edit Collection"
+    submit:
+      blacklight_folders_default: &blacklight_folders_default
+        create: "Save"
+        submit: "Save changes"
+        update: "Save changes"
+        created: "The %{model} was created."
+        updated: "The %{model} was successfully updated."
+        destroyed: "The %{model} was deleted."
+      folder:
+        submit: "Create Collection"
+        update: "Update Collection"
+        created: "The collection was created."
+        updated: "The collection was successfully updated."
+        added_one: "Added document to %{folder_name}"
+        added_many: "Added documents to %{folder_name}"
+    label:
+      blacklight/folders/folder:
+        user: "Owner"
+        visibility: "Visibility"
+        created: "Created"
+        updated: "Updated"
+  activerecord:
+    models:
+      blacklight/folders/folder_item: Item
+      blacklight/folders/folder: Collection
+    attributes:
+      blacklight/folders/folder:
+        visibility:
+          public: "Anyone"
+          private: "Only me"
+  blacklight_folders:
+    main_navigation:
+      folders: "Collections"
+      all_folders: "Show All"
+  blacklight:
+    folders:
+      add_to_folder:
+        select:
+          prompt: "Add to folder"
+      show:
+        add_to_folder:
+          select:
+            prompt: "Select a Collection"
+        folder_controls:
+          contained_in: 'This item is contained in:'
+      folders:
+        edit:
+          header: "Manage Collection"
+        index:
+          table:
+            headers:
+              name:       "Name"
+              size:       "Size"
+              visibility: "Visibility"
+              created:    "Created"
+              updated:    "Updated"
+              actions:    "Actions"
+        folder:
+          ago: "%{time} ago"
+
+      default_folder_name: "Default collection"
+  catalog:
+    search:
+      folder:
+        label: "Move checked %{doctype} to %{model}"

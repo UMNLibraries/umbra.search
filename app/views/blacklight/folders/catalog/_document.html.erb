@@ -1,0 +1,6 @@
+<% # container for a single doc -%>
+<div class="document <%= render_document_class document %>" itemscope itemtype="<%= document.itemtype %>">
+  <%= render_document_partials document, [:thumbnail], :document_counter => document_counter %>
+  <% counter = document_counter_with_offset(document_counter) %>
+  <%= link_to_document document, :counter => counter, :label=> Proc.new { truncate(document.fetch(document_show_link_field(document)), length: 75) } %>
+</div>

@@ -1,1 +1,11 @@
-<%= render 'document_gallery', documents: docs %>
+<% document = docs[folder_item_counter] %>
+<div class="folder-gallery-item">
+  <%= render_document_partials document, [:thumbnail], :document_counter => folder_item_counter %>
+  <% counter = document_counter_with_offset(folder_item_counter) %>
+  <div class="folder-item-title">
+    <%= link_to_document document, :counter => counter, :label=> Proc.new { truncate(document.fetch(document_show_link_field(document)), length: 75) } %>
+  </div>
+  <div class="folder-item-description">
+    <%= sanitize folder_item.description %>
+  </div>
+</div>

@@ -11,8 +11,6 @@ class CatalogController < ApplicationController
     (params[:limit]) ? params[:limit] : 20
   end
 
-  layout 'umbra'   # use layouts/umbra instead of default layouts/blacklight
-
   configure_blacklight do |config|
     config.index.thumbnail_field = :object_s
 

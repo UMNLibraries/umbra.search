@@ -9,6 +9,13 @@
      </div>
   <% end %>
   <h1><%= @folder.name %></h1>
+
+  <div>
+    <% if @folder.description %>
+      <span class="description-label"><%= t("blacklight/folders/folder.description", scope: "helpers.label") %>:</span> <span class="description"><%= sanitize @folder.description %></span>
+    <% end %>
+  </div>
+
   <div>
     <span class="owner-label"><%= t("blacklight/folders/folder.user", scope: "helpers.label") %>:</span> <span class="owner"><%= @folder.user.guest? ? 'Guest' : @folder.user %></span>
   </div>
@@ -37,7 +44,7 @@
 
   <%= render 'tools' %>
 
-  <div id="documents">
-    <%= render 'document_gallery', documents: @folder.documents %>
+  <div id="documents" class="gallery js-masonry" data-masonry-options='{ "columnWidth": 210, "itemSelector": ".folder-gallery-item" }'>
+    <%= render partial: 'folder_item', collection: @folder.items, locals: { docs: @folder.documents } %>
   </div>
 </div>

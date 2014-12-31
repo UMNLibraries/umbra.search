@@ -39,7 +39,7 @@ gem 'spring',        group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-gem 'blacklight_folders'
+gem 'blacklight_folders', :github => 'UMNLibraries/blacklight_folders', :branch => 'folder_description'
 gem 'blacklight'
 gem 'blacklight_range_limit'
 gem 'rails_autolink'
@@ -65,5 +65,6 @@ group :test, :development do
   gem 'capistrano-rvm'
   gem 'rspec-rails', '>3.0'
   gem 'capybara'
+  gem "factory_girl_rails", '~> 4.4.1'
   gem 'capistrano-sidekiq'
 end

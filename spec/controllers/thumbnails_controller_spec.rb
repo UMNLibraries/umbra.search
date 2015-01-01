@@ -3,11 +3,14 @@ require 'rails_helper'
 describe ThumbnailsController, :type => :controller do
 
   describe "download" do
+    include Devise::TestHelpers
     let(:sample_url) { "https://www.google.com/images/srpr/logo11w.png?foo=bar" }
     let(:sample_local_path) {FileCache.local_filepath_for(sample_url)  }
     let(:cached_record) { FileCache.create(url:sample_url, filepath:sample_local_path ) }
     before do
       allow(controller).to receive(:render)
+      @user = User.new
+      sign_in :user, @user
     end
     context "when the url has been cached and is valid" do
       before do

@@ -39,7 +39,7 @@ gem 'spring',        group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-
+gem 'blacklight_folders', :github => 'UMNLibraries/blacklight_folders', :branch => 'folder_description'
 gem 'blacklight'
 gem 'blacklight_range_limit'
 gem 'rails_autolink'
@@ -47,6 +47,7 @@ gem 'haml'
 gem 'aws-sdk', '< 2'
 gem 'sidekiq'
 gem 'devise'
+gem "devise-guests"
 
 group :test, :development do
   # Debug seems to have trouble w/ Ruby 2.x, byebug is a replacment
@@ -64,5 +65,6 @@ group :test, :development do
   gem 'capistrano-rvm'
   gem 'rspec-rails', '>3.0'
   gem 'capybara'
+  gem "factory_girl_rails", '~> 4.4.1'
   gem 'capistrano-sidekiq'
 end

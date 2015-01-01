@@ -2,3 +2,15 @@ en:
   blacklight:
     application_name: 'Umbra'
     tagline: 'Explore African American History'
+    search:
+      fields:
+        sourceResource_type_s: "Type"
+        subject_topic_facet: "Keywords"
+        creator_facet: "Creator"
+        sourceResource_date_begin_i: "Year"
+        dataProvider_s: "Provider"
+        sourceResource_collection_title_s: "Collection"
+        sourceResource_spatial_state_s: "State"
+        sourceResource_spatial_city_s: "City"
+        sourceResource_spatial_county_s: "County"
+        sourceResource_spatial_region_s: "Region"

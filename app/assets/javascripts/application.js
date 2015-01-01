@@ -14,8 +14,26 @@
 //= require jquery_ujs
 //= require uservoice_init
 //
+
+// Masonry dependencies
+// (This is crazy)
+//= require eventie/eventie
+//= require doc-ready/doc-ready
+//= require eventEmitter/EventEmitter
+//= require get-style-property/get-style-property
+//= require get-size/get-size
+//= require matches-selector/matches-selector
+//= require outlayer/item
+//= require outlayer/outlayer
+//= require masonry/masonry
+
+//
 // Required by Blacklight
 //= require blacklight/blacklight
+//
+// Required by Blacklight Folders
+//= require jquery-nestable/jquery.nestable
+//= require blacklight_folders
 //= require_tree .
 
 

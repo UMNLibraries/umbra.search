@@ -1,17 +1,13 @@
 <a class="sr-only" href="#main">Skip to main content</a>
-<header class="navbar navbar-static-top navbar-inverse">
-  <div class="navbar">
-    <div class="container">
-      <nav class="navbar-collapse bs-navbar-collapse collapse" role="navigation">
-        <div id="left-of-search" class="col-md-5 col-sm-6">
-          <div class="navbar-header">
-            <a class="navbar-brand" href="/">&diamond; UMBRA</a>
-            <button class="navbar-toggle" data-target=".bs-navbar-collapse" data-toggle="collapse" id="primary-nav-toggle" type="button">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-          </div>
+    <nav class="navbar navbar-default navbar-static-top navbar-inverse" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">&diamond; UMBRA</a>
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
         </div>
         <ul class="nav navbar-nav navbar-left" id="primary-nav">
           <li><%= render_search_bar  %></li>
@@ -38,7 +34,23 @@
               </li>
             </ul>
           </li>
-<!--           <li>
+          <li>
+            <%= link_to "#{t(:'blacklight_folders.main_navigation.folders')} (#{current_or_guest_user.folders.size})", blacklight_folders.folders_path, id: 'folders-nav-dropdown', class: "dropdown-toggle", data: { toggle: "dropdown"}, role: "button", 'aria-expanded' => "false" %>
+            <ul class="dropdown-menu" role="menu" aria-labeledby="folders-nav-dropdown">
+              <% if can? :create, Blacklight::Folders::Folder %>
+                <li><%= link_to t(:'helpers.action.blacklight/folders/folder.create'), blacklight_folders.new_folder_path %></li>
+                <li role="presentation" class="divider"></li>
+              <% end %>
+
+              <% current_or_guest_user.folders.most_recent.limit(Blacklight::Folders::Folder::MENU_LIMIT).each do |folder| %>
+                <li><%= link_to truncate(folder.name, length: 20), blacklight_folders.folder_path(folder) %></li>
+              <% end %>
+              <li role="presentation" class="divider"></li>
+              <li><%= link_to t(:'blacklight_folders.main_navigation.all_folders'), blacklight_folders.folders_path %></li>
+            </ul>
+          </li>
+
+          <li>
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
               <i class="icon-help-circled"></i>
               Help
@@ -58,9 +70,30 @@
                 <a href="/pages/contact-us">Contact Us</a>
               </li>
             </ul>
-          </li> -->
+          </li>
         </ul>
-      </nav>
-    </div>
-  </div>
-</header>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right authentication-info">
+            <% if user_signed_in? %>
+              <li>
+                <%= link_to edit_user_registration_path, title: "User Settings" do %>
+                  <span class="glyphicon glyphicon-user"></span> <span class="hidden-md hidden-sm"> <%= current_user.email %> </span>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to destroy_user_session_path, method: :delete, title: "Sign Out" do %>
+                  <span class="glyphicon glyphicon-log-out"></span>
+                <% end %>
+              </li>
+            <% else %>
+              <li>
+                <%= link_to new_user_session_path, title: "Sign Out" do %>
+                  <span class="hidden-sm">Login / Register</span>
+                  <span class="hidden-md hidden-lg hidden-xs">Login</span>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>

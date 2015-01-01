@@ -4,7 +4,7 @@
 
 @import 'blacklight/blacklight';
 
-@import 'aath';
+@import 'blacklight_folders/blacklight_folders';@import 'aath';
 
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
@@ -18,12 +18,14 @@
 }
 
 .navbar-inverse h3 a,
-#user-util-collapse a {
+#user-util-collapse a,
+.authentication-info a {
     color: #DDDDDD;
 }
 
 .navbar-inverse h3 a:hover,
-#user-util-collapse a:hover {
+#user-util-collapse a:hover,
+.authentication-info a:hover {
     color: #FEFEFE;
     text-decoration: none;
 }
@@ -163,4 +165,34 @@
 
 .gallery .document .gallery-glyphs.cover-image {
   height: 75px
+}
+
+.blacklight-folders .gallery .document {
+  height: auto;
+}
+
+#documents .document {
+  border: 0;
+}
+
+.blacklight-folders .document-thumbnail {
+  float: none;
+}
+
+.folder-gallery-item {
+  width: 200px;
+  min-height: 300px;
+  background-color: #F6F6F6;
+  padding-top: 15px;
+  margin: 5px;
+  @include border-radius(5px);
+}
+
+.folder-gallery-item .folder-item-title,
+.folder-gallery-item .folder-item-description {
+  padding: 0 15px 0 15px;
+}
+
+.folder-gallery-item .description {
+  min-height: 100px;
 }

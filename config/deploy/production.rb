@@ -4,14 +4,18 @@
 # is considered to be the first unless any hosts have the primary
 # property set.  Don't declare `role :all`, it's a meta role.
 
-set :domain, "deploy@hub.lib.umn.edu"
+set :domain, "fenne035@databaser.lib.umn.edu"
 
-role :app, "deploy@hub.lib.umn.edu"
-role :web, "deploy@hub.lib.umn.edu"
-role :db,  "deploy@hub.lib.umn.edu", :primary => true
+role :app, "fenne035@databaser.lib.umn.edu"
+role :web, "fenne035@databaser.lib.umn.edu"
+role :db,  "fenne035@databaser.lib.umn.edu", :primary => true
 
-set :deploy_to, '/swadm/www/aath.search'
+set :deploy_to, '/swadm/www/umbra.prod'
 set :use_sudo,    false
+
+set :rvm_ruby_string, "ruby-2.1.5"
+
+set :branch, "folders"
 
 # Extended Server Syntax
 # ======================
@@ -42,16 +46,6 @@ namespace :deploy do
       # end
     end
   end
-
-  desc "Symlinks the extra files in the shared directory"
-  task :symlink_extra do
-    on roles(:app) do
-      execute "ln -nfs #{deploy_to}/shared/config/database.yml #{release_path}/config/database.yml"
-      execute "ln -nfs #{deploy_to}/shared/config/secrets.yml #{release_path}/config/secrets.yml"
-    end
-  end
-
-  before 'deploy:symlink:shared', 'deploy:symlink_extra'
 end
 
 

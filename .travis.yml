@@ -11,3 +11,5 @@ before_script:
 notifications:
   slack:
     secure: CudGmLuuCYkUJJI8l6CDmpf9UOudHALoMZea31YZvSehMvL79T7Se0COf2TnJfzUPu3HliEwN4AZqok/BZWlQ7N8Yh2p5Lf3MDuHdZmsEVjcippe8oA0yi42S2ehLIIbbXckpIz4A3NCkbt9lXDJD8rqf6M5wi5BQMpEzAL15VU=
+global_env:
+  - NOKOGIRI_USE_SYSTEM_LIBRARIES=true

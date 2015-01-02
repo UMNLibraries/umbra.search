@@ -48,6 +48,7 @@ gem 'aws-sdk', '< 2'
 gem 'sidekiq'
 gem 'devise'
 gem "devise-guests"
+gem 'restclient'
 
 group :test, :development do
   # Debug seems to have trouble w/ Ruby 2.x, byebug is a replacment

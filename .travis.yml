@@ -7,6 +7,7 @@ env:
     secure: YwsBXkYk14OKUktZNM6FkUuhu7Y1xeDyDqb4Trkod18iAbH/h8ZzM62xQLWRL2mkPgtnc0nO9yW1S9V23HP9+SlqsyU9ShMa9DLRU8upx/ZM97okaCBn0CCAKjuTDzb28pMVFGRb1VNKSNuPRdbizCEUeNamD6YWq37pSPE6Cn0=
 before_script:
 - mysql -e 'create database aath_search_test;'
+- bundle exec rake jetty_test_setup:run
 notifications:
   slack:
     secure: CudGmLuuCYkUJJI8l6CDmpf9UOudHALoMZea31YZvSehMvL79T7Se0COf2TnJfzUPu3HliEwN4AZqok/BZWlQ7N8Yh2p5Lf3MDuHdZmsEVjcippe8oA0yi42S2ehLIIbbXckpIz4A3NCkbt9lXDJD8rqf6M5wi5BQMpEzAL15VU=

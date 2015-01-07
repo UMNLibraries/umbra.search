@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
   mount Blacklight::Folders::Engine, at: "blacklight"
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => "registrations" }
   root :to => "catalog#index"
   blacklight_for :catalog
   get 'thumbnail' => 'thumbnails#download', as: 'cached_thumbnail'
+
+  # post  'users/:id/update' => 'users#update', as: 'update_user'
+  # patch 'users/:id/update' => 'users#update'
+  resources :users
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

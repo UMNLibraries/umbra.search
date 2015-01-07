@@ -48,6 +48,8 @@ gem 'aws-sdk', '< 2'
 gem 'sidekiq'
 gem 'devise'
 gem "devise-guests"
+gem 'carrierwave'
+gem 'mini_magick'
 gem 'restclient'
 
 group :test, :development do

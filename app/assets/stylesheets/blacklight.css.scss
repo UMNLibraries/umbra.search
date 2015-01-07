@@ -1,3 +1,4 @@
+
 @import 'bootstrap-sprockets';
 
 @import 'bootstrap';
@@ -5,6 +6,9 @@
 @import 'blacklight/blacklight';
 
 @import 'blacklight_folders/blacklight_folders';@import 'aath';
+
+
+$grid-float-breakpoint: 992px;
 
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
@@ -194,5 +198,82 @@
 }
 
 .folder-gallery-item .description {
+  min-height: 100px;
+}
+
+.thumb-tiny {
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+}
+
+.thumb-large {
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+}
+
+.avatar-preview,
+.avatar-preview a div {
+  text-align: center;
+  width: 230px
+}
+
+.avatar-empty {
+  border: 5px solid #ccc;
+  height: 175px;
+  font-size: 1.5em;
+  padding: 1em;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+}
+
+.avatar-empty .glyphicon-camera {
+  font-size: 3.5em;
+}
+
+.field_with_errors input{
+  border: 5px solid red;
+}
+
+.avatar-actions {
+  margin-bottom: 15px;
+}
+
+.actions-col {
+  text-align: center;
+}
+
+.update-protected {
+  text-align: center
+}
+
+.update-protected div {
+  text-align: left;
+}
+
+.user-profile-info {
+  text-align: center;
+}
+
+.avatar-actions .btn {
+  margin-bottom: 10px;
+}
+
+.account-settings {
+  margin-top: 15px;
+}
+
+.navbar-primary {
+  z-index: 2;
+}
+
+.navbar-secondary .navbar-static-top {
+  z-index: 1;
+}
+
+#user_biography {
+  width: 95%;
   min-height: 100px;
 }

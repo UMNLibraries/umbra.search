@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141230182203) do
+ActiveRecord::Schema.define(version: 20150106153024) do
 
   create_table "blacklight_folders_folder_items", force: true do |t|
     t.integer  "folder_id",   null: false
@@ -84,6 +84,10 @@ ActiveRecord::Schema.define(version: 20141230182203) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "guest",                  default: false
+    t.string   "avatar"
+    t.string   "name"
+    t.string   "twitter_handle"
+    t.text     "biography"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

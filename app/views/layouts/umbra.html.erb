@@ -30,7 +30,9 @@
 </head>
 <body class="<%= render_body_class %>">
   <%= render partial: 'shared/header_navbar' %>
-  <%= yield :secondary_navbar %>
+  <div class="navbar-secondary">
+    <%= yield :secondary_navbar %>
+  </div>
   <%= render partial: 'shared/ajax_modal' %>
 
   <div id="main-container" class="container-fluid">

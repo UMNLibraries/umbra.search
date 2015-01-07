@@ -1,0 +1,65 @@
+<h2>Edit User Profile</h2>
+  <div class="col-md-4 col-lg-2 col-sm-4 user-profile-info">
+      <% if current_user.avatar.url.present? %>
+        <%= link_to edit_user_path(@user) do %>
+          <p><%= image_tag(current_user.avatar.url(:thumb_large), :class => "thumb thumb-large") %></p>
+        <% end %>
+
+      <div class="btn-group-vertical avatar-actions" role="group">
+        <%= link_to edit_user_path(@user), :class => "btn btn-info" do %>
+          <div>Edit Picture</div>
+        <% end %>
+          <%= button_to "Remove Picture", {
+            :controller => :users,
+            :action => 'update',
+            :id => @user.id,
+            :user => {:remove_avatar => true}
+            },
+            :method => :put,
+            :class => 'btn btn-mini btn-danger' %>
+      </div>
+
+      <% else %>
+          <%= link_to edit_user_path(@user, :edit_avatar => true) do %>
+            <div class="thumb-large avatar-empty">
+              <p>Add a Profile Picture</p>
+              <span class="glyphicon glyphicon-camera"></span>
+            </div>
+          <% end %>
+          (Your profile picture is displayed when you create content, such as exhibits, on Umbra.)
+      <% end %>
+
+  </div>
+
+<%= form_for @user do |f| %>
+  <div class="col-md- col-lg-6 col-sm-8">
+    <div class="well">
+      <h4>Profile Information</h4>
+      <div class="field">
+        <%= f.label :name %><br />
+        <%= f.text_field :name %>
+      </div>
+
+      <div class="field">
+        <%= f.label :biography %><br />
+        <%= f.text_area :biography %>
+      </div>
+
+      <div class="field">
+        <%= f.label :twitter_handle %><br />
+        @<%= f.text_field :twitter_handle%>
+      </div>
+      <div class="actions">
+        <%= f.submit "Update", :class => "btn btn-primary" %>
+      </div>
+      <div class="field account-settings">
+        Looking for email or password settings? Visit the <%= link_to "Account", edit_user_registration_path, title: "Password and Email Settings" %> page.
+      </div>
+    </div>
+<% end %>
+
+<div class="col-md-2 col-lg-2 col-sm-2 actions-col">
+  <%= link_to root_path do %>
+    <div class="btn btn-info btn-lg">Done Editing</div>
+  <% end %>
+</div>

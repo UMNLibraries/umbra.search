@@ -1,0 +1,11 @@
+<h1>Crop Picture</h1>
+<%= image_tag @user.avatar_url(:large), id: "cropbox" %>
+
+<%= form_for @user, :url => { controller: "users", action: "update", } do |f| %>
+  <div class="actions">
+    <% %w[x y w h].each do |attribute| %>
+      <%= f.hidden_field "crop_#{attribute}"%>
+    <% end %>
+    <%= f.submit "Crop", :class => "btn btn-primary btn-lg" %>
+  </div>
+<% end %>

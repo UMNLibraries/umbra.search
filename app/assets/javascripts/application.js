@@ -34,10 +34,15 @@
 // Required by Blacklight Folders
 //= require jquery-nestable/jquery.nestable
 //= require blacklight_folders
-//= require_tree .
-
-
 // For blacklight_range_limit built-in JS, if you don't want it you don't need
 // this:
 //= require 'blacklight_range_limit'
+
+// For Cropping Avatar Images
+//= require jcrop/js/jquery.Jcrop
+
+//= require_tree .
+
+
+
 

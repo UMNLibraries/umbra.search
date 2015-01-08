@@ -13,7 +13,7 @@ class ThumbnailsController < ApplicationController
     else
 
       if @file_cache_record.content_valid?
-        send_file @file_cache_record.filepath, :disposition=> :inline
+        send_file @file_cache_record.filepath, type: @file_cache_record.content_type, disposition: :inline
       else
         send_file default_thumbnail_path, :disposition=> :inline
       end

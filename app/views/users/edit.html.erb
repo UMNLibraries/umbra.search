@@ -6,7 +6,7 @@
         <% end %>
 
       <div class="btn-group-vertical avatar-actions" role="group">
-        <%= link_to edit_user_path(@user), :class => "btn btn-info" do %>
+        <%= link_to edit_user_path(@user, :edit_avatar => true), :class => "btn btn-info" do %>
           <div>Edit Picture</div>
         <% end %>
           <%= button_to "Remove Picture", {

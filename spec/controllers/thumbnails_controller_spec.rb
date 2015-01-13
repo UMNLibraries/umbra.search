@@ -6,7 +6,7 @@ describe ThumbnailsController, :type => :controller do
     include Devise::TestHelpers
     let(:sample_url) { "https://www.google.com/images/srpr/logo11w.png?foo=bar" }
     let(:sample_local_path) {FileCache.local_filepath_for(sample_url)  }
-    let(:cached_record) { FileCache.create(url:sample_url, filepath:sample_local_path ) }
+    let(:cached_record) { FileCache.create(url:sample_url, filepath:sample_local_path, content_type: 'image/png' ) }
     before do
       allow(controller).to receive(:render)
       @user = User.new
@@ -18,7 +18,7 @@ describe ThumbnailsController, :type => :controller do
         cached_record.save
       end
       it "should return the cached file" do
-        expect(controller).to receive(:send_file).with(sample_local_path, :disposition=> :inline)
+        expect(controller).to receive(:send_file).with(sample_local_path, :disposition=> :inline, :type=>'image/png')
         get :download, url: sample_url
       end
     end

@@ -6,5 +6,9 @@ FactoryGirl.define do
     factory :guest_user do
       guest true
     end
+
+    factory :user_with_moderator_role do
+      roles ['moderator']
+    end
   end
 end

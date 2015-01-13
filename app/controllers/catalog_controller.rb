@@ -84,6 +84,8 @@ class CatalogController < ApplicationController
     config.add_facet_field 'sourceResource_spatial_region_s', :label => 'Region', :limit => 10
     config.add_facet_field 'dataProvider_s', :label => 'Contributing Institution', :limit => 10
     config.add_facet_field 'sourceResource_collection_title_s', :label => 'From Collection', :limit => 10
+    config.add_facet_field 'batch_id_s', :label => 'Index Batch ID', :restricted_to_roles => ['librarian', 'admin']
+
     # Have BL send all facet field names to Solr, which has been the default
     # previously. Simply remove these lines if you'd rather use Solr request
     # handler defaults, or have no facets.

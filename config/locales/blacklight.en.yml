@@ -14,3 +14,4 @@ en:
         sourceResource_spatial_city_s: "City"
         sourceResource_spatial_county_s: "County"
         sourceResource_spatial_region_s: "Region"
+        batch_id_s: "Import Batch ID"

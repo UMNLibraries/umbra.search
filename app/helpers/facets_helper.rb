@@ -12,7 +12,7 @@ module FacetsHelper
     # display when show is nil or true
     facet_config = facet_configuration_for_field(display_facet.name)
     # CF - Allow for the restriction of certain facets to certain users
-    return false if facet_config.restricted_to_roles && !current_user.has_one_of_these_roles?(facet_config.restricted_to_roles)
+    return false if facet_config.restricted_to_roles && hide_restricted_facet?(facet_config.restricted_to_roles)
     display = should_render_field?(facet_config, display_facet)
     return display && display_facet.items.present?
   end
@@ -65,6 +65,13 @@ module FacetsHelper
   end
 
   private
+
+  def hide_restricted_facet?(roles)
+    return true if current_user.nil?
+    return true unless current_user.has_one_of_these_roles?(roles)
+    false
+  end
+
   # include values on type fields - we use these to
   def type_class(val)
     case val

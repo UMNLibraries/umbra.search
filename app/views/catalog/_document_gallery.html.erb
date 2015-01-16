@@ -1,4 +1,8 @@
 <% # container for all documents in gallery view -%>
 <div id="documents" class="gallery">
-  <%= render partial: 'document', collection: docs, :as => :document, locals: { description: document_gallery.description } %>
+  <% if defined?(document_gallery) %>
+    <%= render partial: 'document', collection: documents, :as => :document, locals: { description: document_gallery.description } %>
+  <% else %>
+    <%= render partial: 'document', collection: documents, :as => :document %>
+  <% end %>
 </div>

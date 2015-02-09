@@ -10,11 +10,32 @@
 
 $grid-float-breakpoint: 992px;
 
+#primary-nav {
+  margin-top: 25px;
+}
+
+.search-query-form .search-btn {
+  background-color: #EE6D4F;
+}
+
+.search-query-form .search-btn:hover {
+  background-color: #D86348;
+}
+
+.navbar {
+  min-height: 100px;
+}
+
+
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
      -moz-border-radius: $radius;
       -ms-border-radius: $radius;
           border-radius: $radius;
+}
+
+.navbar-inverse {
+  background-color: #102826;
 }
 
 .navbar-inverse h3 {

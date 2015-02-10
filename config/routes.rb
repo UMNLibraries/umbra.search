@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
   mount Blacklight::Folders::Engine, at: "blacklight"
   devise_for :users, :controllers => { :registrations => "registrations" }
-  root :to => "catalog#index"
+  root :to => 'catalog#index'
+
   blacklight_for :catalog
   get 'thumbnail' => 'thumbnails#download', as: 'cached_thumbnail'
 
+  get 'about' => 'catalog#about', as: 'about'
+  get 'contribute' => 'catalog#contribute', as: 'contribute'
+  get 'contact' => 'catalog#contact', as: 'contact'
   # post  'users/:id/update' => 'users#update', as: 'update_user'
   # patch 'users/:id/update' => 'users#update'
   resources :users

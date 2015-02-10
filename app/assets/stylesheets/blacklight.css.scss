@@ -14,12 +14,21 @@ $grid-float-breakpoint: 992px;
   margin-top: 25px;
 }
 
+.search-query-form {
+  text-align: right;
+}
+
+
 .search-query-form .search-btn {
   background-color: #EE6D4F;
 }
 
 .search-query-form .search-btn:hover {
   background-color: #D86348;
+}
+
+.search-query-form  #q {
+  width: 300px;
 }
 
 .navbar {
@@ -66,10 +75,6 @@ $grid-float-breakpoint: 992px;
   font-style: italic;
 }
 
-.input-group-btn.home {
-    border-bottom-left-radius: 10;
-}
-
 .get-started {
     font-size: 3em;
     margin: 1.2em;
@@ -86,13 +91,17 @@ $grid-float-breakpoint: 992px;
 }
 
 .home-panel {
-    border: none;
+  border: none;
+  min-height: 600px;
+  background-repeat: no-repeat;
+  background-position: top left;
+  background-size: cover;
 }
 
 .document-thumbnail {
-    height:200px;
-    width: 200px;
-    text-align: right;
+  height:200px;
+  width: 200px;
+  text-align: top left;
 }
 
 .document-thumbnail img {
@@ -100,7 +109,7 @@ $grid-float-breakpoint: 992px;
   max-height: 100%;
 }
 
-.document-thumbnail.show-thumbnail img{
+.document-thumbnail.show-thumbnail img {
   max-width:  200px;
   max-height: 200px;
 }
@@ -124,31 +133,6 @@ $grid-float-breakpoint: 992px;
 
 .top-panel-heading.panel-heading {
     padding: 0;
-}
-
-.home-panel .icon-search,
-.blacklight-catalog-show .icon-search {
-    font-size: 4em;
-}
-
-.home-panel .thumbnail {
-    border: none;
-}
-
-.home-panel .thumbnail h3 {
-    padding-left: 10px;
-}
-
-.home-panel {
-    text-align: center;
-}
-
-.home-panel h2 {
-    text-align: left;
-    font-weight: bold;
-    padding-left: 2em;
-    color: #A2A2A2;
-    font-size: 2em;
 }
 
 .blacklight-show-text-section {
@@ -297,4 +281,8 @@ $grid-float-breakpoint: 992px;
 #user_biography {
   width: 95%;
   min-height: 100px;
+}
+
+.static-page {
+  min-height: 400px;
 }

@@ -29,19 +29,24 @@
 
 </head>
 <body class="<%= render_body_class %>">
-  <%= render partial: 'shared/header_navbar' %>
-  <div class="navbar-secondary">
-    <%= yield :secondary_navbar %>
-  </div>
-  <%= render partial: 'shared/ajax_modal' %>
 
-  <div id="main-container" class="container-fluid">
-    <%= render :partial=>'/flash_msg', layout: 'shared/flash_messages' %>
-
-    <div class="row">
-      <%= yield %>
+  <% if current_page?('/') && !has_search_parameters? %>
+    <%= render partial: 'catalog/home' %>
+  <% else %>
+    <%= render partial: 'shared/header_navbar' %>
+    <div class="navbar-secondary">
+      <%= yield :secondary_navbar %>
     </div>
-  </div>
+    <%= render partial: 'shared/ajax_modal' %>
+
+    <div id="main-container" class="container-fluid">
+      <%= render :partial=>'/flash_msg', layout: 'shared/flash_messages' %>
+
+      <div class="row">
+        <%= yield %>
+      </div>
+    </div>
+  <% end %>
 
   <%= render :partial => 'shared/footer' %>
 </body>

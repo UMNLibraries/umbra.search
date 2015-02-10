@@ -33,14 +33,37 @@ ol.subjects {
 
 
 #footer {
-  margin-top:40px;
-  border-top:10px solid #CCC;
-  background-color: #efefef;
+  background-color: #102826;
   padding-bottom:100px;
+  padding-top: 15px;
 
   a {
-    color:#333;
+    color:#E8EBEA;
   }
+  .static-page-links ul li {
+    display: inline;
+  }
+
+  color: #E8EBEA;
+
+  .credits {
+    text-transform: uppercase;
+  }
+  .credits ul {
+    list-style: none;
+    margin-left: 0;
+    padding: 0;
+  }
+
+  .credits li {
+    margin-left: 0;
+    padding: 0;
+  }
+
+  .credits a {
+    text-decoration: underline;
+  }
+
 }
 
 #map { height: 180px; }
@@ -75,4 +98,88 @@ ol.subjects {
       }
     }
   }
+}
+
+
+.input-group-btn.home {
+    border-bottom-left-radius: 10;
+}
+
+#home-search .browse-by {
+  margin: 8px 0 0 5px;
+  background-color: #1B5958;
+  color: #E8EBEA;
+}
+
+#home-search .search-bar div {
+  margin-right: -25px;
+}
+
+.home-image-info {
+  margin-top: -50px;
+  padding-top: 20px;
+  font-size: 1.1em;
+  color: #fff;
+  min-height: 50px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0), black);
+}
+
+.home-image-info a {
+  color: #DC6F45;
+}
+
+#home-search {
+  background:rgba(255,255,255,0.75);
+  min-height: 250px;
+  margin-top: 150px
+}
+
+#home-search-logo {
+  background-image: url('2Color-UmbraMarkMedium.png');
+  background-repeat: no-repeat;
+  min-height: 150px;
+  background-position: right;
+  margin-top: 15px;
+  margin-left: -10px;
+}
+
+#home-search-slogan {
+  margin-top: 50px;
+  text-align: left;
+}
+
+#home-search .input-group-addon {
+  display: none;
+}
+
+#home-search-slogan h1 {
+  margin: 0;
+  font-size: 1.75em;
+  color: #DC6F45;
+  text-transform: uppercase;
+}
+
+.home-panel .icon-search,
+.blacklight-catalog-show .icon-search {
+    font-size: 4em;
+}
+
+.home-panel .thumbnail {
+    border: none;
+}
+
+.home-panel .thumbnail h3 {
+    padding-left: 10px;
+}
+
+.home-panel {
+    text-align: center;
+}
+
+.home-panel h2 {
+    text-align: left;
+    font-weight: bold;
+    padding-left: 2em;
+    color: #A2A2A2;
+    font-size: 2em;
 }

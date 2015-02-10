@@ -1,6 +1,18 @@
 # -*- encoding : utf-8 -*-
 #
-class CatalogController < ApplicationController  
+class CatalogController < ApplicationController
+
+  def about
+    render :about
+  end
+
+  def contribute
+    render :contribute
+  end
+
+  def contact
+    render :contact
+  end
 
   include Blacklight::Catalog
   include BlacklightMoreLikeThis::SolrHelperExtension

@@ -100,6 +100,19 @@ ol.subjects {
 }
 
 
+.home-panel {
+  border: none;
+  min-height: 600px;
+  background-repeat: no-repeat;
+  background-position: top left;
+  background-size: cover;
+}
+
+.home-panel .search-query-form,
+.home-panel .browse-home {
+  float: right;
+}
+
 .input-group-btn.home {
     border-bottom-left-radius: 10;
 }
@@ -110,8 +123,8 @@ ol.subjects {
   color: #E8EBEA;
 }
 
-#home-search .search-bar div {
-  margin-right: -25px;
+#home-search .search-query-form {
+  padding-right: 0;
 }
 
 .home-image-info {

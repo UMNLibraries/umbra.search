@@ -6,14 +6,13 @@
 
 <div class="home-panel">
   <div class="col-md-1 col-sm-1"></div>
-  <div id="home-search" class="col-md-4 col-sm-4">
+  <div id="home-search" class="col-lg-4 col-md-5 col-sm-4">
     <div class="row">
       <div class="col-md-4 col-sm-4" id="home-search-logo"></div>
       <div class="col-md-8 col-sm-8" id="home-search-slogan"><h1>Search</h1> <h1>African American</h1> <h1>History</h1></h1></div>
     </div>
     <div class="row search-bar">
-      <div class="col-md-10 col-sm-10" ><%= render_search_bar  %></div>
-      <div class="col-md-2 col-sm-2">
+      <div class="col-md-12 col-sm-12 search-actions" >
         <div class="btn-group browse-home">
           <button type="button" class="btn btn-default dropdown-toggle browse-by" data-toggle="dropdown" aria-expanded="false">
             Browse <span class="caret"></span>
@@ -26,6 +25,7 @@
             <li><a href="/catalog/facet/sourceResource_collection_title_s?facet.sort=index&limit=100&q=&search_field=all_fields&utf8=✓&facet_view=full">Collection</a></li>
           </ul>
         </div>
+        <%= render_search_bar  %>
       </div>
     </div>
   </div>

@@ -83,19 +83,20 @@ class CatalogController < ApplicationController
     # :show may be set to false if you don't want the facet to be drawn in the
     # facet bar
 
-    config.add_facet_field 'sourceResource_type_s', :label => 'Type', :limit => 4
     config.add_facet_field 'subject_topic_facet', :label => 'Keyword', :limit => 20
-    config.add_facet_field 'creator_facet', :label => 'Author', :limit => 20
-    config.add_facet_field 'pub_date', :label => 'Publication Year', :single => true
-    config.add_facet_field 'language_facet', :label => 'Language', :limit => true
-    # Note: This tries to set assumed_boundaries for blacklight_range_limit, but it's not working.  Leaving the value set in case it gets fixed in future releases of blacklight_range_limit
     config.add_facet_field 'sourceResource_date_begin_i', :label => 'Year', :range => {:assumed_boundaries => [1100, Time.now.year + 2]}
-    config.add_facet_field 'sourceResource_spatial_state_s', :label => 'State', :limit => 10
-    config.add_facet_field 'sourceResource_spatial_city_s', :label => 'City', :limit => 10
-    config.add_facet_field 'sourceResource_spatial_county_s', :label => 'County', :limit => 10
-    config.add_facet_field 'sourceResource_spatial_region_s', :label => 'Region', :limit => 10
+    config.add_facet_field 'creator_facet', :label => 'Author', :limit => 20
     config.add_facet_field 'dataProvider_s', :label => 'Contributing Institution', :limit => 10
-    config.add_facet_field 'sourceResource_collection_title_s', :label => 'From Collection', :limit => 10
+    config.add_facet_field 'sourceResource_spatial_state_s', :label => 'State', :limit => 10
+    config.add_facet_field 'sourceResource_type_s', :label => 'Type', :limit => 4
+
+    # config.add_facet_field 'pub_date', :label => 'Publication Year', :single => true
+    # config.add_facet_field 'language_facet', :label => 'Language', :limit => true
+    # # Note: This tries to set assumed_boundaries for blacklight_range_limit, but it's not working.  Leaving the value set in case it gets fixed in future releases of blacklight_range_limit
+    # config.add_facet_field 'sourceResource_spatial_city_s', :label => 'City', :limit => 10
+    # config.add_facet_field 'sourceResource_spatial_county_s', :label => 'County', :limit => 10
+    # config.add_facet_field 'sourceResource_spatial_region_s', :label => 'Region', :limit => 10
+    # config.add_facet_field 'sourceResource_collection_title_s', :label => 'From Collection', :limit => 10
     config.add_facet_field 'batch_id_s', :label => 'Index Batch ID', :restricted_to_roles => ['librarian', 'admin']
 
     # Have BL send all facet field names to Solr, which has been the default

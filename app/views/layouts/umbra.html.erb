@@ -28,12 +28,11 @@
   <![endif]-->
 
 </head>
-<body class="<%= render_body_class %>">
-
-  <% if current_page?('/') && !has_search_parameters? %>
+<body class="<%= render_body_class %> homepage-<%= is_homepage? %>">
+  <%= render partial: 'shared/header_navbar' %>
+  <% if is_homepage? %>
     <%= render partial: 'catalog/home' %>
   <% else %>
-    <%= render partial: 'shared/header_navbar' %>
     <div class="navbar-secondary">
       <%= yield :secondary_navbar %>
     </div>

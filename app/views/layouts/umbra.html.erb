@@ -29,6 +29,11 @@
 
 </head>
 <body class="<%= render_body_class %> homepage-<%= is_homepage? %>">
+
+<div class="ribbon">
+  <a href="#">BETA</a>
+</div>
+
   <%= render partial: 'shared/header_navbar' %>
   <% if is_homepage? %>
     <%= render partial: 'catalog/home' %>

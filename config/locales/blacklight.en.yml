@@ -8,7 +8,7 @@ en:
         subject_topic_facet: "Keywords"
         creator_facet: "Author"
         sourceResource_date_begin_i: "Year"
-        dataProvider_s: "Provider"
+        dataProvider_s: "Contributing Institution"
         sourceResource_collection_title_s: "Collection"
         sourceResource_spatial_state_s: "State"
         sourceResource_spatial_city_s: "City"

@@ -6,7 +6,7 @@ en:
       fields:
         sourceResource_type_s: "Type"
         subject_topic_facet: "Keywords"
-        creator_facet: "Creator"
+        creator_facet: "Author"
         sourceResource_date_begin_i: "Year"
         dataProvider_s: "Provider"
         sourceResource_collection_title_s: "Collection"

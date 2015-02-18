@@ -85,7 +85,7 @@ class CatalogController < ApplicationController
 
     config.add_facet_field 'sourceResource_type_s', :label => 'Type', :limit => 4
     config.add_facet_field 'subject_topic_facet', :label => 'Subject', :limit => 20
-    config.add_facet_field 'creator_facet', :label => 'Creator', :limit => 20
+    config.add_facet_field 'creator_facet', :label => 'Author', :limit => 20
     config.add_facet_field 'pub_date', :label => 'Publication Year', :single => true
     config.add_facet_field 'language_facet', :label => 'Language', :limit => true
     # Note: This tries to set assumed_boundaries for blacklight_range_limit, but it's not working.  Leaving the value set in case it gets fixed in future releases of blacklight_range_limit
@@ -111,7 +111,7 @@ class CatalogController < ApplicationController
     # solr fields to be displayed in the show (single result) view
     #   The ordering of the field names is the order of the display
 
-    #config.add_show_field 'sourceResource_creator_display', :label => 'Creators'
+    #config.add_show_field 'sourceResource_creator_display', :label => 'Authors'
     #config.add_show_field 'sourceResource_description_txt', :label => 'Description'
 
     config.add_show_field 'sourceResource_type_s', :label => 'Type'

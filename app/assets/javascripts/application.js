@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require uservoice_init
 //
 
 // Masonry dependencies

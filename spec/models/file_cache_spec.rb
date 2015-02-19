@@ -8,6 +8,7 @@ describe FileCache, :type => :model do
     it "should make a database entry for the cached object" do
       http_response_dbl = double(content_type:"image/jpeg", read:"", status:["200", "OK"])
       expect(File).to receive(:open).with(local_filepath, 'wb')
+      expect(FileCache).to receive(:downsize_image).with(local_filepath)
       allow(FileCache).to receive(:open).with(sample_url).and_return(http_response_dbl)
       filecache_record = FileCache.store(sample_url)
       expect(filecache_record).to be_instance_of(FileCache)

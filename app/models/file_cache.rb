@@ -20,11 +20,18 @@ class FileCache < ActiveRecord::Base
       File.open(local_filepath, 'wb') do |file|
         file << http_response.read
       end
+      downsize_image local_filepath
     else
       file_cache_record.valid_content = false
     end
     file_cache_record.save
     file_cache_record
+  end
+
+  def self.downsize_image(filepath)
+    image = MiniMagick::Image.open(filepath)
+    image.resize "175x200"
+    image.write(filepath)
   end
 
   # Make sure the cache directory for our files exists

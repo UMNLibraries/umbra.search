@@ -294,6 +294,11 @@ ol.subjects {
   }
 
 @media (min-width: 768px) {
+
+  .static-page-content {
+    min-height: 700px;
+  }
+
   .homepage-true .navbar-primary {
     display: none;
   }
@@ -301,6 +306,11 @@ ol.subjects {
 
 
 @media (min-width: 768px) and (max-width: 1000px) {
+
+  .page-header {
+    border-bottom: none;
+  }
+
   .search-query-form {
     .input-group {
       #q {
@@ -348,3 +358,51 @@ ol.subjects {
 .ribbon a:hover {
   color: #fff;
 }
+
+
+.static-page-content {
+
+  p {
+    margin-left: 35px;
+  }
+
+  li a:hover {
+    background-color: none !important;
+  }
+
+  max-width: 1024px;
+
+  ul.content-list li {
+    margin: 0 0 15px 0;
+  }
+
+  li {
+    list-style: none;
+  }
+}
+
+.sidebar {
+  max-width: 250px;
+
+  .nav-stacked a:hover {
+    color: #454545;
+  }
+
+  li.active a {
+    color: #454545;
+  }
+
+  .panel-default {
+    background-color: #E7E7E7;
+    border: none;
+  }
+
+  .dropdown li.active a {
+    font-weight: bold;
+  }
+}
+
+.subnav-dropdown {
+  margin-left: 5px;
+}
+

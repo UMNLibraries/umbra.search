@@ -1,0 +1,67 @@
+ <div class="col-lg-3 col-md-3 col-sm-4 hidden-xs sidebar">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <ul class="nav nav-stacked">
+            <%= raw nav_item("About Umbra", about_path) %>
+            <%= raw nav_item("Inspirations", inspiration_path) %>
+            <%= raw nav_item("Participating Theaters", participating_path) %>
+            <%= raw nav_item("Copyright", copyright_path) %>
+            <%= raw nav_item("Team", team_path) %>
+            <%= raw nav_item("Contact", contact_path) %>
+            <%= raw nav_item("Participate", participate_path) %>
+        </ul>
+       </div>
+    </div>
+  </div>
+
+<div class="row hidden-lg hidden-md hidden-sm subnav-dropdown">
+    <div class="col-lg-8 col-md-10 col-sm-10">
+      <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="about-menu" data-toggle="dropdown" aria-expanded="true">
+          More About Umbra
+          <span class="caret"></span>
+        </button>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="about-menu">
+            <%= raw nav_item("About Umbra", about_path) %>
+            <%= raw nav_item("Inspirations", inspiration_path) %>
+            <%= raw nav_item("Participating Theaters", participating_path) %>
+            <%= raw nav_item("Copyright", copyright_path) %>
+            <%= raw nav_item("Team", team_path) %>
+            <%= raw nav_item("Contact", contact_path) %>
+            <%= raw nav_item("Participate", participate_path) %>
+          </ul>
+      </div>
+    </div>
+  </div>
+
+
+<!-- <div class="row hidden-lg hidden-md">
+  <div class="col-lg-8 col-md-10 col-sm-10 static-page-content">
+    <div class="btn-group" role="group" aria-label="...">
+      <button type="button" class="btn btn-default">About</button>
+      <button type="button" class="btn btn-default">Inspirations</button>
+      <button type="button" class="btn btn-default">Participating Theaters</button>
+    </div>
+    <div class="btn-group" role="group" aria-label="...">
+          <button type="button" class="btn btn-default">Copyright</button>
+      <button type="button" class="btn btn-default">Team</button>
+      <button type="button" class="btn btn-default">Contact</button>
+      <button type="button" class="btn btn-default">How to Participate</button>
+      </div>
+  </div>
+</div> -->
+
+
+<!-- <div class="row hidden-lg hidden-md">
+  <div class="col-lg-8 col-md-10 col-sm-10 static-page-content">
+    <ul class="nav nav-pills">
+    <li role="presentation" class="dropdown" class="active"><a href="#">About</a></li>
+    <li role="presentation" class="dropdown"><a href="#">Inspirations and Aspirations</a></li>
+    <li role="presentation" class="dropdown"><a href="#">Participating Theaters</a></li>
+    <li role="presentation" class="dropdown"><a href="#">Copyright</a></li>
+    <li role="presentation" class="dropdown"><a href="#">Team</a></li>
+    <li role="presentation" class="dropdown"><a href="#">Contact</a></li>
+    <li role="presentation" class="dropdown"><a href="#">How to Participate</a></li>
+    </ul>
+  </div>
+</div> -->

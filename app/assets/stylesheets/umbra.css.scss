@@ -219,6 +219,11 @@ ol.subjects {
 
 @media (max-width: 767px) {
 
+  .ribbon {
+    right: -50px !important;
+    top: 5px !important;
+  }
+
   .nav-brand a {
     float: left;
     display: block;
@@ -231,7 +236,7 @@ ol.subjects {
 
   .search-query-form {
     .input-group {
-      margin: 10px 0;
+      margin: 10px 30px;
       #q {
         float: right;
         @include border-left-radius(3px);

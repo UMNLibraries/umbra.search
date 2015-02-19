@@ -24,7 +24,7 @@ class ThumbnailsController < ApplicationController
   private
 
   def default_thumbnail_path
-    File.join(Rails.root, 'app', 'assets', 'images', 'default_thumbnail.png' )
+    File.join(Rails.root, 'app', 'assets', 'images', DEFAULT_THUMBNAIL )
   end
 
 end

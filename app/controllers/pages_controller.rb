@@ -3,7 +3,7 @@ class PagesController < ApplicationController
   def about
   end
 
-  def inspiration
+  def history
   end
 
   def participating

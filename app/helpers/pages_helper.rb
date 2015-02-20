@@ -14,4 +14,8 @@ module PagesHelper
       raw text
     end
   end
+
+  def linked_image(path, img, alt, title)
+    link_to image_tag(img, alt: alt, title: title), path
+  end
 end

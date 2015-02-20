@@ -9,8 +9,7 @@ Rails.application.routes.draw do
 
   scope '/about' do
     get '' => 'pages#about', as: 'about'
-    get 'inspiration' => 'pages#inspiration', as: 'inspiration'
-    get 'participating' => 'pages#participating', as: 'participating'
+    get 'history' => 'pages#history', as: 'history'
     get 'copyright' => 'pages#copyright', as: 'copyright'
     get 'team' => 'pages#team', as: 'team'
     get 'contact' => 'pages#contact', as: 'contact'

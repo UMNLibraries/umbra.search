@@ -420,3 +420,9 @@ ol.subjects {
 .subnav-dropdown {
   margin-left: 5px;
 }
+
+
+/* Keep the facet for browsing, just don't show it on search results */
+.blacklight-sourceresource_collection_title_s {
+  display: none;
+}

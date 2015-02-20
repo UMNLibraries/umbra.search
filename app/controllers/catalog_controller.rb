@@ -96,7 +96,10 @@ class CatalogController < ApplicationController
     # config.add_facet_field 'sourceResource_spatial_city_s', :label => 'City', :limit => 10
     # config.add_facet_field 'sourceResource_spatial_county_s', :label => 'County', :limit => 10
     # config.add_facet_field 'sourceResource_spatial_region_s', :label => 'Region', :limit => 10
-    # config.add_facet_field 'sourceResource_collection_title_s', :label => 'From Collection', :limit => 10
+
+    # NOTE: Collection is HIDDEN SEARCH RESULTS BY A CSS RULE. We keep it in the config, because we still 
+    # want to be able to produce a browse by collection facet page.
+    config.add_facet_field 'sourceResource_collection_title_s', :label => 'From Collection', :limit => 10
     config.add_facet_field 'batch_id_s', :label => 'Index Batch ID', :restricted_to_roles => ['librarian', 'admin']
 
     # Have BL send all facet field names to Solr, which has been the default

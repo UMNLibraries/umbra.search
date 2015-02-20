@@ -224,6 +224,11 @@ ol.subjects {
     top: 5px !important;
   }
 
+  .ribbon a {
+    font-size: 1.2em !important;
+    padding: 10px 50px !important;
+  }
+
   .nav-brand a {
     float: left;
     display: block;
@@ -307,6 +312,16 @@ ol.subjects {
 
 @media (min-width: 768px) and (max-width: 1000px) {
 
+  .ribbon {
+    right: -50px !important;
+    top: 5px !important;
+  }
+
+  .ribbon a {
+    font-size: 1.2em !important;
+    padding: 10px 50px !important;
+  }
+
   .page-header {
     border-bottom: none;
   }
@@ -321,14 +336,14 @@ ol.subjects {
 }
 
 .ribbon {
-  background-color: #9D9D9D;
+  background-color: #EE6D4F;
   z-index: 10000000000000000000;
   overflow: hidden;
   white-space: nowrap;
   /* top left corner */
   position: absolute;
-  right: -40px;
-  top: 10px;
+  right: -75px;
+  top: 20px;
   /* 45 deg ccw rotation */
   -webkit-transform: rotate(45deg);
      -moz-transform: rotate(45deg);
@@ -346,9 +361,9 @@ ol.subjects {
   color: #ccc;
   display: block;
   font: bold 81.25% 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 1.2em;
+  font-size: 2em;
   margin: 1px 0;
-  padding: 10px 50px;
+  padding: 10px 80px;
   text-align: center;
   text-decoration: none;
   /* shadow */
@@ -405,4 +420,3 @@ ol.subjects {
 .subnav-dropdown {
   margin-left: 5px;
 }
-

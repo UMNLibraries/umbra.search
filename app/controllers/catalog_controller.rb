@@ -34,6 +34,8 @@ class CatalogController < ApplicationController
       :bq => 'sourceResource_type_s:text^50.0'
     }
 
+    config.view.gallery.default = true
+
     # solr path which will be added to solr base url before the other solr params.
     #config.solr_path = 'select'
 

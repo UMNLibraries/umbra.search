@@ -92,9 +92,13 @@ ol.subjects {
 }
 
 .social-button {
-  float: left;
+  // ewwe
+  [id^=___plus_0] iframe { width:82px !important; }
 }
 
+.fb-share-button {
+  margin-left: -10px;
+}
 
 .gallery  {
   .document {

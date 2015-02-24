@@ -447,6 +447,13 @@ ol.subjects {
 
 .btn-primary {
   background-color: #EE6D4F;
+  a {
+    color: white;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
 }
 
 .btn-primary:hover {

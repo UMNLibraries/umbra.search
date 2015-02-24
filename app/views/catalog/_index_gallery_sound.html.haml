@@ -1,7 +1,9 @@
+- counter = document_counter_with_offset(document_counter)
+- label = truncate(document.fetch(document_show_link_field(document)), length: 75)
 .cover-image.gallery-glyphs.glyphs
-  = link_to catalog_url document do
+  = link_to catalog_url document, :counter => counter, :label => label do
     %span.icon-headphones
 .info
   %h5.index_title.col-sm-9.col-lg-10
-    - counter = document_counter_with_offset(document_counter)
-    = link_to_document document, :counter => counter, :label=> Proc.new { truncate(document.fetch(document_show_link_field(document)), length: 75) }
+
+    = link_to_document document, :counter => counter, :label => label

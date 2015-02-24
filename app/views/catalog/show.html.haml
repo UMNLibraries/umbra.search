@@ -12,7 +12,12 @@
       %div.col-xs-12.col-sm-6.col-md-6.col-lg-6
         %div.row
           %div.col-xs-3.col-sm-4.col-md-3.col-lg-3
-            = link_to cached_thumbnail_tag(document, {}), thumb_url
+            - if  is_sound?
+              .cover-image.gallery-glyphs.glyphs
+                = link_to thumb_url do
+                  %span.icon-headphones
+            - else
+              = link_to cached_thumbnail_tag(document, {}), thumb_url
 
         / http://blacktheater.lib.umn.edu/catalog/e317664305effc523856d5abdc3c580e
         %h1.h3{style:'font-style:italic;'}= display_title
@@ -47,7 +52,7 @@
         %div.row{style:'margin-top:20px;'}
           %div.col-sm-12
             - if subjects
-              %h3.h4 Subjects 
+              %h3.h4 Subjects
               %ol.list-unstyled.subjects
                 - subjects.each do |subject_heading|
                   %li
@@ -56,4 +61,9 @@
             %h4 Related Content in <em>Umbra</em>
             .related
               - document.more_like_this.each do |related_document|
-                =render_thumbnail_tag(related_document)
+                - if related_document['sourceResource_type_s'] == 'sound'
+                  .cover-image.thumbnail
+                    = link_to thumb_url do
+                      %span.icon-headphones
+                - else
+                  =render_thumbnail_tag(related_document)

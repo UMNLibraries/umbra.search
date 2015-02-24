@@ -9,7 +9,8 @@
       %div.modal-body
         %div.social-button.col-sm-2
           %a.twitter-share-button.social-button{"href" =>"https://twitter.com/share", "data-hashtags" => "blackhistory", "data-via" => "UmbraSearch"} Tweet
-        %div.fb-share-button.social-button.col-sm-2{"data-href" => "http://blacktheater.lib.umn.edu/catalog/#{id}", "data-width" => "100", "data-layout" => "button_count"}
+        %div.fb-root
+        %div.fb-share-button.social-button.col-sm-2{"data-href" => "http://umbrasearch.org/catalog/#{id}", "data-width" => "100", "data-layout" => "button_count"}
         %div.social-button.col-sm-2
           %script{:type => "text/javascript", :src  => "https://apis.google.com/js/platform.js"}
           %div.g-plus{"data-action" => "share", "data-annotation" => "bubble", "data-height" => "20"}

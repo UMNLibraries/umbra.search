@@ -35,7 +35,7 @@ module ShowRecordHelper
   end
 
   def type
-    @document.fetch('sourceResource_type_s')
+    @document.fetch('sourceResource_type_s', '')
   end
 
   def is_sound?

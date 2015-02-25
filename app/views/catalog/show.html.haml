@@ -7,9 +7,6 @@
 - content_for(:secondary_navbar) {render partial:'show_nav'}
 
 %section#metadata
-  %meta{property:"og:title", content: display_title}
-  %meta{property:"og:image", content: thumb_url}
-  %meta{property:"og:url",   content: request.original_url}
   %div.container
     %div.row
       %div.col-xs-12.col-sm-6.col-md-6.col-lg-6
@@ -30,7 +27,6 @@
           %h3.h4 Description
           - content = render_document_show_field_value document, :field => 'sourceResource_description_txt'
           = content
-          %meta{property:"og:description", content: content}
 
         %div.row
         %div#technical-metadata

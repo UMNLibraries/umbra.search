@@ -8,6 +8,11 @@
   <meta name="HandheldFriendly" content="True">
   <meta name="og:site_name" content="Umbra: Search African American History">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <% if defined? @document %>
+    <meta name="og:title", content="<%= display_title %>">
+    <meta name="og:image", content="<%= thumb_url %>">
+    <meta name="og:url", content="<%= request.original_url %>">
+  <% end %>
 
   <!-- Mobile IE allows us to activate ClearType technology for smoothing fonts for easy reading -->
   <!--[if IEMobile]>

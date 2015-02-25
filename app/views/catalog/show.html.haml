@@ -60,7 +60,7 @@
             %h4 Related Content in <em>Umbra</em>
             .related
               - document.more_like_this.each do |related_document|
-                - if related_document['sourceResource_type_s'] == 'sound'
+                - if related_document.fetch('sourceResource_type_s', '') == 'sound'
                   .cover-image.thumbnail
                     = link_to thumb_url do
                       %span.icon-headphones

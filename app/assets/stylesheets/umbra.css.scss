@@ -336,7 +336,7 @@ ol.subjects {
   .home-image-info #featured {
     display: none;
   }
-  
+
   .ribbon {
     right: -50px !important;
     top: 5px !important;
@@ -496,4 +496,15 @@ ol.subjects {
   .btn-default:hover {
     background-color: #C35941;
   }
+}
+
+.alert {
+  margin-bottom: 10px;
+  float:left;
+}
+
+.alert-warning {
+  color: #EE6D4F;
+  background-color: #FDF2EF;
+  border-color: #F4A28F;
 }

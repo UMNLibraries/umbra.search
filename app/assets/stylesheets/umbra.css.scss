@@ -210,11 +210,6 @@ ol.subjects {
     .thumbnail h3 {
         padding-left: 10px;
     }
-
-    .umbra-about-slug {
-      text-align: left;
-      padding: 5px 0 0 10px;
-    }
 }
 
     .navbar-nav .umbra-about-slug {
@@ -226,7 +221,20 @@ ol.subjects {
     font-size: 4em;
 }
 
+
+.home-image-info #featured-truncated {
+  display: none;
+}
+
 @media (max-width: 767px) {
+
+  .home-image-info #featured-truncated {
+    display: inline;
+  }
+
+  .home-image-info #featured {
+    display: none;
+  }
 
   .ribbon {
     right: -50px !important;
@@ -321,6 +329,14 @@ ol.subjects {
 
 @media (min-width: 768px) and (max-width: 1000px) {
 
+  .home-image-info #featured-truncated {
+    display: inline;
+  }
+
+  .home-image-info #featured {
+    display: none;
+  }
+  
   .ribbon {
     right: -50px !important;
     top: 5px !important;

@@ -211,7 +211,15 @@ ol.subjects {
         padding-left: 10px;
     }
 
+    .umbra-about-slug {
+      text-align: left;
+      padding: 5px 0 0 10px;
+    }
 }
+
+    .navbar-nav .umbra-about-slug {
+      display: none;
+    }
 
 .home-panel .icon-search,
 .blacklight-catalog-show .icon-search {

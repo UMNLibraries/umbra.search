@@ -14,12 +14,12 @@
           %div.col-xs-3.col-sm-4.col-md-3.col-lg-3
             - if  is_sound?
               .cover-image.gallery-glyphs.glyphs
-                = link_to thumb_url, {property:"og:image"} do
+                = link_to thumb_url do
                   %span.icon-headphones
             - else
               = link_to cached_thumbnail_tag(document, {}), thumb_url
 
-        %h1.h3{style:'font-style:italic;', property:"og:title"}= display_title
+        %h1.h3{style:'font-style:italic;'}= display_title
         %a.btn.btn-default.btn-lg.btn-primary{href:thumb_url} View Original
         %h2.h4{style:'color:#777777'}= render_document_show_field_value document, :field => 'sourceResource_creator_display'
 

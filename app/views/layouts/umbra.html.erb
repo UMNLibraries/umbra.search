@@ -3,9 +3,6 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-
-  <!-- Mobile viewport optimization h5bp.com/ad -->
-  <meta name="HandheldFriendly" content="True">
   <meta name="og:site_name" content="Umbra: Search African American History">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <% if defined? @document %>
@@ -13,6 +10,9 @@
     <meta name="og:image", content="<%= img %>">
     <meta name="og:url", content="<%= request.original_url %>">
   <% end %>
+
+  <!-- Mobile viewport optimization h5bp.com/ad -->
+  <meta name="HandheldFriendly" content="True">
 
   <!-- Mobile IE allows us to activate ClearType technology for smoothing fonts for easy reading -->
   <!--[if IEMobile]>
@@ -33,29 +33,25 @@
   <![endif]-->
 
 </head>
-<body class="<%= render_body_class %> homepage-<%= is_homepage? %>">
+<body class="<%= render_body_class %>">
 
 <div class="ribbon">
   <%= link_to "BETA", participate_path %></a>
 </div>
 
   <%= render partial: 'shared/header_navbar' %>
-  <% if is_homepage? %>
-    <%= render partial: 'catalog/home' %>
-  <% else %>
-    <div class="navbar-secondary">
-      <%= yield :secondary_navbar %>
-    </div>
-    <%= render partial: 'shared/ajax_modal' %>
+  <div class="navbar-secondary">
+    <%= yield :secondary_navbar %>
+  </div>
+  <%= render partial: 'shared/ajax_modal' %>
 
-    <div id="main-container" class="container-fluid">
-      <%= render :partial=>'/flash_msg', layout: 'shared/flash_messages' %>
+  <div id="main-container" class="container-fluid">
+    <%= render :partial=>'/flash_msg', layout: 'shared/flash_messages' %>
 
-      <div class="row">
-        <%= yield %>
-      </div>
+    <div class="row">
+      <%= yield %>
     </div>
-  <% end %>
+  </div>
 
   <%= render :partial => 'shared/footer' %>
   <%= render :partial => 'shared/blocking_javascript' %>

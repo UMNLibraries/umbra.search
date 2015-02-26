@@ -118,6 +118,13 @@ ol.subjects {
   }
 }
 
+.blacklight-pages-home {
+  #main-container {
+    padding: 0;
+    margin: 0;
+  }
+}
+
 .home-panel .search-query-form,
 .home-panel .browse-home {
   float: right;
@@ -188,7 +195,10 @@ ol.subjects {
 
 .home-panel  {
     border: none;
+    margin: none;
+    padding: none;
     min-height: 600px;
+    width: 100%;
     background-repeat: no-repeat;
     background-position: top left;
     background-size: cover;
@@ -321,7 +331,7 @@ ol.subjects {
     min-height: 700px;
   }
 
-  .homepage-true .navbar-primary {
+  .blacklight-pages-home .navbar-primary {
     display: none;
   }
 }

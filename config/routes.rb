@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   mount Blacklight::Folders::Engine, at: "blacklight"
   devise_for :users, :controllers => { :registrations => "registrations" }
-  root :to => 'catalog#index'
+  root :to => 'pages#home'
 
   blacklight_for :catalog
   get 'thumbnail' => 'thumbnails#download', as: 'cached_thumbnail'

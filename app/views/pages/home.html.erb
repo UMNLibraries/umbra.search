@@ -1,0 +1,37 @@
+<style media="screen">
+  .home-panel {
+    background-image: url("uploads/homepage/posterforunderworld.png");
+  }
+</style>
+
+<div class="home-panel">
+  <div class="hidden-xs">
+    <div class="col-md-1 col-sm-1"></div>
+    <div id="home-search" class="col-lg-5 col-md-6 col-sm-8">
+      <div class="row">
+        <div class="col-md-4 col-sm-4" id="home-search-logo"></div>
+        <div class="col-md-8 col-sm-8" id="home-search-slogan"><h1>Search</h1> <h1>African American</h1> <h1>History</h1></h1></div>
+      </div>
+      <div class="row search-bar">
+        <div class="col-md-12 col-sm-12 search-actions" >
+          <div class="btn-group browse-home">
+            <button type="button" class="btn btn-default dropdown-toggle browse-by" data-toggle="dropdown" aria-expanded="false">
+              Browse <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+              <%= render partial: 'shared/browse_nav_options' %>
+            </ul>
+          </div>
+          <%= render_search_bar %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row home-image-info">
+  <div class="col-md-5 col-sm-5 col-xl-6"></div>
+  <div class="col-md-c col-sm-7 col-xl-6">
+    Featured: <a id="featured" href="http://umbrasearch.org/catalog/43456e25a0d75a16f8efac9f6dd44593a5c47083">"Oscar Micheaux Presents Underworld: 'A Great Colored Cast.'" Poster, 1937</a><a id="featured-truncated" href="http://umbrasearch.org/catalog/43456e25a0d75a16f8efac9f6dd44593a5c47083">"Oscar Micheaux Presents Underworld"</a>
+  </div>
+</div>

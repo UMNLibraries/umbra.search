@@ -26,7 +26,7 @@ module SetupHelper
     end
     puts "Starting blacklight on port #{port}"
     # Start Blackglight
-    sh "cd #{blacklight_dir}/blacklight-jetty-dpla-#{blacklight_jetty_version}; java -jar start.jar -Djetty.port=#{port}"
+    sh "cd #{blacklight_dir}/blacklight-jetty-dpla-#{blacklight_jetty_version}; nohup java -jar start.jar -Djetty.port=#{port} &"
   end
 
 end

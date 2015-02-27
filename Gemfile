@@ -47,10 +47,10 @@ gem 'haml'
 gem 'aws-sdk', '< 2'
 gem 'sidekiq'
 gem 'devise'
-gem "devise-guests"
+gem 'devise-guests'
 gem 'carrierwave'
 gem 'mini_magick'
-gem 'restclient'
+gem 'rest-client'
 
 group :test, :development do
   # Debug seems to have trouble w/ Ruby 2.x, byebug is a replacment
@@ -68,6 +68,7 @@ group :test, :development do
   gem 'capistrano-rvm'
   gem 'rspec-rails', '>3.0'
   gem 'capybara'
-  gem "factory_girl_rails", '~> 4.4.1'
+  gem 'factory_girl_rails', '~> 4.4.1'
+  gem 'faker'
   gem 'capistrano-sidekiq'
 end

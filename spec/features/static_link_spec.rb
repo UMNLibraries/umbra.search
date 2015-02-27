@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-
 context 'when visiting the site as a unauthenticated user' do
 
     it 'resolves footer links when they are clicked' do

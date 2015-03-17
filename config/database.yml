@@ -53,3 +53,4 @@ production:
   database: <%= ENV['AATH_SEARCH_DB_NAME'] %>
   username: <%= ENV['AATH_SEARCH_DB_USERNAME'] %>
   password: <%= ENV['AATH_SEARCH_DB_PASSWORD'] %>
+  host:     <%= ENV['AATH_SEARCH_DB_HOST'] %>

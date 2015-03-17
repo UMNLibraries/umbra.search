@@ -6,6 +6,8 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # config.secret_key = 'f61555d48132f3f9034f788a5634c8767126b21b43d394b5ab71256e80b03ea7e941b5119eb0d3c2f83315f784e67eba7f174eb80315333c3d1c63262ac50dd8'
 
+  config.secret_key = ENV['UMBRA_DEVISE_SECRET_KEY']
+
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class

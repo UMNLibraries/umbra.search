@@ -24,22 +24,22 @@ class CatalogController < ApplicationController
   end
 
   configure_blacklight do |config|
-    config.index.thumbnail_field = :object_s
+    config.index.thumbnail_field = :object_ssi
 
     ## Default parameters to send to solr for all search-like requests. See also SolrHelper#solr_search_params
     config.default_solr_params = {
-      :qt => 'search_dpla',
+      :qt => 'search_hub',
       :fl => '*',
       :rows => 50,
-      :bq => 'sourceResource_type_s:text^50.0'
+      :bq => 'sourceResource_type_ssi:text^50.0'
     }
 
     # solr path which will be added to solr base url before the other solr params.
-    #config.solr_path = 'select'
+    # config.solr_path = 'select'
 
     # items to show per page, each number in the array represent another option to choose from.
-    #config.per_page = [10,20,50,100]
-
+    config.per_page = [10,20,50,100]
+    # config.max_per_page = 1000
     ## Default parameters to send on single-document requests to Solr. These settings are the Blackligt defaults (see SolrHelper#solr_doc_params) or
     ## parameters included in the Blacklight-jetty document requestHandler.
     #
@@ -52,8 +52,8 @@ class CatalogController < ApplicationController
     #}
 
     # solr field configuration for search results/index views
-    config.index.title_field = 'title_display'
-    config.index.display_type_field = 'sourceResource_type_s'
+    config.index.title_field = 'title_ssi'
+    config.index.display_type_field = 'sourceResource_type_ssi'
     config.index.thumbnail_method = :cached_thumbnail_tag
     config.show.thumbnail_method = :cached_thumbnail_tag
 
@@ -84,12 +84,13 @@ class CatalogController < ApplicationController
     # :show may be set to false if you don't want the facet to be drawn in the
     # facet bar
 
-    config.add_facet_field 'subject_topic_facet', :label => 'Keyword', :limit => 20
-    config.add_facet_field 'sourceResource_date_begin_i', :label => 'Year', :range => {:assumed_boundaries => [1100, Time.now.year + 2]}
-    config.add_facet_field 'creator_facet', :label => 'Author', :limit => 20
-    config.add_facet_field 'dataProvider_s', :label => 'Contributing Institution', :limit => 10
-    config.add_facet_field 'sourceResource_spatial_state_s', :label => 'State', :limit => 10
-    config.add_facet_field 'sourceResource_type_s', :label => 'Type', :limit => 4
+    config.add_facet_field 'subject_ssim', :label => 'Keyword', :limit => 20
+    config.add_facet_field 'sourceResource_date_begin_ssi', :label => 'Year', :limit => 20
+    # config.add_facet_field 'sourceResource_date_begin_ssi', :label => 'Year', :range => {:assumed_boundaries => [1100, Time.now.year + 2]}
+    config.add_facet_field 'creator_ssim', :label => 'Author', :limit => 20
+    config.add_facet_field 'dataProvider_ssi', :label => 'Contributing Institution', :limit => 10
+    config.add_facet_field 'sourceResource_spatial_state_ssi', :label => 'State', :limit => 10
+    config.add_facet_field 'sourceResource_type_ssi', :label => 'Type', :limit => 4
 
     # config.add_facet_field 'pub_date', :label => 'Publication Year', :single => true
     # config.add_facet_field 'language_facet', :label => 'Language', :limit => true
@@ -100,8 +101,8 @@ class CatalogController < ApplicationController
 
     # NOTE: Collection is HIDDEN SEARCH RESULTS BY A CSS RULE. We keep it in the config, because we still 
     # want to be able to produce a browse by collection facet page.
-    config.add_facet_field 'sourceResource_collection_title_s', :label => 'From Collection', :limit => 10
-    config.add_facet_field 'batch_id_s', :label => 'Index Batch ID', :restricted_to_roles => ['librarian', 'admin']
+    config.add_facet_field 'sourceResource_collection_title_ssi', :label => 'From Collection', :limit => 10
+    # config.add_facet_field 'batch_id_s', :label => 'Index Batch ID', :restricted_to_roles => ['librarian', 'admin']
 
     # Have BL send all facet field names to Solr, which has been the default
     # previously. Simply remove these lines if you'd rather use Solr request
@@ -110,8 +111,8 @@ class CatalogController < ApplicationController
 
     # solr fields to be displayed in the index (search results) view
     #   The ordering of the field names is the order of the display
-    config.add_index_field 'sourceResource_creator_display'
-    config.add_index_field 'dataProvider_s', :label => 'Provided By'
+    config.add_index_field 'creator_display_ssi'
+    config.add_index_field 'dataProvider_ssi', :label => 'Provided By'
 
     # solr fields to be displayed in the show (single result) view
     #   The ordering of the field names is the order of the display
@@ -119,15 +120,15 @@ class CatalogController < ApplicationController
     #config.add_show_field 'sourceResource_creator_display', :label => 'Authors'
     #config.add_show_field 'sourceResource_description_txt', :label => 'Description'
 
-    config.add_show_field 'sourceResource_type_s', :label => 'Type'
-    config.add_show_field 'sourceResource_format_s', :label => 'Format'
+    config.add_show_field 'sourceResource_type_ssi', :label => 'Type'
+    config.add_show_field 'sourceResource_format_ssi', :label => 'Format'
     config.add_show_field 'id', :label => 'Record ID'
 
-    config.add_show_field 'sourceResource_contributor_s', :label => 'Contributors'
-    config.add_show_field 'sourceResource_date_displaydate_s', :label => 'Created Date'
-    config.add_show_field 'sourceResource_publisher_s', :label => 'Publisher'
-    config.add_show_field 'language_facet', :label => 'Language'
-    config.add_show_field 'sourceResource_extent_s', :label => 'Extent'
+    config.add_show_field 'sourceResource_contributor_ssi', :label => 'Contributors'
+    config.add_show_field 'sourceResource_date_displaydate_ssi', :label => 'Created Date'
+    config.add_show_field 'sourceResource_publisher_ssi', :label => 'Publisher'
+    config.add_show_field 'language_ssi', :label => 'Language'
+    config.add_show_field 'sourceResource_extent_ssi', :label => 'Extent'
     # "fielded" search configuration. Used by pulldown among other places.
     # For supported keys in hash, see rdoc for Blacklight::SearchFields
     #
@@ -191,14 +192,14 @@ class CatalogController < ApplicationController
     # label in pulldown is followed by the name of the SOLR field to sort by and
     # whether the sort is ascending or descending (it must be asc or desc
     # except in the relevancy case).
-    config.add_sort_field 'score desc, pub_date_sort desc, title_sort asc', :label => 'relevance'
-    config.add_sort_field 'pub_date_sort desc, title_sort asc', :label => 'year'
-    config.add_sort_field 'creator_sort asc, title_sort asc', :label => 'author'
-    config.add_sort_field 'title_sort asc, pub_date_sort desc', :label => 'title'
+    config.add_sort_field 'score desc, date_begin_ssort desc, title_ssort asc', :label => 'relevance'
+    config.add_sort_field 'date_begin_ssort desc, title_ssort asc', :label => 'year'
+    config.add_sort_field 'creator_ssim asc, title_ssort asc', :label => 'author'
+    config.add_sort_field 'title_ssort asc, date_begin_ssort desc', :label => 'title'
 
     # If there are more than this many search results, no spelling ("did you
     # mean") suggestion is offered.
     config.spell_max = 5
   end
 
-end 
+end

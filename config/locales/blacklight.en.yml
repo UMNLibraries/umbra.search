@@ -4,16 +4,16 @@ en:
     tagline: 'Explore African American History'
     search:
       fields:
-        sourceResource_type_s: "Type"
-        subject_topic_facet: "Keyword"
-        creator_facet: "Author"
-        sourceResource_date_begin_i: "Year"
-        dataProvider_s: "Contributing Institution"
-        sourceResource_collection_title_s: "Collection"
-        sourceResource_spatial_state_s: "State"
-        sourceResource_spatial_city_s: "City"
-        sourceResource_spatial_county_s: "County"
-        sourceResource_spatial_region_s: "Region"
-        batch_id_s: "Import Batch ID"
+        sourceResource_type_ssi: "Type"
+        subject_ssim: "Keyword"
+        creator_ssim: "Author"
+        sourceResource_date_begin_ssi: "Year"
+        dataProvider_ssi: "Contributing Institution"
+        sourceResource_collection_title_ssi: "Collection"
+        sourceResource_spatial_state_ssi: "State"
+        sourceResource_spatial_city_ssi: "City"
+        sourceResource_spatial_county_ssi: "County"
+        sourceResource_spatial_region_ssi: "Region"
+        batch_id_ssi: "Import Batch ID"
       view:
         gallery: "Gallery"

@@ -11,8 +11,8 @@
 # how to start up solr, generally for automated testing. 
 
 development:
-  url: <%= ENV['AATH_SOLR_DEV_URL']  || "http://127.0.0.1:8889/solr/blacklight-core-umbra" %>
+  url: <%= ENV['AATH_SOLR_DEV_URL']  || "http://127.0.0.1:8885/solr/blacklight-core-hub" %>
 test: &test
-  url: <%= ENV['AATH_SOLR_TEST_URL'] || "http://127.0.0.1:8888/solr/blacklight-core-umbra" %>
+  url: <%= ENV['AATH_SOLR_TEST_URL'] || "http://127.0.0.1:8889/solr/blacklight-core-hub" %>
 production:
-  url: <%= ENV['AATH_SOLR_PROD_URL'] || "http://127.0.0.1:8983/solr/blacklight-core-umbra" %>
+  url: <%= ENV['AATH_SOLR_PROD_URL'] || "http://127.0.0.1:8983/solr/blacklight-core-hub" %>

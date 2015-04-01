@@ -1,41 +1,15 @@
 <a class="sr-only" href="#main">Skip to main content</a>
-    <nav class="navbar navbar-default navbar-static-top navbar-inverse navbar-primary" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <div class="clearfix"><a class="navbar-brand" href="/"><%= image_tag('2Color-UmbraMarkSmall.png', size: "75x75") %></a></div>
-        </div>
-        <ul class="nav navbar-nav navbar-left" id="primary-nav">
-          <li><%= render_search_bar  %></li>
-          <%= render partial: 'shared/browse_nav' %>
-        </ul>
+<nav class="navbar navbar-default navbar-static-top navbar-inverse navbar-primary navbar-fixed-top" role="navigation">
 
-        <div id="navbar" class="navbar-collapse collapse">
-          <div class="dropdown">
-            <ul class="nav navbar-nav navbar-right authentication-info">
-              <% if user_signed_in? %>
-                <li>
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="true">
-                      <% if current_user.avatar.url.present?  %>
-                        <%= image_tag(current_user.avatar.url(:thumb_tiny), :class => "thumb thumb-tiny") %> <span class="hidden-md hidden-sm"> <%= current_user.email %> </span>
-                      <% else %>
-                        <span class="glyphicon glyphicon-user"></span> <span class="hidden-md hidden-sm"> <%= current_user.email %> </span>
-                      <% end %>
-                      <span class="hidden-lg hidden-xs hidden-sm"></span>
-                    <b class="caret"></b>
-                  </a>
-                    <ul aria-labelledby="help" class="dropdown-menu" id="user-settings" role="menu">
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><%= link_to "Profile", edit_user_path(current_user), title: "Profile"%></a></li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><%= link_to "Account", edit_user_registration_path(current_user), title: "Account"%></a></li>
-                    </ul>
-                </li>
-                <li>
-                  <%= link_to destroy_user_session_path, method: :delete, title: "Sign Out" do %>
-                    <span class="glyphicon glyphicon-log-out"></span> <span class="hidden-sm">Log Out</span>
-                  <% end %>
-                </li>
-              <% end %>
-            </ul>
-          </div>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
+  <div class="container">
+    <div class="navbar-header">
+      <div class="clearfix"><a class="navbar-brand" href="/"><%= image_tag('2Color-UmbraMarkSmall.png', size: "75x75") %></a></div>
+    </div>
+    <ul class="nav navbar-nav navbar-left" id="primary-nav">
+      <li><%= render_search_bar  %></li>
+      <%= render partial: 'shared/browse_nav' %>
+      <%= render partial: 'shared/blacklight_folders_nav' %>
+    </ul>
+      <% render partial: 'shared/authentication_block' %>
+  </div>
+</nav>

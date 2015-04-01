@@ -40,7 +40,7 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 gem 'blacklight_folders', :github => 'UMNLibraries/blacklight_folders', :branch => 'folder_description'
-gem 'blacklight'
+gem 'blacklight', '~> 5.11.1'
 gem 'blacklight_range_limit'
 gem 'rails_autolink'
 gem 'haml'

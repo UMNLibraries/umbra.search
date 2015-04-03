@@ -21,11 +21,11 @@
 
         %h1.h3{style:'font-style:italic;'}= display_title
         %a.btn.btn-default.btn-lg.btn-primary{href:thumb_url} View Original
-        %h2.h4{style:'color:#777777'}= render_document_show_field_value document, :field => 'sourceResource_creator_display'
+        %h2.h4{style:'color:#777777'}= render_document_show_field_value document, :field => 'sourceResource_creator_ssi'
 
         - if description
           %h3.h4 Description
-          - content = render_document_show_field_value document, :field => 'sourceResource_description_txt'
+          - content = render_document_show_field_value document, :field => 'sourceResource_description_tesi'
           = content
 
         %div.row
@@ -55,12 +55,12 @@
               %ol.list-unstyled.subjects
                 - subjects.each do |subject_heading|
                   %li
-                    %a.label.label-default{href:url_for(action:'index', "f[subject_topic_facet][]"=>subject_heading)}= subject_heading
+                    %a.label.label-default{href:url_for(action:'index', "f[subject_ssim][]"=>subject_heading)}= subject_heading
 
             %h4 Related Content in <em>Umbra</em>
             .related
               - document.more_like_this.each do |related_document|
-                - if related_document.fetch('sourceResource_type_s', '') == 'sound'
+                - if related_document.fetch('sourceResource_type_ssi', '') == 'sound'
                   .cover-image.thumbnail
                     = link_to thumb_url do
                       %span.icon-headphones

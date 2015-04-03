@@ -1,41 +1,37 @@
 module ShowRecordHelper
   def img
-    @document.fetch('object_s', false).to_s
+    @document.fetch('object_ssi', false).to_s
   end
 
   def thumb_url
-    @document.fetch('isShownAt_s', false)
+    @document.fetch('isShownAt_ssi', false)
   end
 
   def subjects
-    @document.fetch('subject_topic_facet', false)
+    @document.fetch('subject_ssim', false)
   end
 
   def rights
-    @document.fetch('sourceResource_rights_s', false)
+    @document.fetch('sourceResource_rights_ssi', false)
   end
 
   def data_provider
-    @document.fetch('dataProvider_s', false)
+    @document.fetch('dataProvider_ssi', false)
   end
 
   def provider_name
-    @document.fetch('provider_name_s', false)
+    @document.fetch('provider_name_ssi', false)
   end
   def display_title
-    @document.fetch('title_display', false)
-  end
-
-  def display_title
-    @document.fetch('title_display', false)
+    @document.fetch('title_ssi', false)
   end
 
   def collection
-    @document.fetch('sourceResource_collection_title_s', false)
+    @document.fetch('sourceResource_collection_title_ssi', false)
   end
 
   def type
-    @document.fetch('sourceResource_type_s', '')
+    @document.fetch('sourceResource_type_ssi', '')
   end
 
   def is_sound?
@@ -55,7 +51,7 @@ module ShowRecordHelper
   end
 
   def description
-    @document.fetch('sourceResource_description_txt', false)
+    @document.fetch('sourceResource_description_tesi', false)
   end
 
   def set_page_title!

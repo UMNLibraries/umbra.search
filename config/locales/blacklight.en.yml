@@ -1,5 +1,8 @@
 en:
   blacklight:
+    range_limit:
+      submit_limit: "Limit"
+      remove_limit: "Remove Limit"
     application_name: 'Umbra'
     tagline: 'Explore African American History'
     search:

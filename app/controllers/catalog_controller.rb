@@ -86,19 +86,12 @@ class CatalogController < ApplicationController
     # facet bar
 
     config.add_facet_field 'subject_ssim', :label => 'Keyword', :limit => 20
-    config.add_facet_field 'sourceResource_date_begin_ssi', :label => 'Year', :limit => 20
-    # config.add_facet_field 'sourceResource_date_begin_ssi', :label => 'Year', :range => {:assumed_boundaries => [1100, Time.now.year + 2]}
+    # # Note: This tries to set assumed_boundaries for blacklight_range_limit, but it's not working.  Leaving the value set in case it gets fixed in future releases of blacklight_range_limit
+    config.add_facet_field 'sourceResource_date_begin_ssi', :label => 'Year', :range => {:assumed_boundaries => [1100, Time.now.year + 2]}
     config.add_facet_field 'creator_ssim', :label => 'Author', :limit => 20
     config.add_facet_field 'dataProvider_ssi', :label => 'Contributing Institution', :limit => 10
     config.add_facet_field 'sourceResource_spatial_state_ssi', :label => 'State', :limit => 10
     config.add_facet_field 'sourceResource_type_ssi', :label => 'Type', :limit => 4
-
-    # config.add_facet_field 'pub_date', :label => 'Publication Year', :single => true
-    # config.add_facet_field 'language_facet', :label => 'Language', :limit => true
-    # # Note: This tries to set assumed_boundaries for blacklight_range_limit, but it's not working.  Leaving the value set in case it gets fixed in future releases of blacklight_range_limit
-    # config.add_facet_field 'sourceResource_spatial_city_s', :label => 'City', :limit => 10
-    # config.add_facet_field 'sourceResource_spatial_county_s', :label => 'County', :limit => 10
-    # config.add_facet_field 'sourceResource_spatial_region_s', :label => 'Region', :limit => 10
 
     # NOTE: Collection is HIDDEN SEARCH RESULTS BY A CSS RULE. We keep it in the config, because we still 
     # want to be able to produce a browse by collection facet page.

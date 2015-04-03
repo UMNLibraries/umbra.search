@@ -4,19 +4,22 @@
 # is considered to be the first unless any hosts have the primary
 # property set.  Don't declare `role :all`, it's a meta role.
 
-require 'capistrano/rvm'
 
-set :domain, "fenne035@databaser.lib.umn.edu"
+set :branch, ENV["BRANCH_NAME"] || "feature/exhibits"
 
-role :app, "fenne035@databaser.lib.umn.edu"
-role :web, "fenne035@databaser.lib.umn.edu"
-role :db,  "fenne035@databaser.lib.umn.edu", :primary => true
 
-set :deploy_to, '/swadm/www/umbra.prod'
+set :domain, "swadm@lib-umbra-prod.oit.umn.edu"
+
+role :app, "swadm@lib-umbra-prod.oit.umn.edu"
+role :web, "swadm@lib-umbra-prod.oit.umn.edu"
+role :db,  "swadm@lib-umbra-prod.oit.umn.edu", :primary => true
+
+set :deploy_to, '/swadm/var/www/html/umbra.search'
 set :use_sudo,    false
 
+set :linked_dirs, fetch(:linked_dirs) + %w(public/uploads log cache tmp)
 
-set :linked_dirs, %w(public/uploads cache log)
+set :rails_env, "production"
 
 # Extended Server Syntax
 # ======================

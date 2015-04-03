@@ -18,7 +18,7 @@
         <li role="presentation" class="divider"></li>
         <li role="presentation" class="signup-label dropdown-header">Create Your Own Exibits:</li>
         <li role="presentation" class="signup">
-          <%= link_to "#{new_user_session_path}?redirect_to=#{current_search_path_escaped}", title: "Sign Out", query: "redirect_to=#{request.original_url}" do %>
+          <%= link_to "#{new_user_session_path}?redirect_to=#{current_search_path_escaped(current_search_session)}", title: "Sign Out", query: "redirect_to=#{request.original_url}" do %>
             <span class="btn btn-primary">Login/Signup</span>
           <% end %>
         </li>

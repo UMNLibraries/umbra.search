@@ -1,0 +1,27 @@
+<li>
+<%= render 'blacklight/folders/add_to_folder' %>
+</li>
+<li id="exhibits-menu">
+  <%= link_to "#{t(:'blacklight_folders.main_navigation.folders')} (#{current_or_guest_user.folders.size})", blacklight_folders.folders_path, id: 'folders-nav-dropdown', class: "dropdown-toggle", data: { toggle: "dropdown"}, role: "button", 'aria-expanded' => "false" %>
+  <ul class="dropdown-menu" role="menu" aria-labeledby="folders-nav-dropdown">
+    <% if can? :create, Blacklight::Folders::Folder %>
+      <li><%= link_to t(:'helpers.action.blacklight/folders/folder.create'), blacklight_folders.new_folder_path %></li>
+      <li role="presentation" class="divider"></li>
+    <% end %>
+
+    <% current_or_guest_user.folders.most_recent.limit(Blacklight::Folders::Folder::MENU_LIMIT).each do |folder| %>
+      <li><%= link_to truncate(folder.name, length: 20), blacklight_folders.folder_path(folder) %></li>
+    <% end %>
+    <li role="presentation" class="divider"></li>
+    <li><%= link_to t(:'blacklight_folders.main_navigation.all_folders'), blacklight_folders.folders_path %></li>
+    <% if !user_signed_in? %>
+        <li role="presentation" class="divider"></li>
+        <li role="presentation" class="signup-label dropdown-header">Create Your Own Exibits:</li>
+        <li role="presentation" class="signup">
+          <%= link_to "#{new_user_session_path}?redirect_to=#{current_search_path_escaped}", title: "Sign Out", query: "redirect_to=#{request.original_url}" do %>
+            <span class="btn btn-primary">Login/Signup</span>
+          <% end %>
+        </li>
+    <% end %>
+  </ul>
+</li>

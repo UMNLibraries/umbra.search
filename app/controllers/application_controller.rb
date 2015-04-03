@@ -28,4 +28,24 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:username, :email, :password,
       :password_confirmation, :current_password) }
   end
+
+  # See: https://github.com/plataformatec/devise/wiki/How-To%3A-Redirect-to-a-specific-page-on-successful-sign-in-and-sign-out
+  def after_sign_in_path_for(resource)
+    redirect_to_sanitized || super
+  end
+
+  # See: https://github.com/plataformatec/devise/wiki/How-To%3A-Redirect-to-a-specific-page-on-successful-sign-in-and-sign-out
+  def after_sign_out_path_for(resource_or_scope)
+    request.referrer
+  end
+
+  def redirect_to_sanitized
+    return nil if !devise_params[:redirect_to]
+    # force redirect to local paths, prevent someone from using http://badsite.com
+    "/#{devise_params[:redirect_to].gsub(/^\/{1}/,'')}"
+  end
+
+  def devise_params
+    params.require('user').permit(:redirect_to)
+  end
 end

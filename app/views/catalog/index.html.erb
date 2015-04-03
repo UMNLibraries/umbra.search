@@ -4,8 +4,9 @@
   </div>
   <div id="content" class="col-md-9 col-sm-7">
   <div class="row">
-    <dv class="alert alert-warning">Notice: In <em>Umbra</em>'s beta phase, we are working with a sample test collection of records.</div>
-  </dv>
+    <div class="alert alert-warning">Notice: In <em>Umbra</em>'s beta phase, we are working with a sample test collection of records.</div>
+  </div>
+      <%= render :partial=>'/flash_msg', layout: 'shared/flash_messages' %>
     <%= render 'search_results' %>
   </div>
 </div>

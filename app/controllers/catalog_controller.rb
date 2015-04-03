@@ -1,6 +1,9 @@
 # -*- encoding : utf-8 -*-
 #
 class CatalogController < ApplicationController
+  include Blacklight::Catalog
+  include BlacklightMoreLikeThis::SolrHelperExtension
+  include Umbra::SolrHelper::Umbra
 
   def about
     render :about
@@ -14,8 +17,6 @@ class CatalogController < ApplicationController
     render :contact
   end
 
-  include Blacklight::Catalog
-  include BlacklightMoreLikeThis::SolrHelperExtension
 
   # Override blacklights limit param for facets.
   # See: def solr_facet_params - blacklight-5.7.2/lib/blacklight/solr_helper.rb
@@ -194,7 +195,7 @@ class CatalogController < ApplicationController
     # except in the relevancy case).
     config.add_sort_field 'score desc, date_begin_ssort desc, title_ssort asc', :label => 'relevance'
     config.add_sort_field 'date_begin_ssort desc, title_ssort asc', :label => 'year'
-    config.add_sort_field 'creator_ssim asc, title_ssort asc', :label => 'author'
+    config.add_sort_field 'creator_display_ssi asc, title_ssort asc', :label => 'author'
     config.add_sort_field 'title_ssort asc, date_begin_ssort desc', :label => 'title'
 
     # If there are more than this many search results, no spelling ("did you

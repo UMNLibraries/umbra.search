@@ -7,7 +7,7 @@ module BlacklightFoldersHelper
     if query_params.empty?
       return search_action_path(only_path: true)
     else
-      return search_action_path(params)
+      return (/catalog/ =~ request.env['PATH_INFO']) ? search_action_path(query_params) : root_path
     end
   end
 

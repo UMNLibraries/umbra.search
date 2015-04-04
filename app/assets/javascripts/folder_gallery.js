@@ -1,9 +1,3 @@
-$('#documents').masonry({
-  columnWidth: 200,
-  itemSelector: '.folder-gallery-item'
-});
-
-
 $(document).ready(function() {
   $('#default-exhibit-tour-start').click(function() {
     var tour = new Tour({
@@ -19,7 +13,7 @@ $(document).ready(function() {
         title: "Select Umbra Records",
         placement: "left",
         reflex: true,
-        content: "Select one or mor Umbra records for your exhibit by clicking on search result checkboxes."
+        content: "Select one or more Umbra records for your exhibit by clicking on search result checkboxes. (Click one now)"
       },
       {
         element: "#folder-tools",

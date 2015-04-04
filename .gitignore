@@ -38,3 +38,8 @@ config/aws.yml
 /vendor/assets/bower_components
 *.bowerrc
 bower.json
+
+# Jetty/solr dirs
+blacklight_dev
+blacklight_prod
+blacklight_test

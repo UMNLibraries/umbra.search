@@ -40,6 +40,8 @@
 // For Cropping Avatar Images
 //= require jcrop/js/jquery.Jcrop
 
+//= require bootstrap-tour/build/js/bootstrap-tour-standalone.min
+
 //= require_tree .
 
 

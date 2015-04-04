@@ -4,3 +4,5 @@
 .info
   %h5.index_title.col-sm-9.col-lg-10
     = link_to_document document, :counter => counter, :label=> label
+  .record-actions.col-sm-9.col-lg-10
+    = render 'blacklight/folders/folder_control', :document => document

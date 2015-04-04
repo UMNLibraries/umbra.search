@@ -23,6 +23,9 @@ config/aws.yml
 /.bundle
 /vendor/bundle
 
+# using bower to install bootstrap tour, which requires bootstrap
+# bootstrap is already installed
+/vendor/assets/components/bootstrap
 # these should all be checked in to normalise the environment:
 # Gemfile.lock, 
 #.ruby-version
@@ -35,5 +38,3 @@ config/aws.yml
 /vendor/assets/bower_components
 *.bowerrc
 bower.json
-
-blacklight_*

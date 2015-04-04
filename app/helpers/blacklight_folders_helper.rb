@@ -4,10 +4,10 @@ module BlacklightFoldersHelper
   def current_search_path(search_session)
     return '/' if /users/ =~ url_for(:only_path => true)
     query_params = search_session.try(:query_params) || {}
-    if query_params.empty?
-      return search_action_path(only_path: true)
+    if /catalog/ =~ request.env['PATH_INFO']
+      (query_params.empty?) ? search_action_path(only_path: true) : search_action_path(query_params)
     else
-      return (/catalog/ =~ request.env['PATH_INFO']) ? search_action_path(query_params) : root_path
+      root_path
     end
   end
 

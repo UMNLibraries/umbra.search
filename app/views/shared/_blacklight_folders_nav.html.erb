@@ -9,14 +9,15 @@
       <li role="presentation" class="divider"></li>
     <% end %>
 
-    <% current_or_guest_user.folders.most_recent.limit(Blacklight::Folders::Folder::MENU_LIMIT).each do |folder| %>
+    <% folders = current_or_guest_user.folders.most_recent.limit(Blacklight::Folders::Folder::MENU_LIMIT) %>
+    <% folders.each do |folder| %>
       <li><%= link_to truncate(folder.name, length: 20), blacklight_folders.folder_path(folder) %></li>
     <% end %>
-    <li role="presentation" class="divider"></li>
+    <% unless folders.empty? %><li role="presentation" class="divider"></li><% end %>
     <li><%= link_to t(:'blacklight_folders.main_navigation.all_folders'), blacklight_folders.folders_path %></li>
     <% if !user_signed_in? %>
         <li role="presentation" class="divider"></li>
-        <li role="presentation" class="signup-label dropdown-header">Create Your Own Exibits:</li>
+        <li role="presentation" class="signup-label dropdown-header">Create Your Own Exhibits:</li>
         <li role="presentation" class="signup">
           <%= link_to "#{new_user_session_path}?redirect_to=#{current_search_path_escaped(current_search_session)}", title: "Sign Out", query: "redirect_to=#{request.original_url}" do %>
             <span class="btn btn-primary">Login/Signup</span>

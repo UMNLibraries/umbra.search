@@ -168,6 +168,10 @@ $grid-float-breakpoint: 992px;
   border: 0;
 }
 
+.document-thumbnail {
+  float: left;
+}
+
 .blacklight-folders .document-thumbnail {
   float: none;
 }

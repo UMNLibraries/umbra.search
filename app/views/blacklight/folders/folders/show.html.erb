@@ -1,6 +1,8 @@
 <div class="folder-view">
   <p id="notice"><%= notice %></p>
 
+  <h1><%= @folder.name %></h1>
+
   <% if can? :edit, @folder %>
     <div class="primary-actions">
       <%= link_to edit_folder_path(@folder), class: 'btn btn-default' do %>
@@ -8,7 +10,6 @@
       <% end %>
      </div>
   <% end %>
-  <h1><%= @folder.name %></h1>
 
   <div>
     <% if @folder.description %>
@@ -41,8 +42,6 @@
       <%= t('blacklight.folders.folders.folder.ago', time: time_ago_in_words(@folder.updated_at)) %>
     </span>
   </div>
-
-  <%= render 'tools' %>
 
   <div id="documents" class="gallery js-masonry" data-masonry-options='{ "columnWidth": 210, "itemSelector": ".folder-gallery-item" }'>
     <%= render partial: 'folder_item', collection: @folder.items, locals: { docs: @folder.documents } %>

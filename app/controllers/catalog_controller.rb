@@ -96,7 +96,7 @@ class CatalogController < ApplicationController
     # NOTE: Collection is HIDDEN SEARCH RESULTS BY A CSS RULE. We keep it in the config, because we still 
     # want to be able to produce a browse by collection facet page.
     config.add_facet_field 'sourceResource_collection_title_ssi', :label => 'From Collection', :limit => 10
-    # config.add_facet_field 'batch_id_s', :label => 'Index Batch ID', :restricted_to_roles => ['librarian', 'admin']
+    config.add_facet_field 'import_job_id_ssi', :label => 'Index Batch ID', :restricted_to_roles => ['librarian', 'admin']
 
     # Have BL send all facet field names to Solr, which has been the default
     # previously. Simply remove these lines if you'd rather use Solr request
@@ -116,7 +116,6 @@ class CatalogController < ApplicationController
 
     config.add_show_field 'sourceResource_type_ssi', :label => 'Type'
     config.add_show_field 'sourceResource_format_ssi', :label => 'Format'
-    config.add_show_field 'id', :label => 'Record ID'
 
     config.add_show_field 'sourceResource_contributor_ssi', :label => 'Contributors'
     config.add_show_field 'sourceResource_date_displaydate_ssi', :label => 'Created Date'

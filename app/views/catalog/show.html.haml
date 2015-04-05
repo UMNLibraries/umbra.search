@@ -62,7 +62,7 @@
               - document.more_like_this.each do |related_document|
                 - if related_document.fetch('sourceResource_type_ssi', '') == 'sound'
                   .cover-image.thumbnail
-                    = link_to thumb_url do
+                    = link_to related_document do
                       %span.icon-headphones
                 - else
                   =render_thumbnail_tag(related_document)

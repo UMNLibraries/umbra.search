@@ -51,6 +51,7 @@ gem 'devise-guests'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'rest-client'
+gem 'rails_admin'
 
 group :test, :development do
   # Debug seems to have trouble w/ Ruby 2.x, byebug is a replacment

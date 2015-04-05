@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   mount Blacklight::Folders::Engine, at: "blacklight"
   devise_for :users, :controllers => { :registrations => "registrations" }
   root :to => 'pages#home'

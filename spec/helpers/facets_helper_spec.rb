@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 describe FacetsHelper, :type => :helper do
-  let(:current_user) { create :user_with_moderator_role }
+  let(:current_user) { create :user, :with_editor_role }
   let(:blacklight_config) { Blacklight::Configuration.new }
   let(:test_item) { Blacklight::SolrResponse::Facets::FacetItem.new "test_item", 1 }
-  let(:test_field_name) { 'test_field_s' }
+  let(:test_field_name) { 'test_field_ssi' }
   let(:facet_item) { Blacklight::SolrResponse::Facets::FacetField.new test_field_name, test_item }
 
   before(:each) do
@@ -25,14 +25,14 @@ describe FacetsHelper, :type => :helper do
     expect(helper.render_selected_facet_value(type_facet_solr_field, type_facet_item)).to include('icon-headphones')
   end
 
-  context "when the current user has the moderator role it" do
+  context "when the current user has the editor role it" do
     it "hides a facet restricted only to a user with the librarian role" do
       blacklight_config.add_facet_field test_field_name, :restricted_to_roles => ['librarian']
       expect(helper.should_render_facet?(facet_item)).to be false
     end
 
-    it "shows a facet restricted only to a user with the moderator role" do
-      blacklight_config.add_facet_field test_field_name, :restricted_to_roles => ['moderator']
+    it "shows a facet restricted only to a user with the editor role" do
+      blacklight_config.add_facet_field test_field_name, :restricted_to_roles => ['editor']
       expect(helper.should_render_facet?(facet_item)).to be true
     end
   end
@@ -40,7 +40,7 @@ describe FacetsHelper, :type => :helper do
   context "when the current user is an anonymous user" do
     let(:current_user) { nil}
     it "hides a restricted facet" do
-      blacklight_config.add_facet_field test_field_name, :restricted_to_roles => ['moderator']
+      blacklight_config.add_facet_field test_field_name, :restricted_to_roles => ['editor']
       current_user = nil
       expect(helper.should_render_facet?(facet_item)).to be false
     end

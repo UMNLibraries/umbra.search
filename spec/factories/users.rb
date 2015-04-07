@@ -7,8 +7,8 @@ FactoryGirl.define do
       guest true
     end
 
-    factory :user_with_moderator_role do
-      roles ['moderator']
+    trait :with_editor_role do
+      roles [ 'editor']
     end
   end
 end

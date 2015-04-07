@@ -6,12 +6,12 @@ describe 'Editing a folder' do
     (0..200).each do
       docs << SolrDocument.new({
         id: rand(500),
-        title_display: rand(500),
-        creator_facet: [rand(500)],
-        subject_topic_facet: [rand(500)],
-        dataProvider_s: rand(500),
-        sourceResource_spatial_state_s: rand(500),
-        sourceResource_collection_title_s: rand(500)
+        title_ssi: rand(500),
+        creator_ssim: [rand(500)],
+        subject_ssim: [rand(500)],
+        dataProvider_ssi: rand(500),
+        sourceResource_spatial_state_ssi: rand(500),
+        sourceResource_collection_title_ssi: rand(500)
       }).to_h
     end
     docs
@@ -29,11 +29,11 @@ describe 'Editing a folder' do
 
   it 'should browse each full facet view and receive 100 facet results sorted numerically' do
     facets = {
-      "creator_facet" => "Author",
-      "subject_topic_facet" => "Keyword",
-      "dataProvider_s" => "Contributing Institution",
-      "sourceResource_spatial_state_s" => "State",
-      "sourceResource_collection_title_s" => "Collection"
+      "creator_ssim" => "Author",
+      "subject_ssim" => "Keyword",
+      "dataProvider_ssi" => "Contributing Institution",
+      "sourceResource_spatial_state_ssi" => "State",
+      "sourceResource_collection_title_ssi" => "Collection"
     }
     facets.each do |id, name|
       browse_facet(id, name)
@@ -43,6 +43,7 @@ describe 'Editing a folder' do
   def browse_facet(id, name)
     visit "/catalog/facet/#{id}?limit=100"
     expect(page).to have_content(name)
+    puts "-------------#{page.body.inspect}"
     expect(page).to have_selector('.facet-label', count: 100)
     expect(find('.top .sort_options > .active')).to have_content("Numerical Sort")
   end

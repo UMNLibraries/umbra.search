@@ -11,7 +11,7 @@ describe BlacklightMoreLikeThis::SolrHelperExtension do
       let(:solr_parameters) { {id:"documentId"}  }
       it "adds mlt params to solr_parameters" do
         controller.add_solr_mlt_parameters solr_parameters, {}
-        expect(solr_parameters).to eq ({id:"documentId", mlt:true, 'mlt.fl' => 'title_t,subject_t,creator_t',
+        expect(solr_parameters).to eq ({id:"documentId", mlt:true, 'mlt.fl' => 'title_ssi,subject_ssim,creator_ssim',
                                          'mlt.count' => 20,
                                          'mlt.mintf' => 1} )
       end

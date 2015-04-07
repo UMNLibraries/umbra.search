@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<h3><%= @featured_image.title %></h3>
+
+<% if @featured_image.uploaded_image.url.present? %>
+    <p><%= image_tag(@featured_image.uploaded_image.url(:thumb_large), :class => "thumb thumb-large") %></p>
+<% end %>
+
+<div>Record ID: <%= link_to_featured_record(@featured_image.record_id) %></div>
+
+
+<%= published_status(@featured_image) %>
+
+<%= link_to 'Edit', edit_featured_image_path(@featured_image) %> |
+<%= link_to 'Preview', featured_image_preview_path(@featured_image) %> |
+<%= link_to 'List Featured Images', featured_images_path %>

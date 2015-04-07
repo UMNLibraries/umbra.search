@@ -60,5 +60,6 @@ RSpec.configure do |config|
 
   config.include Features::SignIn, type: :feature
   config.include FactoryGirl::Syntax::Methods
+  config.include Devise::TestHelpers, type: :controller
 
 end

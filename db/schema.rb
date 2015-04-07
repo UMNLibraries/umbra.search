@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150112220551) do
+ActiveRecord::Schema.define(version: 20150406211851) do
 
   create_table "blacklight_folders_folder_items", force: true do |t|
     t.integer  "folder_id",   null: false
@@ -50,6 +50,15 @@ ActiveRecord::Schema.define(version: 20150112220551) do
 
   add_index "bookmarks", ["user_id"], name: "index_bookmarks_on_user_id", using: :btree
 
+  create_table "featured_images", force: true do |t|
+    t.string   "title"
+    t.string   "record_id"
+    t.string   "uploaded_image"
+    t.boolean  "published"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "file_caches", force: true do |t|
     t.string   "record_id"
     t.string   "url"
@@ -61,7 +70,7 @@ ActiveRecord::Schema.define(version: 20150112220551) do
   end
 
   create_table "searches", force: true do |t|
-    t.text     "query_params", limit: 16777215
+    t.text     "query_params"
     t.integer  "user_id"
     t.string   "user_type"
     t.datetime "created_at"

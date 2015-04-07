@@ -14,7 +14,7 @@ class UsersController < ApplicationController
         redirect_to edit_user_path, notice: "Successfully updated profile."
       end
     else
-      render :new
+      render :edit
     end
   end
 

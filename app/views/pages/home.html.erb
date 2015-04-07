@@ -1,6 +1,6 @@
 <style media="screen">
   .home-panel {
-    background-image: url("uploads/homepage/posterforunderworld.png");
+    background-image: url(<%= @featured_image.uploaded_image.url %>);
   }
 </style>
 
@@ -21,7 +21,7 @@
 <div class="home-image-info col-sm-12">
   <div class="col-md-5 col-sm-5 col-xl-6"></div>
   <div class="col-md-5 col-sm-7 col-xl-6">
-    Featured: <a id="featured" href="http://umbrasearch.org/catalog/43456e25a0d75a16f8efac9f6dd44593a5c47083">"Oscar Micheaux Presents Underworld: 'A Great Colored Cast.'" Poster, 1937</a>
-    <a id="featured-truncated" href="http://umbrasearch.org/catalog/43456e25a0d75a16f8efac9f6dd44593a5c47083">"Oscar Micheaux Presents Underworld"</a>
+    Featured: <%= link_to @featured_image.title, solr_document_path(@featured_image.record_id.to_s), id:"featured" %>
+    <%= link_to truncate(@featured_image.title, length:25), solr_document_path(@featured_image.record_id.to_s), id:"featured-truncated" %>
   </div>
 </div>

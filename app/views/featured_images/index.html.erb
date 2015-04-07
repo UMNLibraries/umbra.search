@@ -1,0 +1,37 @@
+<h1>Featured Images</h1>
+
+<p>Each time the Umbra homepage loads, it will randomly select the background from the Featured Images that have been marked "published" here.</p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Link Text</th>
+      <th>Associated Record</th>
+      <th>Preview</th>
+      <th>Published?</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @featured_images.each do |featured_image| %>
+      <tr>
+        <td><%= link_to 'Edit', edit_featured_image_path(featured_image) %></td>
+        <td><%= featured_image.title %></td>
+        <td><%= link_to_featured_record(featured_image.record_id, truncate(featured_image.record_id, length:20)) %></td>
+        <td>
+          <% if featured_image.uploaded_image.url.present? %>
+              <p><%= link_to image_tag(featured_image.uploaded_image.url(:thumb_medium), :class => "thumb thumb-large"), featured_image_preview_path(featured_image) %></p>
+          <% else %>
+              <p>No image uploaded</p>
+          <% end %>
+        </td>
+        <td><%= published_status(featured_image) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Add a new Featured image', new_featured_image_path, class:"btn btn-primary" %>

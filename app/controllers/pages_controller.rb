@@ -1,6 +1,13 @@
 class PagesController < ApplicationController
 
+  include FeaturedImagesHelper
+
   def home
+    if params[:featured_image]
+      @featured_image = FeaturedImage.find(params[:featured_image])
+    else
+      @featured_image = random_featured_image
+    end
   end
 
   def about

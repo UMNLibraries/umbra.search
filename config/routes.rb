@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :featured_images
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   mount Blacklight::Folders::Engine, at: "blacklight"
   devise_for :users, :controllers => { :registrations => "registrations" }

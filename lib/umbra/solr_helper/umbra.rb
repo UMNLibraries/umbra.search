@@ -1,7 +1,7 @@
 module Umbra::SolrHelper::Umbra
 
  def self.included base
-   base.solr_search_params_logic += [:show_only_umbra_records]
+   base.search_params_logic += [:show_only_umbra_records]
  end
 
   # solr_search_params_logic methods take two arguments

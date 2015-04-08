@@ -345,6 +345,7 @@ DEPENDENCIES
   rails_admin
   rails_autolink
   rest-client
+  rsolr (~> 1.0)
   rspec-rails (> 3.0)
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)

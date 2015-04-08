@@ -4,7 +4,7 @@ module BlacklightMoreLikeThis
     extend ActiveSupport::Concern
 
     included do
-      CatalogController.solr_search_params_logic += [:add_solr_mlt_parameters]
+      CatalogController.search_params_logic += [:add_solr_mlt_parameters]
     end
 
     def add_solr_mlt_parameters solr_parameters, user_parameters

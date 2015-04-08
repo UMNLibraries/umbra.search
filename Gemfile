@@ -42,6 +42,7 @@ gem 'spring',        group: :development
 gem 'blacklight_folders', :github => 'UMNLibraries/blacklight_folders', :branch => 'folder_description'
 gem 'blacklight', '~> 5.11.1'
 gem 'blacklight_range_limit'
+gem 'rsolr', '~>1.0'
 gem 'rails_autolink'
 gem 'haml'
 gem 'aws-sdk', '< 2'

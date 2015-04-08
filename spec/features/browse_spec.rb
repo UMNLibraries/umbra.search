@@ -22,8 +22,8 @@ describe 'Editing a folder' do
   before(:each) { @routes = Blacklight::Engine.routes }
 
   before do
-    puts solr_docs.inspect
-    Blacklight.solr.tap do |solr|
+    # puts solr_docs.inspect
+    Blacklight.default_index.connection.tap do |solr|
       solr.delete_by_query("*:*", params: { commit: true })
       solr.add solr_docs
       solr.commit

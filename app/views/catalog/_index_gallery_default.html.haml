@@ -1,7 +1,6 @@
 - counter = document_counter_with_offset(document_counter)
 - label = truncate(document.fetch(document_show_link_field(document)), length: 75)
 .record-actions.col-sm-9.col-lg-10
-  = render 'blacklight/folders/folder_control', :document => document
 .cover-image.col-sm-9.col-lg-10= render_thumbnail_tag(document, {:title => label, :alt => label}, {:counter => counter})
 .info
   %h5.index_title.col-sm-9.col-lg-10

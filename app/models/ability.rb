@@ -1,6 +1,5 @@
 class Ability
   include CanCan::Ability
-  include Blacklight::Folders::Ability
 
   def initialize(user)
     user ||= User.new # guest user (not logged in)

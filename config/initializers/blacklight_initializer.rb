@@ -5,3 +5,10 @@
 
 Blacklight.secret_key = Rails.application.secrets.secret_key_base
 
+# Remove bookmark from the navbar
+CatalogController.blacklight_config.navbar.partials.delete(:bookmark)
+# Remove bookmark from catalog#index
+CatalogController.blacklight_config.index.document_actions.delete(:bookmark)
+# Remove bookmark from catalog#show
+CatalogController.blacklight_config.show.document_actions.delete(:bookmark)
+

@@ -13,14 +13,14 @@
       <li><%= link_to truncate(folder.name, length: 20), blacklight_folders.folder_path(folder) %></li>
     <% end %>
     <% if folders.empty? %>
-      <li class="signup-label dropdown-header"><span id="default-exhibit-tour-start" class="glyphicon glyphicon-info-sign" aria-hidden="true"><a href="#">&nbsp;</a></span>Get Started</li>
+      <li class="signup-label dropdown-header"><span id="default-exhibit-tour-start" class="glyphicon glyphicon-info-sign" aria-hidden="true"></span><a href="#">Get Started</a></li>
     <% else %>
       <li role="presentation" class="divider"></li>
       <li><%= link_to t(:'blacklight_folders.main_navigation.all_folders'), blacklight_folders.folders_path %></li>
     <% end %>
     <% if !user_signed_in? && !folders.empty? %>
         <li role="presentation" class="divider"></li>
-        <li role="presentation" class="signup-label dropdown-header"><span id="new-exhibit-tour-start" class="glyphicon glyphicon-info-sign" aria-hidden="true"><a href="#">&nbsp;</a></span>Create More Exhibits!</li>
+        <li role="presentation" class="signup-label dropdown-header"><span id="new-exhibit-tour-start" class="glyphicon glyphicon-info-sign" aria-hidden="true"><a href="#"></span>Create More Exhibits!</a></li>
         <li role="presentation" class="signup" id="signup-button">
           <%= link_to "#{new_user_session_path}?redirect_to=#{current_search_path_escaped(current_search_session)}", title: "Sign Out", query: "redirect_to=#{request.original_url}" do %>
             <span class="btn btn-primary">Login/Signup</span>

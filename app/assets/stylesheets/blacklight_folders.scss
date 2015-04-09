@@ -23,3 +23,11 @@ li.signup {
   float: none !important;
   margin: 15px 0 15px;
 }
+
+.dropdown-header a:hover {
+  text-decoration: none;
+}
+
+#exhibits-menu .dropdown-menu > li.dropdown-header > a {
+  display: inline;
+}

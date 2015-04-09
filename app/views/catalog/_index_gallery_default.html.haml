@@ -2,7 +2,7 @@
 - label = truncate(document.fetch(document_show_link_field(document)), length: 75)
 .record-actions.col-sm-9.col-lg-10
   = render 'blacklight/folders/folder_control', :document => document
-.cover-image= render_thumbnail_tag(document, {:title => label, :alt => label}, {:counter => counter})
+.cover-image.col-sm-9.col-lg-10= render_thumbnail_tag(document, {:title => label, :alt => label}, {:counter => counter})
 .info
   %h5.index_title.col-sm-9.col-lg-10
     = link_to_document document, :counter => counter, :label=> label

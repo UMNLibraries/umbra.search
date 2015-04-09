@@ -30,7 +30,7 @@ class FileCache < ActiveRecord::Base
 
   def self.downsize_image(filepath)
     image = MiniMagick::Image.open(filepath)
-    image.resize "175x200"
+    image.resize "75x100"
     image.write(filepath)
   end
 

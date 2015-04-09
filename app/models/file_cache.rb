@@ -20,7 +20,7 @@ class FileCache < ActiveRecord::Base
       File.open(local_filepath, 'wb') do |file|
         file << http_response.read
       end
-      downsize_image local_filepath
+      # downsize_image local_filepath
     else
       file_cache_record.valid_content = false
     end

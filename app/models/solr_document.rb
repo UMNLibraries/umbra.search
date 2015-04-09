@@ -1,7 +1,7 @@
 # -*- encoding : utf-8 -*-
 class SolrDocument 
   include Blacklight::Folders::SolrDocument
-  include Blacklight::Document
+  include Blacklight::Solr::Document
 
   # self.unique_key = 'id'
   

@@ -20,7 +20,7 @@ class FileCache < ActiveRecord::Base
       File.open(local_filepath, 'wb') do |file|
         file << http_response.read
       end
-      # downsize_image local_filepath
+      compress local_filepath
     else
       file_cache_record.valid_content = false
     end
@@ -28,10 +28,13 @@ class FileCache < ActiveRecord::Base
     file_cache_record
   end
 
-  def self.downsize_image(filepath)
-    image = MiniMagick::Image.open(filepath)
-    image.resize "75x100"
-    image.write(filepath)
+  def self.compress(filepath)
+    image = Magick::Image.read(filepath).first
+    image.write(filepath) do |variable|
+      self.compression = Magick::ZipCompression
+      self.format = 'JPEG'
+      self.quality = 60
+    end
   end
 
   # Make sure the cache directory for our files exists

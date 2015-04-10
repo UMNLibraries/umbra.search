@@ -51,6 +51,7 @@ gem 'devise'
 gem 'devise-guests'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'rmagick'
 gem 'rest-client'
 gem 'rails_admin'
 

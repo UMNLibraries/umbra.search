@@ -18,5 +18,7 @@ en:
         sourceResource_spatial_county_ssi: "County"
         sourceResource_spatial_region_ssi: "Region"
         batch_id_ssi: "Import Batch ID"
+        import_job_name_ssi: "Import Job Name"
+        import_job_id_isi: "Import Job ID"
       view:
         gallery: "Gallery"

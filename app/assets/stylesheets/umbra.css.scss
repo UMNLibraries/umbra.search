@@ -208,6 +208,10 @@ ol.subjects {
   max-width: 600px;
   padding: 0;
 
+  .record-count {
+    color: #1B5958;
+  }
+
   .search-bar {
     padding: 15px;
   }
@@ -279,7 +283,7 @@ ol.subjects {
 }
 
 #home-search-slogan {
-  margin-top: 50px;
+  margin-top: 40px;
   text-align: left;
 }
 

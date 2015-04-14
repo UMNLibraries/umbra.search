@@ -33,10 +33,10 @@ describe 'Editing a folder' do
   it 'should browse each full facet view and receive 100 facet results sorted numerically' do
     facets = {
       "creator_ssim" => "Author",
-      # "subject_ssim" => "Keyword",
-      # "dataProvider_ssi" => "Contributing Institution",
-      # "sourceResource_spatial_state_ssi" => "State",
-      # "sourceResource_collection_title_ssi" => "Collection"
+      "subject_ssim" => "Keyword",
+      "dataProvider_ssi" => "Contributing Institution",
+      "sourceResource_spatial_state_ssi" => "State",
+      "sourceResource_collection_title_ssi" => "Collection"
     }
     facets.each do |id, name|
       browse_facet(id, name)

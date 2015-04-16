@@ -52,7 +52,7 @@ gem 'devise-guests'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'rmagick'
-gem 'rest-client'
+gem 'rest-client', '~>1.8'
 gem 'rails_admin'
 
 group :test, :development do

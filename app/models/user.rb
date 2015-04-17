@@ -36,7 +36,7 @@ class User < ActiveRecord::Base
   # translates to "6 & 4 > 0" which is a bitwise operation that evaluates to
   # "true" (6 & 4 = 4). See more at:
   # http://asilia.herokuapp.com/2011/04/06/bitmask-attributes-on-a-rails-application
-  scope :with_role, lambda { |role| {:conditions => "roles_mask & #{2**ROLES.index(role.to_s)} > 0 "} }
+  scope :with_role, lambda { |role| where('roles_mask & ? > 0 ', (2**ROLES.index(role.to_s))) }
 
   ROLES = %w[admin editor]
 

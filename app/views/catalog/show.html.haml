@@ -58,7 +58,7 @@
                   %li
                     %a.label.label-default{href:url_for(action:'index', "f[subject_ssim][]"=>subject_heading)}= subject_heading
 
-            %h4 Related Content in <em>Umbra</em>
+            %h4 Related Content
             .related
               - document.more_like_this.each do |related_document|
                 - if related_document.fetch('sourceResource_type_ssi', '') == 'sound'

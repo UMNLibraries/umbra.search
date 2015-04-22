@@ -162,7 +162,7 @@ class CatalogController < ApplicationController
       }
     end
 
-    config.add_search_field('creator') do |field|
+    config.add_search_field('Author') do |field|
       field.solr_parameters = { :'spellcheck.dictionary' => 'default' }
       field.solr_local_parameters = {
         :qf => '$creator_qf',

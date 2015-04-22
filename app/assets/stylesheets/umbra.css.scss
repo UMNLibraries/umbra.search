@@ -212,12 +212,19 @@ body.blacklight-pages-home {
   max-width: 600px;
   padding: 0;
 
+  .tagline {
+    color: #1B5958;
+    font-weight: normal;
+    text-align: right;
+    margin-right: 45px;
+  }
+
   .record-count {
     color: #1B5958;
   }
 
   .search-bar {
-    padding: 15px;
+    padding: 15px 15px 0 15px;
   }
 }
 
@@ -287,7 +294,7 @@ body.blacklight-pages-home {
 }
 
 #home-search-slogan {
-  margin-top: 40px;
+  margin-top: 52px;
   text-align: left;
 }
 

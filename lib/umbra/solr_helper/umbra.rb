@@ -8,8 +8,7 @@ module Umbra::SolrHelper::Umbra
   # @param [Hash] solr_parameters a hash of parameters to be sent to Solr (via RSolr)
   # @param [Hash] user_parameters a hash of user-supplied parameters (often via `params`)
   def show_only_umbra_records solr_parameters, user_parameters
-    solr_parameters['q.alt'] = "tags_ssim:umbramvp"
-    solr_parameters[:q] = "#{solr_parameters['q']} +tags_ssim:umbramvp"
+    solr_parameters['fq'] << "{!raw f=tags_ssim}umbramvp"
     solr_parameters[:"facet.query"] << "sourceResource_date_begin_ssi:[1100 TO #{Time.now.year + 2}]"
     solr_parameters
   end

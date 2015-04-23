@@ -8,7 +8,7 @@ env:
   global:
     secure: YwsBXkYk14OKUktZNM6FkUuhu7Y1xeDyDqb4Trkod18iAbH/h8ZzM62xQLWRL2mkPgtnc0nO9yW1S9V23HP9+SlqsyU9ShMa9DLRU8upx/ZM97okaCBn0CCAKjuTDzb28pMVFGRb1VNKSNuPRdbizCEUeNamD6YWq37pSPE6Cn0=
 before_script:
-- bundle exec rake setup_solr:test
+- bundle exec rake solr:setup_test
 - mysql -e 'create database aath_search_test;'
 notifications:
   slack:

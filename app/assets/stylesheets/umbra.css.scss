@@ -226,6 +226,14 @@ body.blacklight-pages-home {
   .search-bar {
     padding: 15px 15px 0 15px;
   }
+
+  .search-query-form {
+    .input-group {
+      #q {
+        width: 300px;
+      }
+    }
+  }
 }
 
 #home-search .help {
@@ -277,6 +285,13 @@ body.blacklight-pages-home {
 
 .home-image-info a {
   color: #DC6F45;
+}
+
+.home-image-info .text {
+  width: 1000px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis
 }
 
 #home-search {
@@ -347,11 +362,6 @@ body.blacklight-pages-home {
     font-size: 4em;
 }
 
-
-.home-image-info #featured-truncated {
-  display: none;
-}
-
 .ribbon-block {
   position: absolute;
   top: 0;
@@ -362,14 +372,6 @@ body.blacklight-pages-home {
 }
 
 @media (max-width: 767px) {
-
-  .home-image-info #featured-truncated {
-    display: inline;
-  }
-
-  .home-image-info #featured {
-    display: none;
-  }
 
   .ribbon {
     position: absolute;
@@ -426,8 +428,13 @@ body.blacklight-pages-home {
     display: none;
   }
 
+  .navbar-nav {
+    height: 150px;
+  }
+
   .home-panel  {
     min-height: 200px;
+    margin-top: 150px;
   }
 
 }
@@ -462,24 +469,10 @@ body.blacklight-pages-home {
     opacity: 0.95;
     display: none;
   }
-
-  // .blacklight-pages-home .navbar .search-query-form,
-  // .blacklight-pages-home .navbar .navbar-left,
-  // .blacklight-pages-home .navbar .navbar-brand {
-  //   display: none;
-  // }
 }
 
 
 @media (min-width: 768px) and (max-width: 1000px) {
-
-  .home-image-info #featured-truncated {
-    display: inline;
-  }
-
-  .home-image-info #featured {
-    display: none;
-  }
 
   .ribbon {
     right: -50px !important;
@@ -495,12 +488,53 @@ body.blacklight-pages-home {
     border-bottom: none;
   }
 
+  #home-search {
+    .search-query-form {
+      .input-group {
+        #q {
+          width: 300px;
+        }
+      }
+    }
+  }
+
   .search-query-form {
     .input-group {
       #q {
         width: 250px;
       }
     }
+  }
+}
+
+
+@media (max-width: 600px) {
+  .home-image-info .text {
+    width: 400px;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 768px) {
+  .home-image-info .text {
+    width: 550px;
+  }
+}
+
+@media (min-width: 1000px) and (max-width: 1366px) {
+  .home-image-info .text {
+    width: 1000px;
+  }
+}
+
+@media (min-width: 1366px) and (max-width: 1680px) {
+  .home-image-info .text {
+    width: 1300px;
+  }
+}
+
+@media (min-width: 1680px) and (max-width: 2680px) {
+  .home-image-info .text {
+    width: 1600px;
   }
 }
 

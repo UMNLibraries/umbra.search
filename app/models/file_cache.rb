@@ -11,29 +11,37 @@ class FileCache < ActiveRecord::Base
   def self.store(url)
     local_filepath = local_filepath_for(url)
     init_thumbnail_cache_dir!(local_filepath)
-    file_cache_record = FileCache.new(url:url, filepath:local_filepath)
+    file_cache_record = FileCache.new(url:"#{url}.jpg", filepath:local_filepath)
     http_response = fetch_remote_image(url)
-
-    if remote_file_is_valid?(http_response)
+    if remote_file_is_has_valid_status?(http_response)
       file_cache_record.valid_content = true
       file_cache_record.content_type = http_response.content_type
       File.open(local_filepath, 'wb') do |file|
         file << http_response.read
       end
-      compress local_filepath
+
+      is_valid = compress local_filepath
+      file_cache_record.valid_content = false unless is_valid
     else
       file_cache_record.valid_content = false
     end
+
     file_cache_record.save
     file_cache_record
   end
 
   def self.compress(filepath)
-    image = Magick::Image.read(filepath).first
-    image.write(filepath) do |variable|
-      self.compression = Magick::ZipCompression
-      self.format = 'JPEG'
-      self.quality = 60
+    begin
+      image = Magick::Image.read(filepath).first
+      image.write(filepath) do |variable|
+        self.compression = Magick::ZipCompression
+        self.format = 'JPEG'
+        self.quality = 95
+      end
+      true
+    rescue => e
+      Rails.logger.error "Got a bad image at path #{filepath} with error: #{e}"
+      false
     end
   end
 
@@ -66,7 +74,7 @@ class FileCache < ActiveRecord::Base
 
   private
 
-  def self.remote_file_is_valid?(http_response)
+  def self.remote_file_is_has_valid_status?(http_response)
     return false if !http_response
     unwanted_content_types = ["text/html"]
     if (http_response.status.first != "200") || (unwanted_content_types.include?(http_response.content_type))

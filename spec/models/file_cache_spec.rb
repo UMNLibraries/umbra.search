@@ -5,11 +5,15 @@ describe FileCache, :type => :model do
   let(:local_filepath) { FileCache.local_filepath_for(sample_url) }
 
   describe "store" do
-    it "should make a database entry for the cached object" do
+    it "should write and compress valid image" do
       expect(File).to receive(:open).with(local_filepath, 'wb')
       expect(FileCache).to receive(:compress).with(local_filepath)
       http_response_dbl = double(content_type:"image/png", read:"", status:["200", "OK"])
       allow(FileCache).to receive(:open).with(sample_url).and_return(http_response_dbl)
+      filecache_record = FileCache.store(sample_url)
+    end
+
+    it "should store a valid image" do
       filecache_record = FileCache.store(sample_url)
       expect(filecache_record).to be_instance_of(FileCache)
       expect(filecache_record).to be_persisted

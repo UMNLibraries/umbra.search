@@ -13,7 +13,7 @@
         <div class="col-md-8 col-sm-8" id="home-search-slogan"><h1>Search <br />African American <br />History</h1></div>
       </div>
       <%= render 'home_search_bar' %>
-      <div class="tagline"><span class="record-count"><%= record_count %></span> items items from U.S. archives, libraries, and museums</div>
+      <div class="tagline"><span class="record-count"><%= record_count %></span> items items from U.S. archives, libraries, and museums.</div>
       <%= render 'home_search_help' %>
     </div>
   </div>
@@ -21,10 +21,9 @@
 
 <div class="home-image-info col-sm-12">
   <div class="col-sm-1"></div>
-  <div class="col-sm-11">
+  <div class="col-sm-11 text">
     <% if @featured_image %>
-      Featured: <%= link_to @featured_image.title, solr_document_path(@featured_image.record_id.to_s), id:"featured" %>
-      <%= link_to truncate(@featured_image.title, length:25), solr_document_path(@featured_image.record_id.to_s), id:"featured-truncated" %>
+        Featured: <%= link_to @featured_image.title, solr_document_path(@featured_image.record_id.to_s), id:"featured" %>
     <% end %>
   </div>
 </div>

@@ -76,9 +76,10 @@ $grid-float-breakpoint: 992px;
 }
 
 #main-container {
-    background-color: #FEFEFE;
-    @include border-radius(10px);
-    padding: 40px;
+  padding: 40px 50px 40px 50px !important;
+  background-color: #FEFEFE;
+  @include border-radius(10px);
+  padding: 40px;
 }
 
 #sortAndPerPage {

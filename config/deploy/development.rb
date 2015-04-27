@@ -4,11 +4,11 @@
 # is considered to be the first unless any hosts have the primary
 # property set.  Don't declare `role :all`, it's a meta role.
 
-set :domain, "swadm@lib-umbra-prod.oit.umn.edu"
+set :domain, "swadm@lib-umbra-dev.oit.umn.edu"
 
-role :app, "swadm@lib-umbra-prod.oit.umn.edu"
-role :web, "swadm@lib-umbra-prod.oit.umn.edu"
-role :db,  "swadm@lib-umbra-prod.oit.umn.edu", :primary => true
+role :app, "swadm@lib-umbra-dev.oit.umn.edu"
+role :web, "swadm@lib-umbra-dev.oit.umn.edu"
+role :db,  "swadm@lib-umbra-dev.oit.umn.edu", :primary => true
 
 set :deploy_to, '/swadm/var/www/html/umbra.search'
 set :use_sudo,    false
@@ -47,5 +47,3 @@ namespace :deploy do
     end
   end
 end
-
-

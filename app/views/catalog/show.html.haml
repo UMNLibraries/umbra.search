@@ -64,4 +64,5 @@
                     = link_to related_document do
                       %span.icon-headphones
                 - else
-                  =link_to_document related_document, cached_thumbnail_tag(related_document, {:nopin => 'nopin', :title => related_document['title_ssi']})
+                  =link_to related_document do
+                    -cached_thumbnail_tag(related_document, {:nopin => 'nopin', :title => related_document['title_ssi']})

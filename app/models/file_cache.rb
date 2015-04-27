@@ -11,7 +11,7 @@ class FileCache < ActiveRecord::Base
   def self.store(url)
     local_filepath = local_filepath_for(url)
     init_thumbnail_cache_dir!(local_filepath)
-    file_cache_record = FileCache.new(url:"#{url}.jpg", filepath:local_filepath)
+    file_cache_record = FileCache.new(url:"#{url}", filepath:local_filepath)
     http_response = fetch_remote_image(url)
     if remote_file_is_has_valid_status?(http_response)
       file_cache_record.valid_content = true

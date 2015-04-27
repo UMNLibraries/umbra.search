@@ -46,8 +46,6 @@
           %h4 Contributing Institution
           = data_provider
 
-        =# image_tag 'smithsonian.png', {class:'img-responsive', style:'max-height:40px;', alt:'Smithsonian Institution'}
-
       %div.col-xs-12.col-sm-5.col-sm-offset-1{style:'border-left:1px solid #efefef;'}
         %div.row{style:'margin-top:20px;'}
           %div.col-sm-12
@@ -66,4 +64,4 @@
                     = link_to related_document do
                       %span.icon-headphones
                 - else
-                  =render_thumbnail_tag(related_document)
+                  =cached_thumbnail_tag(related_document, {:nopin => 'nopin', :title => related_document['title_ssi']})

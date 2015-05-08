@@ -25,6 +25,11 @@ $dark-background-color: #102826;
   display: none;
 }
 
+
+.search-widgets div {
+  z-index: 0;
+}
+
 // Navbar
 .navbar {
   margin-bottom:0px;
@@ -156,9 +161,16 @@ ol.subjects {
   font-weight: normal;
 }
 
+#documents .document {
+  z-index: 0;
+}
+
 .gallery  {
   .document {
     float: left;
+    position:relative;
+    overflow:auto;
+    z-index:5;
     width: 175px;
     height: 230px;
     padding: 5px;
@@ -170,6 +182,9 @@ ol.subjects {
         margin-left: auto;
         margin-right: auto;
       }
+    }
+    .info {
+      text-align: center;
     }
     .info h5{
       height: 75px;
@@ -373,11 +388,31 @@ body.blacklight-pages-home {
 
 @media (max-width: 767px) {
 
+  .navbar-secondary ul {
+    margin-left: 15px;
+  }
+
+  .search-widgets .view-type {
+    margin-top: 15px;
+  }
+
+  .alert-warning {
+    display: none;
+  }
+
+  .facets-toggle {
+    margin: 15px;
+  }
+
+  .navbar .browse-item {
+    display: none;
+  }
+
   .ribbon {
     position: absolute;
     right: -50px !important;
     top: 5px !important;
-    z-index: 100000000000000000000000000000000;
+    z-index: 10;
   }
 
   .ribbon a {
@@ -428,10 +463,6 @@ body.blacklight-pages-home {
     display: none;
   }
 
-  .navbar-nav {
-    height: 150px;
-  }
-
   .home-panel  {
     min-height: 200px;
     margin-top: 150px;
@@ -473,7 +504,6 @@ body.blacklight-pages-home {
 
 
 @media (min-width: 768px) and (max-width: 1000px) {
-
   .ribbon {
     right: -50px !important;
     top: 5px !important;

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Editing a folder' do
+describe 'Browsing Facets' do
   let(:solr_docs) {
     docs = []
     (0..200).each do

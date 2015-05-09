@@ -5,9 +5,8 @@
         %li
           %p.navbar-text
             %strong
-              %a
-                Result
-                =item_page_entry_info
+              Result
+              =link_back_to_catalog({:label => item_page_entry_info})
         %li
           %div.btn-group
             %button.btn.btn-default.navbar-btn= link_to_previous_document @previous_document

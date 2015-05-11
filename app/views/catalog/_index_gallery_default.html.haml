@@ -4,4 +4,5 @@
 .cover-image.col-sm-9.col-lg-10= render_thumbnail_tag(document, {:title => label, :alt => label}, {:counter => counter})
 .info
   %h5.index_title.col-sm-9.col-lg-10
+    = render 'pin_it', :document => document if has_thumbnail?(document)
     = link_to_document document, :counter => counter, :label=> label

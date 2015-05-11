@@ -17,6 +17,10 @@
                   %span.icon-headphones
             - else
               = link_to cached_thumbnail_tag(document, {}), thumb_url
+        %div.row
+          = render 'pin_it_large', :document => document, :pinterest_image => '//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_red_28.png'
+          %div.addthis_sharing_toolbox
+
 
         %h1.h3{style:'font-style:italic;'}= display_title
         %a.btn.btn-default.btn-lg.btn-primary{href:thumb_url, target: '_blank'}

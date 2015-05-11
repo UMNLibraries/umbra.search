@@ -25,7 +25,6 @@ $dark-background-color: #102826;
   display: none;
 }
 
-
 .search-widgets div {
   z-index: 0;
 }
@@ -165,7 +164,24 @@ ol.subjects {
   z-index:100;
 }
 
+.documents-list {
+  .thumbnail {
+    display: inline;
+    margin-bottom: 5px;
+  }
+}
+
+#atstbx,
+.addthis_sharing_toolbox {
+  display: inline !important;
+}
+
 .gallery  {
+
+  .pin-it {
+    margin: -5px 0 5px;
+  }
+
   .document {
     float: left;
     position:relative;

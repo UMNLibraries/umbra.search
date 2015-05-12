@@ -10,7 +10,7 @@
     <meta name="og:image", content="<%= img %>">
     <meta name="og:url", content="<%= request.original_url %>">
     <meta name="og:description", content="<%= description %>">
-    <meta name="twitter:title" content="<%= display_title %>" />
+    <meta name="twitter:title" content="<%= display_title_short %>" />
     <meta name="twitter:image" content="<%= img %>" />
     <meta name="twitter:url" content="<%= request.original_url %>" />
     <meta name="twitter:card" content="photo" />
@@ -41,6 +41,18 @@
 
 </head>
 <body class="<%= render_body_class %>">
+
+  <script type="text/javascript">
+    var addthis_share = {}
+    addthis_share = {
+      passthrough : {
+        twitter: {
+          via: "umbrasearch",
+          title: "<%= display_title_short %>"
+        }
+      }
+    }
+  </script>
 
 <div class="ribbon-block">
   <div class="ribbon">

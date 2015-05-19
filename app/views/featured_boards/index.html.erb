@@ -1,0 +1,27 @@
+<h1>Featured Images</h1>
+
+<p>Each time the Umbra homepage loads, it will randomly select the background from the Featured Images that have been marked "published" here.</p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Is Published</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @featured_boards.each do |featured_board| %>
+      <tr>
+        <td><%= link_to 'Edit', edit_featured_board_path(featured_board) %></td>
+        <td><%= (featured_board.published) ? 'Yes' : 'No' %></td>
+        <td><%= render 'board', :board => featured_board %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Add a new Featured Board', new_featured_board_path, class:"btn btn-primary" %>

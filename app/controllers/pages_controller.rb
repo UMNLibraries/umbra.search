@@ -3,6 +3,7 @@ class PagesController < ApplicationController
   include FeaturedImagesHelper
 
   def home
+    @featured_boards = FeaturedBoard.where(:published => true)
     if params[:featured_image]
       @featured_image = FeaturedImage.find(params[:featured_image])
     else

@@ -1,0 +1,28 @@
+// Place all the styles related to the featured_boards controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#featured_board_url,
+#featured_board_title {
+  width: 800px;
+}
+
+.featured-boards {
+  margin-bottom: 25px;
+}
+
+.featured-board {
+  width: 250px;
+  h3  {
+    text-align: center;
+    font-size: 1em;
+    color: #9d9d9d;
+    text-transform: uppercase;
+  }
+  display: inline-block;
+}
+
+#main-container .featured-board > span > span:first-child {
+  display: none !important  ;
+}

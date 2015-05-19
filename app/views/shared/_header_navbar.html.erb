@@ -26,6 +26,10 @@
                     <ul aria-labelledby="help" class="dropdown-menu" id="user-settings" role="menu">
                       <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><%= link_to "Profile", edit_user_path(current_user), title: "Profile"%></a></li>
                       <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><%= link_to "Account", edit_user_registration_path(current_user), title: "Account"%></a></li>
+                      <% if current_user.has_one_of_these_roles?(['editor', 'admin']) %>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><%= link_to "Featured Images", featured_images_path, title: "Featured Images"%></a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><%= link_to "Featured Boards", featured_boards_path, title: "Featured Boards"%></a></li>
+                      <% end %>
                       <li role="presentation"><a role="menuitem" tabindex="-1" href="#">
                         <%= link_to destroy_user_session_path, method: :delete, title: "Sign Out" do %>
                           <span class="glyphicon glyphicon-log-out"></span> <span class="hidden-sm">Log Out</span>

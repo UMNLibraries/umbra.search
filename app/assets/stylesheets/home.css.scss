@@ -1,3 +1,246 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#featured {
+  h2 {
+    color: #ffffff;
+    text-align: center;
+    font-size: 1.75em;
+    margin: 20px 0 -10px;
+    text-transform: uppercase
+  }
+  .featured-column {
+    width: 500px;
+    padding: 25px;
+  }
+}
+
+.featured-widgets {
+  vertical-align: top;
+  text-align: center;
+  .row {
+    margin-bottom: 10px;
+  }
+}
+
+.featured-boards {
+  .featured-widget > span span  {
+    display:none !important;
+  }
+}
+
+.featured-widget {
+  padding: 5px;
+  display: inline-block;
+}
+
+.blacklight-pages-home {
+  #main-container {
+    padding: 0 !important;
+    margin: 0;
+    background-color: black;
+  }
+
+  #main-content {
+    margin-top: 0;
+  }
+}
+
+.home-panel .search-query-form,
+.home-panel .browse-home {
+  float: right;
+}
+
+.input-group-btn.home {
+    border-bottom-left-radius: 10;
+}
+
+body.blacklight-pages-home {
+  background-color: #102826;
+}
+
+#home-search {
+  max-width: 600px;
+  padding: 0;
+
+  .tagline {
+    color: #1B5958;
+    font-weight: normal;
+    text-align: right;
+    margin-right: 45px;
+  }
+
+  .record-count {
+    color: #1B5958;
+  }
+
+  .search-bar {
+    padding: 15px 15px 0 15px;
+  }
+
+  .search-query-form {
+    .input-group {
+      #q {
+        width: 300px;
+      }
+    }
+  }
+}
+
+#home-search .help {
+  border: none;
+}
+
+#home-search .help .btn-nav:hover {
+  opacity: 0.90;
+}
+
+#home-search .btn-default.btn-nav{
+  background-color: #1B5958;
+  color: #FCFCFC;
+  border-bottom: none;
+  border-radius: 0;
+  line-height: 1em;
+  margin-top: 10px;
+  opacity: 0.75;
+}
+
+#home-search .btn-group > .btn-group:last-child:not(:first-child) > .btn:first-child {
+  border-right: none;
+}
+
+#home-search .btn-group > .btn-group:first-child:not(:last-child) > .btn:last-child {
+  border-left: none;
+}
+
+#home-search .browse-by {
+  margin: 8px 0 0 5px;
+  background:rgba(255,255,255,0.75);
+  color: #1B5958;
+}
+
+#home-search .search-query-form {
+  padding-right: 0;
+}
+
+.home-image-info {
+  padding-left: 10px;
+  padding-top: 30px;
+  margin-top: -50px;
+  font-size: 1.1em;
+  color: #fff;
+  min-height: 51px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0), black);
+  width: 100%;
+}
+
+.home-image-info a {
+  color: #DC6F45;
+}
+
+.home-image-info .text {
+  width: 1000px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis
+}
+
+#home-search {
+  background:rgba(255,255,255,0.75);
+  margin-top: 150px
+}
+
+#home-search-logo {
+  background-image: asset_url('2Color-UmbraMarkHome.png');
+  background-repeat: no-repeat;
+  min-height: 150px;
+  background-position: right;
+  margin-top: 15px;
+  margin-left: -10px;
+}
+
+#home-search-slogan {
+  margin-top: 52px;
+  text-align: left;
+}
+
+#home-search .input-group-addon {
+  display: none;
+}
+
+#home-search-slogan h1 {
+  margin: 0;
+  font-size: 1.75em;
+  color: #DC6F45;
+  text-transform: uppercase;
+}
+
+.home-panel  {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    min-height: 600px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: cover;
+    text-align: center;
+
+    h2 {
+      text-align: left;
+      font-weight: bold;
+      padding-left: 2em;
+      color: #A2A2A2;
+      font-size: 2em;
+    }
+
+
+    .thumbnail {
+      border: none;
+    }
+
+    .thumbnail h3 {
+        padding-left: 10px;
+    }
+}
+
+    .navbar-nav .umbra-about-slug {
+      display: none;
+    }
+
+.home-panel .icon-search,
+.blacklight-catalog-show .icon-search {
+    font-size: 4em;
+}
+
+@media (max-width: 600px) {
+  .home-image-info .text {
+    width: 400px;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 768px) {
+  .home-image-info .text {
+    width: 550px;
+  }
+}
+
+@media (min-width: 1000px) and (max-width: 1366px) {
+  .home-image-info .text {
+    width: 1000px;
+  }
+}
+
+@media (min-width: 1366px) and (max-width: 1680px) {
+  .home-image-info .text {
+    width: 1300px;
+  }
+}
+
+@media (min-width: 1680px) and (max-width: 2680px) {
+  .home-image-info .text {
+    width: 1600px;
+  }
+}

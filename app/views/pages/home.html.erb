@@ -27,3 +27,12 @@
     <% end %>
   </div>
 </div>
+
+<div id="featured">
+  <h2>Featured Collections</h2>
+  <div class="featured-widgets featured-boards">
+    <% Array.wrap(@featured_boards).each do |featured_board| %>
+      <%= render 'featured_boards/board', :board => featured_board %>
+    <% end %>
+  </div>
+</div>

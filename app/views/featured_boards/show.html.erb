@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+
+<%= render 'board', :board => @featured_board %>
+
+
+  <%= published_status(@featured_board) %>
+  <%= link_to 'Edit', edit_featured_board_path(@featured_board) %> |
+  <%= link_to 'List Featured Boards', featured_boards_path %>

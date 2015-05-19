@@ -29,7 +29,9 @@
 </div>
 
 <div id="featured">
-  <h2>Featured Collections</h2>
+  <% if @featured_boards.count > 0 %>
+    <h2>Featured Collections</h2>
+  <% end %>
   <div class="featured-widgets featured-boards">
     <% Array.wrap(@featured_boards).each do |featured_board| %>
       <%= render 'featured_boards/board', :board => featured_board %>

@@ -393,6 +393,12 @@ body.blacklight-pages-home {
     font-size: 4em;
 }
 
+.blacklight-catalog-show {
+  .thumbnail {
+    max-width: 300px;
+  }
+}
+
 .ribbon-block {
   position: absolute;
   top: 0;

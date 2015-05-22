@@ -1,8 +1,15 @@
 class FeaturedBoardsController < ApplicationController
-  before_action :require_management_permission
+  before_action :require_management_permission, except: [:preview]
   before_action :set_featured_board, only: [:show, :edit, :update, :destroy]
 
   respond_to :html
+
+
+  def preview
+    @featured_board = FeaturedBoard.create(title: '', url: params[:url])
+    @refresh_preview = params[:refresh_preview].blank?
+    render 'preview'
+  end
 
   def index
     @featured_boards = FeaturedBoard.all
@@ -10,6 +17,7 @@ class FeaturedBoardsController < ApplicationController
   end
 
   def show
+    @refresh_preview = !params[:refresh_preview].blank?
     respond_with(@featured_board)
   end
 
@@ -43,7 +51,7 @@ class FeaturedBoardsController < ApplicationController
     end
 
     def featured_board_params
-      params.require(:featured_board).permit(:title, :url, :published)
+      params.require(:featured_board).permit(:title, :url, :published, :refresh_preview)
     end
 
     def require_management_permission

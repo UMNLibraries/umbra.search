@@ -1,9 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<%=  render_snapshot(@featured_board.url, @featured_board.title, @refresh_preview) %>
 
-<%= render 'board', :board => @featured_board %>
-
-
-  <%= published_status(@featured_board) %>
-  <%= link_to 'Edit', edit_featured_board_path(@featured_board) %> |
-  <%= link_to 'List Featured Boards', featured_boards_path %>
+<%= published_status(@featured_board) %>
+<%= link_to 'Edit', edit_featured_board_path(@featured_board) %> |
+<%= link_to 'List Featured Boards', featured_boards_path %>

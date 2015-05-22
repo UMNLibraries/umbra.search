@@ -34,7 +34,7 @@
   <% end %>
   <div class="featured-widgets featured-boards">
     <% Array.wrap(@featured_boards).each do |featured_board| %>
-      <%= render 'featured_boards/board', :board => featured_board %>
+      <%= render_snapshot(featured_board.url, featured_board.title, @refresh_preview) %>
     <% end %>
   </div>
 </div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150512200850) do
+ActiveRecord::Schema.define(version: 20150521160715) do
 
   create_table "blacklight_folders_folder_items", force: true do |t|
     t.integer  "folder_id",   null: false
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 20150512200850) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "published"
+    t.string   "snapshot"
   end
 
   create_table "featured_images", force: true do |t|
@@ -98,6 +99,7 @@ ActiveRecord::Schema.define(version: 20150512200850) do
     t.string   "off_text_display"
     t.string   "css"
     t.integer  "search_filter_threshold"
+    t.boolean  "restrict_to_editors"
   end
 
   create_table "searches", force: true do |t|

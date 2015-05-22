@@ -192,6 +192,7 @@ GEM
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     orm_adapter (0.5.0)
+    phantomjs (1.9.8.0)
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
     rack (1.5.2)
@@ -274,6 +275,8 @@ GEM
       sass (~> 3.2.2)
       sprockets (~> 2.8, < 3.0)
       sprockets-rails (~> 2.0)
+    screencap (0.1.2)
+      phantomjs
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
@@ -363,6 +366,7 @@ DEPENDENCIES
   rsolr (~> 1.0)
   rspec-rails (> 3.0)
   sass-rails (~> 4.0.3)
+  screencap
   sdoc (~> 0.4.0)
   sidekiq
   spring

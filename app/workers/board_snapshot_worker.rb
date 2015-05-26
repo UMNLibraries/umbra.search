@@ -1,8 +1,6 @@
 class BoardSnapshotWorker
   include Sidekiq::Worker
-  def perform(preview_url, file_path)
-    Screenshot.snap(preview_url, {
-      :output => file_path,
-      :top => 0, :left => 3, :width => 200, :height => 150 })
+  def perform(preview_url, seconds_to_expiration)
+    Umbra::FeaturedBoards::Snapshot.new(preview_url, seconds_to_expiration).take!
   end
 end

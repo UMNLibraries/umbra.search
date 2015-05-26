@@ -4,10 +4,8 @@ class FeaturedBoardsController < ApplicationController
 
   respond_to :html
 
-
   def preview
     @featured_board = FeaturedBoard.create(title: '', url: params[:url])
-    @refresh_preview = params[:refresh_preview].blank?
     render 'preview'
   end
 
@@ -17,7 +15,7 @@ class FeaturedBoardsController < ApplicationController
   end
 
   def show
-    @refresh_preview = !params[:refresh_preview].blank?
+    @seconds_to_expiration = seconds_to_expiration
     respond_with(@featured_board)
   end
 
@@ -51,7 +49,7 @@ class FeaturedBoardsController < ApplicationController
     end
 
     def featured_board_params
-      params.require(:featured_board).permit(:title, :url, :published, :refresh_preview)
+      params.require(:featured_board).permit(:title, :url, :published, :seconds_to_expiration)
     end
 
     def require_management_permission

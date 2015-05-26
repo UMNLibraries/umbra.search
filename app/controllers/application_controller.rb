@@ -29,4 +29,20 @@ class ApplicationController < ActionController::Base
   def devise_params
     params.require('user').permit(:redirect_to)
   end
+
+  def seconds_to_expiration
+   if params[:seconds_to_expiration] && can_expire_snapshots?
+    params[:seconds_to_expiration].to_i
+    else
+      one_day
+    end
+  end
+
+  def can_expire_snapshots?
+    current_user && current_user.has_role?('admin')
+  end
+
+  def one_day
+    (60*60*24)
+  end
 end

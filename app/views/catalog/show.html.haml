@@ -13,10 +13,10 @@
           %div.col-xs-3.col-sm-4.col-md-3.col-lg-3
             - if  is_sound?
               .cover-image.gallery-glyphs.glyphs
-                = link_to thumb_url do
+                = link_to thumb_url, {target: '_blank'} do
                   %span.icon-headphones
             - else
-              = link_to cached_thumbnail_tag(document, {}), thumb_url
+              = link_to cached_thumbnail_tag(document, {}), thumb_url, {target: '_blank'}
         %div.row
           %div.pin-it-large
             = render 'pin_it_large', :document => document, :pinterest_image => '//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_red_28.png'

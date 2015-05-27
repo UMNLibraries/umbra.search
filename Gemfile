@@ -55,6 +55,8 @@ gem 'rmagick'
 gem 'rest-client', '~>1.8'
 gem 'rails_admin'
 gem 'screencap'
+gem 'piet'
+gem 'piet-binary'
 
 group :test, :development do
   # Debug seems to have trouble w/ Ruby 2.x, byebug is a replacment

@@ -1,7 +1,7 @@
 <div class="featured-board">
   <h3><%= link_to title, url %></h3>
   <% if path %>
-    <%= link_to(url) { image_tag(path, :title => "Pinterest Board: #{title}", :alt => "Pinterest Board: #{title}") }  %>
+    <%= link_to(url, {:target => "_blank"}) { image_tag(path, :title => "Pinterest Board: #{title}", :alt => "Pinterest Board: #{title}") }  %>
   <% else %>
     <a data-pin-do="embedBoard" href="<%= url %>" data-pin-scale-width="100" data-pin-scale-height="150" data-pin-board-width="250"><%= title %></a>
   <% end %>

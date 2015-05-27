@@ -21,7 +21,7 @@
         <td><%= link_to_featured_record(featured_image.record_id, truncate(featured_image.record_id, length:20)) %></td>
         <td>
           <% if featured_image.uploaded_image.url.present? %>
-              <p><%= link_to image_tag(featured_image.uploaded_image.url(:thumb_medium), :class => "thumb thumb-large"), featured_image_preview_path(featured_image) %></p>
+              <p><%= link_to image_tag(featured_image.uploaded_image.url(:thumb_large), :class => "thumb thumb-large"), featured_image_preview_path(featured_image) %></p>
           <% else %>
               <p>No image uploaded</p>
           <% end %>

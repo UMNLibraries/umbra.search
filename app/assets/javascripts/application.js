@@ -30,9 +30,6 @@
 // Required by Blacklight
 //= require blacklight/blacklight
 //
-// Required by Blacklight Folders
-//= require jquery-nestable/jquery.nestable
-//= require blacklight_folders
 // For blacklight_range_limit built-in JS, if you don't want it you don't need
 // this:
 //= require 'blacklight_range_limit'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150406211851) do
+ActiveRecord::Schema.define(version: 20150521160715) do
 
   create_table "blacklight_folders_folder_items", force: true do |t|
     t.integer  "folder_id",   null: false
@@ -50,6 +50,15 @@ ActiveRecord::Schema.define(version: 20150406211851) do
 
   add_index "bookmarks", ["user_id"], name: "index_bookmarks_on_user_id", using: :btree
 
+  create_table "featured_boards", force: true do |t|
+    t.string   "title"
+    t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "published"
+    t.string   "snapshot"
+  end
+
   create_table "featured_images", force: true do |t|
     t.string   "title"
     t.string   "record_id"
@@ -69,8 +78,32 @@ ActiveRecord::Schema.define(version: 20150406211851) do
     t.datetime "updated_at"
   end
 
+  create_table "flag_votes", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "flag_id"
+    t.integer  "weight"
+    t.string   "record_id",  limit: 40
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "flag_votes", ["user_id", "flag_id", "record_id"], name: "index_flag_votes_on_user_id_and_flag_id_and_record_id", unique: true, using: :btree
+
+  create_table "flags", force: true do |t|
+    t.string   "on_text"
+    t.string   "off_text"
+    t.boolean  "published"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "on_text_display"
+    t.string   "off_text_display"
+    t.string   "css"
+    t.integer  "search_filter_threshold"
+    t.boolean  "restrict_to_editors"
+  end
+
   create_table "searches", force: true do |t|
-    t.text     "query_params"
+    t.text     "query_params", limit: 16777215
     t.integer  "user_id"
     t.string   "user_type"
     t.datetime "created_at"

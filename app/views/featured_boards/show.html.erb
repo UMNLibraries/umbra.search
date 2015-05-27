@@ -1,0 +1,7 @@
+<p id="notice"><%= notice %></p>
+
+<%= render_board_snapshot(preview_url(@featured_board.url), @featured_board.url, @featured_board.title, @seconds_to_expiration) %>
+
+<%= published_status(@featured_board) %>
+<%= link_to 'Edit', edit_featured_board_path(@featured_board) %> |
+<%= link_to 'List Featured Boards', featured_boards_path %>

@@ -22,8 +22,13 @@ module ShowRecordHelper
   def provider_name
     @document.fetch('provider_name_ssi', false)
   end
+
   def display_title
     @document.fetch('title_ssi', false)
+  end
+
+  def display_title_short
+    display_title.truncate(50, separator: /\s/)
   end
 
   def collection

@@ -1,0 +1,41 @@
+.social-button {
+  // ewwe
+  [id^=___plus_0] iframe { width:82px !important; }
+}
+
+.fb-share-button {
+  margin-left: -10px;
+}
+
+#atstbx {
+  float: left;
+  .addthis_sharing_toolbox {
+    display: inline !important;
+  }
+}
+
+a.addthis-twitter {
+  float: left;
+  span.aticon-twitter {
+    display: block;
+    height: 32px;
+    width: 32px;
+    background-size: 32px 32px !important;
+  }
+}
+
+.gallery  {
+
+  .pin-it {
+    margin: -5px 0 5px;
+  }
+}
+
+.pin-it-large {
+  float: left;
+  margin-right: 2px;
+  a {
+    padding: 0 !important;
+    background-size: 32px 32px !important;
+  }
+}

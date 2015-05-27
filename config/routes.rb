@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
   resources :featured_images
+  resources :featured_boards
+
+  get 'featured_board/preview' => 'featured_boards#preview', as: 'board_preview'
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, :controllers => { :registrations => "registrations" }

@@ -10,7 +10,7 @@
     <meta name="og:image", content="<%= img %>">
     <meta name="og:url", content="<%= request.original_url %>">
     <meta name="og:description", content="<%= description %>">
-    <meta name="twitter:title" content="<%= display_title %>" />
+    <meta name="twitter:title" content="<%= display_title_short %>" />
     <meta name="twitter:image" content="<%= img %>" />
     <meta name="twitter:url" content="<%= request.original_url %>" />
     <meta name="twitter:card" content="photo" />
@@ -21,6 +21,17 @@
   <!-- Mobile viewport optimization h5bp.com/ad -->
   <meta name="HandheldFriendly" content="True">
 
+
+  <script type="text/javascript">
+    var addthis_share = {}
+    addthis_share = {
+      passthrough : {
+        twitter: {
+          via: "umbrasearch"
+        }
+      }
+    }
+  </script>
   <!-- Mobile IE allows us to activate ClearType technology for smoothing fonts for easy reading -->
   <!--[if IEMobile]>
   <meta http-equiv="cleartype" content="on">

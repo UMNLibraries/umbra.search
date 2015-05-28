@@ -25,10 +25,18 @@
   <script type="text/javascript">
     var addthis_share = {}
     addthis_share = {
-      passthrough : {
+      passthrough: {
         twitter: {
           via: "umbrasearch"
         }
+      },
+      url_transforms : {
+        shorten: {
+          twitter: 'bitly'
+        }
+      },
+        shorteners : {
+        bitly : {}
       }
     }
   </script>

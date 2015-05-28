@@ -185,7 +185,6 @@ ol.subjects {
   .document {
     float: left;
     position:relative;
-    overflow:auto;
     z-index:5;
     width: 175px;
     height: 230px;
@@ -563,6 +562,12 @@ body.blacklight-pages-home {
 @media (max-width: 600px) {
   .home-image-info .text {
     width: 400px;
+  }
+
+  .gallery  {
+    .document {
+      overflow:auto;
+    }
   }
 }
 

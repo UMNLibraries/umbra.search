@@ -1,5 +1,5 @@
 <% if document['object_ssi'] %>
   <div class="pin-it">
-    <a href="//www.pinterest.com/pin/create/button/?url=<%= CGI.escape "#{request.domain}#{catalog_path(document)}" %>&media=<%= CGI.escape document['object_ssi'] %>&description=<%= CGI.escape document['title_ssi'] %>" data-pin-do="buttonPin" data-pin-config="none" data-pin-color="white"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_white_20.png" /></a>
+    <a href="//www.pinterest.com/pin/create/button/?url=<%= CGI.escape "#{request.domain}#{catalog_path(document)}" %>&media=<%= CGI.escape document['object_ssi'] %>&description=<%= CGI.escape document['title_ssi'] %>" data-pin-do="buttonPin" data-pin-config="none" data-pin-color="white"><img src="http://assets.pinterest.com/images/pidgets/pinit_fg_en_rect_white_20.png" /></a>
   </div>
 <% end %>

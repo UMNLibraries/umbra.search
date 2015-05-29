@@ -1,3 +1,3 @@
 <% if document['object_ssi'] %>
-  <a class="pinit-large" href="//www.pinterest.com/pin/create/button/?url=<%= CGI.escape "#{request.domain}#{catalog_path(document)}" %>&media=<%= CGI.escape document['object_ssi'] %>&description=<%= CGI.escape document['title_ssi'] %>" data-pin-do="buttonPin" data-pin-shape="round" data-pin-height="32"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_round_red_32.png" /></a>
+  <a class="pinit-large" href="//www.pinterest.com/pin/create/button/?url=<%= CGI.escape "#{request.domain}#{catalog_path(document)}" %>&media=<%= CGI.escape document['object_ssi'] %>&description=<%= CGI.escape document['title_ssi'] %>" data-pin-do="buttonPin" data-pin-shape="round" data-pin-height="32"><img src="http://assets.pinterest.com/images/pidgets/pinit_fg_en_round_red_32.png" /></a>
 <% end %>

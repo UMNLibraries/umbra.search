@@ -5,11 +5,13 @@
 
 #featured {
   h2 {
-    color: #ffffff;
     text-align: center;
     font-size: 1.75em;
     margin: 20px 0 -10px;
-    text-transform: uppercase
+    text-transform: uppercase;
+    a {
+      color: #ffffff;
+    }
   }
   .featured-column {
     width: 500px;

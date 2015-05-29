@@ -24,7 +24,7 @@ module ShowRecordHelper
   end
 
   def display_title
-    @document.fetch('title_ssi', false)
+    @document.fetch('title_ssi', '[Missing Title]')
   end
 
   def display_title_short

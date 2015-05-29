@@ -1,5 +1,5 @@
 - counter = document_counter_with_offset(document_counter)
-- label = truncate(document.fetch(document_show_link_field(document)), length: 75)
+- label = truncate(document.fetch(document_show_link_field(document), '[Missing Title]'), length: 75)
 .record-actions.col-sm-9.col-lg-10
 .cover-image.col-sm-9.col-lg-10= render_thumbnail_tag(document, {:title => label, :alt => label}, {:counter => counter})
 .info

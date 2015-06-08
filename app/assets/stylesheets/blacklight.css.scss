@@ -23,6 +23,7 @@ $grid-float-breakpoint: 992px;
 }
 
 .navbar {
+  z-index: 1000;
   min-height: 100px;
 }
 

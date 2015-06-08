@@ -29,6 +29,14 @@ $dark-background-color: #102826;
   z-index: 0;
 }
 
+.search-widgets #sort-dropdown {
+  z-index: 100;
+}
+
+.search-widgets #per_page-dropdown {
+  z-index: 99;
+}
+
 // Navbar
 .navbar {
   margin-bottom:0px;
@@ -161,7 +169,7 @@ ol.subjects {
 }
 
 .navbar-static-top {
-  z-index:100;
+  z-index:1000;
 }
 
 .documents-list {

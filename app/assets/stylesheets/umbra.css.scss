@@ -728,13 +728,14 @@ body.blacklight-pages-home {
     font-size: .9em;
     background-color: #fff;
     color: #337ab7;
-    border: none;
-    padding: 0;
-    margin-bottom: 5px;
+    border-color: #E8E8E8;
+    padding: 3px;
+    margin: 3px 0 5px;
   }
-    a:hover {
-      text-decoration: underline;
-    }
+  .btn-primary:hover {
+    background-color: #EE6D4F;
+    color: white;
+  }
 }
 
 .btn-primary {
@@ -742,7 +743,6 @@ body.blacklight-pages-home {
   a {
     color: white;
   }
-
   a:hover {
     text-decoration: none;
   }

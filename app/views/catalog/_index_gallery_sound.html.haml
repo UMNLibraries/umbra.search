@@ -5,4 +5,5 @@
     %span.icon-headphones
 .info
   %h5.index_title.col-sm-9.col-lg-10
+    = render 'view_original', :url => document.fetch('isShownAt_ssi', false)
     = link_to_document document, :counter => counter, :label => label

@@ -2,7 +2,7 @@
 <div style="text-align: center; width: 100px;">
   <div class="document-thumbnail search-thumbnail">
     <%= tn %>
-  <%= render 'pin_it', :document => document %>
+  <%= render 'view_original', :url => document.fetch('isShownAt_ssi', false) %>
   </div>
 </div>
 <%- end %>

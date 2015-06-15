@@ -1,19 +1,20 @@
 %section{style:'background-color:#efefef;'}
   %div.navbar.navbar-default.navbar-static-top.lower
     %div.container
-      %ul.nav.navbar-nav.navbar-left
-        %li
-          %div.btn-group
-            %button.btn.btn-default.btn-s.btn-default.back
-              &laquo;
-              =link_back_to_catalog({:label => "Back to Search"})
-      %ul.nav.navbar-nav.navbar-right
-        %li
-          %p.navbar-text
-            %strong
-              Result
-              =item_page_entry_info
-        %li
-          %div.btn-group
-            %button.btn.btn-default.navbar-btn= link_to_previous_document @previous_document
-            %button.btn.btn-default.navbar-btn= link_to_next_document @next_document
+      - if !search_session.empty?
+        %ul.nav.navbar-nav.navbar-left
+          %li
+            %div.btn-group
+              %button.btn.btn-default.btn-s.btn-default.back
+                &laquo;
+                =link_back_to_catalog({:label => "Back to Search"})
+        %ul.nav.navbar-nav.navbar-right
+          %li
+            %p.navbar-text
+              %strong
+                Result
+                =item_page_entry_info
+          %li
+            %div.btn-group
+              %button.btn.btn-default.navbar-btn= link_to_previous_document @previous_document
+              %button.btn.btn-default.navbar-btn= link_to_next_document @next_document

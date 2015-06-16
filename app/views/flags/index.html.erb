@@ -1,0 +1,31 @@
+<h1>Flags</h1>
+
+<p>Each time the Umbra homepage loads, it will randomly select the background from the Flags that have been marked "published" here.</p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>On Text</th>
+      <th>On Text</th>
+      <th>Published?</th>
+      <th>Restricted to Flag Editors?</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @flags.each do |flag| %>
+      <tr>
+        <td><%= link_to 'Edit', edit_flag_path(flag) %></td>
+        <td><%= flag.on_text %></td>
+        <td><%= flag.off_text %></td>
+        <td><%= published_status(flag) %></td>
+        <td><%= restricted_status(flag) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Add a new flag', new_flag_path, class:"btn btn-primary" %>

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<strong>On Text:</strong> <%= @flag.on_text %>"</br>
+<strong>Off Text:</strong> "<%= @flag.off_text %>"</br>
+<strong>On Text Short:</strong> "<%= @flag.on_text_display %>"</br>
+<strong>Off Text Short:</strong> "<%= @flag.off_text_display %>"</br>
+<strong>On CSS Class:</strong> "<%= @flag.on_css %>"</br>
+<strong>Off CSS Class:</strong> "<%= @flag.off_css %>"</br>
+<strong>Hide From Search Flag Vote Threshold:</strong> "<%= @flag.search_filter_threshold %>"</br>
+<%= published_status(@flag) %>
+<strong>Restricted to Use by Users with the Flag Editors Role?</strong><%= restricted_status(@flag) %></br>
+
+<%= link_to 'Edit', edit_flag_path(@flag) %> |
+<%= link_to 'List Flags', flags_path %>

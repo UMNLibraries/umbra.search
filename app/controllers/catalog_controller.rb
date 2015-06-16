@@ -4,6 +4,12 @@ class CatalogController < ApplicationController
   include Blacklight::Catalog
   include BlacklightMoreLikeThis::SolrHelperExtension
   include Umbra::SolrHelper::Umbra
+  include Flag::SolrHideFlagged
+
+  def index
+    @flags = Array.wrap(Flag.where(:published => true))
+    super
+  end
 
   def about
     render :about

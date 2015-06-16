@@ -186,31 +186,35 @@ ol.subjects {
 
 .gallery  {
 
-  .pin-it {
-    margin: -5px 0 5px;
+  .title {
+    padding-top: 5px;
   }
 
   .document {
-    float: left;
-    position:relative;
+    display: inline-block;
     z-index:5;
     width: 175px;
-    height: 230px;
+    height: 285px;
     padding: 5px;
     .cover-image {
       height:100px;
       img.thumbnail {
         height: 100px;
         width: 75px;
+        // margin: 10px 0 10px 25px;
         margin-left: auto;
         margin-right: auto;
+        padding-bottom: 10px;
       }
     }
     .info {
       text-align: center;
     }
-    .info h5{
-      height: 75px;
+    .panel-body {
+      height: 225px;
+    }
+    .panel-footer {
+      text-align: center;
     }
     .record-actions label {
       font-weight: normal;
@@ -721,14 +725,11 @@ body.blacklight-pages-home {
 }
 
 #documents {
-  h5 {
-    margin-top: 2px;
-  }
   .btn-primary {
     font-size: .9em;
     background-color: #fff;
     color: #337ab7;
-    border-color: #E8E8E8;
+    border: none;
     padding: 3px;
     margin: 3px 0 5px;
   }

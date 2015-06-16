@@ -1,8 +1,9 @@
 - counter = document_counter_with_offset(document_counter)
 - label = truncate(document.fetch(document_show_link_field(document), '[Missing Title]'), length: 75)
-.record-actions.col-sm-9.col-lg-10
-.cover-image.col-sm-9.col-lg-10= render_thumbnail_tag(document, {:title => label, :alt => label}, {:counter => counter})
-.info
-  %h5.index_title.col-sm-9.col-lg-10
+%div.panel.panel-default
+  %div.panel-body
+    .cover-image= render_thumbnail_tag(document, {:title => label, :alt => label}, {:counter => counter})
+    %div.title
+      = link_to_document document, :counter => counter, :label=> label
+  %div.panel-footer
     = render 'view_original', :url => document.fetch('isShownAt_ssi', false)
-    = link_to_document document, :counter => counter, :label=> label

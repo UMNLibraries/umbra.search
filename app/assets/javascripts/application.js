@@ -14,18 +14,6 @@
 //= require jquery_ujs
 //
 
-// Masonry dependencies
-// (This is crazy)
-//= require eventie/eventie
-//= require doc-ready/doc-ready
-//= require eventEmitter/EventEmitter
-//= require get-style-property/get-style-property
-//= require get-size/get-size
-//= require matches-selector/matches-selector
-//= require outlayer/item
-//= require outlayer/outlayer
-//= require masonry/masonry
-
 //
 // Required by Blacklight
 //= require blacklight/blacklight
@@ -37,7 +25,6 @@
 // For Cropping Avatar Images
 //= require jcrop/js/jquery.Jcrop
 
-//= require bootstrap-tour/build/js/bootstrap-tour-standalone.min
 
 //= require_tree .
 

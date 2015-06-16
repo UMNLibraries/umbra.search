@@ -2,6 +2,9 @@
 class SolrDocument 
   include Blacklight::Solr::Document
 
+  def self.bag_of_words(document)
+    "#{document['title_ssi']} #{document.fetch('subject_ssim', []).join(' ')} #{document.fetch('creator_ssim', []).join(' ')}"
+  end
   # self.unique_key = 'id'
   
   # Email uses the semantic field mappings below to generate the body of an email.

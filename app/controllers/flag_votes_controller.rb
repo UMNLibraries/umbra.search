@@ -6,7 +6,7 @@ class FlagVotesController < ApplicationController
   def index
     @flag_votes = FlagVote.summary(FlagVote.all) do |record_id|
       response, document = fetch record_id
-      document
+      SolrDocument.bag_of_words(document)
     end
     render :json => @flag_votes
   end

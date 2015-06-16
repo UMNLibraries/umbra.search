@@ -199,8 +199,8 @@ ol.subjects {
     .cover-image {
       height:100px;
       img.thumbnail {
-        height: 100px;
-        width: 75px;
+        max-height: 100px;
+        max-width: 100px;
         // margin: 10px 0 10px 25px;
         margin-left: auto;
         margin-right: auto;

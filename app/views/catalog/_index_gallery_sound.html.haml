@@ -1,9 +1,12 @@
 - counter = document_counter_with_offset(document_counter)
 - label = truncate(document.fetch(document_show_link_field(document)), length: 75)
-.cover-image.gallery-glyphs.glyphs
-  = link_to catalog_url(document), {:counter => counter, :label => label, :title => label} do
-    %span.icon-headphones
-.info
-  %h5.index_title.col-sm-9.col-lg-10
+%div.panel.panel-default
+  %div.panel-body
+    .cover-image.gallery-glyphs.glyphs
+      = link_to catalog_url(document), {:counter => counter, :label => label, :title => label} do
+        %span.icon-headphones
+    %div.title
+      = link_to_document document, :counter => counter, :label => label        
+  %div.panel-footer
     = render 'view_original', :url => document.fetch('isShownAt_ssi', false)
-    = link_to_document document, :counter => counter, :label => label
+

@@ -1,14 +1,17 @@
 class FlagVotesController < ApplicationController
+  include FlagVoteConcerns
+
   before_action :check_permissions, only: [:destroy]
   before_action :record_updated, only: [:create, :destroy]
   include Blacklight::SearchHelper
 
   def index
-    @flag_votes = FlagVote.summary(FlagVote.all) do |record_id|
-      response, document = fetch record_id
-      SolrDocument.bag_of_words(document)
-    end
-    render :json => @flag_votes
+    render :json => get_votes_and_records(FlagVote.all)
+  end
+
+  def show
+    votes = FlagVote.where(flag_id: params[:id])
+    render :json => get_records(votes)
   end
 
 

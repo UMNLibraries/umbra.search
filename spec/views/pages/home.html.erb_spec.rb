@@ -10,6 +10,7 @@ RSpec.describe "pages/home", :type => :view do
   end
 
   it "renders the featured image as background and displays its title info" do
+    @featured_boards = []
     render
     expect(rendered).to have_selector("a#featured","Featured: #{featured_image.title}")
     expect(rendered).to have_content(".home-panel {

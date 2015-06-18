@@ -1,9 +1,9 @@
 require 'rails_helper'
 require "umbra/featured_boards/snapshot"
 require 'sidekiq/testing'
-Sidekiq::Testing.fake!
 
 describe "snapshot" do
+  Sidekiq::Testing.fake!
   let(:preview_url) { 'https://www.google.com' }
   let(:seconds_in_a_day) { (60*60*24) }
 

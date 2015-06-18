@@ -6,7 +6,7 @@ describe FeaturedBoardsHelper, :type => :helper do
   let(:seconds_to_expiration) { (60*60*24) }
 
   it "should take a snapshot" do
-    Sidekiq::Testing.fake!
+    Sidekiq::Testing.inline!
     snapshot = helper.board_snapshot(board_url, 'foo', seconds_to_expiration)
     expect(File.file?("#{Rails.root}/public/#{snapshot.public_path}")).to be true
     snapshot.delete

@@ -38,7 +38,7 @@ module Flag::SolrHideFlagged
     User.all.each do |user|
       if user.has_role?('flag_editor')
         user.flag_votes.each do |vote|
-          records << vote
+          records << vote unless vote.flag.search_filter_threshold.blank?
         end
       end
     end

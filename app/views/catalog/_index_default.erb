@@ -5,5 +5,5 @@
       <dd class="blacklight-<%= solr_fname.parameterize %>"><%= render_index_field_value document, :field => solr_fname %></dd>
     <% end -%>
   <% end -%>
-
+  <%= render 'flags/flag_vote_buttons', document: document %>
 </dl>

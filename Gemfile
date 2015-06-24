@@ -58,6 +58,9 @@ gem 'screencap'
 gem 'piet'
 gem 'piet-binary'
 
+# Pagination
+gem 'kaminari'
+
 group :test, :development do
   # Debug seems to have trouble w/ Ruby 2.x, byebug is a replacment
   gem 'byebug'

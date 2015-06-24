@@ -3,6 +3,11 @@ Rails.application.routes.draw do
   resources :featured_images
   resources :featured_boards
 
+  resources :flags
+  resources :flag_votes
+  post '/flag_votes/create' => 'flag_votes#create', as: 'create_flag_vote'
+  delete '/flag_votes/destroy' => 'flag_votes#destroy', as: 'destroy_flag_vote'
+
   get 'featured_board/preview' => 'featured_boards#preview', as: 'board_preview'
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'

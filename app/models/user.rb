@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :flag_votes
+
   mount_uploader :avatar, AvatarUploader
   after_update :crop_avatar
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
@@ -38,7 +40,7 @@ class User < ActiveRecord::Base
   # http://asilia.herokuapp.com/2011/04/06/bitmask-attributes-on-a-rails-application
   scope :with_role, lambda { |role| where('roles_mask & ? > 0 ', (2**ROLES.index(role.to_s))) }
 
-  ROLES = %w[admin editor]
+  ROLES = %w[admin editor flag_editor]
 
   def roles=(roles)
     self.roles_mask = (roles & ROLES).map { |r| 2**ROLES.index(r) }.sum

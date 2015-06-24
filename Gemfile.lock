@@ -362,6 +362,7 @@ DEPENDENCIES
   haml
   jbuilder (~> 2.0)
   jquery-rails
+  kaminari
   meta_request
   mini_magick
   mysql2

@@ -28,7 +28,7 @@ class FlagVote < ActiveRecord::Base
       record = yield vote[:record_id]
       records << format_record(record)
     end
-    records.join(' ')
+    records.join("\n")
   end
 
   def css_class

@@ -6,7 +6,7 @@ module Flag::SolrHideFlagged
   end
 
   def hide_flagged solr_parameters, user_parameters
-    if !not_ids.empty?
+    if !not_ids.empty? && !current_user_is_editor?
       nots = not_ids.join(' -id:')
       solr_parameters['fq'] << "-id:#{nots}"
     end
@@ -44,4 +44,11 @@ module Flag::SolrHideFlagged
     end
     records
   end
+
+  private
+
+  def current_user_is_editor?
+    current_user && current_user.has_role?('flag_editor')
+  end
+
 end

@@ -8,7 +8,6 @@ class FlagVote < ActiveRecord::Base
   validates :record_id, presence: true
   validates :user, presence: true
   validates :user_id, uniqueness: {scope: [:record_id, :flag_id]}
-
   scope :votes_above_threshold, ->(flag_id, threshold) { select(:record_id).where(flag_id: flag_id).group(:record_id).having("COUNT(record_id) >= ?", threshold) }
   scope :flag_vote, ->(record_id, user_id, flag_id) { where(record_id: record_id, user_id: user_id, flag_id: flag_id) }
 
@@ -19,16 +18,16 @@ class FlagVote < ActiveRecord::Base
       record = yield vote[:record_id]
       summary[vote[:flag_id]] << format_record(record)
     end
-    summary
+    summary.to_json
   end
 
   def self.records(votes)
     records = []
     votes.each do |vote|
       record = yield vote[:record_id]
-      records << format_record(record)
+      records << format_record(record).strip
     end
-    records.join("\n")
+    records.to_json
   end
 
   def css_class
@@ -38,6 +37,10 @@ class FlagVote < ActiveRecord::Base
   def self.find_or_build(record_id, user_id, flag_id)
     vote = flag_vote(record_id, user_id, flag_id).take
     (!vote.nil?) ? vote : self.new(record_id: record_id, user_id: user_id, flag_id: flag_id)
+  end
+
+  def self.document(record_id)
+    SolrClient.find_record(record_id)
   end
 
   private

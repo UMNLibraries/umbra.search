@@ -39,8 +39,8 @@ gem 'spring',        group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-gem 'blacklight_folders', :github => 'UMNLibraries/blacklight_folders', :branch => 'folder_description'
-gem 'blacklight', '~> 5.11.1'
+gem 'cancancan'
+gem 'blacklight', '~> 5.13.1'
 gem 'blacklight_range_limit'
 gem 'rsolr', '~>1.0'
 gem 'rails_autolink'

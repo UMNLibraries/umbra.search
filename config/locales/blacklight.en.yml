@@ -9,11 +9,11 @@ en:
       fields:
         sourceResource_type_ssi: "Type"
         subject_ssim: "Keyword"
-        creator_ssim: "Author"
+        creator_ssim: "Creator"
         sourceResource_date_begin_ssi: "Year"
         dataProvider_ssi: "Contributing Institution"
         sourceResource_collection_title_ssi: "Collection"
-        sourceResource_spatial_state_ssi: "State"
+        sourceResource_spatial_state_ssi: "Location"
         sourceResource_spatial_city_ssi: "City"
         sourceResource_spatial_county_ssi: "County"
         sourceResource_spatial_region_ssi: "Region"

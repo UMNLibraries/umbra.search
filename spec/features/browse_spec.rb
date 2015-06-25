@@ -32,7 +32,7 @@ describe 'Browsing Facets' do
 
   it 'should browse each full facet view and receive 100 facet results sorted numerically' do
     facets = {
-      "creator_ssim" => "Author",
+      "creator_ssim" => "Creator",
       "subject_ssim" => "Keyword",
       "dataProvider_ssi" => "Contributing Institution",
       "sourceResource_spatial_state_ssi" => "Location",

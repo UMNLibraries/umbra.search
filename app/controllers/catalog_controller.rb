@@ -97,7 +97,7 @@ class CatalogController < ApplicationController
     config.add_facet_field 'subject_ssim', :label => 'Keyword', :limit => 20
     # # Note: This tries to set assumed_boundaries for blacklight_range_limit, but it's not working.  Leaving the value set in case it gets fixed in future releases of blacklight_range_limit
     config.add_facet_field 'sourceResource_date_begin_ssi', :label => 'Year', :range => {:assumed_boundaries => [1100, Time.now.year + 2]}
-    config.add_facet_field 'creator_ssim', :label => 'Author', :limit => 20
+    config.add_facet_field 'creator_ssim', :label => 'Creator', :limit => 20
     config.add_facet_field 'dataProvider_ssi', :label => 'Contributing Institution', :limit => 10
     config.add_facet_field 'sourceResource_spatial_state_ssi', :label => 'Location', :limit => 10
     config.add_facet_field 'sourceResource_type_ssi', :label => 'Type', :limit => 4
@@ -121,7 +121,7 @@ class CatalogController < ApplicationController
     # solr fields to be displayed in the show (single result) view
     #   The ordering of the field names is the order of the display
 
-    #config.add_show_field 'sourceResource_creator_display', :label => 'Authors'
+    #config.add_show_field 'sourceResource_creator_display', :label => 'Creators'
     #config.add_show_field 'sourceResource_description_txt', :label => 'Description'
 
     config.add_show_field 'sourceResource_type_ssi', :label => 'Type'
@@ -171,7 +171,7 @@ class CatalogController < ApplicationController
       }
     end
 
-    config.add_search_field('Author') do |field|
+    config.add_search_field('Creator') do |field|
       field.solr_parameters = { :'spellcheck.dictionary' => 'default' }
       field.solr_local_parameters = {
         :qf => '$creator_qf',

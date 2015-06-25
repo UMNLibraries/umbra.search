@@ -30,7 +30,7 @@ $dark-background-color: #102826;
 }
 
 .search-widgets #sort-dropdown {
-  display: none;
+    z-index: 100;
 }
 
 .search-widgets #per_page-dropdown {

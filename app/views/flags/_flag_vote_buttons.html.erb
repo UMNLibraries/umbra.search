@@ -1,5 +1,6 @@
 <% Array.wrap(@flags).each do |flag| %>
   <% if can_view_flag?(flag) %>
+    <% flag_vote = FlagVote.find_or_build(document[:id], current_or_guest_or_anonymous_user.id, flag.id) unless flag_vote %>
     <div id="<%= "flag-vote-#{document['id']}-#{flag.id}" %>" class="<%= (flag_vote.css_class) %> flag-vote">
       <%= toggle_button_to flag, url_params(flag_vote),
         on: "flag btn",

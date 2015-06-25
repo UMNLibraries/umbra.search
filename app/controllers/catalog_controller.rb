@@ -94,7 +94,7 @@ class CatalogController < ApplicationController
     # :show may be set to false if you don't want the facet to be drawn in the
     # facet bar
 
-    config.add_facet_field 'subject_ssim', :label => 'Keyword', :limit => 20
+    config.add_facet_field 'subject_ssim', :label => 'Keyword', :limit => 20, solr_params: { 'facet.mincount' => 100 }
     # # Note: This tries to set assumed_boundaries for blacklight_range_limit, but it's not working.  Leaving the value set in case it gets fixed in future releases of blacklight_range_limit
     config.add_facet_field 'sourceResource_date_begin_ssi', :label => 'Year', :range => {:assumed_boundaries => [1100, Time.now.year + 2]}
     config.add_facet_field 'creator_ssim', :label => 'Creator', :limit => 20

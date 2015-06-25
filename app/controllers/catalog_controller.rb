@@ -99,7 +99,7 @@ class CatalogController < ApplicationController
     config.add_facet_field 'sourceResource_date_begin_ssi', :label => 'Year', :range => {:assumed_boundaries => [1100, Time.now.year + 2]}
     config.add_facet_field 'creator_ssim', :label => 'Author', :limit => 20
     config.add_facet_field 'dataProvider_ssi', :label => 'Contributing Institution', :limit => 10
-    config.add_facet_field 'sourceResource_spatial_state_ssi', :label => 'State', :limit => 10
+    config.add_facet_field 'sourceResource_spatial_state_ssi', :label => 'Location', :limit => 10
     config.add_facet_field 'sourceResource_type_ssi', :label => 'Type', :limit => 4
 
     # NOTE: Collection is HIDDEN SEARCH RESULTS BY A CSS RULE. We keep it in the config, because we still 

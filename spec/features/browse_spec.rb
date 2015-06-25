@@ -35,7 +35,7 @@ describe 'Browsing Facets' do
       "creator_ssim" => "Author",
       "subject_ssim" => "Keyword",
       "dataProvider_ssi" => "Contributing Institution",
-      "sourceResource_spatial_state_ssi" => "State",
+      "sourceResource_spatial_state_ssi" => "Location",
       "sourceResource_collection_title_ssi" => "Collection"
     }
     facets.each do |id, name|

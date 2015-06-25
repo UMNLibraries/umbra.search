@@ -27,9 +27,11 @@
                       <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><%= link_to "Profile", edit_user_path(current_user), title: "Profile"%></a></li>
                       <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><%= link_to "Account", edit_user_registration_path(current_user), title: "Account"%></a></li>
                       <% if current_user.has_one_of_these_roles?(['editor', 'admin']) %>
+                        <li role="separator" class="divider"></li>
                         <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><%= link_to "Featured Images", featured_images_path, title: "Featured Images"%></a></li>
                         <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><%= link_to "Featured Boards", featured_boards_path, title: "Featured Boards"%></a></li>
                         <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><%= link_to "Flags", flags_path, title: "Flags"%></a></li>
+                        <li role="separator" class="divider"></li>
                       <% end %>
                       <li role="presentation"><a role="menuitem" tabindex="-1" href="#">
                         <%= link_to destroy_user_session_path, method: :delete, title: "Sign Out" do %>

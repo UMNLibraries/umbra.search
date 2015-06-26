@@ -197,7 +197,7 @@ class CatalogController < ApplicationController
     # except in the relevancy case).
     config.add_sort_field 'score desc, sourceResource_date_begin_ssi desc, title_ssort asc', :label => 'relevance'
     config.add_sort_field 'sourceResource_date_begin_ssi asc', :label => 'year'
-    config.add_sort_field 'creator_display_ssi asc, title_ssort asc', :label => 'author'
+    config.add_sort_field 'creator_display_ssi asc, title_ssort asc', :label => 'creator'
     config.add_sort_field 'title_ssort asc, sourceResource_date_begin_ssi desc', :label => 'title'
 
     # If there are more than this many search results, no spelling ("did you

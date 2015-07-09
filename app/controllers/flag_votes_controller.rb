@@ -101,6 +101,6 @@ class FlagVotesController < ApplicationController
   end
 
   def skip_require_flag_manager
-    action_name=='index'  && (request.format.json? || request.format.xml?)
+    (action_name == 'index' || action_name == 'show')  && (request.format.json? || request.format.xml?)
   end
 end

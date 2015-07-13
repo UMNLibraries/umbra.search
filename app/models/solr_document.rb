@@ -3,7 +3,7 @@ class SolrDocument
   include Blacklight::Solr::Document
 
   def self.bag_of_words(document)
-    "#{document['title_ssi']} #{document.fetch('subject_ssim', []).join(' ')} #{document.fetch('creator_ssim', []).join(' ')}".gsub(/[^a-z0-9\s]/i, '').gsub(/\n{1,}|\t{1,}/i, ' ').gsub(/\s{1,}/i, ' ')
+    "#{document.fetch('sourceResource_description_tesi', '')} #{document['title_ssi']} #{document.fetch('subject_ssim', []).join(' ')} #{document.fetch('creator_ssim', []).join(' ')}".gsub(/[^a-z0-9\s]/i, '').gsub(/\n{1,}|\t{1,}/i, ' ').gsub(/\s{1,}/i, ' ')
   end
   # self.unique_key = 'id'
   

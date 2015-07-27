@@ -262,7 +262,7 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 3.0)
       netrc (~> 0.7)
-    rmagick (2.15.2)
+    rmagick (2.15.3)
     rsolr (1.0.12)
       builder (>= 2.1.2)
     rspec-core (3.3.1)

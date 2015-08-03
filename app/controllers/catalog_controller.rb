@@ -106,6 +106,7 @@ class CatalogController < ApplicationController
     # want to be able to produce a browse by collection facet page.
     config.add_facet_field 'import_job_name_ssi', :label => 'Import Job Name', :restricted_to_roles => ['librarian', 'admin']
     config.add_facet_field 'import_job_id_isi', :label => 'Import Job ID', :restricted_to_roles => ['librarian', 'admin']
+    config.add_facet_field 'provider_name_ssi', :label => 'Harvested From', :show => false
 
     # Have BL send all facet field names to Solr, which has been the default
     # previously. Simply remove these lines if you'd rather use Solr request
@@ -116,7 +117,6 @@ class CatalogController < ApplicationController
     #   The ordering of the field names is the order of the display
     config.add_index_field 'creator_display_ssi'
     config.add_index_field 'dataProvider_ssi', :label => 'Provided By'
-
     # solr fields to be displayed in the show (single result) view
     #   The ordering of the field names is the order of the display
 
@@ -128,9 +128,11 @@ class CatalogController < ApplicationController
 
     config.add_show_field 'sourceResource_contributor_ssi', :label => 'Contributors'
     config.add_show_field 'sourceResource_date_displaydate_ssi', :label => 'Created Date'
-    config.add_show_field 'sourceResource_publisher_ssi', :label => 'Publisher'
-    config.add_show_field 'language_ssi', :label => 'Language'
-    config.add_show_field 'sourceResource_extent_ssi', :label => 'Extent'
+    config.add_show_field 'sourceResource_rights_ssi', :label => 'Rights'
+    config.add_show_field 'isShownAt_ssi', :label => 'View Original At'
+    # config.add_show_field 'sourceResource_publisher_ssi', :label => 'Publisher'
+    # config.add_show_field 'language_ssi', :label => 'Language'
+    # config.add_show_field 'sourceResource_extent_ssi', :label => 'Extent'
     # "fielded" search configuration. Used by pulldown among other places.
     # For supported keys in hash, see rdoc for Blacklight::SearchFields
     #

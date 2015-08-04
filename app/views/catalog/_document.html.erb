@@ -1,5 +1,4 @@
 <% document_set(document) %>
-<% # ick. SEE _index_default.erb.html to see where panel and panel-body are closed %>
 <div class="panel panel-default">
   <div class="panel-heading">
     <div class="row">
@@ -14,3 +13,5 @@
     <div class="document <%= render_document_class document %>" itemscope itemtype="<%= document.itemtype %>">
       <%= render_document_partials document, blacklight_config.view_config(document_index_view_type).partials, :document_counter => document_counter %>
     </div>
+  </div>
+</div>

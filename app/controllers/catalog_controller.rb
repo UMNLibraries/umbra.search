@@ -98,7 +98,7 @@ class CatalogController < ApplicationController
     config.add_facet_field 'sourceResource_type_ssi', :label => 'Type', :limit => 4, :collapse => false
     config.add_facet_field 'dataProvider_ssi', :label => 'Contributing Institution', :limit => 4, :collapse => false
     config.add_facet_field 'sourceResource_collection_title_ssi', :label => 'From Collection', :limit => 4, :collapse => false
-    config.add_facet_field 'subject_ssim', :label => 'Keyword', :limit => 20, solr_params: { 'facet.mincount' => 100 }, :limit => 4, :collapse => false
+    config.add_facet_field 'subject_ssim', :label => 'Keyword', :limit => 20, :limit => 4, :collapse => false
     # # Note: This tries to set assumed_boundaries for blacklight_range_limit, but it's not working.  Leaving the value set in case it gets fixed in future releases of blacklight_range_limit
     config.add_facet_field 'sourceResource_spatial_state_ssi', :label => 'Location', :limit => 10
     config.add_facet_field 'sourceResource_date_begin_ssi', :label => 'Year', :range => {:assumed_boundaries => [1100, Time.now.year + 2]}

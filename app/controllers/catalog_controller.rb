@@ -116,7 +116,8 @@ class CatalogController < ApplicationController
     # solr fields to be displayed in the index (search results) view
     #   The ordering of the field names is the order of the display
     config.add_index_field 'creator_display_ssi'
-    config.add_index_field 'dataProvider_ssi', :label => 'Provided By'
+    # config.add_index_field 'dataProvider_ssi', :label => 'Provided By'
+    # config.add_index_field 'sourceResource_type_ssi', :label => 'Type'
     # solr fields to be displayed in the show (single result) view
     #   The ordering of the field names is the order of the display
 

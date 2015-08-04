@@ -83,11 +83,24 @@ $grid-float-breakpoint: 992px;
     padding-top: 10px;
 }
 
+.document-metadata .type-icon {
+  font-size: 2em;
+  color: #447776;
+}
+
+#documents .type-icon {
+  float: left;
+  margin: 10px 0 0 5px;
+}
+
+.type-icon {
+  text-transform: capitalize;
+}
+
 .document-thumbnail {
-  height:100px;
-  width: 100px;
-  margin-right: 15px;
-  text-align: top left;
+  height:150px;
+  width: 150px;
+  margin: 15px;
 }
 
 .document-thumbnail img {
@@ -160,6 +173,15 @@ $grid-float-breakpoint: 992px;
   vertical-align: middle;
 }
 
+.view-original-search-results {
+  margin: 0 5px 0 0;
+  float: right;
+}
+
+#documents .panel-heading {
+  vertical-align: middle;
+}
+
 .gallery-glyphs {
   font-size: 7em;
   margin-bottom: 10px;
@@ -175,8 +197,9 @@ $grid-float-breakpoint: 992px;
   border: 0;
 }
 
-.document-thumbnail {
-  float: left;
+.document-thumbnail,
+.document-metadata {
+  display: inline-block;
 }
 
 .blacklight-folders .document-thumbnail {

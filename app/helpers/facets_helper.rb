@@ -71,7 +71,7 @@ module FacetsHelper
     path = search_action_path(add_facet_params_and_redirect(facet_solr_field, item))
     content_tag(:span, :class => "facet-label") do
       val = facet_display_value(facet_solr_field, item)
-      link_to_unless(options[:suppress_link], val, path, :class=>"facet_select #{type_class(val)}")
+      link_to_unless(options[:suppress_link], val, path, :class=>"type-icon facet_select #{type_class(val)}")
     end + render_facet_count(item.hits)
   end
 

@@ -1,9 +1,13 @@
-<%# default partial to display solr document fields in catalog index view -%>
-<dl class="document-metadata dl-horizontal dl-invert">
-  <% index_fields(document).each do |solr_fname, field| -%>
-    <% if should_render_index_field? document, field %>
-      <dd class="blacklight-<%= solr_fname.parameterize %>"><%= render_index_field_value document, :field => solr_fname %></dd>
-    <% end -%>
-  <% end -%>
-  <%= render 'flags/flag_vote_buttons', document: document %>
-</dl>
+    <dl class="document-metadata">
+      <% index_fields(document).each do |solr_fname, field| -%>
+        <% if should_render_index_field? document, field %>
+          <dd class="blacklight-<%= solr_fname.parameterize %>"><%= render_index_field_value document, :field => solr_fname %>
+          </dd>
+        <% end -%>
+      <% end -%>
+    </dl>
+  </div>
+</div>
+<% # ick. SEE _document.html.erb where these divs come from - panel and panel body %>
+<%= render 'flags/flag_vote_buttons', document: document %>
+

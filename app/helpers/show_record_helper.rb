@@ -1,4 +1,9 @@
 module ShowRecordHelper
+
+  def document_set(document)
+    @document = document
+  end
+
   def img
     @document.fetch('object_ssi', false).to_s
   end

@@ -724,17 +724,28 @@ body.blacklight-pages-home {
   margin-top: 15px;
 }
 
-#documents {
+#main-content {
   .btn-primary {
-    font-size: .9em;
-  }
-  .btn-primary:hover {
-    background-color: #EE6D4F;
-    color: white;
+    border-color: #777777;
+    background-color: #777777;
+    white-space: normal;
   }
 
-  .btn-primary.gallery {
-    font-size: 3em;
+  .btn-primary:hover {
+    background-color: #1B5957;
+  }
+}
+
+#documents.documents-list {
+  .btn-primary {
+    width: 300px;
+    font-size: 1em;
+  }
+}
+
+#documents.gallery {
+  .btn-primary {
+    font-size: .9em;
   }
 }
 

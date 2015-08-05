@@ -581,6 +581,26 @@ body.blacklight-pages-home {
       overflow:auto;
     }
   }
+
+
+  .documents-list {
+    .panel {
+      text-align: center;
+      .metadata-col {
+        text-align: left;
+      }
+    }
+    .view-original {
+      display: block;
+      text-align:center;
+    }
+  }
+
+  .metadata-col,
+  .thumbnail-col {
+    float: none !important;
+    display: inline-block;
+  }
 }
 
 @media (min-width: 600px) and (max-width: 768px) {
@@ -588,6 +608,37 @@ body.blacklight-pages-home {
     width: 550px;
   }
 }
+
+@media (max-width: 1023px) {
+  .data-provider {
+    display: none;
+  }
+}
+
+@media (min-width: 960px) and (max-width: 1024px)  {
+ .metadata-col {
+    width: 275px;
+  }
+}
+
+@media (min-width: 1024px) {
+ .metadata-col {
+    width: 450px;
+  }
+}
+
+@media (min-width: 1280px) {
+ .metadata-col {
+    width: 650px;
+  }
+}
+
+@media (min-width: 1500px) {
+ .metadata-col {
+    width: 800px;
+  }
+}
+
 
 @media (min-width: 1000px) and (max-width: 1366px) {
   .home-image-info .text {
@@ -786,7 +837,7 @@ body.blacklight-pages-home {
 }
 
 .list-results-metadata {
-  margin-top: 15px;
+  margin: 15px 0 0 15px;
 
   .title,
   .document-counter,
@@ -796,4 +847,9 @@ body.blacklight-pages-home {
   .metadata-field {
     color:#777777;
   }
+}
+
+.thumbnail-col,
+.metadata-col {
+  float: left;
 }

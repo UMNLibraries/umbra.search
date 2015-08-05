@@ -67,7 +67,7 @@ class CatalogController < ApplicationController
     config.index.thumbnail_method = :cached_thumbnail_tag
     config.show.thumbnail_method = :cached_thumbnail_tag
 
-    config.view.gallery.default = true
+    config.view.gallery.default = false
     config.view.gallery.partials = [:index]
     config.view.gallery.icon_class = "glyphicon-th"
     # solr field configuration for document/show views
@@ -116,7 +116,7 @@ class CatalogController < ApplicationController
     # solr fields to be displayed in the index (search results) view
     #   The ordering of the field names is the order of the display
     config.add_index_field 'creator_display_ssi'
-    # config.add_index_field 'dataProvider_ssi', :label => 'Provided By'
+    config.add_index_field 'dataProvider_ssi', :label => 'Provided By'
     # config.add_index_field 'sourceResource_type_ssi', :label => 'Type'
     # solr fields to be displayed in the show (single result) view
     #   The ordering of the field names is the order of the display

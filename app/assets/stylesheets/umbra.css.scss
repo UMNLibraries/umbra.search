@@ -727,8 +727,6 @@ body.blacklight-pages-home {
 #main-content {
   .btn-primary {
     border-color: #777777;
-    background-color: #777777;
-    white-space: normal;
   }
 
   .btn-primary:hover {
@@ -738,7 +736,6 @@ body.blacklight-pages-home {
 
 #documents.documents-list {
   .btn-primary {
-    width: 300px;
     font-size: 1em;
   }
 }
@@ -782,4 +779,22 @@ body.blacklight-pages-home {
   color: #EE6D4F;
   background-color: #FDF2EF;
   border-color: #F4A28F;
+}
+
+.document-title-heading {
+  font-size: 1.2  5em;
+}
+
+.list-results-metadata {
+  margin-top: 15px;
+  .title,
+  .document-counter {
+    font-size: 1.2em;
+  }
+  .data-provider {
+    font-size:1.5em;
+  }
+  .metadata-field {
+    color:#777777;
+  }
 }

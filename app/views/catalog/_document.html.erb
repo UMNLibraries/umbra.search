@@ -4,15 +4,14 @@
   <div class="panel-heading">
     <div class="row">
       <%= raw "<span class=\"type-icon #{type_class(type)}\">#{type}</span>" %>
-      <div class="view-original-search-results">
-        <%= render 'view_original', :url => document.fetch('isShownAt_ssi', false), :data_provider =>  view_original_provider %>
-      </div>
     </div>
   </div>
   <div class="panel-body">
-    <% # container for a single doc -%>
-    <div class="document <%= render_document_class document %>" itemscope itemtype="<%= document.itemtype %>">
-      <%= render_document_partials document, blacklight_config.view_config(document_index_view_type).partials, :document_counter => document_counter %>
+    <div class="col-xs-12 col-sm-2">
+      <%= render 'thumbnail_default', :document => document, :document_counter => document_counter %>
+    </div>
+    <div class="col-xs-12 col-sm-10">
+      <%= render 'list_results_metadata', :document => document, :document_counter => document_counter %>
     </div>
   </div>
 </div>

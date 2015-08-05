@@ -1,6 +1,7 @@
 - if url
   %a.btn.btn-default.btn-lg.btn-primary{href:url, target: '_blank'}
-    View Original
-    - if document_index_view_type == :list
-      = view_original_provider
     .glyphicon.glyphicon-new-window
+    View Original
+  - if document_index_view_type == :list
+    %span.data-provider.metadata-field
+      = view_original_provider

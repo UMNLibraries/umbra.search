@@ -89,7 +89,6 @@ $grid-float-breakpoint: 992px;
 }
 
 #documents .type-icon {
-  float: left;
   margin: 10px 0 0 5px;
 }
 
@@ -191,6 +190,10 @@ $grid-float-breakpoint: 992px;
 
 #documents .document {
   border: 0;
+}
+
+.list-results-metadata {
+  margin-top: 15px;
 }
 
 .search-thumbnail,

@@ -11,7 +11,7 @@ class FlagVotesController < ApplicationController
   def index
     respond_to do |format|
       format.html { @flag_votes = FlagVote.page(params[:page]).per(25) }
-      format.json { render json: get_votes_and_records(FlagVote.all) }
+      format.json { render json: get_votes_and_records(FlagVote.all).to_json }
     end
   end
 
@@ -19,7 +19,8 @@ class FlagVotesController < ApplicationController
     votes = FlagVote.where(flag_id: params[:id])
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render :json => get_records(votes) }
+      format.json { render :json => get_records(votes).to_json }
+      format.text { render :text => get_records(votes).join("\n") }
     end
   end
 
@@ -37,6 +38,7 @@ class FlagVotesController < ApplicationController
   private
 
   def get_votes_and_records(flag_votes)
+    # See Blacklight::SearchHelper for def fetch
     FlagVote.votes_and_records(flag_votes) do |record_id|
       fetch(record_id).last
     end
@@ -112,6 +114,6 @@ class FlagVotesController < ApplicationController
   end
 
   def skip_require_flag_manager
-    (action_name == 'index' || action_name == 'show')  && (request.format.json? || request.format.xml?)
+    (action_name == 'index' || action_name == 'show')  && (request.format.json? || request.format.xml? || request.format.text?)
   end
 end

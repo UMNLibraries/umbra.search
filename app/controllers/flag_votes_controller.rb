@@ -1,5 +1,4 @@
 class FlagVotesController < ApplicationController
-  include FlagVoteConcerns
   include Blacklight::SearchHelper
 
   before_action :check_permissions, only: [:destroy]
@@ -36,6 +35,18 @@ class FlagVotesController < ApplicationController
   end
 
   private
+
+  def get_votes_and_records(flag_votes)
+    FlagVote.votes_and_records(flag_votes) do |record_id|
+      fetch(record_id).last
+    end
+  end
+
+  def get_records(flag_votes)
+    FlagVote.records(flag_votes) do |record_id|
+      fetch(record_id).last
+    end
+  end
 
   # if user is logged in, return current_user, else return guest_user
   def current_or_guest_user

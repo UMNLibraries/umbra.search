@@ -181,6 +181,14 @@ class CatalogController < ApplicationController
       }
     end
 
+    config.add_search_field("Institution") do |field|
+      field.solr_parameters = { :'spellcheck.dictionary' => 'default' }
+      field.solr_local_parameters = {
+        :qf => '$data_provider_qf',
+        :pf => '$data_provider_pf'
+      }
+    end
+
     # Specifying a :qt only to show it's possible, and so our internal automated
     # tests can test it. In this case it's the same as
     # config[:default_solr_parameters][:qt], so isn't actually neccesary.

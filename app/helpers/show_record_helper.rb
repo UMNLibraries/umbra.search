@@ -28,6 +28,10 @@ module ShowRecordHelper
     (data_provider) ? "@ #{data_provider}" : ""
   end
 
+  def view_original_provider_search
+    (data_provider) ? "@ #{link_to data_provider, "/catalog?utf8=✓&search_field=Institution&q=\"#{data_provider}\""}" : ""
+  end
+
   def provider_name
     @document.fetch('provider_name_ssi', false)
   end

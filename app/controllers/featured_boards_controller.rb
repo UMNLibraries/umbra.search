@@ -40,7 +40,7 @@ class FeaturedBoardsController < ApplicationController
 
   def destroy
     @featured_board.destroy
-    respond_with(@featured_board)
+    redirect_to :index
   end
 
   private

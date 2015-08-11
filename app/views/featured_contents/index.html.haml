@@ -1,0 +1,27 @@
+#featured-content
+%h1
+  Featured Content
+= paginate @featured_contents
+%table.table
+  %thead
+    %tr
+      %th
+      %th
+        Title
+      %th
+        Is Published*
+      %th
+  %tbody
+    - @featured_contents.each do |featured_content|
+      %tr
+        %td
+          = link_to 'Edit', edit_featured_content_path(featured_content)
+        %td
+          = link_to featured_content.title, featured_content.url
+        %td
+          = (featured_content.published) ? 'Yes' : 'No'
+        %td
+          = link_to image_tag(featured_content.preview_image.url, class: 'featured-content-image'), featured_content.url, target: '_blank'
+%p
+  * Published items are featured in random order on the Umbra home page.
+= link_to 'Add a new Featured Content', new_featured_content_path, class:"btn btn-primary"

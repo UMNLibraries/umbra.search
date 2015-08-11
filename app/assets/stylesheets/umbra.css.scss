@@ -581,6 +581,26 @@ body.blacklight-pages-home {
       overflow:auto;
     }
   }
+
+
+  .documents-list {
+    .panel {
+      text-align: center;
+      .metadata-col {
+        text-align: left;
+      }
+    }
+    .view-original {
+      display: block;
+      text-align:center;
+    }
+  }
+
+  .metadata-col,
+  .thumbnail-col {
+    float: none !important;
+    display: inline-block;
+  }
 }
 
 @media (min-width: 600px) and (max-width: 768px) {
@@ -588,6 +608,37 @@ body.blacklight-pages-home {
     width: 550px;
   }
 }
+
+@media (max-width: 1023px) {
+  .data-provider {
+    display: none;
+  }
+}
+
+@media (min-width: 960px) and (max-width: 1024px)  {
+ .metadata-col {
+    width: 275px;
+  }
+}
+
+@media (min-width: 1024px) {
+ .metadata-col {
+    width: 450px;
+  }
+}
+
+@media (min-width: 1280px) {
+ .metadata-col {
+    width: 650px;
+  }
+}
+
+@media (min-width: 1500px) {
+ .metadata-col {
+    width: 800px;
+  }
+}
+
 
 @media (min-width: 1000px) and (max-width: 1366px) {
   .home-image-info .text {
@@ -724,18 +775,25 @@ body.blacklight-pages-home {
   margin-top: 15px;
 }
 
-#documents {
+#main-content {
+  .btn-primary {
+    border-color: #777777;
+  }
+
+  .btn-primary:hover {
+    background-color: #1B5957;
+  }
+}
+
+#documents.documents-list {
+  .btn-primary {
+    font-size: 1em;
+  }
+}
+
+#documents.gallery {
   .btn-primary {
     font-size: .9em;
-    background-color: #fff;
-    color: #337ab7;
-    border: none;
-    padding: 3px;
-    margin: 3px 0 5px;
-  }
-  .btn-primary:hover {
-    background-color: #EE6D4F;
-    color: white;
   }
 }
 
@@ -772,4 +830,26 @@ body.blacklight-pages-home {
   color: #EE6D4F;
   background-color: #FDF2EF;
   border-color: #F4A28F;
+}
+
+.document-title-heading {
+  font-size: 1.2  5em;
+}
+
+.list-results-metadata {
+  margin: 15px 0 0 15px;
+
+  .title,
+  .document-counter,
+  .data-provider {
+    font-size:1.3em;
+  }
+  .metadata-field {
+    color:#777777;
+  }
+}
+
+.thumbnail-col,
+.metadata-col {
+  float: left;
 }

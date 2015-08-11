@@ -1,4 +1,9 @@
 module ShowRecordHelper
+
+  def document_set(document)
+    @document = document
+  end
+
   def img
     @document.fetch('object_ssi', false).to_s
   end
@@ -17,6 +22,10 @@ module ShowRecordHelper
 
   def data_provider
     @document.fetch('dataProvider_ssi', false)
+  end
+
+  def view_original_provider
+    (data_provider) ? "@ #{data_provider}" : ""
   end
 
   def provider_name
@@ -56,10 +65,20 @@ module ShowRecordHelper
   end
 
   def description
-    @document.fetch('sourceResource_description_tesi', false)
+    word_limit(strip_tags(@document.fetch('sourceResource_description_tesi', '')), 250)
   end
 
   def set_page_title!
     @page_title = t('blacklight.search.show.title', :document_title => document_show_html_title, :application_name => application_name).html_safe
+  end
+
+  private
+
+  def word_limit(text, limit_count)
+    words = text.split(' ').compact
+    total_words = words.size
+    limit = limit_count - 1
+    truncated = words[0..limit].join(' ')
+    (total_words > limit_count) ? "#{truncated}..." : text
   end
 end

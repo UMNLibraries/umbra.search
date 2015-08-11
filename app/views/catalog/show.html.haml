@@ -9,20 +9,20 @@
   %div.container
     %div.row
       %div.col-xs-12.col-sm-6.col-md-6.col-lg-6.image-and-view-original
-        %div.row
+        %div.row.show-conent-top
           %h1.h3{style:'font-style:italic;'}= display_title
-          %div.col-xs-12.col-sm-4
+          %div.col-xs-12.col-sm-5
             - if  is_sound?
               .cover-image.gallery-glyphs.glyphs
                 = link_to thumb_url, {target: '_blank'} do
                   %span.icon-headphones
             - else
               = link_to cached_thumbnail_tag(document, {}), thumb_url, {target: '_blank'}
-          %div.col-xs-12.col-sm-8.view-original-col
-            %a.btn.btn-default.btn-lg.btn-primary.col-sm-10.btn-view-original{href:thumb_url, target: '_blank'}
-              .glyphicon.glyphicon-new-window
+          %div.col-xs-12.col-sm-7.view-original-col
+            %a.btn.btn-default.btn-lg.btn-primary.btn-view-original{href:thumb_url, target: '_blank'}
               View Original
-              = view_original_provider
+            %div.data-provider
+              = raw view_original_provider_search
         %div.row
           %div.pin-it-large
             = render 'pin_it_large', :document => document, :pinterest_image => '//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_red_28.png'

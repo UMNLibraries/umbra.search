@@ -32,6 +32,7 @@ Rails.application.routes.draw do
   # post  'users/:id/update' => 'users#update', as: 'update_user'
   # patch 'users/:id/update' => 'users#update'
   resources :users
+  resources :featured_contents
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

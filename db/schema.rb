@@ -11,77 +11,87 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150616202114) do
+ActiveRecord::Schema.define(version: 20150811162733) do
 
-  create_table "blacklight_folders_folder_items", force: true do |t|
-    t.integer  "folder_id",   null: false
-    t.integer  "bookmark_id", null: false
-    t.integer  "position"
+  create_table "blacklight_folders_folder_items", force: :cascade do |t|
+    t.integer  "folder_id",   limit: 4,     null: false
+    t.integer  "bookmark_id", limit: 4,     null: false
+    t.integer  "position",    limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "description"
+    t.text     "description", limit: 65535
   end
 
   add_index "blacklight_folders_folder_items", ["bookmark_id"], name: "index_blacklight_folders_folder_items_on_bookmark_id", using: :btree
   add_index "blacklight_folders_folder_items", ["folder_id"], name: "index_blacklight_folders_folder_items_on_folder_id", using: :btree
 
-  create_table "blacklight_folders_folders", force: true do |t|
-    t.string   "name"
-    t.integer  "user_id",                       null: false
-    t.string   "user_type",                     null: false
-    t.string   "visibility"
-    t.integer  "number_of_members", default: 0, null: false
+  create_table "blacklight_folders_folders", force: :cascade do |t|
+    t.string   "name",              limit: 255
+    t.integer  "user_id",           limit: 4,                 null: false
+    t.string   "user_type",         limit: 255,               null: false
+    t.string   "visibility",        limit: 255
+    t.integer  "number_of_members", limit: 4,     default: 0, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "description"
+    t.text     "description",       limit: 65535
   end
 
   add_index "blacklight_folders_folders", ["user_id", "user_type"], name: "index_blacklight_folders_folders_on_user_id_and_user_type", using: :btree
 
-  create_table "bookmarks", force: true do |t|
-    t.integer  "user_id",       null: false
-    t.string   "user_type"
-    t.string   "document_id"
-    t.string   "title"
+  create_table "bookmarks", force: :cascade do |t|
+    t.integer  "user_id",       limit: 4,   null: false
+    t.string   "user_type",     limit: 255
+    t.string   "document_id",   limit: 255
+    t.string   "title",         limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "document_type"
+    t.string   "document_type", limit: 255
   end
 
   add_index "bookmarks", ["user_id"], name: "index_bookmarks_on_user_id", using: :btree
 
-  create_table "featured_boards", force: true do |t|
-    t.string   "title"
-    t.string   "url"
+  create_table "featured_boards", force: :cascade do |t|
+    t.string   "title",      limit: 255
+    t.string   "url",        limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "published"
-    t.string   "snapshot"
+    t.boolean  "published",  limit: 1
+    t.string   "snapshot",   limit: 255
   end
 
-  create_table "featured_images", force: true do |t|
-    t.string   "title"
-    t.string   "record_id"
-    t.string   "uploaded_image"
-    t.boolean  "published"
+  create_table "featured_contents", force: :cascade do |t|
+    t.string   "title",         limit: 255
+    t.text     "description",   limit: 65535
+    t.boolean  "published",     limit: 1
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.string   "preview_image", limit: 255
+    t.string   "url",           limit: 255
+  end
+
+  create_table "featured_images", force: :cascade do |t|
+    t.string   "title",          limit: 255
+    t.string   "record_id",      limit: 255
+    t.string   "uploaded_image", limit: 255
+    t.boolean  "published",      limit: 1
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "file_caches", force: true do |t|
-    t.string   "record_id"
-    t.string   "url"
-    t.boolean  "valid_content"
-    t.string   "content_type"
-    t.string   "filepath"
+  create_table "file_caches", force: :cascade do |t|
+    t.string   "record_id",     limit: 255
+    t.string   "url",           limit: 255
+    t.boolean  "valid_content", limit: 1
+    t.string   "content_type",  limit: 255
+    t.string   "filepath",      limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "flag_votes", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "flag_id"
-    t.integer  "weight"
+  create_table "flag_votes", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "flag_id",    limit: 4
+    t.integer  "weight",     limit: 4
     t.string   "record_id",  limit: 40
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -89,49 +99,49 @@ ActiveRecord::Schema.define(version: 20150616202114) do
 
   add_index "flag_votes", ["user_id", "flag_id", "record_id"], name: "index_flag_votes_on_user_id_and_flag_id_and_record_id", unique: true, using: :btree
 
-  create_table "flags", force: true do |t|
-    t.string   "on_text"
-    t.string   "off_text"
-    t.string   "on_text_display"
-    t.string   "off_text_display"
-    t.integer  "search_filter_threshold"
-    t.boolean  "restrict_to_editors"
-    t.boolean  "published"
+  create_table "flags", force: :cascade do |t|
+    t.string   "on_text",                 limit: 255
+    t.string   "off_text",                limit: 255
+    t.string   "on_text_display",         limit: 255
+    t.string   "off_text_display",        limit: 255
+    t.integer  "search_filter_threshold", limit: 4
+    t.boolean  "restrict_to_editors",     limit: 1
+    t.boolean  "published",               limit: 1
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "on_css"
-    t.string   "off_css"
+    t.string   "on_css",                  limit: 255
+    t.string   "off_css",                 limit: 255
   end
 
-  create_table "searches", force: true do |t|
+  create_table "searches", force: :cascade do |t|
     t.text     "query_params", limit: 16777215
-    t.integer  "user_id"
-    t.string   "user_type"
+    t.integer  "user_id",      limit: 4
+    t.string   "user_type",    limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "searches", ["user_id"], name: "index_searches_on_user_id", using: :btree
 
-  create_table "users", force: true do |t|
-    t.string   "email",                  default: "",    null: false
-    t.string   "encrypted_password",     default: "",    null: false
-    t.string   "reset_password_token"
+  create_table "users", force: :cascade do |t|
+    t.string   "email",                  limit: 255,   default: "",    null: false
+    t.string   "encrypted_password",     limit: 255,   default: "",    null: false
+    t.string   "reset_password_token",   limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,     null: false
+    t.integer  "sign_in_count",          limit: 4,     default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
+    t.string   "current_sign_in_ip",     limit: 255
+    t.string   "last_sign_in_ip",        limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "guest",                  default: false
-    t.string   "avatar"
-    t.string   "name"
-    t.string   "twitter_handle"
-    t.text     "biography"
-    t.integer  "roles_mask"
+    t.boolean  "guest",                  limit: 1,     default: false
+    t.string   "avatar",                 limit: 255
+    t.string   "name",                   limit: 255
+    t.string   "twitter_handle",         limit: 255
+    t.text     "biography",              limit: 65535
+    t.integer  "roles_mask",             limit: 4
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

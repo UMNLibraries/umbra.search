@@ -95,7 +95,7 @@ class CatalogController < ApplicationController
     # facet bar
 
     config.add_facet_field 'creator_ssim', :label => 'Creator', :limit => 4, :collapse => false
-    config.add_facet_field 'sourceResource_type_ssi', :label => 'Type', :limit => 4, :collapse => false
+    config.add_facet_field 'sourceResource_type_ssi', :label => 'Type', :limit => 5, :collapse => false
     config.add_facet_field 'dataProvider_ssi', :label => 'Contributing Institution', :limit => 4, :collapse => false
     config.add_facet_field 'sourceResource_collection_title_ssi', :label => 'From Collection', :limit => 4, :collapse => false
     config.add_facet_field 'subject_ssim', :label => 'Keyword', :limit => 20, :limit => 4, :collapse => false

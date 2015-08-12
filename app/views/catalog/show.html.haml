@@ -51,7 +51,7 @@
         - if provider_name
           %h4 Record Contributed By
           = render_facet_link('dataProvider_ssi', data_provider) 
-        - if data_provider
+        - if data_provider && provider_name != 'Minnesota Digital Library'
           %h4 Record Harvested From
           = render_facet_link('provider_name_ssi', provider_name)
 

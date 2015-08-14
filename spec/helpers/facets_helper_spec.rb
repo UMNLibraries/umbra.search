@@ -23,6 +23,8 @@ describe FacetsHelper, :type => :helper do
     expect(helper.render_selected_facet_value(type_facet_solr_field, type_facet_item)).to include('icon-doc-text')
     type_facet_item.value = "sound"
     expect(helper.render_selected_facet_value(type_facet_solr_field, type_facet_item)).to include('icon-headphones')
+    type_facet_item.value = "physical object"
+    expect(helper.render_selected_facet_value(type_facet_solr_field, type_facet_item)).to include('icon-physical-object')
   end
 
   context "when the current user has the editor role it" do

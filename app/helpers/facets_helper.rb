@@ -94,6 +94,8 @@ module FacetsHelper
       'icon-doc-text'
     when 'sound'
       'icon-headphones'
+    when 'physical object'
+      'icon-physical-object'
     end
   end
 end

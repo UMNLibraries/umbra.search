@@ -8,12 +8,39 @@ describe 'catalog/show.html.haml' do
 
   before do
     assign(:document,document)
-    # allow(view).to receive(:set_page_title!)
     allow(view).to receive(:blacklight_config).and_return(CatalogController.blacklight_config)
     allow(view).to receive(:search_session).and_return( {})
     allow(view).to receive(:current_search_session).and_return( {})
     allow(document).to receive(:more_like_this).and_return([related_document])
   end
+
+  it "renders provider when the provider is University of Minnesota Libraries" do
+    set_catalog_controller_double!
+    document = SolrDocument.new(id:"documentId","provider_name_ssi"=>"University of foo", "isShownAt_ssi"=>"http://dlg.galileo.usg.edu/dlg/aaed/do-th:aarl89.017-004-012")
+    assign(:document,document)
+    allow(document).to receive(:more_like_this).and_return([related_document])
+    render file: 'catalog/show'#, locals: { document: document }
+    expect(rendered).to have_selector('.provider')
+  end
+
+  it "renders provider when the provider is Minnesota Digital Library" do
+    set_catalog_controller_double!
+    document = SolrDocument.new(id:"documentId","provider_name_ssi"=>"University of foo", "isShownAt_ssi"=>"http://dlg.galileo.usg.edu/dlg/aaed/do-th:aarl89.017-004-012")
+    assign(:document,document)
+    allow(document).to receive(:more_like_this).and_return([related_document])
+    render file: 'catalog/show'#, locals: { document: document }
+    expect(rendered).to have_selector('.provider')
+  end
+
+  it "does not render provider when the provider is university of minnesota" do
+    set_catalog_controller_double!
+    document = SolrDocument.new(id:"documentId","provider_name_ssi"=>"University of Minnesota Libraries", "isShownAt_ssi"=>"http://dlg.galileo.usg.edu/dlg/aaed/do-th:aarl89.017-004-012")
+    assign(:document,document)
+    allow(document).to receive(:more_like_this).and_return([related_document])
+    render file: 'catalog/show'#, locals: { document: document }
+    expect(rendered).to_not have_selector('.provider')
+  end
+
   it "renders subjects" do
     render file: 'catalog/show'#, locals: { document: document }
     expect(rendered).to have_selector(".subjects")
@@ -26,4 +53,14 @@ describe 'catalog/show.html.haml' do
     expect(rendered).to have_xpath("//img[@src=\"#{cached_thumbnail_url(url:related_document_url)}\" and @title='#{related_document_title}' and @alt='#{related_document_title}']")
   end
 
+end
+
+def set_catalog_controller_double!
+  controller.singleton_class.class_eval do
+    protected
+      def search_action_path(blah)
+        'foo bar baz'
+      end
+      helper_method :search_action_path
+  end
 end

@@ -33,7 +33,16 @@ module ShowRecordHelper
   end
 
   def provider_name
-    @document.fetch('provider_name_ssi', false)
+    name = @document.fetch('provider_name_ssi', false)
+    (name != 'Minnesota Digital Library' && name != 'University of Minnesota Libraries') ? name : false
+  end
+
+  def provider_name_facet_link
+    render_facet_link('provider_name_ssi', provider_name)
+  end
+
+  def harvested_from
+    University of Minnesota Libraries
   end
 
   def display_title

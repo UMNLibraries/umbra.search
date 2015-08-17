@@ -16,3 +16,17 @@
   .unflag { display: none; }
 }
 
+.flagged-by-list li {
+  list-style: none;
+}
+
+.flagged-by-list h3 {
+  font-size: 1.2em;
+  font-weight: bold;
+  padding: 0;
+  margin-top: 0;
+}
+
+.flagged-by-list {
+  padding: 10px;
+}

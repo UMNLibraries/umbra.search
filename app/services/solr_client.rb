@@ -4,7 +4,7 @@ class SolrClient
   end
 
   def self.find_record(record_id)
-    response = client.get 'select', :params => {:q => "id:#{record_id}"}
+    response = client.get 'select', :params => {:fl => '*', :q => "id:#{record_id}"}
     response['response']['docs'].first
   end
 

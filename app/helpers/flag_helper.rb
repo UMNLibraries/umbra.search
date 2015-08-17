@@ -38,8 +38,8 @@ module FlagHelper
     (!current_user.nil?) ? current_user.id : nil
   end
 
-  def url_params(flag_vote)
-    {flag_vote: {user_id: flag_vote.user_id, record_id: flag_vote.record_id, flag_id: flag_vote.flag_id} }
+  def url_params(flag_vote, delta)
+    {flag_vote: {user_id: flag_vote.user_id, record_id: flag_vote.record_id, flag_id: flag_vote.flag_id, delta: delta}}
   end
 
     # if user is logged in, return current_user, else return guest_user
@@ -66,5 +66,14 @@ module FlagHelper
   rescue ActiveRecord::RecordNotFound
     session[:guest_user_id] = nil
     User.new
+  end
+
+  def flagged_by_users(document_id, flag_id)
+    flagged = []
+    FlagVote.flagged_by_users(document_id, flag_id).each do |flag_vote|
+      user = User.find(flag_vote.user_id)
+      flagged << {user: user, flag: flag_vote.flag, flag_vote: flag_vote}
+    end
+    flagged
   end
 end

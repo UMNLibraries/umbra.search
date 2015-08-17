@@ -1,0 +1,11 @@
+%div
+  %h3
+    Remove Flags of other Users
+  - Array.wrap(flags).each do |flag|
+    %ul
+      - flagged_by_users(document['id'], flag.id).each do |flagged|
+        - unless flagged[:user].id == current_or_guest_or_anonymous_user.id
+          %li{:class => "flagged-vote-#{flagged[:user].id}-#{flagged[:flag_vote].id}"}
+            %span.glyphicon.glyphicon-user
+              = " #{flagged[:user].email} (roles: #{flagged[:user].roles.join(',')})" unless flagged[:user].id == current_or_guest_or_anonymous_user.id
+            = render 'flags/toggle', flag: flagged[:flag], flag_vote: flagged[:flag_vote], document: document, delta: 2

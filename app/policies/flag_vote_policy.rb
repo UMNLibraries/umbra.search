@@ -1,0 +1,3 @@
+class FlagVotePolicy < ApplicationPolicy
+
+end

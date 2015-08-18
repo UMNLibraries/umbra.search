@@ -11,7 +11,16 @@ class PagesController < ApplicationController
     end
   end
 
+  def inspirations
+  end
+
+  def faq
+  end
+
   def about
+  end
+
+  def partner
   end
 
   def history
@@ -23,7 +32,7 @@ class PagesController < ApplicationController
   def copyright
   end
 
-  def team
+  def people
   end
 
   def contact

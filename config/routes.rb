@@ -18,11 +18,14 @@ Rails.application.routes.draw do
 
   scope '/about' do
     get '' => 'pages#about', as: 'about'
+    get 'partner' => 'pages#partner', as: 'partner'
     get 'history' => 'pages#history', as: 'history'
     get 'copyright' => 'pages#copyright', as: 'copyright'
-    get 'team' => 'pages#team', as: 'team'
+    get 'people' => 'pages#people', as: 'people'
     get 'contact' => 'pages#contact', as: 'contact'
     get 'participate' => 'pages#participate', as: 'participate'
+    get 'faq' => 'pages#faq', as: 'faq'
+    get 'inspirations' => 'pages#inspirations', as: 'inspirations'
   end
 
 

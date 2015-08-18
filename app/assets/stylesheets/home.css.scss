@@ -64,8 +64,10 @@ body.blacklight-pages-home {
 
 #home-search {
 
-  .browse-home {
-
+  .btn-group  {
+    .btn-nav {
+      border-radius: 0;
+    }
   }
 
   max-width: 600px;
@@ -91,7 +93,7 @@ body.blacklight-pages-home {
       #q {
         width: 400px;
         border-top-left-radius: 8px;
-        border-bottom-left-radius: 8px;        
+        border-bottom-left-radius: 8px;
       }
     }
   }

@@ -1,6 +1,6 @@
 %div
   %h3
-    Remove Flags of other Users
+    Remove the flags of other users:
   - Array.wrap(flags).each do |flag|
     %ul
       - flagged_by_users(document['id'], flag.id).each do |flagged|

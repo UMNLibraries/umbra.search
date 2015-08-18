@@ -8,4 +8,13 @@
   <div class="btn-group" role="group">
     <%= link_to "Contact Us", contact_path, :class => 'btn btn-default btn-nav', :method => 'get' %>
   </div>
+
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-default btn-nav" data-toggle="dropdown" aria-expanded="false">
+      Browse <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" role="menu">
+      <%= render partial: 'shared/browse_nav_options' %>
+    </ul>
+  </div>
 </div>

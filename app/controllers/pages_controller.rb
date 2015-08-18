@@ -4,7 +4,6 @@ class PagesController < ApplicationController
 
   def home
     @seconds_to_expiration = seconds_to_expiration
-    @featured_boards = FeaturedBoard.where(:published => true)
     if params[:featured_image]
       @featured_image = FeaturedImage.find(params[:featured_image])
     else

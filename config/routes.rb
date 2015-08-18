@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
   resources :featured_images
-  resources :featured_boards
 
   resources :flags
   resources :flag_votes

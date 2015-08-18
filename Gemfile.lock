@@ -191,7 +191,6 @@ GEM
       mini_portile (~> 0.6.0)
     orm_adapter (0.5.0)
     os (0.9.6)
-    phantomjs (1.9.8.0)
     piet (0.2.2)
       png_quantizator
     piet-binary (0.2.0)
@@ -293,8 +292,6 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (~> 1.1)
-    screencap (0.1.2)
-      phantomjs
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
@@ -381,7 +378,6 @@ DEPENDENCIES
   rsolr (~> 1.0)
   rspec-rails (> 3.0)
   sass-rails (~> 5.0.3)
-  screencap
   sdoc (~> 0.4.0)
   sidekiq
   spring

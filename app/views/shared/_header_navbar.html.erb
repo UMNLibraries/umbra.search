@@ -29,7 +29,6 @@
                       <% if current_user.has_one_of_these_roles?(['editor', 'admin']) %>
                         <li role="separator" class="divider"></li>
                         <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><%= link_to "Featured Images", featured_images_path, title: "Featured Images"%></a></li>
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><%= link_to "Featured Boards", featured_boards_path, title: "Featured Boards"%></a></li>
                         <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><%= link_to "Featured Content", featured_contents_path, title: "Featured Content"%></a></li>
                         <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><%= link_to "Flags", flags_path, title: "Flags"%></a></li>
                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><%= link_to "Flag Votes", flag_votes_path, title: "Flag Votes"%></a></li>

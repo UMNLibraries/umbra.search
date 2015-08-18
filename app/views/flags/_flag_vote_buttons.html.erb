@@ -7,7 +7,7 @@
   <% end %>
 <% end %>
 <% if current_or_guest_or_anonymous_user.has_one_of_these_roles?(['admin', 'editor']) %>
-  <div class="well flagged-by-list">
+  <div class="flagged-by-list">
     <%= render 'flags/all_users_for_record', flags: @flags, document: document %>
   </div>
 <% end %>

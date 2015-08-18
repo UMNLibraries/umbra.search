@@ -68,12 +68,14 @@ module FlagHelper
     User.new
   end
 
-  def flagged_by_users(document_id, flag_id)
+  def flagged_by_users(document_id)
     flagged = []
-    FlagVote.flagged_by_users(document_id, flag_id).each do |flag_vote|
-      user = User.find(flag_vote.user_id)
-      flagged << {user: user, flag: flag_vote.flag, flag_vote: flag_vote}
+    FlagVote.flagged_by_users(document_id).each do |flag_vote|
+      unless current_or_guest_or_anonymous_user.id == flag_vote.user_id
+        user = User.find(flag_vote.user_id)
+        flagged << {user: user, flag: flag_vote.flag, flag_vote: flag_vote}
+      end
     end
-    flagged
+    flagged.uniq
   end
 end

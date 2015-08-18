@@ -14,7 +14,6 @@ RSpec.describe "pages/home", :type => :view do
     @featured_contents = FeaturedContent.published
     render
     expect(rendered).to have_selector(".featured-content .title", featured_content.title)
-    expect(rendered).to have_content("Featured Collections")
     expect(rendered).not_to have_content("This item is unpublished")
   end
 end

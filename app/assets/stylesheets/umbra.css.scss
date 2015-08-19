@@ -177,6 +177,9 @@ ol.subjects {
     display: inline;
     margin-bottom: 5px;
   }
+  [class^="icon-"]:before, [class*=" icon-"]:before {
+    display: inline;
+  }
 }
 
 #atstbx,

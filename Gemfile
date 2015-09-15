@@ -56,9 +56,9 @@ gem 'rest-client', '~>1.8'
 gem 'rails_admin'
 gem 'piet'
 gem 'piet-binary'
-
-# Pagination
 gem 'kaminari'
+gem 'friendly_id', '~> 5.1.0' # Note: You MUST use 5.0.0 or greater for Rails 4.0+
+
 
 group :test, :development do
   # Debug seems to have trouble w/ Ruby 2.x, byebug is a replacment

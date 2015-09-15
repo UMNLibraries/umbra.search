@@ -1,14 +1,13 @@
 <div class="btn-group help btn-group-justified" role="group" aria-label="Help">
   <div class="btn-group" role="group">
-    <%= link_to "About", about_path, :class => 'btn btn-default btn-nav', :method => 'get' %>
+    <%= link_to "About", path_for_page('about'), :class => 'btn btn-default btn-nav', :method => 'get' %>
   </div>
   <div class="btn-group" role="group">
-    <%= link_to "How to Participate", participate_path, :class => 'btn btn-default btn-nav', :method => 'get' %>
+    <%= link_to "How to Participate", path_for_page('participate'), :class => 'btn btn-default btn-nav', :method => 'get' %>
   </div>
   <div class="btn-group" role="group">
-    <%= link_to "Contact Us", contact_path, :class => 'btn btn-default btn-nav', :method => 'get' %>
+    <%= link_to "Contact Us", path_for_page('contact'), :class => 'btn btn-default btn-nav', :method => 'get' %>
   </div>
-
   <div class="btn-group" role="group">
     <button type="button" class="btn btn-default btn-nav" data-toggle="dropdown" aria-expanded="false">
       Browse <span class="caret"></span>

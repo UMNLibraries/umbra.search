@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150811162733) do
+ActiveRecord::Schema.define(version: 20150914214000) do
 
   create_table "blacklight_folders_folder_items", force: :cascade do |t|
     t.integer  "folder_id",   limit: 4,     null: false
@@ -112,6 +112,18 @@ ActiveRecord::Schema.define(version: 20150811162733) do
     t.string   "on_css",                  limit: 255
     t.string   "off_css",                 limit: 255
   end
+
+  create_table "pages", force: :cascade do |t|
+    t.string   "title",      limit: 255
+    t.text     "body",       limit: 65535
+    t.string   "link_title", limit: 255
+    t.string   "link_path",  limit: 255
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.string   "slug",       limit: 255
+  end
+
+  add_index "pages", ["slug"], name: "index_pages_on_slug", using: :btree
 
   create_table "searches", force: :cascade do |t|
     t.text     "query_params", limit: 16777215

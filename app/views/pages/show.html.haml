@@ -1,0 +1,14 @@
+.static-page
+  = render partial: 'subnav'
+  .col-lg-9.col-md-8.col-sm-8.static-page-content.clearfix
+    - if notice
+      %div.alert.alert-info
+        = notice
+      %div.row
+    %div.page-header
+      %h2
+        = raw @page.title
+    = raw @page.body
+    %div.row
+    = link_to 'Edit', edit_page_path(@page), :class => 'btn btn-primary'
+    = link_to 'Back', pages_path, :class => 'btn btn-info'

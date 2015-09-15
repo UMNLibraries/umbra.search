@@ -15,13 +15,13 @@
   </a>
   <ul aria-labelledby="help" class="dropdown-menu" id="help" role="menu">
     <li role="presentation">
-      <%= link_to 'About Umbra', about_path, :id => 'about-nav-link' %>
+      <%= link_to 'About Umbra', path_for_page('about'), :id => 'about-nav-link' %>
     </li>
     <li role="presentation">
-      <%= link_to 'How to Participate', participate_path, :id => 'participate-nav-link' %>
+      <%= link_to 'How to Participate', path_for_page('participate'), :id => 'participate-nav-link' %>
     </li>
     <li role="presentation">
-      <%= link_to 'Contact Us', contact_path, :id => 'contact-nav-link' %>
+      <%= link_to 'Contact Us', path_for_page('contact'), :id => 'contact-nav-link' %>
     </li>
   </ul>
 </li>

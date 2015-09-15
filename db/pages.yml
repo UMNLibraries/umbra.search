@@ -1,0 +1,252 @@
+- body: |-
+      <p><a href="http://umbrasearch.org">UmbraSearch.org</a> is a freely available search tool that brings together the most extensive digital collection dedicated to African American history and culture from US archives, museums, and cultural heritage institutions. Whether you are a student, teacher, writer, journalist, artist, or just curious, this single tool helps you discover the depth and diversity of over 400 years of African American life—quickly and easily!</p>
+      <p>Currently, over 400,000 digital items are made available from over 500 institutions. But plan to visit often as more material is made available continuously from our current contributing partners and as new ones join the effort!</p>
+      <p><em>Umbra</em> is developed by the Givens Collection of African American Literature at the University of Minnesota in partnership with the Penumbra Theatre Company. It is made possible through generous support from the Institute of Museum and Library Services and the Doris Duke Charitable Foundation.*</p>
+      <p>You can follow us on Twitter <a href="http://twitter.com/umbrasearch">@UmbraSearch</a> and Tumblr at <a href="http://umbrasearch.tumblr.com/">umbrasearch.tumblr.com</a>.</p>
+      <p><em>*Any views, findings, conclusions, or recommendations in this website do not necessarily represent those of the Institute of Museum and Library Services or the Doris Duke Charitable Foundation.</em></p>
+      <div class="about-logos">
+        <div class="col-lg-6">
+          <a href="https://lib.umn.edu"><img alt="University of Minnesota Libraries" title="University of Minnesota Libraries" src="/assets/UML_ID_maroon_web_blockM-b57e520909fcaca0abeb3357cdaab57f4569e5183f80494ad844fef1d07dad94.png" /></a>
+          <a href="http://www.penumbratheatre.org"><img alt="Penumbra Theatre Company" title="Penumbra Theatre Company" src="/assets/Penumbra_Logo__Black_on_White-ba86619db53f67d0f5d7439c728c732568c18c16c9cd177ddc87278427b1bc9a.jpg" /></a>
+        </div>
+        <div class="col-lg-6">
+          <div class="imls"><a href="http://www.imls.gov"><img alt="Institute of Museum and Library Servicesn" title="Institute of Museum and Library Services" src="/assets/IMLS_Logo_2c-e47b24231edd1eec9d262aa85d58f346563d805d2604fee7b89501e17d98b460.png" /></a></div>
+          <a href="http://www.ddcf.org"><img alt="Doris Duke Charitable Foundation" title="Doris Duke Charitable Foundation" src="/assets/DD-logo-bottom-a984dba3b3a25c6800ead53a876a52c2ba816a1bf61cddf07c94cbef973eca2e.jpg" /></a>
+        </div>
+      </div>
+  link_path: about
+  link_title: About
+  title: "About <em>Umbra</em>"
+- body: |-
+      <h4>Who are <em>Umbra’s</em> partners?</h4>
+      <p>We are pleased to have a large and growing list of partners as <a href="http://umbrasearch.org/catalog/facet/dataProvider_ssi?limit=100&q=&search_field=all_fields&facet_view=full">contributing institutions</a> (over 500 and counting!). If you would like to partner with Umbra, please email us at <a href="mailto:info@umbrasearch.org">info@umbrasearch.org</a>, and write Partnership in the subject line.</p>
+      <h4>Founding Partners</h4>
+      <ul>
+        <li><a href="http://americantheatrearchiveproject.org/">American Theatre Archive Project</a></li>
+        <li><a href="http://www.amistadresearchcenter.org/">Amistad Research Center (Tulane University)</a></li>
+        <li><a href="https://www.apollotheater.org/">Apollo Theater</a></li>
+        <li><a href="http://www.columbia.edu/">Columbia University</a></li>
+        <li><a href="http://dp.la/">Digital Public Library of America</a></li>
+        <li><a href="http://www.loc.gov/">Library of Congress</a></li>
+        <li><a href="http://nmaahc.si.edu/">National Museum of African American History and Culture</a></li>
+        <li><a href="http://www.nypl.org/locations/schomburg">New York Public Library Schomburg Research Center for Black Culture, Library for the Performing Arts</a></li>
+        <li><a href="http://www.penumbratheatre.org">Penumbra Theatre Company</a></li>
+        <li><a href="http://www.si.edu/">Smithsonian Institution</a></li>
+        <li><a href="http://www.tcg.org/">Theatre Communications Group</a></li>
+        <li><a href="http://www.tla-online.org/">Theatre Library Association</a></li>
+      </ul>
+  link_path: partners
+  link_title: Partners
+  title: Partners
+- body: |-
+      <h4>I WANT TO PARTICIPATE!</h4>
+      <ul>
+        <li><strong><a href="https://docs.google.com/a/umn.edu/forms/d/1-kyZ3i8JDv4ICTq4ZqpJvXl_w11LxsswQmA3OINgXWg/viewform">Be a Beta Tester!</a></strong> Sign up to share your thoughts. When changes are made to the <em>Umbra</em> site, we’ll send you a brief online survey for you to tell us how it’s working and what can be improved.</li>
+        <li><strong>OR just give us your feedback!</strong> Tell us what you like or don’t like, or share some ideas at <a href="mailto:info@umbrasearch.org">info@umbrasearch.org</a>. We want this tool to work hard for you, so every comment is valuable.</li>
+        <li><strong>Help us find materials!</strong> If you have (or know about) materials and/or collections that could be part of Umbra, please write to us at <a href="mailto:info@umbrasearch.org">info@umbrasearch.org</a>. In the future, we hope to develop ways to contribute materials digitally, but we aren’t there yet!</li>
+          <li><strong>Engage!</strong> Join us for lectures, symposia, and other public events throughout 2016. Follow <em>Umbra</em>for news and updates on Twitter <a href="http://twitter.com/umbrasearch">@UmbraSearch</a> and Tumblr at <a href="http://umbrasearch.tumblr.com/">umbrasearch.tumblr.com</a> or <a href="http://www.google.com/url?q=http%3A%2F%2Feepurl.com%2FbvKUWD&sa=D&sntz=1&usg=AFQjCNGRAbihAur1mOKTMkMEqmO_m5ywtA">sign up for notices</a>.</li>
+      </ul>
+  link_path: participate
+  link_title: "How to Participate"
+  title: "How to Participate"
+- body: |-
+      <p><strong>What is <em>Umbra</em>?</strong><br />
+      <p><em>Umbra</em> is a digital library that brings together materials documenting African American history and cultural life from archives, libraries, museums, and other US repositories. <em>Umbra</em> features thumbnail images and descriptive information about photographs, manuscripts, documents, books, sound files, video files, and other freely available resources.</p>
+      <strong>Where can I find <em>Umbra</em>?</strong><br />
+      <p>The <em>Umbra</em> site is located at <a href="http://umbrasearch.org">umbrasearch.org</a>. We are also developing a widget that can be embedded in any digital environment, allowing users to access <em>Umbra</em> from other sites. You can also find us on social media. Follow along on Twitter <a href="http://twitter.com/umbrasearch">@UmbraSearch</a> and Tumblr at <a href="http://umbrasearch.tumblr.com/">umbrasearch.tumblr.com</a>.</p>
+      <strong>Where does <em>Umbra</em> content come from?</strong><br />
+      <p>Materials come from the collections of partner and contributing institutions—libraries, archives, museums, and other repositories that have made parts of their collections available online. <em>Umbra</em> collects thumbnail images and descriptive information that lead <em>Umbra</em> users to view digital materials in a given library/repository’s home online collection. <a href="http://umbrasearch.org/catalog/facet/dataProvider_ssi?limit=100&q=&search_field=all_fields&facet_view=full">Browse a full list of institutions</a> that are contributing materials to <em>Umbra</em>.</p>
+      <strong>How can I add content to <em>Umbra</em>?</strong><br />
+      <p>In the future, we hope to develop ways that you can contribute materials digitally, but we aren’t there yet! If you know of a repository or collection that might align with Umbra’s scope, please write to us at <a href="mailto:info@umbrasearch.org">info@umbrasearch.org</a>, and write Content in the subject line.</p>
+      <strong>Who are <em>Umbra’s</em> partners?</strong><br />
+      <p>We are pleased to have a large and growing list of partners as contributing institutions (over 500 and counting!). If you would like to partner with Umbra, please email us at <a href="mailto:info@umbrasearch.org">info@umbrasearch.org</a>, and write Partnership in the subject line. <em>Umbra’s</em> founding partners are:</p>
+      <ul>
+        <li>American Theatre Archive Project</li>
+        <li>Amistad Research Center (Tulane University)</li>
+        <li>Apollo Theater</li>
+        <li>Columbia University</li>
+        <li>Digital Public Library of America</li>
+        <li>Library of Congress</li>
+        <li>New York Public Library Schomburg Center for Research in Black Culture</li>
+        <li>New York Public Library for the Performing Arts</li>
+        <li>Smithsonian Institution</li>
+        <li>Smithsonian National Museum of African American History and Culture</li>
+        <li>Theatre Communications Group</li>
+        <li>Theatre Library Association</li>
+        </ul>
+      <strong>Can I share <em>Umbra</em> materials with others?</strong><br />
+      <p>Yes! You will find sharing options in the full-record view of objects. You can share materials via email, or through a suite of social media options—Facebook, Tumblr, Twitter, Pinterest, etc..</p>
+      <strong>I found some errors on the site, and/or materials that don’t seem to fit the theme. How do I let you know about them?</strong><br />
+      <p>Contact us at <a href="mailto:info@umbrasearch.org">info@umbrasearch.org</a>. If possible, please include links to the specific content or page with which you had difficulty and describe the issue in as much detail as possible.</p>
+      <strong>Who has the copyright?</strong><br />
+      <p><em>Umbra</em> does not own rights to materials displayed on the <em>Umbra</em> site, and makes no warranties of their suitability for further use. Some of the materials displayed on <em>Umbra</em> may be in the public domain; others have been digitized with the permission of rights holders or through other arrangements. For permission to publish the materials displayed on <em>Umbra</em>, please contact the holding institution for more information.</p>
+      <p>Users are responsible for their own uses of any materials accessed through <em>Umbra: Search African American History</em>. Users who wish to obtain permission for publication, display, or other uses of these materials should contact the contributing institution for information about rights ownership and permissions.</p>
+  link_path: faq
+  link_title: FAQ
+  title: FAQ
+- body: |-
+        <h4>The people who are creating and nurturing <em>Umbra</em> are:</h4>
+        <ul>
+          <li><a href="https://www.lib.umn.edu/about/staff/cecily-marcus">Cecily Marcus</a>, Principal Investigator, Givens Collection of African American Literature Curator, University of Minnesota Libraries</li>
+          <li><a href="http://penumbratheatre.org/content/blogcategory/7/52/">Chris Widdess</a>, Project Lead, Penumbra Theatre Company</li>
+          <li><a href="mailto:carl4256@umn.edu">Sarah Carlson</a>, Project Manager, University of Minnesota Libraries</li>
+          <li><a href="https://www.lib.umn.edu/about/staff/jason-roy">Jason Roy</a>, Digital Library Services Director, University of Minnesota Libraries</li>
+          <li><a href="https://www.lib.umn.edu/about/staff/chad-fennell">Chad Fennell</a>, Applications Developer, University of Minnesota Libraries</li>
+          <li>Tia Gardner,  Givens Graduate Fellow, University of Minnesota Libraries</li>
+          <li>Monika Hetzler, #MyUmbraSearch curator/student liaison, University of Minnesota Libraries</li>
+          <li>Elena Carrillo, Project Manager/Content Lead (2014-2015)</li>
+          <li>Delaney Churchwell (2014)</li>
+        </ul>
+        <h4>Who are the institutions behind <em>Umbra</em>?</h4>
+        <p><em>Umbra</em> is developed by the Givens Collection of African American Literature at the University of Minnesota in partnership with the Penumbra Theatre Company.</p>
+        <p>Established in 1986, the <a href="https://www.lib.umn.edu/scrbm/givens">Archie Givens, Sr. Collection of African American Literature</a> at the University of Minnesota Libraries contains over 10,000 books, magazines, and pamphlets by or about African Americans. From Phillis Wheatley’s seminal 1773 <em>Poems on Various Subjects Religious and Moral</em> to Minnesota hip-hop, the Givens Collection has particular strength in the areas of the Harlem Renaissance and the Black Arts Movement. It also holds a significant number of materials that relate to African American education, social sciences, journalism, arts, sports, and entertainment, including the Penumbra Theatre Company archives and the Lou Bellamy Rare Book Collection, which contains over 850 titles including the self-published <em>Narrative of Sojourner Truth</em> and other books that predate the Emancipation Proclamation.</p>
+        <p>The Givens Collection is located at the Elmer L. Andersen Library in Minneapolis, MN, and is open to the public.</p>
+        <p>Lou Bellamy founded <a href="http://penumbratheatre.org/">Penumbra Theatre Company</a> in 1976 to create art that roars with authenticity through the rich and unrestrained voices of black playwrights and artists. The powerful and unapologetic representation of the African American experience defines Penumbra’s art, driving its education programs to provide rigorous scholarship while creating an entry point for everyone. Penumbra’s ultimate goal is to engage audiences in dialogue and action around issues of racism and equity, and renewing our sense of shared responsibility in building healthy, vibrant communities. Penumbra has achieved national recognition for its high quality productions; groundbreaking educational programs and collaborations; the development of new work and launching the career of many artists including two-time Pulitzer Prize winner August Wilson; and for opening avenues to include and celebrate the black experience as part of the American narrative. Penumbra’s Co-Artistic Directors are Lou Bellamy and Sarah Bellamy.</p>
+  link_path: people
+  link_title: People
+  title: People
+- body: |-
+        <p><h4>Email</h4>
+        <p><a href="mailto:info@umbrasearch.org">info@umbrasearch.org</a></p>
+        <h4>Write</h4>
+        <p>Umbra: Search African American History<br />
+        213 Elmer L. Andersen Library<br />
+        University of Minnesota<br />
+        222 21st Avenue South<br />
+        Minneapolis, MN 55455</p>
+        <h4>Call</h4>
+        <p>Sarah Carlson at (612) 624-8609 or Cecily Marcus at (612) 624-8812.</p>
+  link_path: contact
+  link_title: Contact
+  title: Contact Us
+- body: |-
+        <p><em>Umbra</em> does not own rights to materials displayed on the <em>Umbra</em> site, and makes no warranties of their suitability for any further use. Some of the materials displayed on <em>Umbra</em> may be in the public domain; others have been digitized with the permission of rightsholders or through other arrangements. Use of these materials outside the context of the <em>Umbra</em> project website may or may not be permitted by law, and different use situations will present different legal issues.</p>
+        <p>Users are responsible for their own uses of any materials accessed through the <em>Umbra</em> project website. Users who wish to obtain permission for publication, display, or other uses of these materials should contact the Contributing Institution for information about rights ownership and permissions.</p>
+  link_path: copyright
+  link_title: Copyright
+  title: Copyright
+- body: |-
+          <h4>How did this idea come to be?</h4>
+          <p><em>Umbra: Search African American History</em> is a response to a project dedicated to understanding the role of theater archives in documenting history. However, the scope of <em>Umbra</em> immediately goes far beyond theater and the performing arts. It seeks to bring together the historical artifacts and documents that represent the full depth and breadth of the African American experience—its people, places, ideas, events, movements, and inspirations. It is our hope that this rich history will find new life and form in theater, literature, works of art, journalism, scholarship, teaching curricula, and much more.</p>
+          <p>Umbra is inspired by work begun in 2012 with <em><a href="https://www.lib.umn.edu/about/ephemeral/">Preserving the Ephemeral: An Archival Program for Theater and the Performing Arts</a></em>, and was originally conceived as <em>The African American Theater History Project</em>. With funding from the Institute of Museum and Library Services, <em>Preserving the Ephemeral</em> was a collaboration between the University of Minnesota and Penumbra Theatre Company to assess the needs of the theater community, and theaters of color in particular, around questions of archives and historical legacy. Over 300 theater representatives responded to a national survey in partnership with American Theatre Archive Project, and artistic directors and founders from over 60 theaters around the country participated in forums convened to discuss the challenges and heightened importance of archives for culturally specific companies.</p>
+          <h4> Participating Theaters</h4>
+          <div class="col-lg-6 col-md-6 col-sm-6 hidden-sm hidden-md hidden-xs">
+            <ul>
+              <li>20% Theatre Company, Minneapolis, MN</li>
+              <li>2amt, Hanover, IN</li>
+              <li>7 Stages, Atlanta, GA</li>
+              <li>7 Towers Theatre, Austin, TX</li>
+              <li>Active Cultures Theatre, University Park, MD</li>
+              <li>African Continuum Theatre Co.*, Washington, DC</li>
+              <li>Apollo Theater*, New York, NY</li>
+              <li>Arena Stage, Washington, DC</li>
+              <li>Bond Street Theatre, New York, NY</li>
+              <li>Children's Theatre Company, Minneapolis, MN</li>
+              <li>Crossroads Theatre Company*, New Brunswick, NJ</li>
+              <li>Cultural Odyssey*, San Francisco, CA</li>
+              <li>Eckerd Theater Company, Clearwater, FL</li>
+              <li>Frank Theatre, Minneapolis, MN</li>
+              <li>Georgia Ensemble Theatre, Roswell, GA</li>
+              <li>In the Heart of the Beast Theatre, Minneapolis, MN</li>
+              <li>Karamu House*, Cleveland, OH</li>
+              <li>Kenny Leon's True Colors Theatre Company*, Atlanta, GA</li>
+              <li>Mask and Rose Women's Theater Collective, Puposky, MN</li>
+              <li>Minnesota Theater Alliance, Minneapolis, MN</li>
+              <li>Miracle Theatre Group, Portland, OR</li>
+              <li>Mixed Blood Theatre, Minneapolis, MN</li>
+              <li>Mu Performing Arts, St. Paul, MN</li>
+              <li>Nautilus Music-Theater, St. Paul, MN</li>
+              <li>Oklahoma City Repertory Theatre, Oklahoma City, OK</li>
+              <li>On the Boards, Seattle, WA</li>
+              <li>Open Eye Figure Theatre, Minneapolis, MN</li>
+            </ul>
+          </div>
+          <div class="col-lg-6 col-md-6 hidden-sm hidden-md hidden-xs">
+            <ul>
+              <li>Ordway Center for the Performing Arts, St. Paul, MN</li>
+              <li>Paper Mill Playhouse, Millburn, NJ</li>
+              <li>Penumbra Theatre Company*, St. Paul, MN</li>
+              <li>PICT Theatre, Pittsburgh, PA</li>
+              <li>Pittsburgh Playwrights Theatre*, Pittsburgh, PA</li>
+              <li>Plowshares Theatre Company*, Detroit, MI</li>
+              <li>Rites & Reason Theatre*, Providence, RI</li>
+              <li>Robey Theatre Company*, Los Angeles, CA</li>
+              <li>Roundabout Theatre Company, New York, NY</li>
+              <li>Sandbox Theatre, Minneapolis, MN</li>
+              <li>Steppenwolf Theatre Company, Chicago, IL</li>
+              <li>The Black Rep*, St. Louis, MO</li>
+              <li>The Classical Theatre of Harlem*, New York, NY</li>
+              <li>The Ensemble Theatre*, Houston, TX</li>
+              <li>The TEAM, New York, NY</li>
+              <li>The Theater Offensive, Boston, MA</li>
+              <li>The Wooster Group, New York, NY</li>
+              <li>Theater Grottesco, Santa Fe, NM</li>
+              <li>Theatre for a New Audience, New York, NY</li>
+              <li>Theater Latte Da, Minneapolis, MN</li>
+              <li>Towne Street Theatre*, Los Angeles, CA</li>
+              <li>Undermain Theatre, Dallas, TX</li>
+              <li>University of Minnesota Department of Theatre Arts and Dance, Minneapolis, MN</li>
+              <li>Walking Shadow Theatre Company, Minneapolis, MN</li>
+              <li>Woolly Mammoth Theatre Company, Washington, DC</li>
+              <li>Writers' Theatre,  Glencoe, IL</li>
+            </ul>
+          </div>
+          <ul class="hidden-lg">
+            <li>20% Theatre Company, Minneapolis, MN</li>
+            <li>2amt, Hanover, IN</li>
+            <li>7 Stages, Atlanta, GA</li>
+            <li>7 Towers Theatre, Austin, TX</li>
+            <li>Active Cultures Theatre, University Park, MD</li>
+            <li>African Continuum Theatre Co.*, Washington, DC</li>
+            <li>Apollo Theater*, New York, NY</li>
+            <li>Arena Stage, Washington, DC</li>
+            <li>Bond Street Theatre, New York, NY</li>
+            <li>Children's Theatre Company, Minneapolis, MN</li>
+            <li>Crossroads Theatre Company*, New Brunswick, NJ</li>
+            <li>Cultural Odyssey*, San Francisco, CA</li>
+            <li>Eckerd Theater Company, Clearwater, FL</li>
+            <li>Frank Theatre, Minneapolis, MN</li>
+            <li>Georgia Ensemble Theatre, Roswell, GA</li>
+            <li>In the Heart of the Beast Theatre, Minneapolis, MN</li>
+            <li>Karamu House*, Cleveland, OH</li>
+            <li>Kenny Leon's True Colors Theatre Company*, Atlanta, GA</li>
+            <li>Mask and Rose Women's Theater Collective, Puposky, MN</li>
+            <li>Minnesota Theater Alliance, Minneapolis, MN</li>
+            <li>Miracle Theatre Group, Portland, OR</li>
+            <li>Mixed Blood Theatre, Minneapolis, MN</li>
+            <li>Mu Performing Arts, St. Paul, MN</li>
+            <li>Nautilus Music-Theater, St. Paul, MN</li>
+            <li>Oklahoma City Repertory Theatre, Oklahoma City, OK</li>
+            <li>On the Boards, Seattle, WA</li>
+            <li>Open Eye Figure Theatre, Minneapolis, MN</li>
+            <li>Ordway Center for the Performing Arts, St. Paul, MN</li>
+            <li>Paper Mill Playhouse, Millburn, NJ</li>
+            <li>Penumbra Theatre Company*, St. Paul, MN</li>
+            <li>PICT Theatre, Pittsburgh, PA</li>
+            <li>Pittsburgh Playwrights Theatre*, Pittsburgh, PA</li>
+            <li>Plowshares Theatre Company*, Detroit, MI</li>
+            <li>Rites & Reason Theatre*, Providence, RI</li>
+            <li>Robey Theatre Company*, Los Angeles, CA</li>
+            <li>Roundabout Theatre Company, New York, NY</li>
+            <li>Sandbox Theatre, Minneapolis, MN</li>
+            <li>Steppenwolf Theatre Company, Chicago, IL</li>
+            <li>The Black Rep*, St. Louis, MO</li>
+            <li>The Classical Theatre of Harlem*, New York, NY</li>
+            <li>The Ensemble Theatre*, Houston, TX</li>
+            <li>The TEAM, New York, NY</li>
+            <li>The Theater Offensive, Boston, MA</li>
+            <li>The Wooster Group, New York, NY</li>
+            <li>Theater Grottesco, Santa Fe, NM</li>
+            <li>Theatre for a New Audience, New York, NY</li>
+            <li>Theater Latte Da, Minneapolis, MN</li>
+            <li>Towne Street Theatre*, Los Angeles, CA</li>
+            <li>Undermain Theatre, Dallas, TX</li>
+            <li>University of Minnesota Department of Theatre Arts and Dance, Minneapolis, MN</li>
+            <li>Walking Shadow Theatre Company, Minneapolis, MN</li>
+            <li>Woolly Mammoth Theatre Company, Washington, DC</li>
+            <li>Writers' Theatre,  Glencoe, IL</li>
+          </ul>
+          <p><em><strong>*African American Theaters</em></strong></p>
+  link_path: history
+  link_title: History
+  title: "History: Inspirations & Aspirations"

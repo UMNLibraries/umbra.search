@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :pages
   resources :featured_images
-
   resources :flags
   resources :flag_votes
   post '/flag_votes/create' => 'flag_votes#create', as: 'create_flag_vote'
@@ -16,18 +16,15 @@ Rails.application.routes.draw do
   blacklight_for :catalog
   get 'thumbnail' => 'thumbnails#download', as: 'cached_thumbnail'
 
-  scope '/about' do
-    get '' => 'pages#about', as: 'about'
-    get 'partner' => 'pages#partner', as: 'partner'
-    get 'history' => 'pages#history', as: 'history'
-    get 'copyright' => 'pages#copyright', as: 'copyright'
-    get 'people' => 'pages#people', as: 'people'
-    get 'contact' => 'pages#contact', as: 'contact'
-    get 'participate' => 'pages#participate', as: 'participate'
-    get 'faq' => 'pages#faq', as: 'faq'
-    get 'inspirations' => 'pages#inspirations', as: 'inspirations'
-  end
-
+  get '/about', to: redirect('/pages/about')
+  get '/about/partner', to: redirect('/pages/partner')
+  get '/about/history', to: redirect('/pages/history')
+  get '/about/copyright', to: redirect('/pages/copyright')
+  get '/about/people', to: redirect('/pages/people')
+  get '/about/contact', to: redirect('/pages/contact')
+  get '/about/participate', to: redirect('/pages/participate')
+  get '/about/faq', to: redirect('/pages/faq')
+  get '/about/inspirations', to: redirect('/pages/inspirations')
 
   get 'contribute' => 'catalog#contribute', as: 'contribute'
   # get 'contact' => 'catalog#contact', as: 'contact'

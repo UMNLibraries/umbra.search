@@ -3,7 +3,7 @@
 class CatalogController < ApplicationController
   include Blacklight::Catalog
   include BlacklightMoreLikeThis::SolrHelperExtension
-  # include Flag::SolrHideFlagged
+  include Flag::SolrHideFlagged
 
   self.search_params_logic += [:show_only_umbra_records]
 

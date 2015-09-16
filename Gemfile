@@ -80,3 +80,6 @@ group :test, :development do
   gem 'faker'
   gem 'capistrano-sidekiq'
 end
+
+# Gemfile (never include in :development !)
+gem 'test_after_commit', :group => :test

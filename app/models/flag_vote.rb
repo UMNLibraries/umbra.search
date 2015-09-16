@@ -2,6 +2,10 @@ require 'digest/sha1'
 
 class FlagVote < ActiveRecord::Base
   include Blacklight::SearchHelper
+  after_commit :add_flag_to_record, on: :update
+  after_commit :add_flag_to_record, on: :create
+  after_commit :remove_flag_from_record, on: :destroy
+
   belongs_to :user
   belongs_to :flag
   validates :flag_id, presence: true
@@ -42,6 +46,24 @@ class FlagVote < ActiveRecord::Base
 
   def self.document(record_id)
     SolrClient.find_record(record_id)
+  end
+
+  def add_flag_to_record
+    doc   = FlagVote.document(record_id)
+    doc['flags_isim'] ||= []
+    doc['flags_isim'] << flag.id
+    update_record(doc)
+  end
+
+  def remove_flag_from_record
+    doc   = FlagVote.document(record_id)
+    doc['flags_isim'] ||= []
+    doc['flags_isim'].delete(flag.id)
+    update_record(doc)
+  end
+
+  def update_record(doc)
+    SolrClient.add [doc]
   end
 
   private

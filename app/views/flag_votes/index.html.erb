@@ -12,11 +12,14 @@
   <tbody>
     <% @flag_votes.each do |flag_vote| %>
       <% @flags = [flag_vote.flag] %>
-      <tr>
-        <td><%= render 'document', document: FlagVote.document(flag_vote.record_id) %></td>
-        <td><%= flag_vote.user['name'] %> &lt;<%= flag_vote.user['email'] %>&gt; (User ID: <%= flag_vote.user['id'] %>)</td>
-        <td><%= render 'flags/flag_vote_buttons', document: FlagVote.document(flag_vote.record_id), flag_vote: flag_vote %></td>
-      </tr>
+      <% document = FlagVote.document(flag_vote.record_id) %>
+      <% if !document.nil? %>
+        <tr>
+          <td><%= render 'document', document: FlagVote.document(flag_vote.record_id) %></td>
+          <td><%= flag_vote.user['name'] %> &lt;<%= flag_vote.user['email'] %>&gt; (User ID: <%= flag_vote.user['id'] %>)</td>
+          <td><%= render 'flags/flag_vote_buttons', document: FlagVote.document(flag_vote.record_id), flag_vote: flag_vote %></td>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 

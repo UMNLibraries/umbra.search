@@ -10,6 +10,8 @@ env:
 before_script:
 - bundle exec rake solr:setup_test
 - mysql -e 'create database aath_search_test;'
+- bundle exec rake db:migrate
+- bundle exec rake db:seed
 notifications:
   slack:
     secure: CudGmLuuCYkUJJI8l6CDmpf9UOudHALoMZea31YZvSehMvL79T7Se0COf2TnJfzUPu3HliEwN4AZqok/BZWlQ7N8Yh2p5Lf3MDuHdZmsEVjcippe8oA0yi42S2ehLIIbbXckpIz4A3NCkbt9lXDJD8rqf6M5wi5BQMpEzAL15VU=

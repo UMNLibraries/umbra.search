@@ -10,6 +10,10 @@ module WidgetsHelper
     end
   end
 
+  def contributing_institution
+    Sanitize.clean(@widget_params[:contributing_institution])
+  end
+
   def submit_text
     text = Sanitize.clean(@widget_params[:submit_text])
     (!text.blank?) ? text : 'Search'

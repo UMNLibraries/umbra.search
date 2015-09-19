@@ -32,16 +32,24 @@ function main() {
     });
     css_link.appendTo('head');
 
-
     var form = <%= render 'search_form' %>
+    var params = {"contributing_institution": "<%= contributing_institution %>"};
     $('.umbra-search-widget').html(form);
     $( ".umbra-search-widget #umbra-search-form" ).submit(function( event ) {
-      search = $( "input:first" ).val();
-      url = "http://umbrasearch.org/catalog?utf8=%E2%9C%93&search_field=all_fields&q=" + search;
+      search = $( ".search-text" ).val();
+      var url = ("<%= request.base_url %>/catalog/?" + url_builder(params) + "&q=" + search).replace( /<.*?>/g, '' );
       window.location = url;
       event.preventDefault();
     });
 
   });
+
+  function url_builder(params) {
+    var url_parms = {"search_field": 'all'}
+    if (params['contributing_institution']) {
+      url_parms['f[dataProvider_ssi][]'] = params['contributing_institution'];
+    }
+    return  jQuery.param(url_parms);
+  }
 }
 })();

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :flag_votes
 
   get 'widgets/search' => 'widgets#search', as: 'search_widget'
+  get 'widgets' => 'widgets#index', as: 'widgets'
 
   post '/flag_votes/create' => 'flag_votes#create', as: 'create_flag_vote'
   delete '/flag_votes/destroy' => 'flag_votes#destroy', as: 'destroy_flag_vote'

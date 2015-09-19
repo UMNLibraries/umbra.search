@@ -58,7 +58,8 @@ gem 'piet'
 gem 'piet-binary'
 gem 'kaminari'
 gem 'friendly_id', '~> 5.1.0' # Note: You MUST use 5.0.0 or greater for Rails 4.0+
-
+gem 'sanitize'
+gem 'coderay', '~> 1.0.5'
 
 group :test, :development do
   # Debug seems to have trouble w/ Ruby 2.x, byebug is a replacment
@@ -66,7 +67,6 @@ group :test, :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
-  gem 'coderay', '~> 1.0.5'
   # Quite logs down by removing asset requests
   gem 'quiet_assets'
   gem 'fontello_rails_converter'

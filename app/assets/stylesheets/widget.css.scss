@@ -1,0 +1,39 @@
+#umbra-search-form {
+  img {
+    display: inline;
+    height: 55px;
+    width: 55px;
+  }
+  width: 350px;
+
+  .input-group {
+    .form-control:last-child {
+      border-top-left-radius: 3px;
+      border-bottom-left-radius: 3px;
+    }
+  }
+
+  .btn-primary {
+    border-color: #777777;
+    background-color: #EE6D4F;
+    background-image: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    a {
+      color: white;
+    }
+    a:hover {
+      text-decoration: none;
+    }
+  }
+
+
+
+  .btn-primary:hover {
+    background-color: #1B5957;
+  }
+}
+
+#umbra-search-form.form-plain {
+  width: 240px;
+}

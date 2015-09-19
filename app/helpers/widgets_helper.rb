@@ -16,7 +16,7 @@ module WidgetsHelper
 
   def submit_text
     text = Sanitize.clean(@widget_params[:submit_text])
-    (!text.blank?) ? text : 'Search'
+    (text == 'none') ? '' : 'Search'
   end
 
   def html_syntax_highlight(html)

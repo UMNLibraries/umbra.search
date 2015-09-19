@@ -1,9 +1,12 @@
 '<form id="umbra-search-form" class="form-inline" action="">' +
-'  <a href="<%= request.base_url %>"><img src="https://s3.amazonaws.com/umbra-widget-assets/umbra-small.png" alt="Umbra: Search African Amercian History" title="Umbra: Search African Amercian History"></a>' +
+'  <table class="layout-table-ick">' +
+'  <tr><td><a href="<%= request.base_url %>"><img src="https://s3.amazonaws.com/umbra-widget-assets/umbra-small.png" alt="Umbra: Search African Amercian History" title="Umbra: Search African Amercian History"></a>' +
 '  <div class="input-group">' +
+' </td><td>' +
 '  <div class="form-group">' +
-'    <input placeholder="Search Umbra..." class="form-control search-textz" type="text" value="">' +
+'    <input placeholder="Search Umbra..." class="form-control search-text" type="text" value="">' +
 '  </div>' +
+'  </td><td>' +
 '  <span class="input-group-btn">' +
 '   <button type="submit" class="btn btn-primary search-btn" id="search" alt="<%= submit_text %>" title="<%= submit_text %>">' +
 '     <span class="submit-search-text"><%= submit_text %></span>' +
@@ -11,4 +14,5 @@
 '   </button>' +
 '  </span>' +
 '  </div>' +
+'  </tr></td>' +
 '</form>';

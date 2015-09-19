@@ -15,8 +15,9 @@
       - search_form = render 'search_form_embed'
       = raw html_syntax_highlight(search_form)
       %h4
-        Preview
-      = search_form
+        Preview:
+      %div.well
+        = search_form
       %div
         Note: the above search icon (<em><span class="glyphicon glyphicon-search"></span></em>) will only appear if you are using a version of the <a href="http://getbootstrap.com/components/#glyphicons">Bootstrap</a> CSS library with the related glyphcon library.
       %br

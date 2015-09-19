@@ -25,13 +25,7 @@ function scriptLoadHandler() {
 }
 function main() {
   jQuery(document).ready(function($) {
-    var css_link = $("<link>", {
-      rel: "stylesheet",
-      type: "text/css",
-      href: "<%= URI.join(root_url, path_to_stylesheet("widget.css")).to_s %>"
-    });
-    css_link.appendTo('head');
-
+    $('.umbra-search-widget').before(<%= render 'css' %>);
     var form = <%= render 'search_form' %>
     var params = {"contributing_institution": "<%= contributing_institution %>"};
     $('.umbra-search-widget').html(form);

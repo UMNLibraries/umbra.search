@@ -1,6 +1,7 @@
 # -*- encoding : utf-8 -*-
 #
 class CatalogController < ApplicationController
+  protect_from_forgery unless: -> { request.format.json? }
   include Blacklight::Catalog
   include BlacklightMoreLikeThis::SolrHelperExtension
   include Flag::SolrHideFlagged
@@ -8,8 +9,19 @@ class CatalogController < ApplicationController
   self.search_params_logic += [:show_only_umbra_records]
 
   def index
+    (@response, @document_list) = search_results(params, search_params_logic)
     @flags = Array.wrap(Flag.where(:published => true))
-    super
+    respond_to do |format|
+      format.html { store_preferred_view }
+      format.rss  { render :layout => false }
+      format.atom { render :layout => false }
+      format.json do
+        render json: render_search_results_as_json, callback: params['callback']
+      end
+
+      additional_response_formats(format)
+      document_export_formats(format)
+    end
   end
 
   def about

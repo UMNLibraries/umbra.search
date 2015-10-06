@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :flags
   resources :flag_votes
 
+  post '/records/upsert' => 'records#upsert', as: 'records_upsert'
+
   get 'widgets/search' => 'widgets#search', as: 'search_widget'
   get 'widgets' => 'widgets#index', as: 'widgets'
 

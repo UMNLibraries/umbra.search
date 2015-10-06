@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe FeaturedImage, :type => :model do
+describe FeaturedImage, :type => :model do
   subject { FactoryGirl.create(:featured_image) }
   it "has title, record id, publication status and attached image" do
     expect(subject.title).to eq("Test title")

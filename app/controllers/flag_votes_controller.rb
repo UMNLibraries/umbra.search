@@ -46,8 +46,15 @@ class FlagVotesController < ApplicationController
 
   def get_records(flag_votes)
     FlagVote.records(flag_votes) do |record_id|
-      fetch(record_id).last
+      fetch_record(record_id)
     end
+  end
+
+  def fetch_record(record_id)
+    fetch(record_id).last
+  rescue Blacklight::Exceptions::RecordNotFound
+    Rails.logger.error "Blacklight::Exceptions::RecordNotFound: #{record_id}"
+    nil
   end
 
   # if user is logged in, return current_user, else return guest_user

@@ -21,7 +21,7 @@ class FlagVote < ActiveRecord::Base
     votes.each do |vote|
       summary[vote[:flag_id]] ||= []
       record = yield vote[:record_id]
-      summary[vote[:flag_id]] << format_record(record)
+      summary[vote[:flag_id]] << format_record(record)  unless !record.nil?
     end
     summary
   end
@@ -30,7 +30,7 @@ class FlagVote < ActiveRecord::Base
     records = []
     votes.each do |vote|
       record = yield vote[:record_id]
-      records << format_record(record).strip
+      records << format_record(record).strip unless record.nil?
     end
     records
   end

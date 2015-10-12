@@ -14,8 +14,7 @@ describe UpsertRecords do
     expect(Record.find('12dasd').metadata).to eq '[{"foo": "baa"}]'
     expect(Record.find('12e21c').ingest_hash).to eq 'ingest-run-129'
     expect(Record.find('123abc').ingest_name).to eq 'Temple'
-    records = [{'record_hash' => '123abc', 'ingest_hash' => 'ingest-run-129', 'ingest_name' => 'Templez', 'metadata' => '[{"foo": "bar"}]'}]
-    UpsertRecords.call(records)
+    UpsertRecords.call([{'record_hash' => '123abc', 'ingest_hash' => 'ingest-run-129', 'ingest_name' => 'Templez', 'metadata' => '[{"foo": "bar"}]'}])
     expect(Record.find('123abc').ingest_name).to eq 'Templez'
   end
 end

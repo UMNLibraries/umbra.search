@@ -17,8 +17,6 @@ default: &default
   username: <%= ENV['AATH_SEARCH_DB_USERNAME'] %>
   password: <%= ENV['AATH_SEARCH_DB_PASSWORD'] %>
   database: <%= ENV['AATH_SEARCH_DB_NAME'] %>
-  encoding:  utf8mb4
-  collation: utf8mb4_unicode_ci
 
 development:
   <<: *default

@@ -10,5 +10,6 @@
         = raw @page.title
     = raw @page.body
     %div.row
-    = link_to 'Edit', edit_page_path(@page), :class => 'btn btn-primary'
-    = link_to 'Back', pages_path, :class => 'btn btn-info'
+    - if can? :update, @page
+      = link_to 'Edit', edit_page_path(@page), :class => 'btn btn-primary'
+      = link_to 'Back', pages_path, :class => 'btn btn-info'

@@ -179,16 +179,6 @@ $(document).ready(function(){
     ga('send', {
       hitType: 'event',
       eventCategory: 'Search',
-      eventAction: 'Secondary Page Navbar Search',
-      eventLabel: text
-    });
-  });
-
-  $(".blacklight-catalog-index .search-btn").click(function() {
-    var text = $("#q").val();
-    ga('send', {
-      hitType: 'event',
-      eventCategory: 'Search',
       eventAction: 'Catalog Navbar Search',
       eventLabel: text
     });

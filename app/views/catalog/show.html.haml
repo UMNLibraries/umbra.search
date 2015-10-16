@@ -5,6 +5,8 @@
 - content_for(:head) { render_link_rel_alternates }
 - content_for(:secondary_navbar) {render partial:'show_nav'}
 
+%div.metadata{"data-metadata" => document.to_json, "data-url" => request.original_url}
+
 %section#metadata
   %div.container
     %div.row
@@ -19,7 +21,7 @@
             - else
               = link_to cached_thumbnail_tag(document, {}), thumb_url, {target: '_blank'}
           %div.col-xs-12.col-sm-7.view-original-col
-            %a.btn.btn-default.btn-lg.btn-primary.btn-view-original{href:thumb_url, target: '_blank'}
+            %a.btn.btn-default.btn-lg.btn-primary.btn-view-original.view-original-full-record{href:thumb_url, target: '_blank'}
               View Original
             %div.data-provider
               = raw view_original_provider_search

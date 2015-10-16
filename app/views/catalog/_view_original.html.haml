@@ -1,6 +1,6 @@
 - if url
   %span.view-original
-    %a.btn.btn-default.btn-lg.btn-primary{href:url, target: '_blank'}
+    %a.btn.btn-default.btn-lg.btn-primary.view-original-search{href:url, target: '_blank', 'data-document-id' => document_id, 'data-context' => context}
       .glyphicon.glyphicon-new-window
       View Original
     - if document_index_view_type == :list

@@ -13,14 +13,14 @@
       %div.col-xs-12.col-sm-6.col-md-6.col-lg-6.image-and-view-original
         %div.row.show-conent-top
           %h1.h3{style:'font-style:italic;'}= display_title
-          %div.col-xs-12.col-sm-5
+          %div.col-xs-12.col-sm-7
             - if  is_sound?
               .cover-image.gallery-glyphs.glyphs
                 = link_to thumb_url, {target: '_blank'} do
                   %span.icon-headphones
             - else
               = link_to cached_thumbnail_tag(document, {}), thumb_url, {target: '_blank'}
-          %div.col-xs-12.col-sm-7.view-original-col
+          %div.col-xs-12.col-sm-5.view-original-col
             %a.btn.btn-default.btn-lg.btn-primary.btn-view-original.view-original-full-record{href:thumb_url, target: '_blank'}
               View Original
             %div.data-provider

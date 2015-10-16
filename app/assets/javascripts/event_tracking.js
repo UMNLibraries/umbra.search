@@ -154,16 +154,6 @@ $(document).ready(function(){
     });
   });
 
-  $("#home-search .search-btn").click(function() {
-    var text = $("#home-search #q").val();
-    ga('send', {
-      hitType: 'event',
-      eventCategory: 'Search',
-      eventAction: 'Home Page Search',
-      eventLabel: text
-    });
-  });
-
   $(".blacklight-pages-home #home-search .search-btn").click(function() {
     var text = $("#home-search #q").val();
     ga('send', {

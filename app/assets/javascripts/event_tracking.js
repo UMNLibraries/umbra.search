@@ -1,7 +1,17 @@
 $(document).ready(function(){
   if ($(".blacklight-catalog-show").length > 0) {
-    var metadata = JSON.parse($(".metadata").attr('data-metadata'));
-    ga('set', 'dimension1', metadata['dataProvider_ssi']);
+    var metadata = JSON.parse($(".metadata").attr('data-metadata')); 
+    ga('send', 'pageview', {
+      'dimension1': metadata['dataProvider_ssi']
+    });
+
+    ga('send', 'pageview', {
+      'dimension2': metadata['sourceResource_type_ssi']
+    });
+
+    ga('send', 'pageview', {
+      'dimension3': metadata['import_job_name_ssi']
+    });
   }
 
   $(".pin-it-large a").click(function() {

@@ -12,6 +12,13 @@ $(document).ready(function(){
     ga('send', 'pageview', {
       'dimension3': metadata['import_job_name_ssi']
     });
+
+    ga('send', {
+      hitType: 'event',
+      eventCategory: 'Record View',
+      eventAction: 'Full Record',
+      eventLabel: metadata['id']
+    });
   }
 
   $(".pin-it-large a").click(function() {

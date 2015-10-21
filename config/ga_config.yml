@@ -1,0 +1,4 @@
+service_account_email: <%= ENV['GOOGLE_CLIENT_EMAIL'] %>
+key_file: <%= ENV['GOOGLE_KEY_FILE'] %>
+key_secret: <%= ENV['GOOGLE_KEY_SECRET'] %>
+profile_id: <%= ENV['GOOGLE_PROFILE_ID'] %>

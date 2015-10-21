@@ -6,7 +6,11 @@ rvm:
 - 2.1.0
 env:
   global:
-    secure: YwsBXkYk14OKUktZNM6FkUuhu7Y1xeDyDqb4Trkod18iAbH/h8ZzM62xQLWRL2mkPgtnc0nO9yW1S9V23HP9+SlqsyU9ShMa9DLRU8upx/ZM97okaCBn0CCAKjuTDzb28pMVFGRb1VNKSNuPRdbizCEUeNamD6YWq37pSPE6Cn0=
+  - GOOGLE_KEY_FILE="$TRAVIS_BUILD_DIR/config/ga_keyfile.p12"
+  - secure: YwsBXkYk14OKUktZNM6FkUuhu7Y1xeDyDqb4Trkod18iAbH/h8ZzM62xQLWRL2mkPgtnc0nO9yW1S9V23HP9+SlqsyU9ShMa9DLRU8upx/ZM97okaCBn0CCAKjuTDzb28pMVFGRb1VNKSNuPRdbizCEUeNamD6YWq37pSPE6Cn0=
+  - secure: huNH8Nq2xZWHDA3NsDa9HVzJhtS/FHb7LwDEqF4nVRRU9afTSTcNAzpWPi0gA9WjJMHttUeE+Z7JAth0RuBlTdgNT/grr2emHO6n4x9ZPvtwpphObZhxhBf4CfSBWAVFxGZXwQHddF4kdis3mM/VJ10fQXCtqjmM6rzAAuFgZng=
+  - secure: A8JMTEWsYDlvwV+aOwx84gyWwQhKxX1JBRaoYJeGmFdf0S68aeXjBSxUkUSwQCeH0ATwYklTp00jLlqFX+HK+C5paA/X7PpFJgzv4dzgsVNuCXhZY7U3t4Fu0iWEMG2e7clhzuG0F3N31noD0YYghomtbT92lm92uvlWjypgWiU=
+  - secure: ZfuNhHrRcL72bVdGtet/c51SeoKW+WYiHosJpkedPoIhJ9p68twMzhJTKrLeqaXI4oVbkOeHcYgAAyZgApLvwYjop3ZO0zpG+5OipyfhAgRaHHT35Bu5hsUq8QX8ZpwOW95HfN11wTsPc8XRfaFhmOjUXi/LgvvY5tj3ZlNyXuo=
 before_script:
 - bundle exec rake solr:setup_test
 - mysql -e 'create database aath_search_test;'

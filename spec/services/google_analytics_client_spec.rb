@@ -10,9 +10,9 @@ describe GoogleAnalyticsClient do
       'profile_id'            => ENV['GOOGLE_PROFILE_ID']
     }
   end
+  let(:client) { GoogleAnalyticsClient.client(credentials) }
 
   it "connects to googel analytics" do
-    client = GoogleAnalyticsClient.client(credentials)
     expect(client.authorization.scope).to eq ["https://www.googleapis.com/auth/analytics.readonly"]
   end
 end

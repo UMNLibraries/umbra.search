@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
   function umbra_serialize_event_value(data) {
-    return data + '|' + window.location.href + '|' + window.location.pathname
+    return data + '|' + window.location.hostname + '|' + window.location.pathname
   }
 
   function umbra_ga_event(category, action, label) {

@@ -1,5 +1,6 @@
 class Record < ActiveRecord::Base
-  self.primary_key = "record_hash"
+  belongs_to :data_provider
+  has_many :google_analytics_facts
   scope :with_record_hashes, ->(hashes)      { where('record_hash IN (?)', hashes) }
   scope :with_ingest_hash,   ->(ingest_hash) { where('ingest_hash = ?', ingest_hash) }
   scope :with_ingest_name,   ->(ingest_name) { where('ingest_name = ?', ingest_name) }

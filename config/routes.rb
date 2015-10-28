@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :featured_images
   resources :flags
   resources :flag_votes
+  
+  get 'stats' => 'stats#index'
 
   post '/records/upsert' => 'records#upsert', as: 'records_upsert'
 

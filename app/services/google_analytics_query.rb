@@ -1,13 +1,13 @@
 class GoogleAnalyticsQuery
-  attr_reader :client, :start_date, :end_date, :profile_id, :api_version
+  attr_reader :client, :start_date, :end_date, :api_version
 
-  def self.run!(client, profile_id, start_date = nil, end_date = nil)
-    new(client, profile_id, start_date, end_date).query!
+  def self.run!(client, start_date = nil, end_date = nil)
+    result = new(client, start_date, end_date).query!
+    result.data.rows
   end
 
-  def initialize(client, profile_id, start_date = nil, end_date = nil)
+  def initialize(client, start_date = nil, end_date = nil)
     @client      = client
-    @profile_id  = profile_id
     @start_date  ||= '30daysAgo'
     @end_date    ||= 'yesterday'
     @api_version ||= 'v3'
@@ -21,7 +21,7 @@ class GoogleAnalyticsQuery
 
   def query!
       query_data = client.execute(:api_method => analytics_dicsovery_api.data.ga.get, :parameters => {
-        'ids' => "ga:" + profile_id,
+        'ids' => "ga:" + client.profile_id,
         'start-date' => start_date,
         'end-date' => end_date,
         'metrics' => 'ga:totalEvents',

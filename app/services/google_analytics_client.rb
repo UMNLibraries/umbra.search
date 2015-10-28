@@ -2,16 +2,37 @@
 # Inspired by https://gist.github.com/3166610
 require 'google/api_client'
 
+
 class GoogleAnalyticsClient
-  attr_accessor :credentials
 
-  def self.client(credentials)
-    new(credentials).authorize_and_return_client!
+  # As a convenience, allow api client to store the profile_id for later use
+  # with other collaborating objects, like GA queries
+  class Google::APIClient
+    attr_accessor :profile_id
   end
 
-  def initialize(credentials)
-    @credentials = credentials
+  def credentials
+    {
+      'service_account_email' => ENV['GOOGLE_CLIENT_EMAIL'],
+      'key_file'              => ENV['GOOGLE_KEY_FILE'],
+      'key_secret'            => ENV['GOOGLE_KEY_SECRET'],
+      'profile_id'            => ENV['GOOGLE_PROFILE_ID']
+    }
   end
+
+  def self.connect
+    new.authorize_and_return_client!
+  end
+
+  def authorize_and_return_client!
+    api = api_client
+    api.authorization = get_authorization
+    api.authorization.fetch_access_token!
+    api.profile_id = credentials['profile_id']
+    api
+  end
+
+  private
 
   def api_client
     Google::APIClient.new(:application_name => credentials['application_name'],
@@ -28,12 +49,5 @@ class GoogleAnalyticsClient
                                :scope => 'https://www.googleapis.com/auth/analytics.readonly',
                                :issuer => credentials['service_account_email'],
                                :signing_key => key)
-  end
-
-  def authorize_and_return_client!
-    client = api_client
-    client.authorization = get_authorization
-    client.authorization.fetch_access_token!
-    client
   end
 end

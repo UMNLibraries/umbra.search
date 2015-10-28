@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151012205532) do
+ActiveRecord::Schema.define(version: 20151027213359) do
 
   create_table "api_keys", force: :cascade do |t|
     t.string   "access_token", limit: 255
@@ -55,6 +55,12 @@ ActiveRecord::Schema.define(version: 20151012205532) do
   end
 
   add_index "bookmarks", ["user_id"], name: "index_bookmarks_on_user_id", using: :btree
+
+  create_table "data_providers", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "featured_boards", force: :cascade do |t|
     t.string   "title",      limit: 255
@@ -119,6 +125,43 @@ ActiveRecord::Schema.define(version: 20151012205532) do
     t.string   "off_css",                 limit: 255
   end
 
+  create_table "google_analytics_actions", force: :cascade do |t|
+    t.string   "name",                         limit: 255
+    t.integer  "google_analytics_category_id", limit: 4
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+  end
+
+  add_index "google_analytics_actions", ["google_analytics_category_id"], name: "index_google_analytics_actions_on_google_analytics_category_id", using: :btree
+
+  create_table "google_analytics_categories", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "google_analytics_facts", force: :cascade do |t|
+    t.integer  "count",                      limit: 4
+    t.integer  "date",                       limit: 4
+    t.integer  "google_analytics_action_id", limit: 4
+    t.integer  "record_id",                  limit: 4
+    t.integer  "location_id",                limit: 4
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+  end
+
+  add_index "google_analytics_facts", ["count", "date", "google_analytics_action_id", "record_id", "location_id"], name: "google_analytics_facts", unique: true, using: :btree
+  add_index "google_analytics_facts", ["google_analytics_action_id"], name: "index_google_analytics_facts_on_google_analytics_action_id", using: :btree
+  add_index "google_analytics_facts", ["location_id"], name: "index_google_analytics_facts_on_location_id", using: :btree
+  add_index "google_analytics_facts", ["record_id"], name: "index_google_analytics_facts_on_record_id", using: :btree
+
+  create_table "locations", force: :cascade do |t|
+    t.string   "hostname",   limit: 255
+    t.string   "path",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
   create_table "pages", force: :cascade do |t|
     t.string   "title",      limit: 255
     t.text     "body",       limit: 65535
@@ -132,14 +175,16 @@ ActiveRecord::Schema.define(version: 20151012205532) do
   add_index "pages", ["slug"], name: "index_pages_on_slug", using: :btree
 
   create_table "records", force: :cascade do |t|
-    t.string   "record_hash", limit: 55
-    t.text     "metadata",    limit: 4294967295
-    t.string   "ingest_name", limit: 255
-    t.string   "ingest_hash", limit: 255
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.string   "record_hash",      limit: 42
+    t.text     "metadata",         limit: 4294967295
+    t.string   "ingest_name",      limit: 255
+    t.string   "ingest_hash",      limit: 255
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.integer  "data_provider_id", limit: 4
   end
 
+  add_index "records", ["data_provider_id"], name: "index_records_on_data_provider_id", using: :btree
   add_index "records", ["ingest_name"], name: "index_records_on_ingest_name", length: {"ingest_name"=>191}, using: :btree
   add_index "records", ["record_hash"], name: "index_records_on_record_hash", unique: true, using: :btree
 

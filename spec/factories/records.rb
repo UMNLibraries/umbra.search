@@ -3,7 +3,7 @@
 FactoryGirl.define do
   factory :record do
     record_hash "MyString"
-    ingest_run_hash "MyString"
+    ingest_hash "MyString"
     ingest_name "MyString"
     metadata "MyText"
   end

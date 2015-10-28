@@ -20,9 +20,9 @@ class PopulateGoogleAnalyticsFacts
       label = label.split('|')
       if label.length > 1 && record_categories.include?(category)
         record_hash, hostname, path = label
-        row = {:category => category, :action => action, :record_hash => extract_hash(record_hash), :hostname => hostname, :path => path, :date => date, :count => count}
-        puts label.inspect
-        UpsertAnalyticsFact.upsert!(row)
+        metadata = SolrClient.find_record(record_hash)
+        params = {:metadata => metadata, :category => category, :action => action, :record_hash => extract_hash(record_hash), :hostname => hostname, :path => path, :date => date, :count => count}
+        UpsertAnalyticsFact.upsert!(params)
       end
     end
     rows

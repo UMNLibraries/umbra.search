@@ -1,9 +1,9 @@
 class UpsertAnalyticsFact
   def self.upsert!(params)
     record_hash = params.fetch(:record_hash)
-    record_metadata = SolrClient.find_record(record_hash)
-    if record_metadata
-      data_provider = DataProvider.where(name: record_metadata['dataProvider_ssi']).first_or_create
+    metadata = params.fetch(:metadata)
+    if metadata
+      data_provider = DataProvider.where(name: metadata['dataProvider_ssi']).first_or_create
       record   = Record.where(record_hash: record_hash, data_provider_id: data_provider.id).first_or_create
       category = GoogleAnalyticsCategory.where(name: params.fetch(:category)).first_or_create
       action   = GoogleAnalyticsAction.where(name: params.fetch(:action), google_analytics_category_id: category.id).first_or_create

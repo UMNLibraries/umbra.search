@@ -61,6 +61,7 @@ gem 'friendly_id', '~> 5.1.0' # Note: You MUST use 5.0.0 or greater for Rails 4.
 gem 'sanitize'
 gem 'coderay', '~> 1.0.5'
 gem 'google-api-client', '0.8.6'
+gem 'activerecord-import'
 
 group :test, :development do
   # Debug seems to have trouble w/ Ruby 2.x, byebug is a replacment

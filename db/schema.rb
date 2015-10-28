@@ -58,9 +58,12 @@ ActiveRecord::Schema.define(version: 20151027213359) do
 
   create_table "data_providers", force: :cascade do |t|
     t.string   "name",       limit: 255
+    t.integer  "record_id",  limit: 4
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
+
+  add_index "data_providers", ["record_id"], name: "index_data_providers_on_record_id", using: :btree
 
   create_table "featured_boards", force: :cascade do |t|
     t.string   "title",      limit: 255
@@ -175,7 +178,7 @@ ActiveRecord::Schema.define(version: 20151027213359) do
   add_index "pages", ["slug"], name: "index_pages_on_slug", using: :btree
 
   create_table "records", force: :cascade do |t|
-    t.string   "record_hash",      limit: 42
+    t.string   "record_hash",      limit: 41
     t.text     "metadata",         limit: 4294967295
     t.string   "ingest_name",      limit: 255
     t.string   "ingest_hash",      limit: 255
@@ -189,7 +192,7 @@ ActiveRecord::Schema.define(version: 20151027213359) do
   add_index "records", ["record_hash"], name: "index_records_on_record_hash", unique: true, using: :btree
 
   create_table "searches", force: :cascade do |t|
-    t.text     "query_params", limit: 16777215
+    t.text     "query_params", limit: 65535
     t.integer  "user_id",      limit: 4
     t.string   "user_type",    limit: 255
     t.datetime "created_at"

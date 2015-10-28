@@ -6,6 +6,6 @@ describe GoogleAnalyticsQuery do
   let(:ga_query_result) { GoogleAnalyticsQuery.run!(client) }
 
   it "runs the default query and gets some results" do
-    expect(ga_query_result).to be > 0
+    expect(ga_query_result.length).to be > 0
   end
 end

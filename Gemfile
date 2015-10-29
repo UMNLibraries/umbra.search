@@ -62,6 +62,7 @@ gem 'sanitize'
 gem 'coderay', '~> 1.0.5'
 gem 'google-api-client', '0.8.6'
 gem 'activerecord-import'
+gem 'whenever', :require => false
 
 group :test, :development do
   # Debug seems to have trouble w/ Ruby 2.x, byebug is a replacment

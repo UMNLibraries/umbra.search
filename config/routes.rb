@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   resources :featured_images
   resources :flags
   resources :flag_votes
-  
-  get 'stats' => 'stats#index'
+  resources :records, only: [:show]
+
+  get '/contributing-institutions' => "data_providers#index", as: 'data_providers'
+  get '/contributing-institutions/:id' => "data_providers#show", as: 'data_provider'
 
   post '/records/upsert' => 'records#upsert', as: 'records_upsert'
 

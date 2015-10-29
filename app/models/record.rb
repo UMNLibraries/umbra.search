@@ -6,6 +6,13 @@ class Record < ActiveRecord::Base
   scope :with_ingest_name,   ->(ingest_name) { where('ingest_name = ?', ingest_name) }
   scope :ingest_run,         ->(ingest_name, ingest_hash) { where('ingest_name = ? AND ingest_hash = ?', ingest_name, ingest_hash) }
 
+  def title
+    solr_metadata['title_ssi']
+  end
+
+  def solr_metadata
+    SolrClient.find_record(self.record_hash)
+  end
 
   def index_doc
     index_doc = JSON.parse(metadata)['HUBINDEX']

@@ -27,7 +27,6 @@
     jQuery(document).ready(function($) {
       add_widget_styles();
       embed_search_widget();
-      embed_logo_widgets();
     });
 
     function url_builder(params) {
@@ -41,19 +40,9 @@
     // Widget styles are added first so that they may be overrided in 
     // subsequent sytlesheets wherever widgets are embedded
     function add_widget_styles() {
-      $("head link[rel='stylesheet']").first().before("<link rel='stylesheet' href='http://d3bqfbs46oeuvc.cloudfront.net/widget.5.css' type='text/css' media='screen'>");
+      $("head link[rel='stylesheet']").first().before("<link rel='stylesheet' href='http://d3bqfbs46oeuvc.cloudfront.net/widget.css' type='text/css' media='screen'>");
     }
 
-    function embed_logo_widgets() {
-      var form_default = <%= render 'logo_widget' %>
-      $('.umbra-logo-widget-default').html(form_default);
-      var form_black = <%= render 'logo_widget_black' %>
-      $('.umbra-logo-widget-black').html(form_black);
-      var form_white = <%= render 'logo_widget_white' %>
-      $('.umbra-logo-widget-white').html(form_white);
-      var form_full = <%= render 'logo_widget_full' %>
-      $('.umbra-logo-widget-full').html(form_full);
-    }
 
     function embed_search_widget() {
       var form = <%= render 'search_form' %>;

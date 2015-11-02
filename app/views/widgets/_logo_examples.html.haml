@@ -6,39 +6,36 @@
     %h4
       Default Logo:
     %div.well
-      - logo_form_default = render 'logo_widget_embed_default'
+      - logo_form_default = '<a href="https://www.umbrasearch.org"><img src="https://d3bqfbs46oeuvc.cloudfront.net/2Color-UmbraMark.png" width="75" height="75"></a>'
       = raw html_syntax_highlight(logo_form_default)
       %h4
         Preview:
       %div.well
-        = logo_form_default
-      %div.well
-        Modify your logo via your own CSS:
-        = raw html_syntax_highlight('.umbra-logo-widget-default img { height: 30px;  width: 30px; }')
+        = raw  logo_form_default
     %h4
       Black Version:
     %div.well
-      - logo_form_black = render 'logo_widget_embed_black'
+      - logo_form_black = '<a href="https://www.umbrasearch.org"><img src="https://d3bqfbs46oeuvc.cloudfront.net/black-white-UmbraMark.png" width="75" height="75"></a>'
       = raw html_syntax_highlight(logo_form_black)
       %h4
         Preview:
       %div.well
-        = logo_form_black
+        = raw logo_form_black
     %h4
       White Version:
     %div.well
-      - logo_form_white = render 'logo_widget_embed_white'
+      - logo_form_white = '<a href="https://www.umbrasearch.org"><img src="https://d3bqfbs46oeuvc.cloudfront.net/rev-UmbraMark.png" width="75" height="75"></a>'
       = raw html_syntax_highlight(logo_form_white)
       %h4
         Preview:
       %div.well{style: "background-color: #1B5957;"}
-        = logo_form_white
+        = raw logo_form_white
     %h4
       Full Version (Default With Text):
     %div.well
-      - logo_form_full = render 'logo_widget_embed_full'
+      - logo_form_full = '<a href="https://www.umbrasearch.org"><img src="https://d3bqfbs46oeuvc.cloudfront.net/2Color-Tag.png" height="100"></a>'
       = raw html_syntax_highlight(logo_form_full)
       %h4
         Preview:
       %div.well
-        = logo_form_full
+        = raw logo_form_full

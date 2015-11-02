@@ -1,5 +1,5 @@
 class WidgetsController < ApplicationController
-  protect_from_forgery :except => :search
+  protect_from_forgery :except => :embed
 
   def index
     respond_to do |format|
@@ -7,7 +7,7 @@ class WidgetsController < ApplicationController
     end
   end
 
-  def search
+  def embed
     @widget_params = widget_params
     respond_to do |format|
       format.js { render "bootstrap", formats: [:js] }
@@ -25,6 +25,6 @@ class WidgetsController < ApplicationController
   end
 
   def widget_params
-    params.permit(:submit_text, :contributing_institution)
+    params.permit(:submit_text, :contributing_institution, :height, :width)
   end
 end

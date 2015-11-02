@@ -23,4 +23,10 @@ module WidgetsHelper
     CodeRay.scan(html, :html).div()
   end
 
+  def logo_styles(height = nil, width = nil) 
+    height = (height.blank?) ? 55 : height
+    width  = (width.blank?) ? 55 : width
+    return "height: #{height}px; width: #{width}px;"
+  end
+
 end

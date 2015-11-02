@@ -1,0 +1,44 @@
+%div.panel.panel-default
+  %div.panel-heading
+    %h3.panel-title
+      Embeddable Umbra Logos
+  %div.panel-body
+    %h4
+      Default Logo:
+    %div.well
+      - logo_form_default = render 'logo_widget_embed_default'
+      = raw html_syntax_highlight(logo_form_default)
+      %h4
+        Preview:
+      %div.well
+        = logo_form_default
+      %div.well
+        Modify your logo via your own CSS:
+        = raw html_syntax_highlight('.umbra-logo-widget-default img { height: 30px;  width: 30px; }')
+    %h4
+      Black Version:
+    %div.well
+      - logo_form_black = render 'logo_widget_embed_black'
+      = raw html_syntax_highlight(logo_form_black)
+      %h4
+        Preview:
+      %div.well
+        = logo_form_black
+    %h4
+      White Version:
+    %div.well
+      - logo_form_white = render 'logo_widget_embed_white'
+      = raw html_syntax_highlight(logo_form_white)
+      %h4
+        Preview:
+      %div.well{style: "background-color: #1B5957;"}
+        = logo_form_white
+    %h4
+      Full Version (Default With Text):
+    %div.well
+      - logo_form_full = render 'logo_widget_embed_full'
+      = raw html_syntax_highlight(logo_form_full)
+      %h4
+        Preview:
+      %div.well
+        = logo_form_full

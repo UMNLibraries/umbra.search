@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   post '/records/upsert' => 'records#upsert', as: 'records_upsert'
 
-  get 'widgets/search' => 'widgets#search', as: 'search_widget'
+  get 'widgets/embed' => 'widgets#embed', as: 'widget'
   get 'widgets' => 'widgets#index', as: 'widgets'
 
   post '/flag_votes/create' => 'flag_votes#create', as: 'create_flag_vote'

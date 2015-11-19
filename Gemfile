@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.2'
+gem 'rails', '4.2.5'
 
 gem 'mysql2'
 
@@ -85,4 +85,6 @@ group :test, :development do
 end
 
 # Gemfile (never include in :development !)
-gem 'test_after_commit', :group => :test
+group :test do
+  gem 'test_after_commit'
+end

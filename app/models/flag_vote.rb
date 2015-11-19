@@ -62,8 +62,16 @@ class FlagVote < ActiveRecord::Base
     update_record(doc)
   end
 
+  def self.flag_all!
+    FlagVote.all.map {|vote| vote.add_flag_to_record }
+  end
+
   def update_record(doc)
+    # _version_ = 1 means the document must exist in the index to do this update
+    # See: http://yonik.com/solr/optimistic-concurrency
+    doc['_version_'] = 1
     SolrClient.add [doc]
+    SolrClient.commit
   end
 
   private

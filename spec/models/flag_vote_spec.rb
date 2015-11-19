@@ -19,23 +19,17 @@ describe FlagVote, type: :model do
   }
 
   before(:each) do
-    Blacklight.default_index.connection.tap do |solr|
-      solr.delete_by_query("*:*", params: { commit: true })
-      solr.add [solr_doc]
-      solr.commit
-    end
+    reset_solr_with_doc!(solr_doc)
   end
 
   it "adds the correct flag id to a record after being saved" do
     flag_vote.save
-    flags = FlagVote.document(flag_vote.record_id).fetch('flags_isim', :missing_flags)
     expect(flags.include?(flag_vote.flag.id)).to be true
   end
 
   it "removes a flag id after being added and then destroyed" do
     flag_vote.save
     flag_vote.destroy
-    flags = FlagVote.document(flag_vote.record_id).fetch('flags_isim', :missing_flags)
     expect(flags.include?(flag_vote.flag.id)).to be false
   end
 
@@ -44,10 +38,28 @@ describe FlagVote, type: :model do
     doc = FlagVote.document(flag_vote.record_id)
     doc['flags_isim'] = [999]
     flag_vote.update_record(doc)
-    flags = FlagVote.document(flag_vote.record_id).fetch('flags_isim', :missing_flags)
     expect(flags.include?(flag_vote.flag.id)).to be false
     flag_vote.save
-    flags = FlagVote.document(flag_vote.record_id).fetch('flags_isim', :missing_flags)
     expect(flags.include?(flag_vote.flag.id)).to be false
+  end
+
+  it "updates recods with all flags " do
+    flag_vote.save
+    reset_solr_with_doc!(solr_doc.except('flags_isim'))
+    expect(flags).to eq :missing_flags
+    FlagVote.flag_all!
+    expect(flags).to eq [flag_vote.flag.id]
+  end
+
+  def flags
+    FlagVote.document(flag_vote.record_id).fetch('flags_isim', :missing_flags)
+  end
+
+  def reset_solr_with_doc!(doc)
+    Blacklight.default_index.connection.tap do |solr|
+      solr.delete_by_query("*:*", params: { commit: true })
+      solr.add [doc]
+      solr.commit
+    end
   end
 end

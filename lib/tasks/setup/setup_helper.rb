@@ -5,13 +5,13 @@ module SetupHelper
       sh "mkdir #{blacklight_dir}"
 
       # Download the Base blacklight installation
-      puts "Downloading Blacklight v#{blacklight_jetty_version}"
+      puts "Downloading Blacklight #{blacklight_jetty_version}"
       blacklight = RestClient.get "https://github.com/projectblacklight/blacklight-jetty/archive/v#{blacklight_jetty_version}.tar.gz"
       untar blacklight, blacklight_dir, 'blacklight-jetty'
 
       # Download the Umbra Blacklight Core and symlink it into the core blacklight installation
-      puts "Downloading Blacklight v#{blacklight_core_name}"
-      blacklight_core = RestClient.get "https://github.com/UMNLibraries/#{blacklight_core_name}/archive/v#{blacklight_core_version}.tar.gz"
+      puts "Downloading Blacklight #{blacklight_core_name}"
+      blacklight_core = RestClient.get "https://github.com/UMNLibraries/#{blacklight_core_name}/archive/#{blacklight_core_version}.tar.gz"
       untar blacklight_core, blacklight_dir, 'blacklight_core'
 
       # Symlink the downloaded core into the jetty solr directory

@@ -1,4 +1,4 @@
-require_relative "setup/setup_helper"
+require "#{Rails.root}/lib/tasks/setup/setup_helper.rb"
 
 namespace :ingest do
   include SetupHelper

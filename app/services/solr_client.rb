@@ -27,9 +27,10 @@ class SolrClient
 
   def self.extract_records(query)
     rows_per_request = 1000
-    pages = numfound(query) / rows_per_request - 1
-    (0..pages).each do |start|
-      puts "SolrClient.extract_records(query): processing page #{start}"
+    pages = numfound(query) / rows_per_request
+    (0..pages).each do |page|
+      start = page * rows_per_request
+      puts "SolrClient.extract_records(query): processing start #{start}"
       yield start, extract_metadata(get_docs(query, start, rows_per_request)['response']['docs'])
     end
   end

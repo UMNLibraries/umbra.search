@@ -307,8 +307,8 @@ body.blacklight-pages-home {
   }
 
   .ribbon a {
-    font-size: 1.2em !important;
-    padding: 10px 50px !important;
+    font-size: .8em !important;
+    padding: 5px 50px !important;
   }
 
   .nav-brand a {
@@ -392,6 +392,25 @@ body.blacklight-pages-home {
     display: none;
   }
 }
+
+@media (max-width: 361px) {
+
+  .ribbon a {
+    font-size: .6em !important;
+    padding: 4px 50px !important;
+  }
+
+}
+
+@media (max-width: 320px) {
+
+  .search-query-form .input-group #q,
+  .search-query-form .input-group {
+    width: 150px !important;
+  }
+
+}
+
 
 
 @media (min-width: 768px) and (max-width: 1000px) {

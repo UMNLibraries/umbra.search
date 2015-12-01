@@ -9,6 +9,9 @@ class SolrClient
 
   def self.add(docs)
     client.add docs
+  end
+
+  def self.commit
     client.commit
   end
 

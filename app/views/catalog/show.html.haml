@@ -14,7 +14,7 @@
         %div.row.show-conent-top
           %h1.h3{style:'font-style:italic;'}= display_title
           %div.col-xs-12.col-sm-7
-            - if  is_sound?
+            - if document['sourceResource_type_ssi'] == 'sound' && document['object_ssi'] == nil
               .cover-image.gallery-glyphs.glyphs
                 = link_to thumb_url, {target: '_blank'} do
                   %span.icon-headphones

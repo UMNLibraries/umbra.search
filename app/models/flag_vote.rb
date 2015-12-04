@@ -50,9 +50,11 @@ class FlagVote < ActiveRecord::Base
 
   def add_flag_to_record
     doc   = FlagVote.document(record_id)
-    doc['flags_isim'] ||= []
-    doc['flags_isim'] << flag.id
-    update_record(doc)
+    unless doc.nil?
+      doc['flags_isim'] ||= []
+      doc['flags_isim'] << flag.id
+      update_record(doc)
+    end
   end
 
   def remove_flag_from_record

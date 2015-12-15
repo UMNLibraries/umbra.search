@@ -26,6 +26,9 @@
 //= require jcrop/js/jquery.Jcrop
 
 
+// For Autocomplete
+//= require corejs-typeahead/dist/typeahead.bundle.js
+
 //= require_tree .
 
 

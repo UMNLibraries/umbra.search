@@ -40,7 +40,7 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 gem 'cancancan'
-gem 'blacklight', '~> 5.16.3'
+gem 'blacklight', '~> 5.15.0'
 gem 'blacklight_range_limit'
 gem 'rsolr', '~>1.0'
 gem 'rails_autolink'

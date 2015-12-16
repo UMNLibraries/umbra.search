@@ -177,6 +177,9 @@ ol.subjects {
     display: inline;
     margin-bottom: 5px;
   }
+  [class^="icon-"]:before, [class*=" icon-"]:before {
+    display: inline;
+  }
 }
 
 #atstbx,
@@ -237,8 +240,7 @@ ol.subjects {
   }
 }
 
-.home-panel .search-query-form,
-.home-panel .browse-home {
+.home-panel .search-query-form {
   float: right;
 }
 
@@ -250,164 +252,20 @@ body.blacklight-pages-home {
   background-color: #102826;
 }
 
-#home-search {
-  max-width: 600px;
-  padding: 0;
-
-  .tagline {
-    color: #1B5958;
-    font-weight: normal;
-    text-align: right;
-    margin-right: 45px;
-  }
-
-  .record-count {
-    color: #1B5958;
-  }
-
-  .search-bar {
-    padding: 15px 15px 0 15px;
-  }
-
-  .search-query-form {
-    .input-group {
-      #q {
-        width: 300px;
-      }
-    }
-  }
-}
-
-#home-search .help {
-  border: none;
-}
-
-#home-search .help .btn-nav:hover {
-  opacity: 0.90;
-}
-
-#home-search .btn-default.btn-nav{
-  background-color: #1B5958;
-  color: #FCFCFC;
-  border-bottom: none;
-  border-radius: 0;
-  line-height: 1em;
-  margin-top: 10px;
-  opacity: 0.75;
-}
-
-#home-search .btn-group > .btn-group:last-child:not(:first-child) > .btn:first-child {
-  border-right: none;
-}
-
-#home-search .btn-group > .btn-group:first-child:not(:last-child) > .btn:last-child {
-  border-left: none;
-}
-
-#home-search .browse-by {
-  margin: 8px 0 0 5px;
-  background:rgba(255,255,255,0.75);
-  color: #1B5958;
-}
-
-#home-search .search-query-form {
-  padding-right: 0;
-}
-
-.home-image-info {
-  padding-left: 10px;
-  padding-top: 30px;
-  margin-top: -50px;
-  font-size: 1.1em;
-  color: #fff;
-  min-height: 51px;
-  background: linear-gradient(to bottom, rgba(255,255,255,0), black);
-  width: 100%;
-}
-
-.home-image-info a {
-  color: #DC6F45;
-}
-
-.home-image-info .text {
-  width: 1000px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis
-}
-
-#home-search {
-  background:rgba(255,255,255,0.75);
-  margin-top: 150px
-}
-
-#home-search-logo {
-  background-image: asset_url('2Color-UmbraMarkHome.png');
-  background-repeat: no-repeat;
-  min-height: 150px;
-  background-position: right;
-  margin-top: 15px;
-  margin-left: -10px;
-}
-
-#home-search-slogan {
-  margin-top: 52px;
-  text-align: left;
-}
-
-#home-search .input-group-addon {
-  display: none;
-}
-
-#home-search-slogan h1 {
-  margin: 0;
-  font-size: 1.75em;
-  color: #DC6F45;
-  text-transform: uppercase;
-}
-
-.home-panel  {
-    border: 0;
-    margin: 0;
-    padding: 0;
-    min-height: 600px;
-    width: 100%;
-    background-repeat: no-repeat;
-    background-position: top left;
-    background-size: cover;
-    text-align: center;
-
-    h2 {
-      text-align: left;
-      font-weight: bold;
-      padding-left: 2em;
-      color: #A2A2A2;
-      font-size: 2em;
-    }
-
-
-    .thumbnail {
-      border: none;
-    }
-
-    .thumbnail h3 {
-        padding-left: 10px;
-    }
-}
-
-    .navbar-nav .umbra-about-slug {
-      display: none;
-    }
-
-.home-panel .icon-search,
-.blacklight-catalog-show .icon-search {
-    font-size: 4em;
-}
-
 .blacklight-catalog-show {
   .thumbnail {
     max-width: 300px;
   }
+}
+
+.blacklight-catalog-show {
+  .data-provider {
+    font-size: 1.3em;
+  }
+}
+
+.show-conent-top {
+  margin-bottom: 15px;
 }
 
 .ribbon-block {
@@ -449,8 +307,8 @@ body.blacklight-pages-home {
   }
 
   .ribbon a {
-    font-size: 1.2em !important;
-    padding: 10px 50px !important;
+    font-size: .8em !important;
+    padding: 5px 50px !important;
   }
 
   .nav-brand a {
@@ -535,6 +393,25 @@ body.blacklight-pages-home {
   }
 }
 
+@media (max-width: 361px) {
+
+  .ribbon a {
+    font-size: .6em !important;
+    padding: 4px 50px !important;
+  }
+
+}
+
+@media (max-width: 320px) {
+
+  .search-query-form .input-group #q,
+  .search-query-form .input-group {
+    width: 150px !important;
+  }
+
+}
+
+
 
 @media (min-width: 768px) and (max-width: 1000px) {
   .ribbon {
@@ -581,6 +458,26 @@ body.blacklight-pages-home {
       overflow:auto;
     }
   }
+
+
+  .documents-list {
+    .panel {
+      text-align: center;
+      .metadata-col {
+        text-align: left;
+      }
+    }
+    .view-original {
+      display: block;
+      text-align:center;
+    }
+  }
+
+  .metadata-col,
+  .thumbnail-col {
+    float: none !important;
+    display: inline-block;
+  }
 }
 
 @media (min-width: 600px) and (max-width: 768px) {
@@ -588,6 +485,37 @@ body.blacklight-pages-home {
     width: 550px;
   }
 }
+
+@media (max-width: 1023px) {
+  .data-provider {
+    display: none;
+  }
+}
+
+@media (min-width: 960px) and (max-width: 1024px)  {
+ .metadata-col {
+    width: 275px;
+  }
+}
+
+@media (min-width: 1024px) {
+ .metadata-col {
+    width: 450px;
+  }
+}
+
+@media (min-width: 1280px) {
+ .metadata-col {
+    width: 650px;
+  }
+}
+
+@media (min-width: 1500px) {
+ .metadata-col {
+    width: 800px;
+  }
+}
+
 
 @media (min-width: 1000px) and (max-width: 1366px) {
   .home-image-info .text {
@@ -662,10 +590,6 @@ body.blacklight-pages-home {
   ul.content-list li {
     margin: 0 0 15px 0;
   }
-
-  li {
-    list-style: none;
-  }
 }
 
 .sidebar {
@@ -724,18 +648,25 @@ body.blacklight-pages-home {
   margin-top: 15px;
 }
 
-#documents {
+#main-content {
+  .btn-primary {
+    border-color: #777777;
+  }
+
+  .btn-primary:hover {
+    background-color: #1B5957;
+  }
+}
+
+#documents.documents-list {
+  .btn-primary {
+    font-size: 1em;
+  }
+}
+
+#documents.gallery {
   .btn-primary {
     font-size: .9em;
-    background-color: #fff;
-    color: #337ab7;
-    border: none;
-    padding: 3px;
-    margin: 3px 0 5px;
-  }
-  .btn-primary:hover {
-    background-color: #EE6D4F;
-    color: white;
   }
 }
 
@@ -772,4 +703,30 @@ body.blacklight-pages-home {
   color: #EE6D4F;
   background-color: #FDF2EF;
   border-color: #F4A28F;
+}
+
+.document-title-heading {
+  font-size: 1.2  5em;
+}
+
+.list-results-metadata {
+  margin: 15px 0 0 15px;
+
+  .title,
+  .document-counter,
+  .data-provider {
+    font-size:1.3em;
+  }
+  .metadata-field {
+    color:#777777;
+  }
+}
+
+.thumbnail-col,
+.metadata-col {
+  float: left;
+}
+
+.blacklight-sourceresource_type_ssi {
+  text-transform: capitalize;
 }

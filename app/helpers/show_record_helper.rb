@@ -1,4 +1,9 @@
 module ShowRecordHelper
+
+  def document_set(document)
+    @document = document
+  end
+
   def img
     @document.fetch('object_ssi', false).to_s
   end
@@ -19,8 +24,25 @@ module ShowRecordHelper
     @document.fetch('dataProvider_ssi', false)
   end
 
+  def view_original_provider
+    (data_provider) ? "@ #{data_provider}" : ""
+  end
+
+  def view_original_provider_search
+    (data_provider) ? "@ #{data_provider}" : ""
+  end
+
   def provider_name
-    @document.fetch('provider_name_ssi', false)
+    name = @document.fetch('provider_name_ssi', false)
+    (name != 'Minnesota Digital Library' && name != 'University of Minnesota Libraries') ? name : false
+  end
+
+  def provider_name_facet_link
+    render_facet_link('provider_name_ssi', provider_name)
+  end
+
+  def harvested_from
+    University of Minnesota Libraries
   end
 
   def display_title
@@ -56,10 +78,20 @@ module ShowRecordHelper
   end
 
   def description
-    @document.fetch('sourceResource_description_tesi', false)
+    word_limit(strip_tags(@document.fetch('sourceResource_description_tesi', '')), 250)
   end
 
   def set_page_title!
     @page_title = t('blacklight.search.show.title', :document_title => document_show_html_title, :application_name => application_name).html_safe
+  end
+
+  private
+
+  def word_limit(text, limit_count)
+    words = text.split(' ').compact
+    total_words = words.size
+    limit = limit_count - 1
+    truncated = words[0..limit].join(' ')
+    (total_words > limit_count) ? "#{truncated}..." : text
   end
 end

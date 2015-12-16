@@ -1,15 +1,27 @@
 # -*- encoding : utf-8 -*-
 #
 class CatalogController < ApplicationController
+  protect_from_forgery unless: -> { request.format.json? }
   include Blacklight::Catalog
   include BlacklightMoreLikeThis::SolrHelperExtension
-  # include Flag::SolrHideFlagged
+  include Flag::SolrHideFlagged
 
   self.search_params_logic += [:show_only_umbra_records]
 
   def index
+    (@response, @document_list) = search_results(params, search_params_logic)
     @flags = Array.wrap(Flag.where(:published => true))
-    super
+    respond_to do |format|
+      format.html { store_preferred_view }
+      format.rss  { render :layout => false }
+      format.atom { render :layout => false }
+      format.json do
+        render json: render_search_results_as_json, callback: params['callback']
+      end
+
+      additional_response_formats(format)
+      document_export_formats(format)
+    end
   end
 
   def about
@@ -67,7 +79,7 @@ class CatalogController < ApplicationController
     config.index.thumbnail_method = :cached_thumbnail_tag
     config.show.thumbnail_method = :cached_thumbnail_tag
 
-    config.view.gallery.default = true
+    config.view.gallery.default = false
     config.view.gallery.partials = [:index]
     config.view.gallery.icon_class = "glyphicon-th"
     # solr field configuration for document/show views
@@ -94,18 +106,19 @@ class CatalogController < ApplicationController
     # :show may be set to false if you don't want the facet to be drawn in the
     # facet bar
 
+
+    config.add_facet_field 'import_job_name_ssi', :label => 'Import Job Name', :restricted_to_roles => ['librarian', 'admin'], :limit => 200
     config.add_facet_field 'creator_ssim', :label => 'Creator', :limit => 4, :collapse => false
-    config.add_facet_field 'sourceResource_type_ssi', :label => 'Type', :limit => 4, :collapse => false
+    config.add_facet_field 'sourceResource_type_ssi', :label => 'Type', :limit => 5, :collapse => false
     config.add_facet_field 'dataProvider_ssi', :label => 'Contributing Institution', :limit => 4, :collapse => false
     config.add_facet_field 'sourceResource_collection_title_ssi', :label => 'From Collection', :limit => 4, :collapse => false
-    config.add_facet_field 'subject_ssim', :label => 'Keyword', :limit => 20, :limit => 4, :collapse => false
+    config.add_facet_field 'subject_ssim', :label => 'Keyword', :limit => 4, :collapse => false
     # # Note: This tries to set assumed_boundaries for blacklight_range_limit, but it's not working.  Leaving the value set in case it gets fixed in future releases of blacklight_range_limit
     config.add_facet_field 'sourceResource_spatial_state_ssi', :label => 'Location', :limit => 10
     config.add_facet_field 'sourceResource_date_begin_ssi', :label => 'Year', :range => {:assumed_boundaries => [1100, Time.now.year + 2]}
     # NOTE: Collection is HIDDEN SEARCH RESULTS BY A CSS RULE. We keep it in the config, because we still 
     # want to be able to produce a browse by collection facet page.
-    config.add_facet_field 'import_job_name_ssi', :label => 'Import Job Name', :restricted_to_roles => ['librarian', 'admin']
-    config.add_facet_field 'import_job_id_isi', :label => 'Import Job ID', :restricted_to_roles => ['librarian', 'admin']
+    config.add_facet_field 'provider_name_ssi', :label => 'Harvested From', :show => false
 
     # Have BL send all facet field names to Solr, which has been the default
     # previously. Simply remove these lines if you'd rather use Solr request
@@ -116,7 +129,7 @@ class CatalogController < ApplicationController
     #   The ordering of the field names is the order of the display
     config.add_index_field 'creator_display_ssi'
     config.add_index_field 'dataProvider_ssi', :label => 'Provided By'
-
+    # config.add_index_field 'sourceResource_type_ssi', :label => 'Type'
     # solr fields to be displayed in the show (single result) view
     #   The ordering of the field names is the order of the display
 
@@ -128,9 +141,11 @@ class CatalogController < ApplicationController
 
     config.add_show_field 'sourceResource_contributor_ssi', :label => 'Contributors'
     config.add_show_field 'sourceResource_date_displaydate_ssi', :label => 'Created Date'
-    config.add_show_field 'sourceResource_publisher_ssi', :label => 'Publisher'
-    config.add_show_field 'language_ssi', :label => 'Language'
-    config.add_show_field 'sourceResource_extent_ssi', :label => 'Extent'
+    config.add_show_field 'sourceResource_rights_ssi', :label => 'Rights'
+    config.add_show_field 'isShownAt_ssi', :label => 'View Original At'
+    # config.add_show_field 'sourceResource_publisher_ssi', :label => 'Publisher'
+    # config.add_show_field 'language_ssi', :label => 'Language'
+    # config.add_show_field 'sourceResource_extent_ssi', :label => 'Extent'
     # "fielded" search configuration. Used by pulldown among other places.
     # For supported keys in hash, see rdoc for Blacklight::SearchFields
     #
@@ -178,17 +193,24 @@ class CatalogController < ApplicationController
       }
     end
 
+    config.add_search_field("Institution") do |field|
+      field.solr_parameters = { :'spellcheck.dictionary' => 'default' }
+      field.solr_local_parameters = {
+        :qf => '$data_provider_qf',
+        :pf => '$data_provider_pf'
+      }
+    end
+
     # Specifying a :qt only to show it's possible, and so our internal automated
     # tests can test it. In this case it's the same as
     # config[:default_solr_parameters][:qt], so isn't actually neccesary.
-    # config.add_search_field('subject') do |field|
-    #   field.solr_parameters = { :'spellcheck.dictionary' => 'default' }
-    #   field.qt = 'search'
-    #   field.solr_local_parameters = {
-    #     :qf => '$subject_qf',
-    #     :pf => '$subject_pf'
-    #   }
-    # end
+    config.add_search_field('subject') do |field|
+      field.solr_parameters = { :'spellcheck.dictionary' => 'default' }
+      field.solr_local_parameters = {
+        :qf => '$subject_qf',
+        :pf => '$subject_pf'
+      }
+    end
 
     # "sort results by" select (pulldown)
     # label in pulldown is followed by the name of the SOLR field to sort by and

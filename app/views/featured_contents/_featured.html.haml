@@ -1,0 +1,6 @@
+- if has_featured_content?
+  %div#featured
+    %div.featured-content-widgets
+      %div.row
+      - published_featured_random.each do |featured_content|
+        = render 'featured_contents/show_compact', featured_content: featured_content

@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Abouts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+      <th>Link title</th>
+      <th>Link path</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @about.each do |about| %>
+      <tr>
+        <td><%= about.title %></td>
+        <td><%= about.body %></td>
+        <td><%= about.link_title %></td>
+        <td><%= about.link_path %></td>
+        <td><%= link_to 'Show', about %></td>
+        <td><%= link_to 'Edit', edit_about_path(about) %></td>
+        <td><%= link_to 'Destroy', about, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New About', new_about_path %>

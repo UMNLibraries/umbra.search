@@ -1,0 +1,57 @@
+%h1 Contributing Institution Statistics
+%ul
+  %li
+    %label
+      Full Record Views:
+    The number of times an
+    %em
+      Umbra 
+    site visitor has viewed a record from a given Contributing Institution on the
+    %em
+      Umbra
+    website.
+  %li
+    %label
+      View Original Clicks:
+    The number of times an
+    %em
+      Umbra 
+    site visitor has clicked on a
+    .btn.btn-default.btn-sm.btn-primary.btn-view-original
+      View Original
+    button for the given Contributing Institution somewhere on the
+    %em
+      Umbra 
+    website and is referred back to the Contributing Institution website.
+  %li
+    %label
+      Total Engagements:
+    The combination of View Original Clicks and Full Record Views.
+
+
+%span.alert.alert-warning
+  Note: Statistics have only been gathered since 10-16-2015.
+
+%div{style: 'clear:both'}
+
+%table.table-striped.table-bordered.table-condensed 
+  %tr
+    %th
+      Contributing Institution
+    %th
+      Full Record Views
+    %th
+      View Original Clicks
+    %th
+      Total Engagements
+  %tbody
+    - data_providers_stats.each do |stat|
+      %tr
+        %td
+          = link_to_data_provider_drilldown stat[:provider_name]
+        %td
+          = stat[:record_views]
+        %td
+          = stat[:origin_clicks]
+        %td
+          = stat[:total]

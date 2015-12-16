@@ -45,7 +45,7 @@
   <meta http-equiv="cleartype" content="on">
   <![endif]-->
 
-  <title><%= render_page_title %></title>
+  <title><%= render_page_title %>: <%= tagline %></title>
   <%= opensearch_description_tag application_name, opensearch_catalog_url(:format => 'xml', :only_path => false) %>
   <%= favicon_link_tag 'favicon.ico' %>
   <%= stylesheet_link_tag    "application" %>
@@ -57,13 +57,12 @@
   <!--[if lt IE 9]>
   <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
-
 </head>
 <body class="<%= render_body_class %>">
 
 <div class="ribbon-block">
   <div class="ribbon">
-    <%= link_to "BETA", participate_path %></a>
+    <%= link_to "BETA", path_for_page('participate') %></a>
   </div>
 </div>
 

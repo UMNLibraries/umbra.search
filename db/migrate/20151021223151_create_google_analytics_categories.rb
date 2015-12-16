@@ -1,0 +1,8 @@
+class CreateGoogleAnalyticsCategories < ActiveRecord::Migration
+  def change
+    create_table :google_analytics_categories do |t|
+      t.string :name
+      t.timestamps null: false
+    end
+  end
+end

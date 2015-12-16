@@ -1,5 +1,5 @@
-$("#flag-vote-<%= @record_id %>-<%= @flag_id %>").removeClass('unflagged');
-$('#flag-vote-<%= @record_id %>-<%= @flag_id %>').addClass('flagged');
-var _href = $("#flag-vote-<%= @record_id %>-<%= @flag_id %> a.unflag").attr("href");
-$('#flag-vote-<%= @record_id %>-<%= @flag_id %> a.unflag').attr("href", _href + "&flag_vote%5Bid%5D=<%= @flag_vote.id %>");
-var _href = $("#flag-vote-<%= @record_id %>-<%= @flag_id %> a.unflag").attr("href");
+$("#flag-vote-<%= @record_id %>-<%= @flag_id %>-<%= @delta %>").removeClass('unflagged');
+$('#flag-vote-<%= @record_id %>-<%= @flag_id %>-<%= @delta %>').addClass('flagged');
+var _href = $("#flag-vote-<%= @record_id %>-<%= @flag_id %>-<%= @delta %> a.unflag").attr("href");
+$('#flag-vote-<%= @record_id %>-<%= @flag_id %>-<%= @delta %> a.unflag').attr("href", _href + "&flag_vote%5Bid%5D=<%= @flag_vote.id %>");
+var _href = $("#flag-vote-<%= @record_id %>-<%= @flag_id %>-<%= @delta %> a.unflag").attr("href");

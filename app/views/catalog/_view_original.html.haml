@@ -1,4 +1,8 @@
 - if url
-  %a.btn.btn-default.btn-sm{href:url, target: '_blank'}
-    Original
-    .glyphicon.glyphicon-new-window
+  %span.view-original
+    %a.btn.btn-default.btn-lg.btn-primary.view-original-search{href:url, target: '_blank', 'data-document-id' => document_id, 'data-context' => context}
+      .glyphicon.glyphicon-new-window
+      View Original
+    - if document_index_view_type == :list
+      %span.data-provider.metadata-field
+        = raw view_original_provider_search

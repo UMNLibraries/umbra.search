@@ -17,6 +17,7 @@ default: &default
   username: <%= ENV['AATH_SEARCH_DB_USERNAME'] %>
   password: <%= ENV['AATH_SEARCH_DB_PASSWORD'] %>
   database: <%= ENV['AATH_SEARCH_DB_NAME'] %>
+
 development:
   <<: *default
   host:     <%= ENV['AATH_SEARCH_DB_HOST'] %>

@@ -1,0 +1,5 @@
+  <div id="<%= "flag-vote-#{document['id']}-#{flag.id}-#{delta}" %>" class="<%= (flag_vote.css_class) %> flag-vote">
+    <%= toggle_button_to flag, url_params(flag_vote, delta),
+      on: "flag btn btn-default",
+      off: "unflag btn-warning btn" %>
+  </div>

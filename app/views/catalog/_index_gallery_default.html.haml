@@ -6,4 +6,4 @@
     %div.title
       = link_to_document document, :counter => counter, :label=> label
   %div.panel-footer
-    = render 'view_original', :url => document.fetch('isShownAt_ssi', false)
+    = render 'view_original', :url => document.fetch('isShownAt_ssi', false), :document_id => document['id'], :context => 'Gallery Search'

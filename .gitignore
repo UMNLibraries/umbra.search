@@ -43,3 +43,7 @@ bower.json
 blacklight_dev
 blacklight_prod
 blacklight_test
+
+uploads
+
+config/ga_keyfile.p12

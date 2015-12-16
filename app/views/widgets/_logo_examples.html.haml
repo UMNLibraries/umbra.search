@@ -1,0 +1,41 @@
+%div.panel.panel-default
+  %div.panel-heading
+    %h3.panel-title
+      Embeddable Umbra Logos
+  %div.panel-body
+    %h4
+      Default Logo:
+    %div.well
+      - logo_form_default = '<a href="https://www.umbrasearch.org"><img src="https://d3bqfbs46oeuvc.cloudfront.net/2Color-UmbraMark.png" width="75" height="75"></a>'
+      = raw html_syntax_highlight(logo_form_default)
+      %h4
+        Preview:
+      %div.well
+        = raw  logo_form_default
+    %h4
+      Black Version:
+    %div.well
+      - logo_form_black = '<a href="https://www.umbrasearch.org"><img src="https://d3bqfbs46oeuvc.cloudfront.net/black-white-UmbraMark.png" width="75" height="75"></a>'
+      = raw html_syntax_highlight(logo_form_black)
+      %h4
+        Preview:
+      %div.well
+        = raw logo_form_black
+    %h4
+      White Version:
+    %div.well
+      - logo_form_white = '<a href="https://www.umbrasearch.org"><img src="https://d3bqfbs46oeuvc.cloudfront.net/rev-UmbraMark.png" width="75" height="75"></a>'
+      = raw html_syntax_highlight(logo_form_white)
+      %h4
+        Preview:
+      %div.well{style: "background-color: #1B5957;"}
+        = raw logo_form_white
+    %h4
+      Full Version (Default With Text):
+    %div.well
+      - logo_form_full = '<a href="https://www.umbrasearch.org"><img src="https://d3bqfbs46oeuvc.cloudfront.net/2Color-Tag.png" height="100"></a>'
+      = raw html_syntax_highlight(logo_form_full)
+      %h4
+        Preview:
+      %div.well
+        = raw logo_form_full

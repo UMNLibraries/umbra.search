@@ -27,12 +27,12 @@ class FlagVotesController < ApplicationController
 
   def create
     user_id = user_id(flag_vote_params[:user_id])
-    @flag_vote = FlagVote.new(flag_vote_params.merge({:user_id => user_id}))
+    @flag_vote = FlagVote.new(flag_vote_params.except(:delta).merge({:user_id => user_id}))
     @flag_vote.save
   end
 
   def destroy
-    FlagVote.find_by(flag_vote_params).destroy
+    FlagVote.find_by(flag_vote_params.except(:delta)).destroy
   end
 
   private
@@ -46,8 +46,15 @@ class FlagVotesController < ApplicationController
 
   def get_records(flag_votes)
     FlagVote.records(flag_votes) do |record_id|
-      fetch(record_id).last
+      fetch_record(record_id)
     end
+  end
+
+  def fetch_record(record_id)
+    fetch(record_id).last
+  rescue Blacklight::Exceptions::RecordNotFound
+    Rails.logger.error "Blacklight::Exceptions::RecordNotFound: #{record_id}"
+    nil
   end
 
   # if user is logged in, return current_user, else return guest_user
@@ -91,10 +98,11 @@ class FlagVotesController < ApplicationController
   def record_updated
     @record_id = flag_vote_params[:record_id]
     @flag_id = flag_vote_params[:flag_id]
+    @delta = flag_vote_params[:delta]
   end
 
   def flag_vote_params
-    params.require(:flag_vote).permit(:flag_id, :record_id, :user_id)
+    params.require(:flag_vote).permit(:flag_id, :record_id, :user_id, :delta)
   end
 
   def user_id(user_id)

@@ -17,6 +17,8 @@ set :linked_dirs, fetch(:linked_dirs) + %w(public/uploads log cache tmp)
 
 set :rails_env, "production"
 
+set :branch, "mvp2"
+
 # Extended Server Syntax
 # ======================
 # This can be used to drop a more detailed server definition into the

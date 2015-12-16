@@ -29,12 +29,5 @@
 </div>
 
 <div id="featured">
-  <% if @featured_boards.count > 0 %>
-    <h2><a href="https://www.pinterest.com/umbrasearch/" target="_blank">Featured Collections @ pinterest.com</a> </h2>
-  <% end %>
-  <div class="featured-widgets featured-boards">
-    <% Array.wrap(@featured_boards).each do |featured_board| %>
-      <%= render_board_snapshot(preview_url(featured_board.url), featured_board.url, featured_board.title, @seconds_to_expiration) %>
-    <% end %>
-  </div>
+  <%= render 'featured_contents/featured' %>
 </div>

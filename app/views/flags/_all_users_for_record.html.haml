@@ -1,0 +1,11 @@
+- flagged_by = flagged_by_users(document['id'])
+- unless flagged_by.empty?
+  %div.well
+    %h3
+      Also flagged by:
+    %ul
+      - flagged_by.each do |flagged|
+        %li{:class => "flagged-vote-#{flagged[:user].id}-#{flagged[:flag_vote].id}"}
+          %span.glyphicon.glyphicon-user
+            = " #{flagged[:user].email} (roles: #{flagged[:user].roles.join(',')})" unless flagged[:user].id == current_or_guest_or_anonymous_user.id
+          = render 'flags/toggle', flag: flagged[:flag], flag_vote: flagged[:flag_vote], document: document, delta: 2

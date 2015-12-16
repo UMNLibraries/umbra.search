@@ -1,6 +1,10 @@
-<!-- Go to www.addthis.com/dashboard to customize your tools -->
-<script type="text/javascript" async defer src="//assets.pinterest.com/js/pinit.js"></script>
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5521661a2fe9d68e" async="async"></script>
+
+<% paths = request.env['PATH_INFO'].split('/') %>
+<% if paths.include?('catalog') && paths.length > 1 %>
+  <script type="text/javascript" async defer src="//assets.pinterest.com/js/pinit.js"></script>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5521661a2fe9d68e" async="async"></script>
+<% end %>
+
 
 <!-- Google -->
 <script>

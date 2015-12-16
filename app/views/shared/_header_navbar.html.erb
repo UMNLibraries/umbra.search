@@ -3,10 +3,10 @@
 
   <div class="container">
     <div class="navbar-header">
-      <div class="clearfix"><a class="navbar-brand" href="/"><%= image_tag('2Color-UmbraMarkSmall.png', size: "75x75") %></a></div>
+      <div class="clearfix"><a class="navbar-brand" href="/"><%= image_tag('2Color-UmbraMarkSmall.png', size: "75x75", alt: 'Umbra Home', title: "Umbra Home") %></a></div>
     </div>
     <ul class="nav navbar-nav navbar-left" id="primary-nav">
-      <li><%= render_search_bar  %></li>
+      <li><%= render 'catalog/search_form', :input_group_style => '' %></li>
       <%= render partial: 'shared/browse_nav' %>
     </ul>
       <div id="navbar" class="navbar-collapse collapse">
@@ -29,9 +29,10 @@
                       <% if current_user.has_one_of_these_roles?(['editor', 'admin']) %>
                         <li role="separator" class="divider"></li>
                         <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><%= link_to "Featured Images", featured_images_path, title: "Featured Images"%></a></li>
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><%= link_to "Featured Boards", featured_boards_path, title: "Featured Boards"%></a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><%= link_to "Featured Content", featured_contents_path, title: "Featured Content"%></a></li>
                         <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><%= link_to "Flags", flags_path, title: "Flags"%></a></li>
-                     <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><%= link_to "Flag Votes", flag_votes_path, title: "Flag Votes"%></a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><%= link_to "Flag Votes", flag_votes_path, title: "Flag Votes"%></a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><%= link_to "Pages", pages_path, title: "Pages"%></a></li>
                         <li role="separator" class="divider"></li>
                       <% end %>
                       <li role="presentation"><a role="menuitem" tabindex="-1" href="#">

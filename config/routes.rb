@@ -1,10 +1,19 @@
 Rails.application.routes.draw do
 
+  resources :pages
   resources :featured_images
-  resources :featured_boards
-
   resources :flags
   resources :flag_votes
+  resources :records, only: [:show]
+
+  get '/contributing-institutions' => "data_providers#index", as: 'data_providers'
+  get '/contributing-institutions/:id' => "data_providers#show", as: 'data_provider'
+
+  post '/records/upsert' => 'records#upsert', as: 'records_upsert'
+
+  get 'widgets/embed' => 'widgets#embed', as: 'widget'
+  get 'widgets' => 'widgets#index', as: 'widgets'
+
   post '/flag_votes/create' => 'flag_votes#create', as: 'create_flag_vote'
   delete '/flag_votes/destroy' => 'flag_votes#destroy', as: 'destroy_flag_vote'
 
@@ -17,21 +26,22 @@ Rails.application.routes.draw do
   blacklight_for :catalog
   get 'thumbnail' => 'thumbnails#download', as: 'cached_thumbnail'
 
-  scope '/about' do
-    get '' => 'pages#about', as: 'about'
-    get 'history' => 'pages#history', as: 'history'
-    get 'copyright' => 'pages#copyright', as: 'copyright'
-    get 'team' => 'pages#team', as: 'team'
-    get 'contact' => 'pages#contact', as: 'contact'
-    get 'participate' => 'pages#participate', as: 'participate'
-  end
-
+  get '/about', to: redirect('/pages/about')
+  get '/about/partner', to: redirect('/pages/partner')
+  get '/about/history', to: redirect('/pages/history')
+  get '/about/copyright', to: redirect('/pages/copyright')
+  get '/about/people', to: redirect('/pages/people')
+  get '/about/contact', to: redirect('/pages/contact')
+  get '/about/participate', to: redirect('/pages/participate')
+  get '/about/faq', to: redirect('/pages/faq')
+  get '/about/inspirations', to: redirect('/pages/inspirations')
 
   get 'contribute' => 'catalog#contribute', as: 'contribute'
   # get 'contact' => 'catalog#contact', as: 'contact'
   # post  'users/:id/update' => 'users#update', as: 'update_user'
   # patch 'users/:id/update' => 'users#update'
   resources :users
+  resources :featured_contents
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

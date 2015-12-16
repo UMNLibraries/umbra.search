@@ -1,0 +1,12 @@
+%div.featured-content
+  %h1
+    = @featured_content.title
+  %div
+    = link_to @featured_content.url, @featured_content.url, target: '_blank'
+  %div
+    = image_tag @featured_content.preview_image.url, class: 'featured-content-image'
+
+  %div
+    = link_to 'Back', featured_contents_path
+    |
+    = link_to 'Edit', edit_featured_content_path(@featured_content)

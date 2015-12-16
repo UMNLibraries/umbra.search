@@ -5,35 +5,37 @@
 - content_for(:head) { render_link_rel_alternates }
 - content_for(:secondary_navbar) {render partial:'show_nav'}
 
+%div.metadata{"data-metadata" => document.to_json, "data-url" => request.original_url}
+
 %section#metadata
   %div.container
     %div.row
-      %div.col-xs-12.col-sm-6.col-md-6.col-lg-6
-        %div.row
-          %div.col-xs-3.col-sm-4.col-md-3.col-lg-3
-            - if  is_sound?
+      %div.col-xs-12.col-sm-6.col-md-6.col-lg-6.image-and-view-original
+        %div.row.show-conent-top
+          %h1.h3{style:'font-style:italic;'}= display_title
+          %div.col-xs-12.col-sm-7
+            - if document['sourceResource_type_ssi'] == 'sound' && document['object_ssi'] == nil
               .cover-image.gallery-glyphs.glyphs
                 = link_to thumb_url, {target: '_blank'} do
                   %span.icon-headphones
             - else
               = link_to cached_thumbnail_tag(document, {}), thumb_url, {target: '_blank'}
+          %div.col-xs-12.col-sm-5.view-original-col
+            %a.btn.btn-default.btn-lg.btn-primary.btn-view-original.view-original-full-record{href:thumb_url, target: '_blank'}
+              View Original
+            %div.data-provider
+              = raw view_original_provider_search
         %div.row
           %div.pin-it-large
             = render 'pin_it_large', :document => document, :pinterest_image => '//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_red_28.png'
           %div.addthis_sharing_toolbox
             %a.addthis_button_twitter{"data-url" =>  catalog_url(document), "addthis:title" => display_title_short, class: "addthis-twitter"}
 
-
-        %h1.h3{style:'font-style:italic;'}= display_title
-        %a.btn.btn-default.btn-lg.btn-primary{href:thumb_url, target: '_blank'}
-          View Original
-          .glyphicon.glyphicon-new-window
         %h2.h4{style:'color:#777777'}= render_document_show_field_value document, :field => 'sourceResource_creator_ssi'
 
         - if description
           %h3.h4 Description
-          - content = render_document_show_field_value document, :field => 'sourceResource_description_tesi'
-          = content
+          = description
 
         %div.row
         %div#technical-metadata
@@ -49,8 +51,11 @@
           = collection
 
         - if data_provider
-          %h4 Contributing Institution
-          = data_provider
+          %h4.data-provider Record Contributed By
+          = render_facet_link('dataProvider_ssi', data_provider) 
+        - if provider_name
+          %h4.provider Record Harvested From
+          = provider_name_facet_link
 
       %div.col-xs-12.col-sm-5.col-sm-offset-1{style:'border-left:1px solid #efefef;'}
         %div.row{style:'margin-top:20px;'}

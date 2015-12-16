@@ -4,7 +4,7 @@ en:
       submit_limit: "Limit"
       remove_limit: "Remove Limit"
     application_name: 'Umbra'
-    tagline: 'Explore African American History'
+    tagline: 'Search African American History'
     search:
       fields:
         sourceResource_type_ssi: "Type"
@@ -12,6 +12,7 @@ en:
         creator_ssim: "Creator"
         sourceResource_date_begin_ssi: "Year"
         dataProvider_ssi: "Contributing Institution"
+        provider_name_ssi: "Harvested From"
         sourceResource_collection_title_ssi: "Collection"
         sourceResource_spatial_state_ssi: "Location"
         sourceResource_spatial_city_ssi: "City"

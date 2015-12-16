@@ -1,10 +1,13 @@
 <% Array.wrap(@flags).each do |flag| %>
   <% if can_view_flag?(flag) %>
-    <% flag_vote = FlagVote.find_or_build(document[:id], current_or_guest_or_anonymous_user.id, flag.id) unless flag_vote %>
-    <div id="<%= "flag-vote-#{document['id']}-#{flag.id}" %>" class="<%= (flag_vote.css_class) %> flag-vote">
-      <%= toggle_button_to flag, url_params(flag_vote),
-        on: "flag btn",
-        off: "unflag btn-warning btn" %>
+    <div class="btn-group" role="group" aria-label="...">
+      <% flag_vote = FlagVote.find_or_build(document[:id], current_or_guest_or_anonymous_user.id, flag.id) unless flag_vote %>
+        <%= render 'flags/toggle', flag: flag, flag_vote: flag_vote, document: document, delta: 1 %>
     </div>
   <% end %>
+<% end %>
+<% if current_or_guest_or_anonymous_user.has_one_of_these_roles?(['admin', 'editor']) %>
+  <div class="flagged-by-list">
+    <%= render 'flags/all_users_for_record', flags: @flags, document: document %>
+  </div>
 <% end %>

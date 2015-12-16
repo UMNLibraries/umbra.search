@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.2'
+gem 'rails', '4.2.5'
 
 gem 'mysql2'
 
@@ -40,7 +40,7 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 gem 'cancancan'
-gem 'blacklight', '~> 5.13.1'
+gem 'blacklight', '~> 5.15.0'
 gem 'blacklight_range_limit'
 gem 'rsolr', '~>1.0'
 gem 'rails_autolink'
@@ -54,12 +54,15 @@ gem 'mini_magick'
 gem 'rmagick'
 gem 'rest-client', '~>1.8'
 gem 'rails_admin'
-gem 'screencap'
 gem 'piet'
 gem 'piet-binary'
-
-# Pagination
 gem 'kaminari'
+gem 'friendly_id', '~> 5.1.0' # Note: You MUST use 5.0.0 or greater for Rails 4.0+
+gem 'sanitize'
+gem 'coderay', '~> 1.0.5'
+gem 'google-api-client', '0.8.6'
+gem 'activerecord-import'
+gem 'whenever', :require => false
 
 group :test, :development do
   # Debug seems to have trouble w/ Ruby 2.x, byebug is a replacment
@@ -67,7 +70,6 @@ group :test, :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
-  gem 'coderay', '~> 1.0.5'
   # Quite logs down by removing asset requests
   gem 'quiet_assets'
   gem 'fontello_rails_converter'
@@ -80,4 +82,9 @@ group :test, :development do
   gem 'factory_girl_rails', '~> 4.4.1'
   gem 'faker'
   gem 'capistrano-sidekiq'
+end
+
+# Gemfile (never include in :development !)
+group :test do
+  gem 'test_after_commit'
 end

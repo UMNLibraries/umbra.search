@@ -14,11 +14,14 @@ Blacklight.onLoad(function() {
         wildcard: '%QUERY'
       }
     });
-    $el.typeahead(null, {
-      name: 'terms',
-      display: 'term',
-      source: terms,
-      limit: 25
+    $(this).focus(function() {
+      $el.typeahead(null, {
+        minLength: 3,
+        name: 'terms',
+        display: 'term',
+        source: terms,
+        limit: 25
+      });
     });
   });
 });

@@ -4,17 +4,17 @@ namespace :solr do
   include SetupHelper
   desc "Download, unpack and run Prodiction Blacklight Jetty"
   task :setup_prod do
-    setup_solr('prod', 8983, '4.10.3', 'blacklight-core-umbra', '0.1-alpha')
+    setup_solr('prod', 8983, '4.10.3', 'blacklight-core-umbra', '0.3-alpha')
   end
 
   desc "Download, unpack and run Development Blacklight Jetty"
   task :setup_dev do
-    setup_solr('dev', 8885, '4.10.3', 'blacklight-core-umbra','0.1-alpha')
+    setup_solr('dev', 8885, '4.10.3', 'blacklight-core-umbra','0.3-alpha')
   end
 
   desc "Download, unpack and run Test Blacklight Jetty"
   task :setup_test do
-    setup_solr('test', 8889, '4.10.3', 'blacklight-core-umbra','0.1-alpha')
+    setup_solr('test', 8889, '4.10.3', 'blacklight-core-umbra','0.3-alpha')
   end
 
   desc "Remove non-umbra records"

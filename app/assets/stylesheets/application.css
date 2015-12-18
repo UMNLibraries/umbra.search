@@ -13,7 +13,7 @@
  *= require jcrop/css/jquery.Jcrop
  *
  * Used by blacklight_range_limit
- *= require  'blacklight_range_limit'
+ *= require 'blacklight_range_limit'
  *
  *= require_tree .
  *= require_self

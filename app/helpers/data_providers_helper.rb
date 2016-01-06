@@ -22,7 +22,7 @@ module DataProvidersHelper
   end
 
   def engagement_name(name)
-    labels = {'Record View' => 'Full Record View', 'View Original' => 'View Original'}
+    labels = {'Record View' => 'Full Record View', 'View Original' => 'View'}
     labels[name]
   end
 end

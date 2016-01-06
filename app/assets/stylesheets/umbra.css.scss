@@ -480,6 +480,45 @@ body.blacklight-pages-home {
   }
 }
 
+
+@media (min-width: 600px) {
+  .blacklight-catalog-facet #main-container {
+    max-width: 600px;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1500px) {
+  .blacklight-catalog-facet #main-container {
+    margin-left: 200px;
+  }
+}
+
+
+@media (min-width: 1500px) and (max-width: 1800px) {
+  .blacklight-catalog-facet #main-container {
+    margin-left: 300px;
+  }
+}
+
+@media (min-width: 1800px) and (max-width: 2000px) {
+  .blacklight-catalog-facet #main-container {
+    margin-left: 400px;
+  }
+}
+
+@media (min-width: 2000px) and (max-width: 2300px) {
+  .blacklight-catalog-facet #main-container {
+    margin-left: 500px;
+  }
+}
+
+
+@media (min-width: 2300px) {
+  .blacklight-catalog-facet #main-container {
+    margin-left: 700px;
+  }
+}
+
 @media (min-width: 600px) and (max-width: 768px) {
   .home-image-info .text {
     width: 550px;

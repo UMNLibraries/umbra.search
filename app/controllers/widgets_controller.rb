@@ -11,6 +11,7 @@ class WidgetsController < ApplicationController
     @widget_params = widget_params
     respond_to do |format|
       format.js { render "bootstrap", formats: [:js] }
+      format.css { render "bootstrap_styles", formats: [:css] }
     end
   end
 

@@ -42,7 +42,10 @@
     // Widget styles are added first so that they may be overrided in
     // subsequent sytlesheets wherever widgets are embedded
     function add_widget_styles() {
-      $("head link[rel='stylesheet']").first().before("<link rel='stylesheet' href='https://d3bqfbs46oeuvc.cloudfront.net/widget.css' type='text/css' media='screen'>");
+      var css_tag = document.createElement('link');
+      css_tag.setAttribute("type","text/css");
+      css_tag.setAttribute("href", "https://d3bqfbs46oeuvc.cloudfront.net/widget6.css");
+      (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(css_tag);
     }
 
     });

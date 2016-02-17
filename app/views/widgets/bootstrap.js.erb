@@ -26,8 +26,10 @@
   function main() {
     jQuery(document).ready(function($) {
       add_widget_styles();
-      embed_search_widget();
-    });
+
+      var form = <%= render 'search_form' %>;
+      var params = {"contributing_institution": "<%= contributing_institution %>"};
+      $('.umbra-search-widget').html(form);
 
     function url_builder(params) {
       var url_parms = {"search_field": 'all'}
@@ -37,23 +39,12 @@
       return  jQuery.param(url_parms);
     }
 
-    // Widget styles are added first so that they may be overrided in 
+    // Widget styles are added first so that they may be overrided in
     // subsequent sytlesheets wherever widgets are embedded
     function add_widget_styles() {
-      $("head link[rel='stylesheet']").first().before("<link rel='stylesheet' href='http://d3bqfbs46oeuvc.cloudfront.net/widget.css' type='text/css' media='screen'>");
+      $("head link[rel='stylesheet']").first().before("<link rel='stylesheet' href='https://d3bqfbs46oeuvc.cloudfront.net/widget.css' type='text/css' media='screen'>");
     }
 
-
-    function embed_search_widget() {
-      var form = <%= render 'search_form' %>;
-      var params = {"contributing_institution": "<%= contributing_institution %>"};
-      $('.umbra-search-widget').html(form);
-      $(".umbra-search-widget #umbra-search-form").submit(function( event ) {
-        search = $( ".search-text" ).val();
-        var url = ("<%= request.base_url %>/catalog/?" + url_builder(params) + "&q=" + search).replace( /<.*?>/g, '' );
-        window.location = url;
-        event.preventDefault();
-      });
-    }
+    });
   }
 })();

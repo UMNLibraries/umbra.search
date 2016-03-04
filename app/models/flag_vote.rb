@@ -30,7 +30,7 @@ class FlagVote < ActiveRecord::Base
     records = []
     votes.each do |vote|
       record = yield vote[:record_id]
-      records << format_record(record).strip unless record.blank?
+      records << format_record(record) unless record.blank?
     end
     records
   end
@@ -79,8 +79,7 @@ class FlagVote < ActiveRecord::Base
   private
 
   def self.format_record(record)
-    record = (record.respond_to?(:last)) ? record.last : record
-    SolrDocument.bag_of_words(record)
+    (record.respond_to?(:last)) ? record.last : record
   end
 
 end

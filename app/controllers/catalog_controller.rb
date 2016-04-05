@@ -108,6 +108,7 @@ class CatalogController < ApplicationController
 
 
     config.add_facet_field 'import_job_name_ssi', :label => 'Import Job Name', :restricted_to_roles => ['librarian', 'admin'], :limit => 200
+    config.add_facet_field 'provider_name_ssi', :label => 'Provider', :restricted_to_roles => ['librarian', 'admin'], :limit => 200
     config.add_facet_field 'creator_ssim', :label => 'Creator', :limit => 4, :collapse => false
     config.add_facet_field 'sourceResource_type_ssi', :label => 'Type', :limit => 5, :collapse => false
     config.add_facet_field 'dataProvider_ssi', :label => 'Contributing Institution', :limit => 4, :collapse => false
@@ -118,7 +119,7 @@ class CatalogController < ApplicationController
     config.add_facet_field 'sourceResource_date_begin_ssi', :label => 'Year', :range => {:assumed_boundaries => [1100, Time.now.year + 2]}
     # NOTE: Collection is HIDDEN SEARCH RESULTS BY A CSS RULE. We keep it in the config, because we still 
     # want to be able to produce a browse by collection facet page.
-    config.add_facet_field 'provider_name_ssi', :label => 'Harvested From', :show => false
+
 
     # Have BL send all facet field names to Solr, which has been the default
     # previously. Simply remove these lines if you'd rather use Solr request

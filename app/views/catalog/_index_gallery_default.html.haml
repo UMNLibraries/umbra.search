@@ -1,9 +1,9 @@
 - counter = document_counter_with_offset(document_counter)
 - label = truncate(document.fetch(document_show_link_field(document), '[Missing Title]'), length: 75)
 %div.panel.panel-default
+  %div.panel-heading
+    = render 'view_original', :url => document.fetch('isShownAt_ssi', false), :document_id => document['id'], :context => 'Gallery Search'
   %div.panel-body
     .cover-image= render_thumbnail_tag(document, {:title => label, :alt => label}, {:counter => counter})
     %div.title
       = link_to_document document, :counter => counter, :label=> label
-  %div.panel-footer
-    = render 'view_original', :url => document.fetch('isShownAt_ssi', false), :document_id => document['id'], :context => 'Gallery Search'

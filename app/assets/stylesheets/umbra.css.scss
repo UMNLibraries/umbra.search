@@ -190,7 +190,10 @@ ol.subjects {
 .gallery  {
 
   .title {
-    padding-top: 5px;
+    padding-top: 10px;
+    width: 145px;
+    height: 95px;
+    overflow: hidden;
   }
 
   .document {
@@ -199,6 +202,7 @@ ol.subjects {
     width: 175px;
     height: 285px;
     padding: 5px;
+    margin-bottom: 10px;
     .cover-image {
       height:100px;
       img.thumbnail {
@@ -210,7 +214,8 @@ ol.subjects {
         padding-bottom: 10px;
       }
     }
-    .info {
+    .info,
+    .panel-heading {
       text-align: center;
     }
     .panel-body {

@@ -1,8 +1,8 @@
-- if url
+- if document.thumb_url
   %span.view-original
-    %a.btn.btn-default.btn-lg.btn-primary.view-original-search{href:url, target: '_blank', 'data-document-id' => document_id, 'data-context' => context}
+    %a.btn.btn-default.btn-lg.btn-primary.view-original-search{href: document.thumb_url, target: '_blank', 'data-document-id' => document.id, 'data-context' => context}
       .glyphicon.glyphicon-new-window
       View
     - if document_index_view_type == :list
       %span.data-provider.metadata-field
-        = raw view_original_provider_search
+        = raw document.view_original_provider_search

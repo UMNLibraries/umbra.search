@@ -6,12 +6,13 @@
   <meta property="og:site_name" content="Umbra: Search African American History" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <% if defined? @document %>
-    <meta property="og:title" content="<%= display_title %>" />
-    <meta property="og:image" content="<%= img %>" />
+    <% document = presenter @document %>
+    <meta property="og:title" content="<%= document.display_title %>" />
+    <meta property="og:image" content="<%= document.img %>" />
     <meta property="og:url" content="<%= request.original_url %>" />
-    <meta property="og:description" content="<%= description %>" />
-    <meta name="twitter:title" content="<%= display_title_short %>" />
-    <meta name="twitter:image" content="<%= img %>" />
+    <meta property="og:description" content="<%= document.description %>" />
+    <meta name="twitter:title" content="<%= document.display_title_short %>" />
+    <meta name="twitter:image" content="<%= document.img %>" />
     <meta name="twitter:url" content="<%= request.original_url %>" />
     <meta name="twitter:card" content="photo" />
   <% end %>

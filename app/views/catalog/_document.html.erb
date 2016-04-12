@@ -1,14 +1,14 @@
-<% document_set(document) %>
+<% document_presenter = presenter(document) %>
 <% if document_index_view_type == :list %>
 <div class="panel panel-default">
   <div class="panel-heading">
     <div class="row">
-      <%= raw "<span class=\"type-icon #{type_class(type)}\">#{type}</span>" %>
+      <%= raw "<span class=\"type-icon #{type_class(document_presenter.type)}\">#{document_presenter.type}</span>" %>
     </div>
   </div>
   <div class="panel-body row">
     <div class="thumbnail-col">
-      <%= render 'thumbnail_default', :document => document, :document_counter => document_counter %>
+      <% render 'thumbnail_default', :document => document, :document_counter => document_counter %>
     </div>
     <div class="metadata-col">
       <%= render 'list_results_metadata', :document => document, :document_counter => document_counter %>

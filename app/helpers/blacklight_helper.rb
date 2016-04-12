@@ -3,6 +3,6 @@ module BlacklightHelper
 
   # Use custom DocumentPresenter class instead of default Blacklight::DocumentPresenter
   def presenter_class
-    DocumentPresenter
+    Umbra::DocumentPresenter
   end
 end

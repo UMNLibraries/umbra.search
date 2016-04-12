@@ -1,7 +1,8 @@
+- document_presenter = presenter(document)
 %div.list-results-metadata
   %span.document-counter
     =(document_counter + 1).to_s + "."
   %span.title
-    = link_to display_title, document
+    = link_to document_presenter.display_title, document
   %h2.h4.creator.metadata-field= render_document_show_field_value document, :field => 'sourceResource_creator_ssi'
-  = render 'view_original', :url => document.fetch('isShownAt_ssi', false), :document_id =>  document['id'], :context => 'List Search'
+  = render 'view_original', :document => document_presenter, :context => 'List Search'

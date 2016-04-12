@@ -1,77 +1,76 @@
 -# See helpers/show_record_helper.rb
-- document ||= @document
 - set_page_title!
 
 - content_for(:head) { render_link_rel_alternates }
 - content_for(:secondary_navbar) {render partial:'show_nav'}
 
-%div.metadata{"data-metadata" => document.to_json, "data-url" => request.original_url}
+%div.metadata{"data-metadata" => show_document.to_json, "data-url" => request.original_url}
 
 %section#metadata
   %div.container
     %div.row
       %div.col-xs-12.col-sm-6.col-md-6.col-lg-6.image-and-view-original
         %div.row.show-conent-top
-          %h1.h3{style:'font-style:italic;'}= display_title
+          %h1.h3{style:'font-style:italic;'}= show_document.display_title
           %div.col-xs-12.col-sm-7
-            - if document['sourceResource_type_ssi'] == 'sound' && document['object_ssi'] == nil
+            - if show_document.has_sound_without_image?
               .cover-image.gallery-glyphs.glyphs
                 = link_to thumb_url, {target: '_blank'} do
                   %span.icon-headphones
             - else
-              = link_to cached_thumbnail_tag(document, {}), thumb_url, {target: '_blank'}
+              = link_to cached_thumbnail_tag(show_document.document, {}), show_document.thumb_url, {target: '_blank'}
           %div.col-xs-12.col-sm-5.view-original-col
-            %a.btn.btn-default.btn-lg.btn-primary.btn-view-original.view-original-full-record{href:thumb_url, target: '_blank'}
+            %a.btn.btn-default.btn-lg.btn-primary.btn-view-original.view-original-full-record{href:show_document.thumb_url, target: '_blank'}
               %span.glyphicon.glyphicon-new-window
               View
             %div.data-provider
-              = raw view_original_provider_search
+              = raw show_document.view_original_provider_search
         %div.row
           %div.pin-it-large
-            = render 'pin_it_large', :document => document, :pinterest_image => '//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_red_28.png'
+            = render 'pin_it_large', :document => show_document, :pinterest_image => '//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_red_28.png'
           %div.addthis_sharing_toolbox
-            %a.addthis_button_twitter{"data-url" =>  catalog_url(document), "addthis:title" => display_title_short, class: "addthis-twitter"}
+            %a.addthis_button_twitter{"data-url" =>  catalog_url(show_document.document), "addthis:title" => show_document.display_title_short, class: "addthis-twitter"}
               %img{"height": 42, "width": 42, "style": "margin-top: -4px", "src": "https://d3bqfbs46oeuvc.cloudfront.net/twitter_logo.png"}
 
-        %h2.h4{style:'color:#777777'}= render_document_show_field_value document, :field => 'sourceResource_creator_ssi'
+        %h2.h4{style:'color:#777777'}= render_document_show_field_value show_document.document, :field => 'sourceResource_creator_ssi'
 
-        - if description
+        - if show_document.description
           %h3.h4 Description
-          = description
+          = show_document.description
 
         %div.row
         %div#technical-metadata
-          - document_show_fields(document).each do |solr_fname, field|
-            - if should_render_show_field? document, field
-              %dt{class:"blacklight-#{solr_fname.parameterize}"}= render_document_show_field_label document, :field => solr_fname
+          - document_show_fields(show_document).each do |solr_fname, field|
+            - if should_render_show_field? show_document.document, field
+              %dt{class:"blacklight-#{solr_fname.parameterize}"}= render_document_show_field_label show_document.document, :field => solr_fname
               %dd{class:"blacklight-#{solr_fname.parameterize}"}
                 %div
-                  = render_document_show_field_value document, :field => solr_fname
+                  = render_document_show_field_value show_document.document, :field => solr_fname
 
-        - if collection
+        - if show_document.collection
           %h4 From Collection
-          = collection
+          = show_document.collection
 
-        - if data_provider
+        - if show_document.data_provider
           %h4.data-provider Record Contributed By
-          = render_facet_link('dataProvider_ssi', data_provider) 
-        - if provider_name
+          = render_facet_link('dataProvider_ssi', show_document.data_provider)
+        - if show_document.provider_name
           %h4.provider Record Harvested From
-          = provider_name_facet_link
+          = render_facet_link('provider_name_ssi', show_document.provider_name)
 
       %div.col-xs-12.col-sm-5.col-sm-offset-1{style:'border-left:1px solid #efefef;'}
         %div.row{style:'margin-top:20px;'}
           %div.col-sm-12
-            - if subjects
+            - if show_document.subjects
               %h3.h4 Keywords
               %ol.list-unstyled.subjects
-                - subjects.each do |subject_heading|
+                - show_document.subjects.each do |subject_heading|
                   %li
                     %a.label.label-default{href:url_for(action:'index', "f[subject_ssim][]"=>subject_heading)}= subject_heading
 
             %h4 Related Content
             .related
-              - document.more_like_this.each do |related_document|
+              - show_document.document.more_like_this.each do |related_document|
                 - if related_document.fetch('sourceResource_type_ssi', '') == 'sound'
                   .cover-image.thumbnail
                     = link_to related_document do

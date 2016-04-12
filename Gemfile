@@ -87,4 +87,5 @@ end
 # Gemfile (never include in :development !)
 group :test do
   gem 'test_after_commit'
+  gem 'webmock'
 end

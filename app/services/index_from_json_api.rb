@@ -1,11 +1,15 @@
 require 'digest/sha1'
 
 class IndexFromJsonApi
-  def self.run!(query_url)
-    results = JSON.parse(fetch_url(query_url))
+  def self.run!(url)
+    results = response(url)
     SolrClient.add(results['data'].map { |result| json_api_to_solr(result) })
-    Rails.logger.info "Ingesting another batch of #{results['data'].length} solr docs from query: #{query_url}"
+    Rails.logger.info "Ingesting another batch of #{results['data'].length} solr docs from query: #{url}"
     yield results['links'].fetch('next', false) if block_given?
+  end
+
+  def self.response(url)
+    JSON.parse(fetch_url(url))
   end
 
   def self.json_api_to_solr(result)

@@ -6,6 +6,7 @@ describe IndexFromJsonApi do
   subject { IndexFromJsonApi }
 
   it "Runs a search and indexes retrieved documents" do
+    WebMock.disable_net_connect!
     stub_request(:get, "http://example.com").
       to_return(:status => 200, :body => json_api_response)
 
@@ -24,6 +25,6 @@ describe IndexFromJsonApi do
       'links' => {'next' => 'http://example.com?page=1'}
     }.to_json
   end
-
-
 end
+
+WebMock.allow_net_connect!

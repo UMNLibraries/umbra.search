@@ -7,6 +7,7 @@ en:
     tagline: 'Search African American History'
     search:
       fields:
+        editor_tags_ssim: "Editor Keyword Additions"
         sourceResource_type_ssi: "Type"
         subject_ssim: "Keyword"
         creator_ssim: "Creator"

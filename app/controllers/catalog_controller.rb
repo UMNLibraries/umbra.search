@@ -108,6 +108,7 @@ class CatalogController < ApplicationController
 
 
     config.add_facet_field 'import_job_name_ssi', :label => 'Import Job Name', :restricted_to_roles => ['librarian', 'admin'], :limit => 200
+    config.add_facet_field 'editor_tags_ssim', :label => 'Editor Keywords', :restricted_to_roles => ['librarian', 'admin', 'editor', 'subeditor'], :limit => 200, :collapse => false
     config.add_facet_field 'provider_name_ssi', :label => 'Provider', :restricted_to_roles => ['librarian', 'admin'], :limit => 200
     config.add_facet_field 'creator_ssim', :label => 'Creator', :limit => 4, :collapse => false
     config.add_facet_field 'sourceResource_type_ssi', :label => 'Type', :limit => 5, :collapse => false

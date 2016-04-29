@@ -1,8 +1,8 @@
 <% if document_index_view_type == :list %>
   <%= render 'index_default', document: document, document_counter: document_counter %>
 <% else %>
-    <% # container for a single doc -%>
-    <div class="document <%= render_document_class document %>" itemscope itemtype="<%= document.itemtype %>">
-      <%= render_document_partials document, blacklight_config.view_config(document_index_view_type).partials, :document_counter => document_counter %>
-    </div>
+  <% # container for a single doc -%>
+  <div class="document <%= render_document_class document %>" itemscope itemtype="<%= document.itemtype %>">
+    <%= render_document_partials document, blacklight_config.view_config(document_index_view_type).partials, :document_counter => document_counter %>
+  </div>
 <% end %>

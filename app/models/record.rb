@@ -1,29 +1,23 @@
 class Record < ActiveRecord::Base
   belongs_to :data_provider
   has_many :google_analytics_facts
+  has_many :record_tags
+  has_many :tags, through: :record_tags
   scope :with_record_hashes, ->(hashes)      { where('record_hash IN (?)', hashes) }
   scope :with_ingest_hash,   ->(ingest_hash) { where('ingest_hash = ?', ingest_hash) }
   scope :with_ingest_name,   ->(ingest_name) { where('ingest_name = ?', ingest_name) }
   scope :ingest_run,         ->(ingest_name, ingest_hash) { where('ingest_name = ? AND ingest_hash = ?', ingest_name, ingest_hash) }
 
-  def title
-    solr_metadata['title_ssi']
+  def tag_list
+    self.tags.map { |t| t.name }.join(", ")
   end
 
-  def solr_metadata
-    SolrClient.find_record(self.record_hash)
+  def tag_list=(new_value)
+    tag_names = new_value.to_s.split(',').map {|tag| tag.strip }
+    self.tags = tag_names.map { |name| Tag.find_or_create_by(:name => name) }
   end
 
-  def index_doc
-    index_doc = JSON.parse(metadata)['HUBINDEX']
-    index_doc['id'] = record_hash
-    index_doc['ingest_hash_ssi'] = ingest_hash
-    index_doc['ingest_name_ssi'] = ingest_name
-    # TODO: get rid of these once DPLA has been restored:
-      index_doc['import_job_name_ssi'] = ingest_name
-      index_doc['published_bsi']   = true
-      index_doc['tags_ssim']       = 'umbramvp'
-    #
-    index_doc
+  def solr_doc
+    @solr_doc ||= SolrClient.find_record(self.record_hash)
   end
 end

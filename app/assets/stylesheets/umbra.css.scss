@@ -774,3 +774,10 @@ body.blacklight-pages-home {
 .blacklight-sourceresource_type_ssi {
   text-transform: capitalize;
 }
+
+.editor-fields {
+  .description {
+    overflow: hidden;
+    max-height: 5ch;
+  }
+}

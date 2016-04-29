@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151027213359) do
+ActiveRecord::Schema.define(version: 20160419171117) do
 
   create_table "api_keys", force: :cascade do |t|
     t.string   "access_token", limit: 255
@@ -58,26 +58,23 @@ ActiveRecord::Schema.define(version: 20151027213359) do
 
   create_table "data_providers", force: :cascade do |t|
     t.string   "name",       limit: 255
-    t.integer  "record_id",  limit: 4
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
-
-  add_index "data_providers", ["record_id"], name: "index_data_providers_on_record_id", using: :btree
 
   create_table "featured_boards", force: :cascade do |t|
     t.string   "title",      limit: 255
     t.string   "url",        limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "published",  limit: 1
+    t.boolean  "published"
     t.string   "snapshot",   limit: 255
   end
 
   create_table "featured_contents", force: :cascade do |t|
     t.string   "title",         limit: 255
     t.text     "description",   limit: 65535
-    t.boolean  "published",     limit: 1
+    t.boolean  "published"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.string   "preview_image", limit: 255
@@ -88,7 +85,7 @@ ActiveRecord::Schema.define(version: 20151027213359) do
     t.string   "title",          limit: 255
     t.string   "record_id",      limit: 255
     t.string   "uploaded_image", limit: 255
-    t.boolean  "published",      limit: 1
+    t.boolean  "published"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -96,7 +93,7 @@ ActiveRecord::Schema.define(version: 20151027213359) do
   create_table "file_caches", force: :cascade do |t|
     t.string   "record_id",     limit: 255
     t.string   "url",           limit: 255
-    t.boolean  "valid_content", limit: 1
+    t.boolean  "valid_content"
     t.string   "content_type",  limit: 255
     t.string   "filepath",      limit: 255
     t.datetime "created_at"
@@ -120,8 +117,8 @@ ActiveRecord::Schema.define(version: 20151027213359) do
     t.string   "on_text_display",         limit: 255
     t.string   "off_text_display",        limit: 255
     t.integer  "search_filter_threshold", limit: 4
-    t.boolean  "restrict_to_editors",     limit: 1
-    t.boolean  "published",               limit: 1
+    t.boolean  "restrict_to_editors"
+    t.boolean  "published"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "on_css",                  limit: 255
@@ -177,8 +174,18 @@ ActiveRecord::Schema.define(version: 20151027213359) do
 
   add_index "pages", ["slug"], name: "index_pages_on_slug", using: :btree
 
+  create_table "record_tags", force: :cascade do |t|
+    t.integer  "tag_id",     limit: 4
+    t.integer  "record_id",  limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "record_tags", ["record_id"], name: "index_record_tags_on_record_id", using: :btree
+  add_index "record_tags", ["tag_id"], name: "index_record_tags_on_tag_id", using: :btree
+
   create_table "records", force: :cascade do |t|
-    t.string   "record_hash",      limit: 41
+    t.string   "record_hash",      limit: 42
     t.text     "metadata",         limit: 4294967295
     t.string   "ingest_name",      limit: 255
     t.string   "ingest_hash",      limit: 255
@@ -192,7 +199,7 @@ ActiveRecord::Schema.define(version: 20151027213359) do
   add_index "records", ["record_hash"], name: "index_records_on_record_hash", unique: true, using: :btree
 
   create_table "searches", force: :cascade do |t|
-    t.text     "query_params", limit: 65535
+    t.text     "query_params", limit: 16777215
     t.integer  "user_id",      limit: 4
     t.string   "user_type",    limit: 255
     t.datetime "created_at"
@@ -200,6 +207,12 @@ ActiveRecord::Schema.define(version: 20151027213359) do
   end
 
   add_index "searches", ["user_id"], name: "index_searches_on_user_id", using: :btree
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255,   default: "",    null: false
@@ -214,7 +227,7 @@ ActiveRecord::Schema.define(version: 20151027213359) do
     t.string   "last_sign_in_ip",        limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "guest",                  limit: 1,     default: false
+    t.boolean  "guest",                                default: false
     t.string   "avatar",                 limit: 255
     t.string   "name",                   limit: 255
     t.string   "twitter_handle",         limit: 255
@@ -234,6 +247,6 @@ ActiveRecord::Schema.define(version: 20151027213359) do
     t.datetime "created_at"
   end
 
-  add_index "versions", ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id", using: :btree
+  add_index "versions", ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id", length: {"item_type"=>191, "item_id"=>nil}, using: :btree
 
 end

@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get '/contributing-institutions/:id' => "data_providers#show", as: 'data_provider'
 
   post '/records/upsert' => 'records#upsert', as: 'records_upsert'
+  post '/records/update_tag_list' => 'records#update_tag_list'
+  patch '/records/update_tag_list' => 'records#update_tag_list'
 
   get 'widgets/embed' => 'widgets#embed', as: 'widget'
   get 'widgets' => 'widgets#index', as: 'widgets'

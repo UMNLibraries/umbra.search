@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 describe 'catalog/show.html.haml' do
+  include ActionView::Helpers
   let(:document) { SolrDocument.new(id:"documentId","sourceResource_type_ssi"=>"image", "isShownAt_ssi"=>"http://dlg.galileo.usg.edu/dlg/aaed/do-th:aarl89.017-004-012", "subject_ssim"=>["subject1", "subject2"]) }
   let(:related_document_url) { "http://dlg.galileo.usg.edu/aaed/thumbs/aarl89.017-001-014.jpg" }
   let(:related_document_title) { "Sample related image title" }

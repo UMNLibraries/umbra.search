@@ -3,6 +3,11 @@ module Umbra
   class DocumentPresenter < Blacklight::DocumentPresenter
   include ActionView::Helpers::TextHelper
     attr_reader :document
+
+    def record
+      Record.find_by(record_hash: id) || Record.new(record_hash: id)
+    end
+
     ##
     # Render a value (or array of values) from a field
     # use rails_autolink to display links as URLs

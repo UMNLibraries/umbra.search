@@ -7,6 +7,8 @@ require 'rspec/rails'
 require 'capybara/rspec'
 require 'capybara/rails'
 
+require 'webmock/rspec'
+WebMock.allow_net_connect!
 
 require "support/features/sign_in"
 # Add additional requires below this line. Rails is not loaded until this point!

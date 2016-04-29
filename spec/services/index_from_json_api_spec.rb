@@ -1,6 +1,5 @@
 require 'rails_helper'
 require './app/services/index_from_json_api.rb'
-require 'webmock/rspec'
 
 describe IndexFromJsonApi do
   subject { IndexFromJsonApi }

@@ -6,3 +6,20 @@
     = link_to document_presenter.display_title, document
   %h2.h4.creator.metadata-field= render_document_show_field_value document, :field => 'sourceResource_creator_ssi'
   = render 'view_original', :document => document_presenter, :context => 'List Search'
+  - if can? :update, document_presenter.record
+    %p
+      %div.panel.panel-default
+        %div.panel-heading
+          %h3.panel-title
+            Editor Fields
+        %div.panel-body.editor-fields
+          - if document_presenter.subjects != ''
+            %div
+              %strong
+                Keywords:
+              = document_presenter.subjects.join(', ')
+          - if document_presenter.description  != ''
+            %div.description
+              %strong
+                Description:
+              = document_presenter.description

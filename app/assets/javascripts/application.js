@@ -25,6 +25,9 @@
 // For Cropping Avatar Images
 //= require jcrop/js/jquery.Jcrop
 
+// For Editor tags
+//= require jquery-ui/jquery-ui.min.js
+
 
 // For Autocomplete
 //= require corejs-typeahead/dist/typeahead.bundle.js

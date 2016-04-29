@@ -1,0 +1,8 @@
+- if can? :update, document.record
+  %div.panel-body
+    = form_for(document.record, remote: true, format: :json, html: {class: 'record-tag'}, url:  {controller: 'records', action: 'update_tag_list'}) do |f|
+      = f.hidden_field :record_hash, value: document.id
+      %div.form-group
+        = f.label :tag_list, value: 'Editor Keyword Additions'
+        = f.text_field :tag_list, class: 'form-control'
+      = f.submit

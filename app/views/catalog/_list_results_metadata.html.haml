@@ -17,7 +17,7 @@
             %div
               %strong
                 Keywords:
-              = document_presenter.subjects.join(', ')
+              = Array.wrap(document_presenter.subjects).join(', ')
           - if document_presenter.description  != ''
             %div.description
               %strong

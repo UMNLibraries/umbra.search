@@ -6,8 +6,6 @@ class CatalogController < ApplicationController
   include BlacklightMoreLikeThis::SolrHelperExtension
   include Flag::SolrHideFlagged
 
-  self.search_params_logic += [:show_only_umbra_records]
-
   def index
     (@response, @document_list) = search_results(params, search_params_logic)
     @flags = Array.wrap(Flag.where(:published => true))

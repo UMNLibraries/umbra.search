@@ -1,13 +1,6 @@
 class SearchBuilder < Blacklight::SearchBuilder
   include Blacklight::Solr::SearchBuilderBehavior
 
-
-  # Show only items tagged with umbra
-  def show_only_umbra_records solr_parameters
-    solr_parameters['fq'] << "{!raw f=tags_ssim}umbramvp"
-    solr_parameters[:"facet.query"] << "sourceResource_date_begin_ssi:[1100 TO #{Time.now.year + 2}]"
-  end
-
   def hide_flagged solr_parameters
     HideFlags.new.hide_flagged(solr_parameters)
   end

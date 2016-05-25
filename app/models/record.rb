@@ -3,7 +3,7 @@ class Record < ActiveRecord::Base
   has_many :google_analytics_facts
   has_many :record_tags
   has_many :tags, through: :record_tags
-  scope :with_record_hashes, ->(hashes)      { where('record_hash IN (?)', hashes) }
+  scope :with_record_hash,   ->(hash)        { where('record_hash = ?', hash) }
   scope :with_ingest_hash,   ->(ingest_hash) { where('ingest_hash = ?', ingest_hash) }
   scope :with_ingest_name,   ->(ingest_name) { where('ingest_name = ?', ingest_name) }
   scope :ingest_run,         ->(ingest_name, ingest_hash) { where('ingest_name = ? AND ingest_hash = ?', ingest_name, ingest_hash) }

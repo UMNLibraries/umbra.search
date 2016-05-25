@@ -14,10 +14,27 @@ class IndexFromJsonApi
 
   def self.json_api_to_solr(result)
     attrs = result['attributes']
-    doc   = attrs['metadata']['HUBINDEX']
+    doc   =  enrich_doc_with_local_record(attrs['metadata']['HUBINDEX'])
     doc.merge({'id' => attrs['record-hash'],
                'import_job_name_ssi' => attrs['import-job-name'],
                'tags_ssim' => attrs['import-job-tags']})
+  end
+
+  def self.enrich_doc_with_local_record(doc)
+    RecordPresenter.new(local_record(doc['id'])).to_solr.merge(doc)
+  end
+
+  def self.local_record(id)
+    Record.with_record_hash(id).first || fake_record
+  end
+
+  def self.fake_record
+    Struct.new("FakeRecord", :record_hash, :ingest_name, :tag_list) do
+      def solr_doc
+        {}
+      end
+    end
+    Struct::FakeRecord.new('fake_hash', 'fake_ingest', '')
   end
 
   def self.fetch_url(url)

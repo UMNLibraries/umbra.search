@@ -1,5 +1,7 @@
 require 'digest/sha1'
 
+# TODO: Make a belongs_to for the record model and lazily instantiate
+# corresponding records on flag vote creation.
 class FlagVote < ActiveRecord::Base
   include Blacklight::SearchHelper
   after_commit :add_flag_to_record, on: :update

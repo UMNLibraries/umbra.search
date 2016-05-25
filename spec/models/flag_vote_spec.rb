@@ -12,8 +12,7 @@ describe FlagVote, type: :model do
       subject_ssim: [:foo, :bar].sample,
       dataProvider_ssi: random_text,
       sourceResource_spatial_state_ssi: random_text,
-      sourceResource_collection_title_ssi: random_text,
-      tags_ssim:'umbramvp',
+      sourceResource_collection_title_ssi: random_text
       flags_isim: 999
     }).to_h
   }

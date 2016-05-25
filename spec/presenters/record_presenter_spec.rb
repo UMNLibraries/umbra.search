@@ -13,7 +13,7 @@ describe RecordPresenter do
     allow(flag_vote).to receive(:flag) { flag }
     allow(flag_vote).to receive(:where) { [flag_vote] }
     presenter = RecordPresenter.new(record, flag_vote: flag_vote)
-    expected = {"id"=>"123abc", "import_job_name_ssi"=>"Fake Provider", "tags_ssim"=>"umbramvp", "editor_tags_ssim"=>["Blerb 0", "Blerb 1"], "subject_ssim"=>["Blerb 0", "Blerb 1"], "flags_isim"=>[flag.id]}
+    expected = {"id"=>"123abc", "import_job_name_ssi"=>"Fake Provider", "editor_tags_ssim"=>["Blerb 0", "Blerb 1"], "subject_ssim"=>["Blerb 0", "Blerb 1"], "flags_isim"=>[flag.id]}
     expect(presenter.to_solr).to eq expected
   end
 end

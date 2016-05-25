@@ -17,11 +17,6 @@ namespace :solr do
     setup_solr('test', 8889, '4.10.3', 'blacklight-core-umbra','0.3-alpha')
   end
 
-  desc "Remove non-umbra records"
-  task :delete_non_umbra_records => [:environment] do
-    SolrClient.delete_by_query("-tags_ssim:umbramvp")
-  end
-
   desc "Delete by Query"
   task :delete_by_query, [:query] => [:environment] do |t, args|
     SolrClient.delete_by_query(args[:query].to_s)

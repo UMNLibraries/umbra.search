@@ -12,8 +12,7 @@ describe 'Browsing Facets' do
         subject_ssim: [:foo, :bar].sample,
         dataProvider_ssi: random_text,
         sourceResource_spatial_state_ssi: random_text,
-        sourceResource_collection_title_ssi: random_text,
-        tags_ssim:'umbramvp'
+        sourceResource_collection_title_ssi: random_text
       }).to_h
     end
     docs

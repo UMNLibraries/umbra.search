@@ -10,10 +10,6 @@ class RecordPresenter < BasePresenter
   def to_solr
     solr_doc['id']                  = record.record_hash
     solr_doc['import_job_name_ssi'] = record.ingest_name
-    # TODO: remove the umbramvp filter. We now use the JSONapi index approach
-    # whis allows us to grab content by tag, eliminating the need to do so
-    # as a solr filter after the fact
-    solr_doc['tags_ssim']           = 'umbramvp'
     solr_doc['editor_tags_ssim']    = normalize tags
     solr_doc['subject_ssim']        = subject_tags
     solr_doc['flags_isim']          = flags(solr_doc['id'])

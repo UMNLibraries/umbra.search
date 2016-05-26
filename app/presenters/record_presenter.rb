@@ -8,7 +8,6 @@ class RecordPresenter < BasePresenter
   end
 
   def to_solr
-    solr_doc['id']                  = record.record_hash
     solr_doc['editor_tags_ssim']    = normalize tags
     solr_doc['subject_ssim']        = subject_tags
     solr_doc['flags_isim']          = flags(solr_doc['id'])

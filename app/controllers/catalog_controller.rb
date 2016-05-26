@@ -113,6 +113,7 @@ class CatalogController < ApplicationController
     config.add_facet_field 'dataProvider_ssi', :label => 'Contributing Institution', :limit => 4, :collapse => false
     config.add_facet_field 'sourceResource_collection_title_ssi', :label => 'From Collection', :limit => 4, :collapse => false
     config.add_facet_field 'subject_ssim', :label => 'Keyword', :limit => 4, :collapse => false
+    config.add_facet_field 'keywords_ssim', :label => 'Keyword', :limit => 4, :collapse => false, :restricted_to_roles => ['librarian', 'admin'], :limit => 200
     # # Note: This tries to set assumed_boundaries for blacklight_range_limit, but it's not working.  Leaving the value set in case it gets fixed in future releases of blacklight_range_limit
     config.add_facet_field 'sourceResource_spatial_state_ssi', :label => 'Location', :limit => 10
     config.add_facet_field 'sourceResource_date_begin_ssi', :label => 'Year', :range => {:assumed_boundaries => [1100, Time.now.year + 2]}

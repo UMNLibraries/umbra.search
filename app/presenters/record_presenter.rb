@@ -9,7 +9,7 @@ class RecordPresenter < BasePresenter
 
   def to_solr
     solr_doc['editor_tags_ssim']    = normalize tags
-    solr_doc['subject_ssim']        = subject_tags
+    solr_doc['keywords_ssim']       = subject_tags
     solr_doc['flags_isim']          = flags(solr_doc['id'])
     solr_doc.delete('_version_')
     solr_doc

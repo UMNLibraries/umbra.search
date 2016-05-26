@@ -10,6 +10,7 @@ en:
         editor_tags_ssim: "Editor Keyword Additions"
         sourceResource_type_ssi: "Type"
         subject_ssim: "Keyword"
+        keywords_ssim: "Keyword"
         creator_ssim: "Creator"
         sourceResource_date_begin_ssi: "Year"
         dataProvider_ssi: "Contributing Institution"

@@ -29,8 +29,8 @@ class SolrClient
     docs.map {|doc| JSON.parse(doc)['record']['originalRecord'] }
   end
 
-  def self.search(query, page: 1, rows: 10)
-    client.paginate page, rows, 'select', :params => {:fl => '*', :q => query}
+  def self.search(query, page: 1, rows: 10, params: {})
+    client.paginate page, rows, 'select', :params => {:fl => '*', :q => query}.merge(params)
   end
 
   def self.client

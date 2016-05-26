@@ -34,7 +34,7 @@ class PopulateAllKeywords
   end
 
   def response
-    @response ||= SolrClient.search('*:*', page: page, rows: rows)['response']
+    @response ||= SolrClient.search('*:*', page: page, rows: rows, params: {sort: 'id desc'})['response']
   end
 
 end

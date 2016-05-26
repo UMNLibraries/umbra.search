@@ -4,7 +4,7 @@ class SolrClient
   end
 
   def self.find_record(record_id)
-    get_page("id:#{record_id}")['response']['docs'].first
+    search("id:#{record_id}")['response']['docs'].first
   end
 
   def self.add(docs)
@@ -29,7 +29,7 @@ class SolrClient
     docs.map {|doc| JSON.parse(doc)['record']['originalRecord'] }
   end
 
-  def self.get_page(query, page: 1, rows: 10)
+  def self.search(query, page: 1, rows: 10)
     client.paginate page, rows, 'select', :params => {:fl => '*', :q => query}
   end
 

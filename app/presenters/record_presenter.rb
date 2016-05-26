@@ -22,7 +22,7 @@ class RecordPresenter < BasePresenter
   end
 
   def subject_tags
-    normalize subjects + tags
+    (normalize subjects + tags).uniq.sort
   end
 
   def normalize(terms)
@@ -38,6 +38,6 @@ class RecordPresenter < BasePresenter
   end
 
   def solr_doc
-    record.solr_doc
+    @solr_doc ||= record.solr_doc
   end
 end

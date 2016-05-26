@@ -5,7 +5,7 @@ class IndexRecord
   end
 
   def index!
-    Rails.logger.info "Indexing record: solr_record"
+    Rails.logger.info "Indexing record: #{solr_record['id']}"
     SolrClient.add(solr_record)
   end
 

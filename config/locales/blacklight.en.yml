@@ -7,9 +7,9 @@ en:
     tagline: 'Search African American History'
     search:
       fields:
-        editor_tags_ssim: "Editor Keyword Additions"
+        editor_tags_ssim: "Editor Keyword Additions  (Editors Only)"
         sourceResource_type_ssi: "Type"
-        subject_ssim: "Keyword"
+        subject_ssim: "Subject (Editors Only)"
         keywords_ssim: "Keyword"
         creator_ssim: "Creator"
         sourceResource_date_begin_ssi: "Year"
@@ -20,8 +20,8 @@ en:
         sourceResource_spatial_city_ssi: "City"
         sourceResource_spatial_county_ssi: "County"
         sourceResource_spatial_region_ssi: "Region"
-        batch_id_ssi: "Import Batch ID"
-        import_job_name_ssi: "Import Job Name"
-        import_job_id_isi: "Import Job ID"
+        batch_id_ssi: "Import Batch ID  (Editors Only)"
+        import_job_name_ssi: "Import Job Name  (Editors Only)"
+        import_job_id_isi: "Import Job ID  (Editors Only)"
       view:
         gallery: "Gallery"

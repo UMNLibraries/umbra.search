@@ -12,7 +12,7 @@ class PopulateKeywordsField
   private
 
   def all_keyword_fields
-    (subject_field + editor_tags).map { |tag| tag.titleize }.uniq.flatten.compact
+    (subject_field + editor_tags).uniq.flatten.compact
   end
 
   def subject_field

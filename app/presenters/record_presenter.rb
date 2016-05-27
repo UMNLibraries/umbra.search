@@ -30,7 +30,7 @@ class RecordPresenter < BasePresenter
   end
 
   def subjects
-    @subjects ||= solr_doc.fetch('subject_ssim', [])
+    @subjects ||= solr_doc.fetch('keywords_ssim', [])
   end
 
   def tags

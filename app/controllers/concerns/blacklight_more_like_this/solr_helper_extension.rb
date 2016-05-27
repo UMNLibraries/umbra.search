@@ -27,7 +27,7 @@ module BlacklightMoreLikeThis
 
     def more_like_this_config
       {
-          'mlt.fl' => 'title_ssi,subject_ssim,creator_ssim',
+          'mlt.fl' => 'title_ssi,keywords_ssim,creator_ssim',
           'mlt.count' => 20,
           'mlt.mintf' => 1
       }

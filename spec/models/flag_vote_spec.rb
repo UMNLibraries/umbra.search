@@ -9,7 +9,7 @@ describe FlagVote, type: :model do
       id: flag_vote.record_id,
       title_ssi: random_text,
       creator_ssim: [random_text],
-      subject_ssim: [:foo, :bar].sample,
+      keywords_ssim: [:foo, :bar].sample,
       dataProvider_ssi: random_text,
       sourceResource_spatial_state_ssi: random_text,
       sourceResource_collection_title_ssi: random_text

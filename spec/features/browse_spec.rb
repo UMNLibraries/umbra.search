@@ -9,7 +9,7 @@ describe 'Browsing Facets' do
         id: random_text,
         title_ssi: random_text,
         creator_ssim: [random_text],
-        subject_ssim: [:foo, :bar].sample,
+        keywords_ssim: [:foo, :bar].sample,
         dataProvider_ssi: random_text,
         sourceResource_spatial_state_ssi: random_text,
         sourceResource_collection_title_ssi: random_text
@@ -42,8 +42,8 @@ describe 'Browsing Facets' do
 
   context 'given the facet.mincount setting for subjects in catalog_controller.rb' do
     it 'should browse the subject facet and recieve two results' do
-      visit "/catalog/facet/subject_ssim?limit=100"
-      browse_facet('subject_ssim', 'Keyword', 2)
+      visit "/catalog/facet/keywords_ssim?limit=100"
+      browse_facet('keywords_ssim', 'Keyword', 2)
     end
   end
 

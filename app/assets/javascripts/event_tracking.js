@@ -55,7 +55,7 @@ $(document).ready(function(){
     umbra_ga_event('Facet', 'Contributing Institution Facet Select', $(this).text());
   });
 
-  $("#facet-subject_ssim a.facet_select").click(function() {
+  $("#facet-keywords_ssim a.facet_select").click(function() {
     umbra_ga_event('Facet', 'Subject Facet Select', $(this).text());
   });
 

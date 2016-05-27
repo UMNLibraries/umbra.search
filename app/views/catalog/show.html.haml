@@ -66,7 +66,7 @@
               %ol.list-unstyled.subjects
                 - show_document.subjects.each do |subject_heading|
                   %li
-                    %a.label.label-default{href:url_for(action:'index', "f[subject_ssim][]"=>subject_heading)}= subject_heading
+                    %a.label.label-default{href:url_for(action:'index', "f[keywords_ssim][]"=>subject_heading)}= subject_heading
 
             %h4 Related Content
             .related

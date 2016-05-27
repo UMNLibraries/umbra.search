@@ -42,7 +42,7 @@ module Umbra
     end
 
     def subjects
-      document.fetch('subject_ssim', false)
+      document.fetch('keywords_ssim', false)
     end
 
     def rights

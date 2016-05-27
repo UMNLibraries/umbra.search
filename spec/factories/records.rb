@@ -14,7 +14,7 @@ FactoryGirl.define do
     end
 
     trait :with_metadata_with_subjects do
-      metadata '{"subject_ssim": ["Civil War", "Civil Rights", "Civil Service"]}'
+      metadata '{"keywords_ssim": ["Civil War", "Civil Rights", "Civil Service"]}'
     end
 
     factory :record_with_keywords, :traits => [:with_editor_tags, :with_metadata_with_subjects]

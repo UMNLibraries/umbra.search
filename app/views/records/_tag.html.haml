@@ -4,5 +4,7 @@
       = f.hidden_field :record_hash, value: document.id
       %div.form-group
         = f.label :tag_list, value: 'Editor Keyword Additions'
+        %span{:class => "saved saved-#{document.id}"}
+          Saved
         = f.text_field :tag_list, class: 'form-control'
-      = f.submit
+        = f.submit

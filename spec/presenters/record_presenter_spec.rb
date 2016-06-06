@@ -14,7 +14,7 @@ describe RecordPresenter do
     allow(flag_vote).to receive(:flag) { flag }
     allow(flag_vote).to receive(:where) { [flag_vote] }
     presenter = RecordPresenter.new(record, flag_vote: flag_vote)
-    expected = metadata.merge({"editor_tags_ssim"=>["Blerb 0", "Blerb 1"], "keywords_ssim"=>["Civil Rights", "Civil Service", "Civil War", "Blerb 0", "Blerb 1"], "flags_isim"=>[flag.id]})
+    expected = metadata.merge({"editor_tags_ssim"=>["Blerb 0", "Blerb 1"], "keywords_ssim"=>["Blerb 0", "Blerb 1", "Civil Rights", "Civil Service", "Civil War"], "flags_isim"=>[flag.id]})
     puts expected.inspect
     expect(presenter.to_solr).to eq expected
   end

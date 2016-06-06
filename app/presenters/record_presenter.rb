@@ -9,7 +9,7 @@ class RecordPresenter < BasePresenter
 
   def to_solr
     solr_doc['editor_tags_ssim']    = normalize tags
-    solr_doc['keywords_ssim']       = subject_tags
+    solr_doc['keywords_ssim']       = keywords
     solr_doc['flags_isim']          = flags(solr_doc['id'])
     solr_doc.delete('_version_')
     solr_doc
@@ -21,7 +21,7 @@ class RecordPresenter < BasePresenter
     flag_vote.where(record_id: record_id).map { |fv| fv.flag.id }
   end
 
-  def subject_tags
+  def keywords
     (normalize subjects + tags).uniq.sort
   end
 
@@ -30,7 +30,7 @@ class RecordPresenter < BasePresenter
   end
 
   def subjects
-    @subjects ||= solr_doc.fetch('keywords_ssim', [])
+    @subjects ||= solr_doc.fetch('subject_ssim', [])
   end
 
   def tags

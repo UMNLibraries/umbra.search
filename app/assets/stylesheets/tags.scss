@@ -4,10 +4,12 @@
   }
   .saved {
     display: none;
-    font-weight: bold;
+    margin-top: 5px;
+    float: none;
   }
   input[type="text"] {
     width: 500px;
     border-radius: 3px;
+    display:inline
   }
 }

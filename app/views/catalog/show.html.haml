@@ -49,7 +49,7 @@
 
         - if show_document.collection
           %h4 From Collection
-          = show_document.collection
+          = render_facet_link('sourceResource_collection_title_ssi', show_document.collection)
 
         - if show_document.data_provider
           %h4.data-provider Record Contributed By

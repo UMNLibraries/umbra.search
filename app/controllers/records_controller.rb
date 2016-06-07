@@ -5,7 +5,7 @@ class RecordsController < ApplicationController
 
   def update_tag_list
     authorize! :update, Record
-    record.update_attribute(:tag_list, record_params['tag_list'])
+    record.update_attribute(:tag_list, tag_list)
     respond_to do |format|
       if record
         IndexRecord.new(record: record).index!
@@ -21,6 +21,10 @@ class RecordsController < ApplicationController
 
   def record
     Record.find_or_create_by(record_hash: record_params[:record_hash])
+  end
+
+  def tag_list
+    record_params['tag_list'].gsub(/,\s$/, '')
   end
 
   def record_params

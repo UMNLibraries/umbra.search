@@ -21,6 +21,7 @@
     }
     $('#documents .record-tag').each( function( index, element ) {
       $(this).find("[type=text]")
+         // Show the autosuggest box when a user clicks into a tag box
         .bind("focus", function( event ) {
           $(this).autocomplete('search');
         })
@@ -41,6 +42,16 @@
             terms.push( "" );
             this.value = terms.join( ", " );
             return false;
+          },
+          // Don't replace the tag box with highlighted items from the
+          // autosuggest list during up and down arrow events
+          focus: function(event, ui) {
+            event.preventDefault(); // or return false;
+          },
+          // Save tag list when an autosuggest item has been selected
+          close: function( event, ui ) {
+            submit_tags(this);
+            pulse_saved(this);
           }
         })
         // don't navigate away from the field on tab when selecting an item
@@ -49,17 +60,28 @@
             event.preventDefault();
           }
         })
+        // Automatically save tag list when focus is lost on the tag box
         .bind("focusout", function( event ) {
-          $(this).parent().parent().find("[type=submit]").submit();
+          submit_tags(this);
+          pulse_saved(this);
         })
+        // Save the tag list when a user clicks the return key
         .bind('keypress', function(e) {
           var code = e.keyCode || e.which;
           if (code == 13) {
-            $(this).parent().parent().find(".saved").fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(1500);
-            $(this).parent().parent().find("[type=submit]").submit();
+            submit_tags(this);
+            pulse_saved(this);
           }
         });
       });
+
+    function submit_tags(obj) {
+      $(obj).parent().parent().find("[type=submit]").submit();
+    }
+
+    function pulse_saved(obj) {
+      $(obj).parent().parent().find(".saved").fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(1500);
+    }
 });
 
 

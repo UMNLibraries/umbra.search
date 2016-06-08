@@ -61,12 +61,6 @@
       %div.col-xs-12.col-sm-5.col-sm-offset-1{style:'border-left:1px solid #efefef;'}
         %div.row{style:'margin-top:20px;'}
           %div.col-sm-12
-            - if show_document.subjects
-              %h3.h4 Keywords
-              %ol.list-unstyled.subjects
-                - show_document.subjects.each do |subject_heading|
-                  %li
-                    %a.label.label-default{href:url_for(action:'index', "f[keywords_ssim][]"=>subject_heading)}= subject_heading
 
             %h4 Related Content
             .related
@@ -78,3 +72,10 @@
                 - else
                   =link_to related_document do
                     -cached_thumbnail_tag(related_document, {:nopin => 'nopin', :title => related_document['title_ssi']})
+
+            - if show_document.subjects
+              %h3.h4 Keywords
+              %ol.list-unstyled.subjects
+                - show_document.subjects.each do |subject_heading|
+                  %li
+                    %a.label.label-default{href:url_for(action:'index', "f[keywords_ssim][]"=>subject_heading)}= subject_heading

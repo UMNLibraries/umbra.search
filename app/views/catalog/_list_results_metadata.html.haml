@@ -8,7 +8,7 @@
   %h4.metadata-field
     Keywords:
   %ol.list-unstyled.subjects
-    - Array.wrap(document_presenter.subjects).each do |subject_heading|
+    - Array.wrap(document_presenter.document['keywords_ssim']).each do |subject_heading|
       %li
         %a.label.label-default{href: "#{url_for(action:'index')}/?q=#{subject_heading}&search_field=subject"}= subject_heading
   = render 'view_original', :document => document_presenter, :context => 'List Search'

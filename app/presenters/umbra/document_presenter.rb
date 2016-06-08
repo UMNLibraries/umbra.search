@@ -41,6 +41,14 @@ module Umbra
       document.fetch('isShownAt_ssi', false)
     end
 
+    def has_keywords?
+      !keywords.empty?
+    end
+
+    def keywords
+      document.fetch('keywords_ssim', [])
+    end
+
     def subjects
       document.fetch('keywords_ssim', false)
     end

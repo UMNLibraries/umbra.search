@@ -11,7 +11,7 @@
     %ol.list-unstyled.subjects
       - document_presenter.keywords.each do |subject_heading|
         %li
-          %a.label.label-default{href: "#{url_for(action:'index')}/?q=#{subject_heading}&search_field=subject"}= subject_heading
+          %a.label.label-default{href: %Q(#{url_for(action:'index')}/?q="#{subject_heading}"&search_field=subject)}= subject_heading
   = render 'view_original', :document => document_presenter, :context => 'List Search'
   - if can?(:update, document_presenter.record) && document_presenter.has_editor_fields?
     %p

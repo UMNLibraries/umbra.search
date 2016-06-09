@@ -45,6 +45,10 @@ module Umbra
       !keywords.empty?
     end
 
+    def matches
+      document.fetch('matches_tesi', '')
+    end
+
     def keywords
       document.fetch('keywords_ssim', [])
     end
@@ -116,6 +120,10 @@ module Umbra
 
     def to_json
       document.to_json
+    end
+
+    def has_editor_fields?
+      (matches != '' || description != '')
     end
 
     private

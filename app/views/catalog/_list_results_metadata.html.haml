@@ -13,3 +13,20 @@
         %li
           %a.label.label-default{href: "#{url_for(action:'index')}/?q=#{subject_heading}&search_field=subject"}= subject_heading
   = render 'view_original', :document => document_presenter, :context => 'List Search'
+  - if can?(:update, document_presenter.record) && document_presenter.has_editor_fields?
+    %p
+      %div.panel.panel-default
+        %div.panel-heading
+          %h3.panel-title
+            Editor Fields
+        %div.panel-body.editor-fields
+          - if document_presenter.matches != ''
+            %div
+              %strong
+                Matched Terms:
+              = document_presenter.matches
+          - if document_presenter.description  != ''
+            %div.description
+              %strong
+                Description:
+              = document_presenter.description

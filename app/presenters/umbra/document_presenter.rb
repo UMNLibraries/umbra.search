@@ -123,7 +123,7 @@ module Umbra
     end
 
     def has_editor_fields?
-      (matches != '' || description != '')
+      (matches != '')
     end
 
     private

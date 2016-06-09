@@ -24,9 +24,4 @@
             %div
               %strong
                 Matched Terms:
-              = document_presenter.matches
-          - if document_presenter.description  != ''
-            %div.description
-              %strong
-                Description:
-              = document_presenter.description
+              = raw document_presenter.matches

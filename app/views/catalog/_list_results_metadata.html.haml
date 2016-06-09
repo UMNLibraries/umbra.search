@@ -5,21 +5,23 @@
   %span.title
     = link_to document_presenter.display_title, document
   %h2.h4.creator.metadata-field= render_document_show_field_value document, :field => 'sourceResource_creator_ssi'
+  - if document_presenter.has_keywords?
+    %h4.metadata-field
+      Keywords:
+    %ol.list-unstyled.subjects
+      - document_presenter.keywords.each do |subject_heading|
+        %li
+          %a.label.label-default{href: "#{url_for(action:'index')}/?q=#{subject_heading}&search_field=subject"}= subject_heading
   = render 'view_original', :document => document_presenter, :context => 'List Search'
-  - if can? :update, document_presenter.record
+  - if can?(:update, document_presenter.record) && document_presenter.has_editor_fields?
     %p
       %div.panel.panel-default
         %div.panel-heading
           %h3.panel-title
             Editor Fields
         %div.panel-body.editor-fields
-          - if document_presenter.subjects != ''
+          - if document_presenter.matches != ''
             %div
               %strong
-                Keywords:
-              = Array.wrap(document_presenter.subjects).join(', ')
-          - if document_presenter.description  != ''
-            %div.description
-              %strong
-                Description:
-              = document_presenter.description
+                Matched Terms:
+              = sanitize raw document_presenter.matches

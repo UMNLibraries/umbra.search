@@ -22,8 +22,8 @@ namespace :solr do
     SolrClient.delete_by_query(args[:query].to_s)
   end
 
-  desc "Index Records"
-  task :index_records,  [:ingest_name, :ingest_hash] => [:environment] do |t, args|
-    IndexRecords.run!(args[:ingest_name], args[:ingest_hash])
+  desc "Index Records from JSON API"
+  task :index_records,  [:url] => [:environment] do |t, args|
+    JsonApiIndexerWorker.perform_async(args[:url])
   end
 end

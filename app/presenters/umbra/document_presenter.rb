@@ -41,6 +41,18 @@ module Umbra
       document.fetch('isShownAt_ssi', false)
     end
 
+    def has_keywords?
+      !keywords.empty?
+    end
+
+    def matches
+      document.fetch('matches_tesi', '')
+    end
+
+    def keywords
+      document.fetch('keywords_ssim', [])
+    end
+
     def subjects
       document.fetch('keywords_ssim', false)
     end
@@ -108,6 +120,10 @@ module Umbra
 
     def to_json
       document.to_json
+    end
+
+    def has_editor_fields?
+      (matches != '')
     end
 
     private

@@ -1,5 +1,11 @@
 require 'digest/sha1'
 
+FakeRecord = Struct.new("FakeRecord", :record_hash, :ingest_name, :tag_list) do
+  def solr_doc
+    {}
+  end
+end
+
 class IndexFromJsonApi
   def self.run!(url)
     results = response(url)
@@ -29,12 +35,7 @@ class IndexFromJsonApi
   end
 
   def self.fake_record
-    Struct.new("FakeRecord", :record_hash, :ingest_name, :tag_list) do
-      def solr_doc
-        {}
-      end
-    end
-    Struct::FakeRecord.new('fake_hash', 'fake_ingest', '')
+    FakeRecord.new('fake_hash', 'fake_ingest', '')
   end
 
   def self.fetch_url(url)

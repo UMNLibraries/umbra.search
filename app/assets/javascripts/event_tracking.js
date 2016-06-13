@@ -33,7 +33,7 @@ $(document).ready(function(){
   $(".pin-it-large a").click(function() {
     umbra_ga_event('Social Media', 'Pinterest Full Record', '');
   });
-  
+
   $(".view-original-full-record").click(function() {
     var metadata = JSON.parse($(".metadata").attr('data-metadata'));
     umbra_ga_event('View Original', 'Full Record Click', metadata['id']);
@@ -81,6 +81,10 @@ $(document).ready(function(){
 
   $(".blacklight-catalog-index .documents-list .title a").click(function() {
     umbra_ga_event('Search Record Title', 'List View Click', $(this).attr('href'));
+  });
+
+  $(".blacklight-catalog-index .subjects-search-results a").click(function() {
+    umbra_ga_event('Search Record Subject', 'List View Click', $(this).attr('href'));
   });
 
   $("#metadata .related a").click(function() {

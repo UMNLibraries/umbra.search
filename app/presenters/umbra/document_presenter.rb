@@ -53,6 +53,16 @@ module Umbra
       document.fetch('keywords_ssim', [])
     end
 
+    def keyword_links
+      keywords.map do |keyword|
+        { label: keyword, path_options: keyword_link_options(keyword) }
+      end
+    end
+
+    def keyword_link_options(keyword)
+      {action:'index', q: %Q("#{keyword}"), search_field: "subject"}
+    end
+
     def subjects
       document.fetch('keywords_ssim', false)
     end

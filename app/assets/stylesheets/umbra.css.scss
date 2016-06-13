@@ -29,8 +29,13 @@ $dark-background-color: #102826;
   z-index: 0;
 }
 
-.search-widgets #sort-dropdown {
+.search-widgets {
+  #sort-dropdown {
     z-index: 100;
+    li {
+      text-transform: capitalize;
+    }
+  }
 }
 
 .search-widgets #per_page-dropdown {

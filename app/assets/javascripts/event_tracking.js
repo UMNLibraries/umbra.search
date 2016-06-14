@@ -71,11 +71,11 @@ $(document).ready(function(){
     umbra_ga_event('Featured Content Click', 'Home Page', $(this).attr('href'));
   });
 
-  $(".blacklight-pages-home .featured-content .blog a").click(function() {
+  $(".blacklight-pages-home .blog .featured-content a").click(function() {
     umbra_ga_event('Featured Content Click', 'Blog', $(this).attr('href'));
   });
 
-  $(".blacklight-pages-home .featured-content .news a").click(function() {
+  $(".blacklight-pages-home .news .featured-content a").click(function(e) {
     umbra_ga_event('Featured Content Click', 'News', $(this).attr('href'));
   });
 

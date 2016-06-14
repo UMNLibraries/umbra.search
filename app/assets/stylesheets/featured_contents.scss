@@ -12,6 +12,8 @@
 #featured {
   vertical-align: top;
   text-align: center;
+  padding-bottom: 20px;
+  clear: both;
   h2 {
     color: #ffffff;
   }
@@ -41,7 +43,7 @@
     text-align: center;
     font-size: 1em;
     color: #9d9d9d;
-    min-height: 50px;
+    min-height: 75px;
     padding: 10px 5px 0 5px;
   }
   display: inline-block;

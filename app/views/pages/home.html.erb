@@ -23,7 +23,7 @@
   <div class="col-sm-1"></div>
   <div class="col-sm-11 text">
     <% if @featured_image %>
-        Featured: <%= link_to @featured_image.title, solr_document_path(@featured_image.record_id.to_s), id:"featured" %>
+        <%= link_to @featured_image.title, solr_document_path(@featured_image.record_id.to_s), id:"featured" %>
     <% end %>
   </div>
 </div>

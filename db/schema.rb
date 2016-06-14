@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160419171117) do
+ActiveRecord::Schema.define(version: 20160614161101) do
 
   create_table "api_keys", force: :cascade do |t|
     t.string   "access_token", limit: 255
@@ -62,6 +62,13 @@ ActiveRecord::Schema.define(version: 20160419171117) do
     t.datetime "updated_at",             null: false
   end
 
+  create_table "example_searches", force: :cascade do |t|
+    t.string   "title",      limit: 255
+    t.text     "search",     limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
   create_table "featured_boards", force: :cascade do |t|
     t.string   "title",      limit: 255
     t.string   "url",        limit: 255
@@ -79,6 +86,7 @@ ActiveRecord::Schema.define(version: 20160419171117) do
     t.datetime "updated_at",                  null: false
     t.string   "preview_image", limit: 255
     t.string   "url",           limit: 255
+    t.boolean  "is_news"
   end
 
   create_table "featured_images", force: :cascade do |t|
@@ -173,6 +181,13 @@ ActiveRecord::Schema.define(version: 20160419171117) do
   end
 
   add_index "pages", ["slug"], name: "index_pages_on_slug", using: :btree
+
+  create_table "query_expanders", force: :cascade do |t|
+    t.string   "pattern",    limit: 255
+    t.string   "expansion",  limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "record_tags", force: :cascade do |t|
     t.integer  "tag_id",     limit: 4

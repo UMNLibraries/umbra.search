@@ -31,6 +31,11 @@
       %p
         %dif.field
           = succeed ':' do
+            = f.label :is_news, class: 'control-label'
+          = f.check_box :is_news
+      %p
+        %dif.field
+          = succeed ':' do
             = f.label :published, class: 'control-label'
           = f.check_box :published
       %p

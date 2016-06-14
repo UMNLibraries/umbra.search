@@ -1,14 +1,19 @@
 module FeaturedContentsHelper
 
+  def published_news
+    Array.wrap(published_featured.news).shuffle
+  end
+
+  def published_blog
+    Array.wrap(published_featured.blog).shuffle
+  end
+
   def published_featured
-    Array.wrap(FeaturedContent.published)
+    FeaturedContent.published
   end
 
   def has_featured_content?
     published_featured.count > 0
   end
 
-  def published_featured_random
-    published_featured.shuffle
-  end
 end

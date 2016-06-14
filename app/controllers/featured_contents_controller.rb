@@ -40,7 +40,7 @@ def create
     end
 
     def featured_content_params
-      params.require(:featured_content).permit(:preview_image, :description, :title, :published, :url)
+      params.require(:featured_content).permit(:preview_image, :description, :title, :published, :url, :is_news)
     end
 
     def require_management_permission

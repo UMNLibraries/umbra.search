@@ -3,15 +3,15 @@
     Featured on
     %em
       Umbra
-  %div#featured.col-sm-9.col-md-9.col-lg-9.col-xl-6.col-centered
+  %div#featured.col-sm-9.col-centered
     %div.featured-content-widgets
       %div.row
-        %div.col-md-6.col-sm-6
+        %div.col-md-6
           %h3
             \#UmbraSearch
           - published_blog.each do |featured_content|
             = render 'featured_contents/show_compact', featured_content: featured_content
-        %div.col-md-6.col-sm-6
+        %div.col-md-6
           %h3
             News & Events
           - published_news.each do |featured_content|

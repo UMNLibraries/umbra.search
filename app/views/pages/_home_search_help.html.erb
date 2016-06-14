@@ -8,4 +8,26 @@
   <div class="btn-group" role="group">
     <%= link_to "Contact Us", path_for_page('contact'), :class => 'btn btn-default btn-nav help-link', :method => 'get' %>
   </div>
+   <div class="btn-group" role="group">
+    <button type="button" class="btn btn-default btn-nav" data-toggle="dropdown" aria-expanded="false">
+       Example Searches <span class="caret"></span>
+     </button>
+     <ul class="dropdown-menu browse-options" role="menu">
+       <li>
+          <%= link_to %Q("Black Power" (A phrase search)), %Q(/catalog?utf8=✓&search_field=all_fields&q="Black+Power"),
+          {'data-toggle': 'tooltip', title: 'Use double quotes to search for a phrase.'} %>
+       </li>
+       <li>
+          <%= link_to '"Black Power" With Sound Recordings (A refine link search)', '/catalog?f%5BsourceResource_type_ssi%5D%5B%5D=sound&q="Black+Power"&search_field=all_fields',
+          {'data-toggle': 'tooltip', title: 'Use the refine links to refine search results'}
+           %>
+       </li>
+       <li>
+          <%= link_to '+"Civil Rights" -"Civil War" (Civil Rights Not Civil War)', '/catalog?q=%2B"Civil+Rights"+-"Civil+War"&search_field=all_fields',
+          {'data-toggle': 'tooltip', title: 'Use "+" to require words or phrases and "-" to exclude them'}
+           %>
+       </li>
+     </ul>
+   </div>
+  </div>
 </div>

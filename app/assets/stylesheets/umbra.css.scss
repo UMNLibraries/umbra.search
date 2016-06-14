@@ -32,7 +32,8 @@ $dark-background-color: #102826;
 .search-widgets {
   #sort-dropdown {
     z-index: 100;
-    li {
+    text-transform: capitalize;
+    button {
       text-transform: capitalize;
     }
   }
@@ -40,6 +41,9 @@ $dark-background-color: #102826;
 
 .search-widgets #per_page-dropdown {
   z-index: 99;
+  button {
+    text-transform: capitalize;
+  }
 }
 
 // Navbar

@@ -206,7 +206,7 @@ class CatalogController < ApplicationController
     # Specifying a :qt only to show it's possible, and so our internal automated
     # tests can test it. In this case it's the same as
     # config[:default_solr_parameters][:qt], so isn't actually neccesary.
-    config.add_search_field('subject') do |field|
+    config.add_search_field('keyword') do |field|
       field.solr_parameters = { :'spellcheck.dictionary' => 'default' }
       field.solr_local_parameters = {
         :qf => '$subject_qf',

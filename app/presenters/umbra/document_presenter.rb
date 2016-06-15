@@ -60,7 +60,7 @@ module Umbra
     end
 
     def keyword_link_options(keyword)
-      {action:'index', q: %Q("#{keyword}"), search_field: "subject"}
+      {action:'index', q: %Q("#{keyword}"), search_field: "keyword"}
     end
 
     def subjects

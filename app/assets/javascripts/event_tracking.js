@@ -103,6 +103,10 @@ $(document).ready(function(){
     umbra_ga_event('Full Record Sidebar', 'subjects Click', $(this).attr('href'));
   });
 
+  $(".blacklight-pages-home .example-searches a").click(function(e) {
+    umbra_ga_event('Example Searches', 'Home Page Jumbo Search', $("#home-search #q").val());
+  });
+
   $(".blacklight-pages-home #home-search .search-btn").click(function() {
     umbra_ga_event('Search', 'Home Page Jumbo Search', $("#home-search #q").val());
   });

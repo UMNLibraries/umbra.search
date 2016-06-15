@@ -52,7 +52,7 @@ class CatalogController < ApplicationController
       :bq => 'sourceResource_type_ssi:text^50.0'
     }
 
-    config.default_per_page = 50
+    config.default_per_page = 20
 
     # solr path which will be added to solr base url before the other solr params.
     # config.solr_path = 'select'

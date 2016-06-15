@@ -96,7 +96,7 @@ $(document).ready(function(){
   });
 
   $(".blacklight-pages-home .example-searches a").click(function(e) {
-    // umbra_ga_event('Example Searches', 'Home Page Jumbo Search', $("#home-search #q").val());
+    umbra_ga_event('Example Searches', 'Home Page Jumbo Search', $("#home-search #q").val());
   });
 
   $(".blacklight-pages-home #home-search .search-btn").click(function() {

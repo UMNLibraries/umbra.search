@@ -14,21 +14,17 @@
      </button>
      <ul class="dropdown-menu browse-options" role="menu">
        <li>
-          <%= link_to raw('<span class="glyphicon glyphicon-search"></span> </span> ') + %Q(Try A phrase search for "African Americans"), %Q(/catalog?utf8=✓&search_field=all_fields&q="African+Americans"),
-          {'data-toggle': 'tooltip', title: 'Use double quotes to search for a phrase.'} %>
+          <%= link_to raw('<span class="glyphicon glyphicon-search"></span>') + raw(%Q( Try A <strong>phrase search</strong> for "Jazz musicians")), %Q(/catalog?utf8=✓&search_field=all_fields&q="Jazz musicians"&example-search=phrase-search) %>
        </li>
        <li>
-          <%= link_to raw('<span class="glyphicon glyphicon-search"></span> </span> ') + %Q(Try A search for "African Americans" limited to the Keyword field), %Q(/catalog?utf8=✓&search_field=keyword&q="African+Americans"),
-          {'data-toggle': 'tooltip', title: 'Use the search drop-down to indicate specific fields to search.'} %>
+          <%= link_to raw('<span class="glyphicon glyphicon-search"></span>') +raw(%Q( Try A <strong>Keyword Field search</strong> for "Jazz musicians")), %Q(/catalog?utf8=✓&q="Jazz musicians"&example-search=phrase-search-keywords) %>
        </li>
        <li>
-          <%= link_to raw('<span class="glyphicon glyphicon-search"></span> </span> ') + 'Try A search for "African Americans" with a refinement to sound recordings', '/catalog?utf8=✓&search_field=all_fields&q="African+Americans"',
-          {'data-toggle': 'tooltip', title: 'Use the refine links to refine search results'}
+          <%= link_to raw('<span class="glyphicon glyphicon-search"></span>') + raw(' Try A search for Jazz and learn how to limit results to <strong>sound recordings</strong>'), '/catalog?example-search=search-with-facet&f%5BsourceResource_type_ssi%5D%5B%5D=sound&q=Jazz&search_field=all_fields'
            %>
        </li>
        <li>
-          <%= link_to raw('<span class="glyphicon glyphicon-search"></span> </span> ') + 'Try A search for "Civil Rights" but NOT "Civil War"', '/catalog?q=%2B"Civil+Rights"+-"Civil+War"&search_field=all_fields',
-          {'data-toggle': 'tooltip', title: 'Use "+" to require words or phrases and "-" to exclude them'}
+          <%= link_to raw('<span class="glyphicon glyphicon-search"></span>') + raw(' (Advanced) Try An <strong>operator search</strong> for "Selma" but NOT "Selma Burke"</strong> '), '/catalog?q=%2B+"Selma"+-"selma burke"&search_field=all_fields&example-search=operator-search'
            %>
        </li>
      </ul>

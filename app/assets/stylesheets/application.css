@@ -17,6 +17,8 @@
  *
  *= require 'jquery-ui/themes/smoothness/jquery-ui.min.css'
  *
+ *= require bootstrap-tour/build/css/bootstrap-tour.min.css
+ *
  *= require_tree .
  *= require_self
 

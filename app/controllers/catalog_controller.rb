@@ -48,7 +48,7 @@ class CatalogController < ApplicationController
     config.default_solr_params = {
       :qt => 'search_hub',
       :fl => '*',
-      :rows => 50,
+      :rows => 20,
       :bq => 'sourceResource_type_ssi:text^50.0'
     }
 

@@ -209,8 +209,8 @@ class CatalogController < ApplicationController
     config.add_search_field('keyword') do |field|
       field.solr_parameters = { :'spellcheck.dictionary' => 'default' }
       field.solr_local_parameters = {
-        :qf => '$subject_qf',
-        :pf => '$subject_pf'
+        :qf => '$keywords_qf',
+        :pf => '$keywords_pf'
       }
     end
 

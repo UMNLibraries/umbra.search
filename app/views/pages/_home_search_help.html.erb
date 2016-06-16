@@ -14,17 +14,17 @@
      </button>
      <ul class="dropdown-menu browse-options" role="menu">
        <li>
-          <%= link_to raw('<span class="glyphicon glyphicon-search"></span>') + raw(%Q( Try A <strong>phrase search</strong> for "Jazz musicians")), %Q(/catalog?utf8=✓&search_field=all_fields&q="Jazz musicians"&example-search=phrase-search) %>
+          <%= link_to raw('<span class="glyphicon glyphicon-search"></span>') + raw(%Q( Try a <strong>phrase search</strong> for "jazz musicians")), %Q(/catalog?utf8=✓&search_field=all_fields&q="jazz musicians"&example-search=phrase-search) %>
        </li>
        <li>
-          <%= link_to raw('<span class="glyphicon glyphicon-search"></span>') +raw(%Q( Try A <strong>Keyword Field search</strong> for "Jazz musicians")), %Q(/catalog?utf8=✓&q="Jazz musicians"&example-search=phrase-search-keywords) %>
+          <%= link_to raw('<span class="glyphicon glyphicon-search"></span>') +raw(%Q( Try a <strong>keyword search</strong> for "jazz musicians")), %Q(/catalog?utf8=✓&q="jazz musicians"&example-search=phrase-search-keywords) %>
        </li>
        <li>
-          <%= link_to raw('<span class="glyphicon glyphicon-search"></span>') + raw(' Try A search for Jazz and learn how to <strong>refine</strong> results to sound recordings'), '/catalog?example-search=search-with-facet&f%5BsourceResource_type_ssi%5D%5B%5D=sound&q=Jazz&search_field=all_fields'
+          <%= link_to raw('<span class="glyphicon glyphicon-search"></span>') + raw(' Try a search for jazz and learn how to <strong>refine</strong> results to sound recordings'), '/catalog?example-search=search-with-facet&f%5BsourceResource_type_ssi%5D%5B%5D=sound&q=jazz&search_field=all_fields'
            %>
        </li>
        <li>
-          <%= link_to raw('<span class="glyphicon glyphicon-search"></span>') + raw(' (Advanced) Try An <strong>operator search</strong> for "Selma" but NOT "Selma Burke"</strong> '), '/catalog?q=%2B+"Selma"+-"selma burke"&search_field=all_fields&example-search=operator-search'
+          <%= link_to raw('<span class="glyphicon glyphicon-search"></span>') + raw(' (Advanced) Try a <strong>operator search</strong> for +"Selma" -"Selma Burke"'), '/catalog?q=%2B+"Selma"+-"selma burke"&search_field=all_fields&example-search=operator-search'
            %>
        </li>
      </ul>

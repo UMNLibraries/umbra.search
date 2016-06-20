@@ -8,11 +8,13 @@
         case "phrase-search":;
           tour.addSteps([
             {
+              backdrop: true,
               element: ".search-query-form input[type=text]",
               content: "Placing double quotes around phrases narrows search results to items containing this phrase."
             },
             {
-              element: "#search_field",
+              backdrop: true,
+              element: ".search-query-form .input-group-addon",
               content: "Notice that we have searched All Fields (Subject, Title, etc) for the phrase \"jazz Muscicians\"."
             }
           ]);
@@ -26,10 +28,12 @@
           });
           tour.addSteps([
             {
+              backdrop: true,
               element: "#search_field",
-              content: "Select the <strong>\"Keyword\"</strong> option."
+              content: "Start by selecting the <strong>\"Keyword\"</strong> option to make your search more specific."
             },
             {
+              backdrop: true,
               element: "#search",
               content: "Click the <span class=\"glyphicon glyphicon-search\"></span> (search button) to see records with the phrase <strong>\"jazz musicians\"</strong> in their <strong>keywords</strong>"
             }
@@ -38,7 +42,9 @@
           case "search-with-facet":
           tour.addSteps([
             {
+              backdrop: true,
               element: "#search",
+              backdropContainer: "#content",
               content: "Running a simple search for \"jazz\" will return different types of records: newspaper clips about jazz, images of jazz musicians and sound recordings. What if we want to limit a search to just sound recordings? Click next to find out how."
             },
             {
@@ -58,6 +64,7 @@
           case "operator-search":
           tour.addSteps([
             {
+              backdrop: true,
               element: ".search-query-form input[type=text]",
               content: "Use the \"+\" sign before a word or phrase <strong>to require it</strong> in search results. Use a \"-\" sign <strong>to exclude it</strong>. <strong>Note:</strong> be sure that the symbols are placed directly next to the corresponding word or phrase with no spaces in between the symbol and word or phrase."
             },

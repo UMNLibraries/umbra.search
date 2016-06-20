@@ -31,7 +31,6 @@ $dark-background-color: #102826;
 
 .search-widgets {
   #sort-dropdown {
-    z-index: 100;
     text-transform: capitalize;
     button {
       text-transform: capitalize;
@@ -40,7 +39,6 @@ $dark-background-color: #102826;
 }
 
 .search-widgets #per_page-dropdown {
-  z-index: 99;
   button {
     text-transform: capitalize;
   }
@@ -794,4 +792,28 @@ body.blacklight-pages-home {
 .col-centered {
     float: none;
     margin: 0 auto;
+}
+
+.popover {
+  z-index: 100;
+}
+
+.tour-backdrop {
+  z-index: 1;
+}
+
+.tour-step-background {
+  display: none;
+}
+
+#facet-sourceresource_type_ssi {
+  z-index: 100;
+}
+
+.blacklight-sourceresource_type_ssi {
+  z-index: 1000000000000000;
+}
+
+.pagination li.active span {
+  z-index: 1;
 }

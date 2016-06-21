@@ -18,4 +18,8 @@ $(document).ready(function() {
       $('.blacklight-pages-home .home-panel #home-search').focus();
       $('.blacklight-pages-home .home-panel #home-search').focus();
    }
+
+  $('.example-searches button').hover( function() {
+    $(this).dropdown('toggle');
+  });
 });

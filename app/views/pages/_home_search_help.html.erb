@@ -17,9 +17,6 @@
           <%= link_to raw('<span class="glyphicon glyphicon-search"></span>') + raw(%Q( Try a <strong>phrase search</strong> for "jazz musicians")), %Q(/catalog?utf8=✓&search_field=all_fields&q="jazz musicians"&example-search=phrase-search) %>
        </li>
        <li>
-          <%= link_to raw('<span class="glyphicon glyphicon-search"></span>') +raw(%Q( Try a <strong>keyword search</strong> for "jazz musicians")), %Q(/catalog?utf8=✓&q="jazz musicians"&example-search=phrase-search-keywords) %>
-       </li>
-       <li>
           <%= link_to raw('<span class="glyphicon glyphicon-search"></span>') + raw(' Try a search for jazz and learn how to <strong>refine</strong> results to sound recordings'), '/catalog?example-search=search-with-facet&f%5BsourceResource_type_ssi%5D%5B%5D=sound&q=jazz&search_field=all_fields'
            %>
        </li>

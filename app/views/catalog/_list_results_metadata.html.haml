@@ -9,9 +9,7 @@
     %h4.metadata-field
       Keywords:
     %ol.list-unstyled.subjects.subjects-search-results
-      - document_presenter.keyword_links.each do |keyword_link|
-        %li
-          = link_to keyword_link[:label], url_for(keyword_link[:path_options]), {class: "label label-default"}
+      = document_presenter.keywords.sort.join("; ")
   = render 'view_original', :document => document_presenter, :context => 'List Search'
   - if can?(:update, document_presenter.record) && document_presenter.has_editor_fields?
     %p

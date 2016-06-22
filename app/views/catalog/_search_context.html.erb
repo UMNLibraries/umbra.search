@@ -19,26 +19,6 @@
             }
           ]);
         break;
-          case "phrase-search-keywords":
-          $("#search_field").change(function() {
-            var search_field = $( "#search_field option:selected" ).text();
-            if (search_field == 'Keyword') {
-              tour.next();
-            }
-          });
-          tour.addSteps([
-            {
-              backdrop: true,
-              element: "#search_field",
-              content: "Start by selecting the <strong>\"Keyword\"</strong> option to make your search more specific."
-            },
-            {
-              backdrop: true,
-              element: "#search",
-              content: "Click the <span class=\"glyphicon glyphicon-search\"></span> (search button) to see records with the phrase <strong>\"jazz musicians\"</strong> in their <strong>keywords</strong>"
-            }
-          ]);
-        break;
           case "search-with-facet":
           tour.addSteps([
             {

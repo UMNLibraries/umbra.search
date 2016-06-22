@@ -121,9 +121,11 @@ ol.subjects {
 }
 
 #footer {
-  background-color: $dark-background-color;
+  font-weight: bold;
+  text-transform: uppercase;
+  background-color: #e76e51;
   padding-bottom:100px;
-  padding-top: 15px;
+  padding-top: 35px;
   width: 100%;
 
   a {
@@ -135,19 +137,13 @@ ol.subjects {
 
   color: #E8EBEA;
 
-  .credits ul {
-    list-style: none;
-    margin-left: 0;
-    padding: 0;
-  }
-
-  .credits li {
-    margin-left: 0;
-    padding: 0;
-  }
-
-  .credits a {
+  .credits {
+    margin-top: -15px;
+    text-align: right;
     text-decoration: underline;
+    .addthis_default_style a {
+      float: none !important;
+    }
   }
 
 }
@@ -250,10 +246,6 @@ ol.subjects {
   #main-content {
     margin-top: 0;
   }
-}
-
-.home-panel .search-query-form {
-  float: right;
 }
 
 .input-group-btn.home {

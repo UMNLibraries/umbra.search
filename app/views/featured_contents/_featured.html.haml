@@ -7,7 +7,7 @@
         - example_searches_with_counts.each do |search|
           %a{href: search.url }
             %div#get-started.col-centered
-              %div.example-search{style: "background-image: url('#{search.thumbnail}');"}
+              %div.example-search{style: "background-image: url('#{image_path(search.thumbnail)}');"}
                 %div.content
                   %div.title
                     = search.title

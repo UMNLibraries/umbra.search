@@ -15,10 +15,11 @@ module ExampleSearchesHelper
   def searches
     [
       {
-        title: "Civil Rights in the 1800's",
-        q: "1800's civil rights",
-        fq: 'keywords_ssim:"Civil Rights"',
-        thumbnail: 'dubois.png'
+        title: "Find Jazz Musicians",
+        q: '"Jazz Musicians"',
+        fq: '',
+        thumbnail: 'dizzy-g.png',
+        tour: 'phrase-search'
       }
     ]
   end

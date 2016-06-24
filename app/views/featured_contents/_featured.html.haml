@@ -5,7 +5,7 @@
         %h3
           Get Started
         - example_searches_with_counts.each do |search|
-          %a{href: search.url }
+          %a{href: "#{search.url}&example-search=#{search.tour}" }
             %div#get-started.col-centered
               %div.example-search{style: "background-image: url('#{image_path(search.thumbnail)}');"}
                 %div.content

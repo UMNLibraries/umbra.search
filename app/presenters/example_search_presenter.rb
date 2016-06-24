@@ -5,7 +5,7 @@
 class ExampleSearchPresenter  < BasePresenter
   attr_accessor :solr, :params
   presents :search
-  delegate :title, :thumbnail, to: :search
+  delegate :title, :thumbnail, :tour, to: :search
 
   def initialize(object, template: nil, params: {}, solr: Blacklight.default_index.connection)
     super(object, template: template)

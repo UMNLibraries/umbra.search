@@ -4,51 +4,18 @@
       %div.col-md-12
         %h3
           Get Started
-        %div#get-started
-          %div.item.civil-rights
-            %div.title
-              Civil Rights in the 1800's
-            %div.item-count
-              865 items
-            %div.glyphicon.glyphicon-new-window
-        %div#get-started
-          %div.item.civil-rights
-            %div.title
-              Civil Rights in the 1800's
-            %div.item-count
-              865 items
-            %div.glyphicon.glyphicon-new-window
-        %div#get-started
-          %div.item.civil-rights
-            %div.title
-              Civil Rights in the 1800's
-            %div.item-count
-              865 items
-            %div.glyphicon.glyphicon-new-window
-        %div#get-started
-          %div.item.civil-rights
-            %div.title
-              Civil Rights in the 1800's
-            %div.item-count
-              865 items
-            %div.glyphicon.glyphicon-new-window
-        %div#get-started
-          %div.item.civil-rights
-            %div.title
-              Civil Rights in the 1800's
-            %div.item-count
-              865 items
-            %div.glyphicon.glyphicon-new-window
-        %div#get-started
-          %div.item.civil-rights
-            %div.title
-              Civil Rights in the 1800's
-            %div.item-count
-              865 items
-            %div.glyphicon.glyphicon-new-window
-      - if has_featured_content?
+        - example_searches_with_counts.each do |search|
+          %a{href: search.url }
+            %div#get-started.col-centered
+              %div.example-search.civil-rights
+                %div.title
+                  = search.title
+                %div.item-count
+                  = search.items_found
+                %div.glyphicon.glyphicon-new-window
+
         %div.col-md-12.news
           %h3
-            Discover and Share with \#UmbraSearch
+            Discover and Share with #UmbraSearch
           - published_featured.each do |featured_content|
             = render 'featured_contents/show_compact', featured_content: featured_content

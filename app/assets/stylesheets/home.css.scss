@@ -244,31 +244,33 @@ body.blacklight-pages-home {
 }
 
 #get-started {
-  text-align: center;
   color: #ffffff;
   text-transform: uppercase;
   font-size: 1.1em;
-  .glyphicon-new-window {
-    font-size: 1.25em;
-  }
-  .item-count {
-    margin: 10px 0 15px;
-  }
-  .title {
-    border-bottom: 1px solid #ffffff;
-    margin: 25px 15px 5px 15px;
-    font-weight: bold;
-  }
-  .civil-rights {
-    background-image: asset_url('dubois-fade.png');
-    background-repeat: no-repeat;
-    background-position: center;
-  }
-  .item {
+  width: 100%;
+  .example-search {
+    text-align: center;
     background-color: rgba(0, 0, 0, 1);
     display: inline-block;
     height: 200px;
     width: 200px;
     margin: 15px 25px;
+    .glyphicon-new-window {
+      font-size: 1.25em;
+    }
+    .item-count {
+      margin: 10px 0 15px;
+    }
+    .title {
+      border-bottom: 1px solid #ffffff;
+      margin: 25px 15px 5px 15px;
+      font-weight: bold;
+    }
+  }
+
+  .civil-rights {
+    background-image: asset_url('dubois-fade.png');
+    background-repeat: no-repeat;
+    background-position: center;
   }
 }

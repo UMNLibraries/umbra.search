@@ -2,22 +2,27 @@
   %div.featured-content-widgets
     %div.row
       %div.col-md-12
-        %h3
-          Get Started
-        %div#get-started.col-centered
-          - example_searches_with_counts.each do |search|
-            %a{href: search.url }
-              %div.example-search{style: "background-image: url('#{asset_path(search.thumbnail)}');"}
-                %div.content
-                  %div.title
-                    = search.title
-                  %div.item-count
-                    = search.items_found
-                  %div.glyphicon.glyphicon-new-window
-                  %div.overlay
-
-        %div.col-md-12.news
+        %div.col-md-2
+        %div.col-md-8
+          %h3
+            Get Started
+          %div#get-started
+            - example_searches_with_counts.each do |search|
+              %a{href: search.url }
+                %div.example-search{style: "background-image: url('#{asset_path(search.thumbnail)}');"}
+                  %div.content
+                    %div.title
+                      = search.title
+                    %div.item-count
+                      = search.items_found
+                    %div.glyphicon.glyphicon-new-window
+                    %div.overlay
+        %div.col-md-2
+      %div.col-md-12
+        %div.col-md-2
+        %div.col-md-8
           %h3
             Discover and Share with #UmbraSearch
           - published_featured.each do |featured_content|
             = render 'featured_contents/show_compact', featured_content: featured_content
+        %div.col-md-2

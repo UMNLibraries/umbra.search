@@ -1,5 +1,5 @@
 %div.featured-content
-  %h4.title
-    = link_to featured_content.title, featured_content.url, target: '_blank'
   %div
     = link_to image_tag(featured_content.preview_image.url, class: 'featured-content-image'), featured_content.url, target: '_blank'
+  %h4.title
+    = link_to featured_content.title, featured_content.url, target: '_blank'

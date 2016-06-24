@@ -7,12 +7,14 @@
         - example_searches_with_counts.each do |search|
           %a{href: search.url }
             %div#get-started.col-centered
-              %div.example-search.civil-rights
-                %div.title
-                  = search.title
-                %div.item-count
-                  = search.items_found
-                %div.glyphicon.glyphicon-new-window
+              %div.example-search{style: "background-image: url('#{search.thumbnail}');"}
+                %div.content
+                  %div.title
+                    = search.title
+                  %div.item-count
+                    = search.items_found
+                  %div.glyphicon.glyphicon-new-window
+                  %div.overlay
 
         %div.col-md-12.news
           %h3

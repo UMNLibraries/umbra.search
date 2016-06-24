@@ -243,6 +243,9 @@ body.blacklight-pages-home {
   font-size: 1.1em;
   width: 100%;
   .example-search {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 200px 200px;
     text-align: center;
     background-color: rgba(0, 0, 0, 1);
     display: inline-block;
@@ -251,20 +254,37 @@ body.blacklight-pages-home {
     margin: 15px 25px;
     .glyphicon-new-window {
       font-size: 1.25em;
+      position: relative;
+      z-index: 10;
     }
     .item-count {
       margin: 10px 0 15px;
+      position: relative;
+      z-index: 10;
     }
     .title {
       border-bottom: 1px solid #ffffff;
       margin: 25px 15px 5px 15px;
       font-weight: bold;
+      position: relative;
+      z-index: 10;
     }
   }
 
-  .civil-rights {
-    background-image: asset_url('dubois-fade.png');
-    background-repeat: no-repeat;
-    background-position: center;
+  .content {
+    display: block;
+    border: 1px solid red;
+    height: 100%;
+    width: 100%;
+    position: relative;
+  }
+  .overlay {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1;
   }
 }

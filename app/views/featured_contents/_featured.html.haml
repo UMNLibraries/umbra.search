@@ -4,10 +4,10 @@
       %div.col-md-12
         %h3
           Get Started
-        - example_searches_with_counts.each do |search|
-          %a{href: "#{search.url}&example-search=#{search.tour}" }
-            %div#get-started.col-centered
-              %div.example-search{style: "background-image: url('#{image_path(search.thumbnail)}');"}
+        %div#get-started.col-centered
+          - example_searches_with_counts.each do |search|
+            %a{href: search.url }
+              %div.example-search{style: "background-image: url('#{asset_path(search.thumbnail)}');"}
                 %div.content
                   %div.title
                     = search.title

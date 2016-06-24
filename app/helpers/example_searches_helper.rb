@@ -15,11 +15,25 @@ module ExampleSearchesHelper
   def searches
     [
       {
-        title: "Find Jazz Musicians",
+        title: "Try a Search for \"Jazz Musicians\"",
         q: '"Jazz Musicians"',
         fq: '',
         thumbnail: 'dizzy-g.png',
         tour: 'phrase-search'
+      },
+      {
+        title: "Try a Search for Jazz Recordings",
+        q: 'jazz',
+        fq: 'sourceResource_type_ssi:sound',
+        thumbnail: 'jazz-sound.png',
+        tour: 'search-with-facet'
+      },
+      {
+        title: "Try an Advanced Search",
+        q: '+"Selma" -"selma burke"',
+        fq: '',
+        thumbnail: 'selma.png',
+        tour: 'operator-search'
       }
     ]
   end

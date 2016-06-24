@@ -248,14 +248,17 @@ body.blacklight-pages-home {
 }
 
 #home-search {
+  ul.dropdown-menu {
+    margin-top: -1px;
+  }
   .twitter-typeahead {
     .form-control {
       height: 46px;
-    }  
+    }
     .tt-input.form-control {
       color: #1B5957;
     }
-    
+
     .tt-hint.form-control {
       height: 46px;
       border-bottom-left-radius: 8px;

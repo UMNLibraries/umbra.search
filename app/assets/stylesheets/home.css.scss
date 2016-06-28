@@ -4,6 +4,7 @@
 
 .featured-image-title {
   float: right;
+  padding-right: 15px;
   margin-top: -90px;
   a {
     color: #FFFFFF;
@@ -24,6 +25,24 @@
 }
 
 .blacklight-pages-home {
+  #top, #left, #right {
+    background: #e76e51;
+    z-index: 1;
+    position: fixed;
+    }
+    #left, #right {
+      top: 0; bottom: 0;
+      width: 10px;
+      }
+      #left { left: 0; }
+      #right { right: 0; }
+
+    #top {
+      left: 0; right: 0;
+      height: 10px;
+      }
+    #top { top: 0; }
+
   #main-container {
     padding: 0 !important;
     margin: 0;

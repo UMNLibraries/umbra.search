@@ -4,7 +4,7 @@
 
 .featured-image-title {
   float: right;
-  margin-top: -75px;
+  margin-top: -90px;
   a {
     color: #FFFFFF;
   }
@@ -73,7 +73,7 @@ body.blacklight-pages-home {
 }
 
 .tagline {
-  margin-top: 15px;
+  padding: 15px;
   color: #747474;
   font-size: 1.5em;
   width: 100%;
@@ -183,6 +183,30 @@ body.blacklight-pages-home {
     width: 400px;
   }
 }
+
+@media (min-width: 100px) and (max-width: 389px) {
+  .featured-image-title {
+    margin-top: -145px;
+  }
+}
+
+@media (min-width: 389px) and (max-width: 727px) {
+  .featured-image-title {
+    margin-top: -115px;
+  }
+}
+@media (min-width: 100px) and (max-width: 767px) {
+  .home-panel-skin {
+    height: 300px;
+  }
+}
+
+@media (min-width: 100px) and (max-width: 1024px) {
+  .featured-content-widgets {
+    text-align: center;
+  }
+}
+
 
 @media (min-width: 600px) and (max-width: 768px) {
   .home-image-info .text {

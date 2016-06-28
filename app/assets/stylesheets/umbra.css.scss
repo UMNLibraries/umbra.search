@@ -409,15 +409,11 @@ body.blacklight-pages-home {
 }
 
 @media (max-width: 320px) {
-
   .search-query-form .input-group #q,
   .search-query-form .input-group {
-    width: 150px !important;
+    width: 145px !important;
   }
-
 }
-
-
 
 @media (min-width: 768px) and (max-width: 1000px) {
   .ribbon {

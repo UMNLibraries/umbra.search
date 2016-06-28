@@ -22,7 +22,7 @@ class ExampleSearchPresenter  < BasePresenter
   end
 
   def query_params
-    {:q => search.q, :fq => search.fq}
+    {q: search.q, fq: search.fq, 'example-search': tour}
   end
 
   private

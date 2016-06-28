@@ -288,3 +288,24 @@ body.blacklight-pages-home {
     }
   }
 }
+
+.home-nav-bar {
+  position: absolute;
+  top: 0px;
+  right: -155px;
+  text-transform: uppercase;
+  a {
+    color: #ffffff;
+  }
+  margin: 25px 200px;
+  ul {
+    list-style:none;
+  }
+  li {
+    float: left;
+    padding-right: 25px;
+  }
+}
+
+
+

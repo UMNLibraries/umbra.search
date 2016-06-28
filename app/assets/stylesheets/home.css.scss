@@ -32,6 +32,16 @@
   #main-content {
     margin-top: 0;
   }
+
+  .overlay {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 1;
+  }
 }
 
 .input-group-btn.home {
@@ -150,7 +160,6 @@ body.blacklight-pages-home {
     background-position: top left;
     background-size: cover;
     text-align: center;
-
     h2 {
       text-align: left;
       font-weight: bold;
@@ -258,61 +267,5 @@ body.blacklight-pages-home {
       border-bottom-left-radius: 8px;
       border-bottom-right-radius: 8px;
     }
-  }
-}
-
-#get-started {
-  a {
-    color: #ffffff;
-  }
-  text-transform: uppercase;
-  font-size: 1.1em;
-  width: 100%;
-  .example-search {
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 200px 200px;
-    text-align: center;
-    background-color: rgba(0, 0, 0, 1);
-    display: inline-block;
-    height: 200px;
-    width: 200px;
-    margin: 15px 25px;
-    .glyphicon-new-window {
-      font-size: 1.25em;
-      position: relative;
-      z-index: 10;
-    }
-    .item-count {
-      margin: 10px 0 15px;
-      position: relative;
-      z-index: 10;
-    }
-    .title:hover {
-      text-decoration: underline;
-    }
-    .title {
-      border-bottom: 1px solid #ffffff;
-      margin: 25px 15px 5px 15px;
-      font-weight: bold;
-      position: relative;
-      z-index: 10;
-    }
-  }
-
-  .content {
-    border: 1px solid red;
-    height: 100%;
-    width: 100%;
-    position: relative;
-  }
-  .overlay {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: rgba(0, 0, 0, 0.6);
-      z-index: 1;
   }
 }

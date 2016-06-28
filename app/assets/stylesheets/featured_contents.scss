@@ -2,48 +2,52 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.blacklight-featured_contents-index {
-  img {
-    max-height: 200px;
-    max-width: 200px;
-  }
-}
-
-#featured {
-  vertical-align: top;
-  padding-bottom: 20px;
-  clear: both;
-  h2 {
+.feature-boxes {
+  a {
     color: #ffffff;
   }
-
-  h3 {
-    font-size: 1.8em;
-  }
-}
-
-.featured-content {
+  text-transform: uppercase;
+  font-size: 1.1em;
   vertical-align: top;
-  margin: 15px 25px;
-  height: 250px;
-  width: 200px;
-  img {
-    vertical-align: bottom;
-    max-height: 200px;
-    max-width: 200px;
-  }
-  h4  {
+  .feature-box {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 200px 200px;
     text-align: center;
-    font-size: 1em;
-    color: #9d9d9d;
-    min-height: 75px;
-    padding: 10px 5px 0 5px;
+    background-color: rgba(0, 0, 0, 1);
+    display: inline-block;
+    height: 200px;
+    width: 200px;
+    margin: 15px 25px;
+    .glyphicon-new-window {
+      font-size: 1.25em;
+      position: relative;
+      z-index: 10;
+    }
+    .item-count {
+      margin: 10px 0 15px;
+      position: relative;
+      z-index: 10;
+    }
+    .title:hover {
+      text-decoration: underline;
+    }
+    .title {
+      border-bottom: 1px solid #ffffff;
+      margin: 25px 15px 5px 15px;
+      font-weight: bold;
+      position: relative;
+      z-index: 10;
+      height: 65px;
+      vertical-align: bottom;
+    }
   }
-  display: inline-block;
 
-  h4 a {
-    font-size: 1.2em;
-    vertical-align: top;
+  .content {
+    border: 1px solid red;
+    height: 100%;
+    width: 100%;
+    position: relative;
   }
 }
 

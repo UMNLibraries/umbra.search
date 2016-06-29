@@ -1,5 +1,7 @@
-%div.featured-content
-  %h4.title
-    = link_to featured_content.title, featured_content.url, target: '_blank'
-  %div
-    = link_to image_tag(featured_content.preview_image.url, class: 'featured-content-image'), featured_content.url, target: '_blank'
+%a{href: featured_content.url }
+  %div.feature-box{style: "background-image: url('#{featured_content.preview_image.url}');"}
+    %div.content
+      %div.title
+        = link_to featured_content.title, featured_content.url, target: '_blank'
+      %div.glyphicon.glyphicon-new-window
+      %div.overlay

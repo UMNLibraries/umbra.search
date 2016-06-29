@@ -1,18 +1,39 @@
-- if has_featured_content?
-  %h2
-    Featured on
-    %em
-      Umbra
-  %div#featured.col-sm-9.col-centered
-    %div.featured-content-widgets
-      %div.row
-        %div.col-md-6.blog
+%div#featured.col-sm-12.col-centered
+  %div.featured-content-widgets
+    %div.row
+      %div.col-md-12
+        %div.col-md-2
+        %div.col-md-8
           %h3
-            \#UmbraSearch
-          - published_blog.each do |featured_content|
-            = render 'featured_contents/show_compact', featured_content: featured_content
-        %div.col-md-6.news
+            Get Started
+          %div.description
+            Lorum Ipsum Umbrum
+          %div.feature-boxes
+            - example_searches_with_counts.each do |search|
+              %a{href: search.url }
+                %div.feature-box{style: "background-image: url('#{asset_path(search.thumbnail)}');"}
+                  %div.content
+                    %div.title
+                      = search.title
+                    %div.item-count
+                      = search.items_found
+                    %div.glyphicon.glyphicon-new-window
+                    %div.overlay
+        %div.col-md-2
+      %div.col-md-12
+        %div.col-md-2
+        %div.col-md-8
           %h3
-            News & Events
-          - published_news.each do |featured_content|
-            = render 'featured_contents/show_compact', featured_content: featured_content
+            Discover and Share with #UmbraSearch
+          %div.description
+            Lorum Ipsum Umbrum
+          %div.feature-boxes
+            - published_featured.each do |featured_content|
+              %a{href: featured_content.url }
+                %div.feature-box{style: "background-image: url('#{featured_content.preview_image.url}');"}
+                  %div.content
+                    %div.title
+                      = featured_content.title
+                    %div.glyphicon.glyphicon-new-window
+                    %div.overlay
+        %div.col-md-2

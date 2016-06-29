@@ -1,29 +1,29 @@
-<style media="screen">
-  .home-panel {
-    background-image: url(<%= @featured_image.uploaded_image.url if @featured_image %>);
-  }
-</style>
-
+<style media="screen"> .home-panel { background-image: url(<%= @featured_image.uploaded_image.url if @featured_image %>); } </style>
+<div id="left"></div>
+<div id="right"></div>
+<div id="top"></div>
+<div class="home-panel-skin"></div>
+<%= render 'home_top_bar' %>
 <div class="home-panel">
   <div class="hidden-xs">
     <div class="col-md-1 col-sm-1"></div>
-    <div id="home-search" class="col-lg-5 col-md-6 col-sm-8">
+    <div id="home-search" class="col-centered col-lg-5 col-md-6 col-sm-8">
       <div class="row">
-        <div class="col-md-4 col-sm-4" id="home-search-logo"></div>
-        <div class="col-md-8 col-sm-8" id="home-search-slogan"><h1>Search <br />African American <br />History</h1></div>
+        <div id="home-search-logo"></div>
+        <div id="home-search-slogan"><h1>Search African <br /> American History</h1></div>
       </div>
       <%= render 'home_search_bar' %>
-      <div class="tagline"><span class="record-count"><%= record_count %></span> items from U.S. archives, libraries, and museums.</div>
-      <%= render 'home_search_help' %>
     </div>
   </div>
 </div>
 
-<div class="home-image-info col-sm-12">
+<div class="tagline"><span class="record-count"><%= record_count %></span> items from more than 1000 U.S. archives, libraries, and museums.</div>
+
+<div class="col-sm-12">
   <div class="col-sm-1"></div>
-  <div class="col-sm-11 text">
+  <div class="featured-image-title">
     <% if @featured_image %>
-        <%= link_to @featured_image.title, solr_document_path(@featured_image.record_id.to_s), id:"featured" %>
+        <%= link_to raw(%Q(#{@featured_image.title} <span class="glyphicon glyphicon-eye-open"></span>)), solr_document_path(@featured_image.record_id.to_s) %>
     <% end %>
   </div>
 </div>

@@ -2,19 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
-#featured {
-  text-align: center;
-  h2 {
-    font-size: 3em;
-    margin: 20px 0 10px;
-    a {
-      color: #ffffff;
-    }
-  }
-  .featured-column {
-    width: 500px;
-    padding: 25px;
+.featured-image-title {
+  float: right;
+  padding-right: 15px;
+  margin-top: -90px;
+  a {
+    color: #FFFFFF;
   }
 }
 
@@ -26,31 +19,48 @@
   }
 }
 
-.featured-boards {
-  .featured-widget > span span  {
-    display:none !important;
-  }
-}
-
 .featured-widget {
   padding: 5px;
   display: inline-block;
 }
 
 .blacklight-pages-home {
+  #top, #left, #right {
+    background: #e76e51;
+    z-index: 1;
+    position: fixed;
+    }
+    #left, #right {
+      top: 0; bottom: 0;
+      width: 10px;
+      }
+      #left { left: 0; }
+      #right { right: 0; }
+
+    #top {
+      left: 0; right: 0;
+      height: 10px;
+      }
+    #top { top: 0; }
+
   #main-container {
     padding: 0 !important;
     margin: 0;
-    background-color: black;
   }
 
   #main-content {
     margin-top: 0;
   }
-}
 
-.home-panel .search-query-form {
-  float: right;
+  .overlay {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 1;
+  }
 }
 
 .input-group-btn.home {
@@ -63,6 +73,10 @@ body.blacklight-pages-home {
 
 #home-search {
 
+  .search-actions {
+    text-align: center;
+  }
+
   .btn-group  {
     .btn-nav {
       border-radius: 0;
@@ -72,19 +86,8 @@ body.blacklight-pages-home {
   max-width: 600px;
   padding: 0;
 
-  .tagline {
-    color: #1B5958;
-    font-weight: normal;
-    text-align: right;
-    margin-right: 45px;
-  }
-
   .record-count {
     color: #1B5958;
-  }
-
-  .search-bar {
-    padding: 15px 15px 0 15px;
   }
 
   .search-query-form {
@@ -98,6 +101,16 @@ body.blacklight-pages-home {
   }
 }
 
+.tagline {
+  font-family: 'Assistant', sans-serif;
+  padding: 15px;
+  color: #747474;
+  font-size: 2em;
+  width: 100%;
+  font-weight: normal;
+  text-align: center;
+}
+
 #home-search .help {
   border: none;
 }
@@ -107,7 +120,6 @@ body.blacklight-pages-home {
 }
 
 #home-search .btn-default.btn-nav{
-  background-color: #1B5958;
   color: #FCFCFC;
   border-bottom: none;
   line-height: 1em;
@@ -127,45 +139,13 @@ body.blacklight-pages-home {
   padding-right: 0;
 }
 
-.home-image-info {
-  padding-left: 10px;
-  padding-top: 30px;
-  margin-top: -50px;
-  font-size: 1.1em;
-  color: #fff;
-  min-height: 51px;
-  background: linear-gradient(to bottom, rgba(255,255,255,0), black);
-  width: 100%;
-}
-
-.home-image-info a {
-  color: #DC6F45;
-}
-
-.home-image-info .text {
-  width: 1000px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis
-}
-
-#home-search {
-  background:rgba(255,255,255,0.95);
-  margin-top: 150px
-}
-
 #home-search-logo {
-  background-image: asset_url('2Color-UmbraMarkHome.png');
+  margin-top: 100px;
+  width: 100%;
+  background-image: asset_url('rev-UmbraMark-small.png');
   background-repeat: no-repeat;
-  min-height: 150px;
-  background-position: right;
-  margin-top: 15px;
-  margin-left: -10px;
-}
-
-#home-search-slogan {
-  margin-top: 52px;
-  text-align: left;
+  background-position: center;
+  min-height: 100px;
 }
 
 #home-search .input-group-addon {
@@ -173,23 +153,33 @@ body.blacklight-pages-home {
 }
 
 #home-search-slogan h1 {
-  margin: 0;
-  font-size: 1.75em;
-  color: #DC6F45;
-  text-transform: uppercase;
+  margin: 10px 0;
+  width: 100%;
+  text-align: center;
+  font-size: 2.5em;
+  color: #FFFFFF;
+  font-family: 'Rufina', serif;
+}
+
+.home-panel-skin {
+    background-color: rgba(0, 0, 0, 0.45);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 450px;
 }
 
 .home-panel  {
     border: 0;
     margin: 0;
     padding: 0;
-    min-height: 600px;
+    min-height: 450px;
     width: 100%;
     background-repeat: no-repeat;
     background-position: top left;
     background-size: cover;
     text-align: center;
-
     h2 {
       text-align: left;
       font-weight: bold;
@@ -217,11 +207,46 @@ body.blacklight-pages-home {
     font-size: 4em;
 }
 
+.featured-content-widgets {
+  font-family: 'Open Sans', sans-serif;
+  .description {
+    margin-left: 25px;
+  }
+  h3 {
+    font-weight: bold;
+    margin-left: 25px;
+  }
+}
+
 @media (max-width: 600px) {
   .home-image-info .text {
     width: 400px;
   }
 }
+
+@media (min-width: 100px) and (max-width: 389px) {
+  .featured-image-title {
+    margin-top: -145px;
+  }
+}
+
+@media (min-width: 389px) and (max-width: 727px) {
+  .featured-image-title {
+    margin-top: -115px;
+  }
+}
+@media (min-width: 100px) and (max-width: 767px) {
+  .home-panel-skin {
+    height: 300px;
+  }
+}
+
+@media (min-width: 100px) and (max-width: 1024px) {
+  .featured-content-widgets {
+    text-align: center;
+  }
+}
+
 
 @media (min-width: 600px) and (max-width: 768px) {
   .home-image-info .text {
@@ -262,7 +287,7 @@ body.blacklight-pages-home {
     .tt-hint.form-control {
       height: 46px;
       border-bottom-left-radius: 8px;
-      border-top-left-radius: 8px; 
+      border-top-left-radius: 8px;
     }
 
     .tt-menu {
@@ -274,7 +299,28 @@ body.blacklight-pages-home {
       font-weight: bold;
       border-top-left-radius: 8px;
       border-bottom-left-radius: 8px;
-      border-bottom-right-radius: 8px;    
+      border-bottom-right-radius: 8px;
     }
   }
 }
+
+.home-nav-bar {
+  position: absolute;
+  top: 0px;
+  right: -155px;
+  font-size: 1.20em;
+  a {
+    color: #ffffff;
+  }
+  margin: 25px 200px;
+  ul {
+    list-style:none;
+  }
+  li {
+    float: left;
+    padding-right: 25px;
+  }
+}
+
+
+

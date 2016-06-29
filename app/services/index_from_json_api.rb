@@ -27,7 +27,7 @@ class IndexFromJsonApi
   end
 
   def self.enrich_doc_with_local_record(doc)
-    RecordPresenter.new(local_record(doc['id'])).to_solr.merge(doc)
+    RecordPresenter.new(local_record(doc['id'])).to_solr(doc: doc)
   end
 
   def self.local_record(id)

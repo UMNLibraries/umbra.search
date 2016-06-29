@@ -47,6 +47,13 @@
                 %div
                   = render_document_show_field_value show_document.document, :field => solr_fname
 
+          - if show_document.view_original
+            %dt{class:"blacklight-blacklight-isshownat_ssi"}
+              View Original At:
+            %dd{class:"blacklight-blacklight-isshownat_ssi"}
+              %div
+                = link_to show_document.view_original, show_document.view_original, {target: '_blank'}
+
         - if show_document.collection
           %h4 From Collection
           = render_facet_link('sourceResource_collection_title_ssi', show_document.collection)

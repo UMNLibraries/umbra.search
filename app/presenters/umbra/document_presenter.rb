@@ -75,6 +75,10 @@ module Umbra
       document.fetch('dataProvider_ssi', false)
     end
 
+    def view_original
+      document.fetch('isShownAt_ssi', false)
+    end
+
     def view_original_provider
       (data_provider) ? "@ #{data_provider}" : ""
     end

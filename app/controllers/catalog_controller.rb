@@ -144,7 +144,6 @@ class CatalogController < ApplicationController
     config.add_show_field 'sourceResource_contributor_ssi', :label => 'Contributors'
     config.add_show_field 'sourceResource_date_displaydate_ssi', :label => 'Created Date'
     config.add_show_field 'sourceResource_rights_ssi', :label => 'Rights'
-    config.add_show_field 'isShownAt_ssi', :label => 'View Original At'
     # config.add_show_field 'sourceResource_publisher_ssi', :label => 'Publisher'
     # config.add_show_field 'language_ssi', :label => 'Language'
     # config.add_show_field 'sourceResource_extent_ssi', :label => 'Extent'

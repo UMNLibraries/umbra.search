@@ -4,6 +4,5 @@ class JsonApiIndexerWorker
     IndexFromJsonApi.run!(url) {|next_url|
       JsonApiIndexerWorker.perform_async(next_url) if next_url
     }
-    SolrClient.commit
   end
 end

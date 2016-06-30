@@ -26,4 +26,9 @@ namespace :solr do
   task :index_records,  [:url] => [:environment] do |t, args|
     JsonApiIndexerWorker.perform_async(args[:url])
   end
+
+  desc "Commit Indexed Records"
+  task :commit do
+    SolrClient.commit
+  end
 end

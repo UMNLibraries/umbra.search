@@ -16,4 +16,8 @@ module FeaturedContentsHelper
     published_featured.count > 0
   end
 
+  def featured_content_css_class(featured_content)
+    (featured_content.is_news == true) ? ' news ' : ' blog '
+  end
+
 end

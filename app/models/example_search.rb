@@ -2,7 +2,7 @@
 class ExampleSearch
   attr_accessor :title, :q, :fq, :solr, :thumbnail, :tour
 
-  def initialize(title: '', q: '*:*', fq: '', thumbnail: '', tour: '')
+  def initialize(title: '', q: '*:*', fq: [], thumbnail: '', tour: '')
     @title      = title
     @q          = q
     @fq         = fq

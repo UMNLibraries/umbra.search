@@ -67,16 +67,20 @@ $(document).ready(function(){
     umbra_ga_event('Facet', 'Year Facet Select', $(this).text());
   });
 
-  $(".blacklight-pages-home .featured-content a").click(function() {
+  $(".blacklight-pages-home #featured-contents a").click(function() {
     umbra_ga_event('Featured Content Click', 'Home Page', $(this).attr('href'));
   });
 
-  $(".blacklight-pages-home .blog .featured-content a").click(function() {
+  $(".blacklight-pages-home #featured-contents a.blog").click(function() {
     umbra_ga_event('Featured Content Click', 'Blog', $(this).attr('href'));
   });
 
-  $(".blacklight-pages-home .news .featured-content a").click(function(e) {
+  $(".blacklight-pages-home #featured-contents .featured-content a.news").click(function(e) {
     umbra_ga_event('Featured Content Click', 'News', $(this).attr('href'));
+  });
+
+  $(".blacklight-pages-home #example-searches a").click(function(e) {
+    umbra_ga_event('Example Searches', 'Home Page', $(this).attr('href'));
   });
 
   $(".search-thumbnail a").click(function() {
@@ -101,10 +105,6 @@ $(document).ready(function(){
 
   $("#metadata .subjects a").click(function() {
     umbra_ga_event('Full Record Sidebar', 'subjects Click', $(this).attr('href'));
-  });
-
-  $(".blacklight-pages-home .example-searches a").click(function(e) {
-    umbra_ga_event('Example Searches', 'Home Page Jumbo Search', $("#home-search #q").val());
   });
 
   $(".blacklight-pages-home #home-search .search-btn").click(function() {

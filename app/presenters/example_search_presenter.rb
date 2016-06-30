@@ -18,14 +18,25 @@ class ExampleSearchPresenter  < BasePresenter
   end
 
   def url
-    h.catalog_index_url params.merge(query_params)
+    %Q(/catalog?#{url_params}&q=#{search.q}&#{url_params}#{f}&example-search=#{tour})
+  end
+
+  def url_params
+    params.to_a.map { |param| "#{param.first.to_s}=#{param.last}" }.join('&')
   end
 
   def query_params
-    {q: search.q, fq: search.fq, 'example-search': tour}
+    {q: search.q, fq: search.fq}
   end
 
   private
+
+  def f
+    search.fq.map do |fq|
+      field, value = fq.split(':')
+      "&f[#{field}][]=#{value.gsub(/"/, '')}"
+    end.join('')
+  end
 
   def solr_search
     solr.get('select', :params => query_params.merge(:fl => '', :rows => 1))

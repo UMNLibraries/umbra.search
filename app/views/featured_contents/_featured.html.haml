@@ -22,7 +22,7 @@
                     %div.glyphicon.glyphicon-new-window
                     %div.overlay
         %div.col-md-2
-      %div.col-md-12
+      %div.col-md-12#featured-contents
         %div.col-md-2
         %div.col-md-8
           %h3
@@ -34,7 +34,7 @@
             and how they’ve used it for research projects, art, and teaching. Share your #UmbraSearch to add to the conversation.
           %div.feature-boxes
             - published_featured.each do |featured_content|
-              %a{href: featured_content.url }
+              %a{href: featured_content.url, class: "#{featured_content_css_class(featured_content)}" }
                 %div.feature-box{style: "background-image: url('#{featured_content.preview_image.url}');"}
                   %div.content
                     %div.title

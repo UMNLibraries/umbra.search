@@ -15,25 +15,39 @@ module ExampleSearchesHelper
   def searches
     [
       {
-        title: "Try a Search for \"Jazz Musicians\"",
-        q: '"Jazz Musicians"',
-        fq: '',
-        thumbnail: 'dizzy-g.png',
+        title: "African American Firsts",
+        q: '"first african american"',
+        fq: [],
+        thumbnail: 'welcome-shirley.png',
         tour: 'phrase-search'
       },
       {
-        title: "Try a Search for Jazz Recordings",
-        q: 'jazz',
-        fq: 'sourceResource_type_ssi:sound',
-        thumbnail: 'jazz-sound.png',
-        tour: 'search-with-facet'
+        title: "Video from the Civil Rights Movement",
+        q: '"Civil rights movement"',
+        fq: ['sourceResource_type_ssi:video'],
+        thumbnail: 'king.png',
+        tour: 'search-with-facet-video'
       },
       {
-        title: "Try an Advanced Search",
-        q: '+"Selma" -"selma burke"',
-        fq: '',
-        thumbnail: 'selma.png',
+        title: "Underground Railroad (Advanced Search)",
+        q: '+"underground railroad" -"subways"',
+        fq: [],
+        thumbnail: 'railroad.png',
         tour: 'operator-search'
+      },
+      {
+        title: "The Creation of the Niagara Movement",
+        q: '"Niagara movement"',
+        fq: [],
+        thumbnail: 'niagara.png',
+        tour: 'phrase-search'
+      },
+      {
+        title: "The Repertoire of Alvin Ailey American Dance Theater",
+        q: '"Alvin ailey"',
+        fq: ['keywords_ssim:"Alvin Ailey American Dance Theater"'],
+        thumbnail: 'dance.png',
+        tour: 'search-with-facet-subject'
       }
     ]
   end

@@ -19,25 +19,43 @@
             }
           ]);
         break;
-          case "search-with-facet":
+          case "search-with-facet-video":
           tour.addSteps([
             {
               backdrop: true,
               element: "#search",
               backdropContainer: "#content",
-              content: "Running a simple search for \"jazz\" will return different types of records: newspaper clips about jazz, images of jazz musicians and sound recordings. What if we want to limit a search to just sound recordings? Click next to find out how."
+              content: "Placing double quotes around phrases narrows search results to items containing this phrase. <em>Click Next</em> to find out how to limit"
             },
             {
-              element: "#facet-sourceresource_type_ssi .icon-headphones",
-              content: "Links in these boxes on the left-hand side of the page limit search results. Here, we have limited a search for the word <strong>jazz</strong> to Sound records only."
+              element: "#facet-sourceresource_type_ssi .icon-video",
+              content: "Links in these boxes on the left-hand side of the page limit search results. Here, we have limited our search to <strong>Video only</strong>."
             },
             {
-              element: "#documents .icon-headphones:first",
-              content: "Search result items are labeled to indicate what type of thing they are. "
+              element: "#documents .icon-video:first",
+              content: "Search result items are labeled to indicate what type of record they are."
             },
             {
               element: "#facet-sourceresource_type_ssi .remove",
-              content: "Click the <span class=\"glyphicon glyphicon-remove\"></span><span class=\"sr-only\">[remove]</span> link to undo limiting to sound."
+              content: "Click the <span class=\"glyphicon glyphicon-remove\"></span><span class=\"sr-only\">[remove]</span> link to undo limiting to Video."
+            },
+          ]);
+        break;
+          case "search-with-facet-subject":
+          tour.addSteps([
+            {
+              backdrop: true,
+              element: "#search",
+              backdropContainer: "#content",
+              content: "Placing double quotes around phrases narrows search results to items containing this phrase. <em>Click Next</em> to find out how to limit"
+            },
+            {
+              element: ".blacklight-keywords_ssim .facet-label .selected",
+              content: "Links in these boxes on the left-hand side of the page limit search results. Here, we have limited our search to the Keyword <strong>\"Alvin Ailey American Dance Theater\"</strong>."
+            },
+            {
+              element: ".blacklight-keywords_ssim .remove",
+              content: "Click the <span class=\"glyphicon glyphicon-remove\"></span><span class=\"sr-only\">[remove]</span> link to undo limiting to Video."
             },
           ]);
         break;
@@ -46,7 +64,7 @@
             {
               backdrop: true,
               element: ".search-query-form input[type=text]",
-              content: "Use the \"+\" sign before a word or phrase <strong>to require it</strong> in search results. Use a \"-\" sign <strong>to exclude it</strong>. <strong>Note:</strong> be sure that the symbols are placed directly next to the corresponding word or phrase with no spaces in between the symbol and word or phrase."
+              content: "Use the \"+\" sign before a word or phrase <strong>to require it</strong> in search results. Use a \"-\" sign <strong>to exclude it</strong>. (Be sure that the symbols are placed directly next to the corresponding words)"
             },
           ]);
         break;

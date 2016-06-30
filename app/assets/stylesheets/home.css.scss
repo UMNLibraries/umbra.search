@@ -239,6 +239,9 @@ body.blacklight-pages-home {
   .home-panel-skin {
     height: 300px;
   }
+  .home-nav-bar {
+    display: none;
+  }
 }
 
 @media (min-width: 100px) and (max-width: 1024px) {

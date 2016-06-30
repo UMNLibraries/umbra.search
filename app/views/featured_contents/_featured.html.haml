@@ -1,44 +1,45 @@
-%div#featured.col-sm-12.col-centered
-  %div.featured-content-widgets
-    %div.row
-      %div.col-md-12
-        %div.col-md-2
-        %div#example-searches.col-md-8
-          %h3
-            Get Started
-          %div.description
-            Try some example searches to see what you can find in
-            %em
-              Umbra.
-          %div.feature-boxes
-            - example_searches_with_counts.each do |search|
-              %a{href: search.url }
-                %div.feature-box{style: "background-image: url('#{asset_path(search.thumbnail)}');"}
-                  %div.content
-                    %div.title
-                      = search.title
-                    %div.item-count
-                      = search.items_found
-                    %div.glyphicon.glyphicon-new-window
-                    %div.overlay
-        %div.col-md-2
-      %div.col-md-12#featured-contents
-        %div.col-md-2
-        %div.col-md-8
-          %h3
-            Discover and Share with #UmbraSearch
-          %div.description
-            See what others have found in
-            %em
-              Umbra
-            and how they’ve used it for research projects, art, and teaching. Share your #UmbraSearch to add to the conversation.
-          %div.feature-boxes
-            - published_featured.each do |featured_content|
-              %a{href: featured_content.url, class: "#{featured_content_css_class(featured_content)}" }
-                %div.feature-box{style: "background-image: url('#{featured_content.preview_image.url}');"}
-                  %div.content
-                    %div.title
-                      = featured_content.title
-                    %div.glyphicon.glyphicon-new-window
-                    %div.overlay
-        %div.col-md-2
+- cache('featured-contents', :expires_in => 1.hour) do
+  %div#featured.col-sm-12.col-centered
+    %div.featured-content-widgets
+      %div.row
+        %div.col-md-12
+          %div.col-md-2
+          %div#example-searches.col-md-8
+            %h3
+              Get Started
+            %div.description
+              Try some example searches to see what you can find in
+              %em
+                Umbra.
+            %div.feature-boxes
+              - example_searches_with_counts.each do |search|
+                %a{href: search.url }
+                  %div.feature-box{style: "background-image: url('#{asset_path(search.thumbnail)}');"}
+                    %div.content
+                      %div.title
+                        = search.title
+                      %div.item-count
+                        = search.items_found
+                      %div.glyphicon.glyphicon-new-window
+                      %div.overlay
+          %div.col-md-2
+        %div.col-md-12#featured-contents
+          %div.col-md-2
+          %div.col-md-8
+            %h3
+              Discover and Share with #UmbraSearch
+            %div.description
+              See what others have found in
+              %em
+                Umbra
+              and how they’ve used it for research projects, art, and teaching. Share your #UmbraSearch to add to the conversation.
+            %div.feature-boxes
+              - published_featured.each do |featured_content|
+                %a{href: featured_content.url, class: "#{featured_content_css_class(featured_content)}" }
+                  %div.feature-box{style: "background-image: url('#{featured_content.preview_image.url}');"}
+                    %div.content
+                      %div.title
+                        = featured_content.title
+                      %div.glyphicon.glyphicon-new-window
+                      %div.overlay
+          %div.col-md-2

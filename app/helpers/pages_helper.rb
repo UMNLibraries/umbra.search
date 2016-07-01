@@ -1,7 +1,7 @@
 module PagesHelper
 
   def path_for_page(page)
-    page_path(Page.find(page))
+    page_path(Page.friendly.find(page))
   end
 
   def active(path)

@@ -219,7 +219,7 @@ GEM
       railties (>= 3.0.0, < 5.0.0)
     mime-types (2.99.1)
     mini_magick (4.2.7)
-    mini_portile2 (2.0.0)
+    mini_portile2 (2.1.0)
     minitest (5.8.4)
     multi_json (1.11.2)
     multipart-post (2.0.0)
@@ -229,8 +229,9 @@ GEM
       net-ssh (>= 2.6.5)
     net-ssh (2.9.2)
     netrc (0.10.3)
-    nokogiri (1.6.7.2)
-      mini_portile2 (~> 2.0.0.rc2)
+    nokogiri (1.6.8)
+      mini_portile2 (~> 2.1.0)
+      pkg-config (~> 1.1.7)
     nokogumbo (1.4.1)
       nokogiri
     orm_adapter (0.5.0)
@@ -241,6 +242,7 @@ GEM
       os (~> 0.9.6)
       piet (>= 0.2.0)
       png_quantizator
+    pkg-config (1.1.7)
     png_quantizator (0.1.1)
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
@@ -457,4 +459,4 @@ DEPENDENCIES
   whenever
 
 BUNDLED WITH
-   1.11.2
+   1.12.5

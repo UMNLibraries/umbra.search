@@ -22,4 +22,8 @@ module PagesHelper
   def linked_image(path, img, alt, title, css_classes = nil)
     link_to image_tag(img, alt: alt, title: title, class: "img-responsive page-image #{css_classes}"), path
   end
+
+  def pages_subnav_options
+    raw Page.all.map { |page| raw nav_item(page.link_title, page.link_path) }.join(' ')
+  end
 end

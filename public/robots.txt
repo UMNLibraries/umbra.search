@@ -3,3 +3,6 @@
 # To ban all spiders from the entire site uncomment the next two lines:
 # User-agent: *
 # Disallow: /
+User-agent: *
+Disallow: /catalog? # blocks search results pages
+Disallow: /catalog/facet # blocks facet pages

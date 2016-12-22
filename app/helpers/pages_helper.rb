@@ -27,6 +27,6 @@ module PagesHelper
   end
 
   def pages_subnav_options
-    raw Page.all.map { |page| raw nav_item(page.link_title, page.link_path) }.join(' ')
+    raw Page.all.order(:weight).order(:link_title).map { |page| raw nav_item(page.link_title, page.link_path) }.join(' ')
   end
 end

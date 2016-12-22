@@ -16,6 +16,10 @@
     <%= f.text_field :title, size: 98 %>
   </div><br />
   <div class="field">
+    <%= f.label :weight %><br>
+    <%= f.select :weight, (-10..10), selected: @page.weight %>
+  </div><br />  
+  <div class="field">
     <%= f.label :body %><br>
     <%= f.text_area :body, cols: 100, rows: 10 %>
   </div><br />

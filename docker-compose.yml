@@ -1,0 +1,52 @@
+version: '2'
+services:
+  solr_setup:
+    build: .
+    command: bundle exec rake sunrise:setup_dev
+    volumes:
+      - .:/umbra.search
+  solr:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile-solr
+    ports:
+      - "8983:8983"
+    volumes:
+      - ./umbra_solr:/opt/solr/example/solr
+  web:
+    build: .
+    env_file:
+      - .env
+    command: bundle exec rails s -p 8000 -b '0.0.0.0'
+    volumes:
+      - .:/umbra.search
+    ports:
+      - "8000:8000"
+    links:
+      - solr
+      - db
+      - redis
+    depends_on:
+      - solr
+  db:
+    image: library/mysql:5.6.22
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: umbra
+    volumes:
+      - db-data:/var/lib/mysql
+      - ./docker/data:/docker-entrypoint-initdb.d
+  sidekiq:
+    build: .
+    command: bundle exec sidekiq -r /umbra.search
+    volumes:
+      - .:/umbra.search
+    links:
+      - redis
+    env_file:
+      - .env
+  redis:
+    image: redis:latest
+volumes:
+  db-data:
+    driver: local

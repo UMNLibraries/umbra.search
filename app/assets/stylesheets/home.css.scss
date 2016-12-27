@@ -140,12 +140,12 @@ body.blacklight-pages-home {
 }
 
 #home-search-logo {
-  margin-top: 100px;
+  margin-top: 75px;
   width: 100%;
-  background-image: asset_url('umbra-white-thumb.png');
+  background-image: asset_url('umbra-white-logo-thumb.png');
   background-repeat: no-repeat;
   background-position: center;
-  min-height: 200px;
+  min-height: 175px;
 }
 
 #home-search .input-group-addon {
@@ -156,7 +156,7 @@ body.blacklight-pages-home {
   margin: 10px 0;
   width: 100%;
   text-align: center;
-  font-size: 2.5em;
+  font-size: 2em;
   color: #FFFFFF;
   font-family: 'Rufina', serif;
 }

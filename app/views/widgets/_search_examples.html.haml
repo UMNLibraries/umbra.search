@@ -1,9 +1,9 @@
 %div.panel.panel-default
   %div.panel-heading
     %h3.panel-title
-      Search Umbra Widget (Experimental)
+      Umbra Search Widget (Experimental)
   %div.panel-body
-    Search Umbra from your own website by copying and pasting the below HTML code into your site.
+    Search Umbra Search from your own website by copying and pasting the below HTML code into your site.
     - search_form = render 'search_form_embed'
     = raw html_syntax_highlight(search_form)
     %h4
@@ -22,5 +22,5 @@
     %br
     %h4
       Set a Default Contributing Institution
-    Show your site visitors what you have contributed to <em>Umbra</em> by setting a default contributing institution for your search widget.
+    Show your site visitors what you have contributed to <em>Umbra Search</em> by setting a default contributing institution for your search widget.
     = raw html_syntax_highlight("<script src=\"#{request.base_url}/widgets/search.js?contributing_institution=Temple University Libraries\"  type=\"text/javascript\"></script>")

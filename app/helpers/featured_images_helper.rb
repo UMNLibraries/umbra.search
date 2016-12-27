@@ -9,7 +9,7 @@ module FeaturedImagesHelper
     end
   end
 
-  # Returns the path to use for previewing the Umbra homepage with the given featured_image
+  # Returns the path to use for previewing the Umbra Search homepage with the given featured_image
   def featured_image_preview_path(featured_image)
     root_path(featured_image:featured_image)
   end

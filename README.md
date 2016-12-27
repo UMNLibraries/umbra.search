@@ -1,4 +1,4 @@
-Umbra
+Umbra Search
 ======
 
 ### Status

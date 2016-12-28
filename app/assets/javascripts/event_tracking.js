@@ -143,4 +143,38 @@ $(document).ready(function(){
     umbra_ga_event('Help Links', 'Catalog Page Navbar', $(this).text());
   });
 
+  // Homepage Main Area Nav Links (Upper right side of page)
+  $(".about-homenav-link").click(function() {
+    umbra_ga_event('Home Top Navigation Links', 'About', $(this).text());
+  });
+
+  $(".participate-homenav-link").click(function() {
+    umbra_ga_event('Home Top Navigation Links', 'Get Involved', $(this).text());
+  });
+
+  $(".contact-homenav-link").click(function() {
+    umbra_ga_event('Home Top Navigation Links', 'Contact', $(this).text());
+  });
+
+  $(".blog-homenav-link").click(function() {
+    umbra_ga_event('Home Top Navigation Links', '#UmbraSearch (Blog)', $(this).text());
+  });
+
+  // Footer Links
+  $(".about-foot-link").click(function() {
+    umbra_ga_event('Footer Links', 'About', $(this).text());
+  });
+
+  $(".participate-foot-link").click(function() {
+    umbra_ga_event('Footer Links', 'Get Involved', $(this).text());
+  });
+
+  $(".contact-foot-link").click(function() {
+    umbra_ga_event('Footer Links', 'Contact', $(this).text());
+  });
+
+  $(".blog-foot-link").click(function() {
+    umbra_ga_event('Footer Links', '#UmbraSearch (Blog)', $(this).text());
+  });
+
 });

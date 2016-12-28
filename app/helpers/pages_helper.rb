@@ -8,12 +8,12 @@ module PagesHelper
     (current_page?("/pages/#{path}")) ? 'active' : nil
   end
 
-  def nav_item(link_text, page_path)
-    "<li role=\"presentation\" class=\"#{active(page_path)}\">#{link(link_text, path_for_page(page_path))}</li>"
+  def nav_item(link_text, page_path, link_class = nil)
+    "<li role=\"presentation\" class=\"#{active(page_path)} #{link_class}\">#{link(link_text, path_for_page(page_path))}</li>"
   end
 
-  def nav_item_static_link(link_text, page_path)
-    "<li role=\"presentation\" class=\"#{active(page_path)}\">#{link(link_text, page_path)}</li>"
+  def nav_item_static_link(link_text, page_path, link_class = nil)
+    "<li role=\"presentation\" class=\"#{active(page_path)} #{link_class}\">#{link(link_text, page_path)}</li>"
   end
 
   def link(text, path)

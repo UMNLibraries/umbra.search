@@ -1,7 +1,11 @@
 module PagesHelper
 
   def path_for_page(page)
-    page_path(Page.friendly.find(page))
+    if /http/ =~ page
+      page
+    else
+      page_path(Page.friendly.find(page))
+    end
   end
 
   def active(path)

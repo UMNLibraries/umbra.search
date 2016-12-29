@@ -13,11 +13,11 @@ role :db,  "swadm@lib-umbra-prod.oit.umn.edu", :primary => true
 set :deploy_to, '/swadm/var/www/html/umbra.search'
 set :use_sudo,    false
 
-set :linked_dirs, fetch(:linked_dirs) + %w(public/uploads log cache tmp)
+set :linked_dirs, %w(public/uploads log cache tmp)
 
 set :rails_env, "production"
 
-# set :branch, "mvp2"
+set :branch, "rebrand"
 
 # Extended Server Syntax
 # ======================

@@ -105,8 +105,23 @@ GEM
       activesupport (>= 3.2.0)
       json (>= 1.7)
       mime-types (>= 1.16)
-    celluloid (0.16.0)
-      timers (~> 4.0.0)
+    celluloid (0.17.3)
+      celluloid-essentials
+      celluloid-extras
+      celluloid-fsm
+      celluloid-pool
+      celluloid-supervision
+      timers (>= 4.1.1)
+    celluloid-essentials (0.20.5)
+      timers (>= 4.1.1)
+    celluloid-extras (0.20.5)
+      timers (>= 4.1.1)
+    celluloid-fsm (0.20.5)
+      timers (>= 4.1.1)
+    celluloid-pool (0.20.5)
+      timers (>= 4.1.1)
+    celluloid-supervision (0.20.6)
+      timers (>= 4.1.1)
     chronic (0.10.2)
     coderay (1.0.9)
     coffee-rails (4.0.1)
@@ -118,8 +133,8 @@ GEM
     coffee-script-source (1.9.1.1)
     colorize (0.7.7)
     columnize (0.9.0)
-    concurrent-ruby (1.0.2)
-    connection_pool (2.2.0)
+    concurrent-ruby (1.0.4)
+    connection_pool (2.2.1)
     crack (0.4.2)
       safe_yaml (~> 1.0.0)
     crass (1.0.2)
@@ -183,7 +198,7 @@ GEM
     haml (4.0.6)
       tilt
     hashdiff (0.2.3)
-    hitimes (1.2.2)
+    hitimes (1.2.4)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
     i18n (0.7.0)
@@ -246,13 +261,15 @@ GEM
     png_quantizator (0.1.1)
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
-    rack (1.6.4)
+    rack (1.6.5)
     rack-contrib (1.3.0)
       git-version-bump (~> 0.15)
       rack (~> 1.4)
     rack-pjax (0.8.0)
       nokogiri (~> 1.5)
       rack (~> 1.1)
+    rack-protection (1.5.3)
+      rack
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.7.1)
@@ -298,7 +315,7 @@ GEM
     rake (11.2.2)
     rdoc (4.2.0)
       json (~> 1.4)
-    redis (3.2.1)
+    redis (3.3.2)
     redis-namespace (1.5.2)
       redis (~> 3.0, >= 3.0.4)
     ref (1.0.5)
@@ -346,18 +363,24 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
-    sidekiq (3.4.2)
-      celluloid (~> 0.16.0)
+    sidekiq (3.5.4)
+      celluloid (~> 0.17.2)
       connection_pool (~> 2.2, >= 2.2.0)
       json (~> 1.0)
       redis (~> 3.2, >= 3.2.1)
       redis-namespace (~> 1.5, >= 1.5.2)
+    sidekiq-failures (0.4.5)
+      sidekiq (>= 2.16.0)
     signet (0.6.1)
       addressable (~> 2.3)
       extlib (~> 0.9)
       faraday (~> 0.9)
       jwt (~> 1.5)
       multi_json (~> 1.10)
+    sinatra (1.4.7)
+      rack (~> 1.5)
+      rack-protection (~> 1.4)
+      tilt (>= 1.3, < 3)
     spring (1.3.6)
     sprockets (3.7.0)
       concurrent-ruby (~> 1.0)
@@ -378,7 +401,7 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (1.4.1)
-    timers (4.0.1)
+    timers (4.1.2)
       hitimes
     turbolinks (2.5.3)
       coffee-rails
@@ -449,7 +472,9 @@ DEPENDENCIES
   sanitize
   sass-rails (~> 5.0.3)
   sdoc (~> 0.4.0)
-  sidekiq
+  sidekiq (~> 3.5.4)
+  sidekiq-failures
+  sinatra
   spring
   test_after_commit
   therubyracer (~> 0.11.3)
@@ -457,6 +482,3 @@ DEPENDENCIES
   uglifier (>= 1.3.0)
   webmock
   whenever
-
-BUNDLED WITH
-   1.12.5

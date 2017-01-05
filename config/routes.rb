@@ -6,6 +6,12 @@ Rails.application.routes.draw do
   resources :flag_votes
   resources :records, only: [:show]
 
+  require 'sidekiq/web'
+  authenticate :user, lambda { |u| u.admin? } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
+ 
+
   get '/contributing-institutions' => "data_providers#index", as: 'data_providers'
   get '/contributing-institutions/:id' => "data_providers#show", as: 'data_provider'
 

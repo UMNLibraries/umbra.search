@@ -1,18 +1,16 @@
 version: '2'
 services:
+  solr:
+    image: solr
+    ports:
+      - "8983:8983"
+    volumes:
+      - ./cores:/opt/solr/server/solr/cores
   solr_setup:
     build: .
     command: bundle exec rake sunrise:setup_dev
     volumes:
       - .:/umbra.search
-  solr:
-    build:
-      context: .
-      dockerfile: ./docker/Dockerfile-solr
-    ports:
-      - "8983:8983"
-    volumes:
-      - ./umbra_solr:/opt/solr/example/solr
   web:
     build: .
     env_file:

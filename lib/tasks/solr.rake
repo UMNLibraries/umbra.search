@@ -9,7 +9,7 @@ namespace :solr do
 
   desc "Download, unpack and run Development Blacklight Jetty"
   task :setup_dev do
-    setup_solr('dev', 8885, '4.10.3', 'blacklight-core-umbra','0.3-alpha')
+    setup_solr('dev', 8885, '6.3.0', 'blacklight-core-umbra','0.4-alpha')
   end
 
   desc "Download, unpack and run Test Blacklight Jetty"

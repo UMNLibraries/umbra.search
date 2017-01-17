@@ -52,9 +52,13 @@ class FlagVotesController < ApplicationController
   end
 
   def record_ids_and_flags
-    FlagVote.all.reduce({}) do |votes, flag_vote| 
-      votes.merge(flag_vote.record_id => flag_vote.flag.id)
+    FlagVote.all.reduce({}) do |votes, fv| 
+      votes.merge(fv.record_id => flags_by_record(fv.record_id))
     end
+  end
+
+  def flags_by_record(record_id)
+    FlagVote.where(record_id: record_id).map{ |fv| fv.flag_id })}
   end
 
   def votes_and_records(flag_votes)

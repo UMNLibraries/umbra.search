@@ -47,7 +47,7 @@ class FlagVotesController < ApplicationController
 
   def votes_and_ids
     Flag.all.map do |flag| 
-      {"#{flag.id}": flag.flag_votes.map { |flag_vote| flag_vote.record_id } }
+      {"#{flag.id}" => flag.flag_votes.map { |flag_vote| flag_vote.record_id } }
     end
   end
 
@@ -58,7 +58,7 @@ class FlagVotesController < ApplicationController
   end
 
   def flags_by_record(record_id)
-    FlagVote.where(record_id: record_id).map{ |fv| fv.flag_id })}
+    FlagVote.where(record_id: record_id).map { |fv| fv.flag_id }
   end
 
   def votes_and_records(flag_votes)

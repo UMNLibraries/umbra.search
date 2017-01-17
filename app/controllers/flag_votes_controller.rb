@@ -14,6 +14,8 @@ class FlagVotesController < ApplicationController
       format.json do 
         if params[:ids_only]
           render json: votes_and_ids.to_json
+        elsif params[:by_record_id]
+          render json: record_ids_and_flags.to_json
         else
           render json: votes_and_records(FlagVote.all).to_json 
         end
@@ -46,6 +48,12 @@ class FlagVotesController < ApplicationController
   def votes_and_ids
     Flag.all.map do |flag| 
       {"#{flag.id}": flag.flag_votes.map { |flag_vote| flag_vote.record_id } }
+    end
+  end
+
+  def record_ids_and_flags
+    FlagVote.all.reduce({}) do |votes, flag_vote| 
+      votes.merge(flag_vote.record_id => flag_vote.flag.id)
     end
   end
 

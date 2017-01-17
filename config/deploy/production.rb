@@ -17,7 +17,7 @@ set :linked_dirs, %w(public/uploads log cache tmp)
 
 set :rails_env, "production"
 
-set :branch, "rebrand"
+# set :branch, "rebrand"
 
 # Extended Server Syntax
 # ======================

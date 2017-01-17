@@ -22,6 +22,7 @@ namespace :solr do
     SolrClient.delete_by_query(args[:query].to_s)
   end
 
+  # e.g. bundle exec rake solr:index_records['http://hub-client.lib.umn.edu/api/v2/records?filter[all_with_job_id]=62&page[size]=1000']
   desc "Index Records from JSON API"
   task :index_records,  [:url] => [:environment] do |t, args|
     JsonApiIndexerWorker.perform_async(args[:url])

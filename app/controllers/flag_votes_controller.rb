@@ -10,8 +10,14 @@ class FlagVotesController < ApplicationController
 
   def index
     respond_to do |format|
-      format.html { @flag_votes = FlagVote.page(params[:page]).per(25) }
-      format.json { render json: get_votes_and_records(FlagVote.all).to_json }
+      format.html { @flag_votes = FlagVote.page(flag_vote_params[:page]).per(25) }
+      format.json do 
+        if flag_vote_params[:ids_only]
+          render json: votes_and_ids.to_json
+        else
+          render json: votes_and_records(FlagVote.all).to_json 
+        end
+      end
     end
   end
 
@@ -37,7 +43,13 @@ class FlagVotesController < ApplicationController
 
   private
 
-  def get_votes_and_records(flag_votes)
+  def votes_and_ids
+    Flag.all.map do |flag| 
+      {"#{flag.id}": flag.flag_votes.map { |flag_vote| flag_vote.record_id } }
+    end
+  end
+
+  def votes_and_records(flag_votes)
     # See Blacklight::SearchHelper for def fetch
     FlagVote.votes_and_records(flag_votes) do |record_id|
       fetch_record(record_id)
@@ -102,7 +114,7 @@ class FlagVotesController < ApplicationController
   end
 
   def flag_vote_params
-    params.require(:flag_vote).permit(:flag_id, :record_id, :user_id, :delta)
+    params.require(:flag_vote).permit(:flag_id, :record_id, :user_id, :delta, :page, :ids_only)
   end
 
   def user_id(user_id)

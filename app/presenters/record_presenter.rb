@@ -19,7 +19,15 @@ class RecordPresenter < BasePresenter
   private
 
   def flags(record_id)
-    flag_vote.where(record_id: record_id).map { |fv| fv.flag.id }
+    Rails.cache.fetch("flags_by_record", expires_in: 1.hour) do
+      JSON.parse(Net::HTTP.get(uri))[record_id.to_s]
+    end
+  end
+
+  # Flags are gathered exclusively from the production isntance
+  # This allows us to index in dev and swap that index into prod
+  def uri
+    @uri ||= URI.parse('https://www.umbrasearch.org/flag_votes.json?by_record_id=true')
   end
 
   def keywords

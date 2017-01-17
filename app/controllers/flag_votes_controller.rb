@@ -10,9 +10,9 @@ class FlagVotesController < ApplicationController
 
   def index
     respond_to do |format|
-      format.html { @flag_votes = FlagVote.page(flag_vote_params[:page]).per(25) }
+      format.html { @flag_votes = FlagVote.page(params[:page]).per(25) }
       format.json do 
-        if flag_vote_params[:ids_only]
+        if params[:ids_only]
           render json: votes_and_ids.to_json
         else
           render json: votes_and_records(FlagVote.all).to_json 

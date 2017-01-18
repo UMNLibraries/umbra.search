@@ -16,26 +16,7 @@ class FlagVote < ActiveRecord::Base
   validates :user_id, uniqueness: {scope: [:record_id, :flag_id]}
   scope :votes_above_threshold, ->(flag_id, threshold) { select(:record_id).where(flag_id: flag_id).group(:record_id).having("COUNT(record_id) >= ?", threshold) }
   scope :flag_vote, ->(record_id, user_id, flag_id) { where(record_id: record_id, user_id: user_id, flag_id: flag_id) }
-  scope :flagged_by_users, ->(record_id) { where(record_id: record_id) }
-
-  def self.votes_and_records(votes)
-    summary = {}
-    votes.each do |vote|
-      summary[vote[:flag_id]] ||= []
-      record = yield vote[:record_id]
-      summary[vote[:flag_id]] << format_record(record)  unless record.blank?
-    end
-    summary
-  end
-
-  def self.records(votes)
-    records = []
-    votes.each do |vote|
-      record = yield vote[:record_id]
-      records << format_record(record) unless record.blank?
-    end
-    records
-  end
+  scope :by_record, ->(record_id) { where(record_id: record_id) }
 
   def css_class
     (!id.nil?) ? 'flagged' : 'unflagged'

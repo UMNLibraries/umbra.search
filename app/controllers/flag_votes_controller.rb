@@ -12,15 +12,20 @@ class FlagVotesController < ApplicationController
     respond_to do |format|
       format.html { @flag_votes = FlagVote.page(params[:page]).per(25) }
       format.json do 
-        if params[:ids_only]
-          render json: votes_and_ids.to_json
-        elsif params[:by_record_id]
-          render json: record_ids_and_flags.to_json
+        if params[:records_by_flag]
+          render json: flag_report.records_by_flag
+        elsif params[:flags_by_record]
+          render json: flag_report.flags_by_record
         else
-          render json: votes_and_records(FlagVote.all).to_json 
+          render json: flag_report.votes_and_records
         end
       end
     end
+  end
+
+  def flag_report
+    FlagVoteReport.new(flag_votes: FlagVote.all,
+                       record_fetcher: FlagVotesController.new)
   end
 
   def show
@@ -43,43 +48,15 @@ class FlagVotesController < ApplicationController
     FlagVote.find_by(flag_vote_params.except(:delta)).destroy
   end
 
-  private
-
-  def votes_and_ids
-    Flag.all.map do |flag| 
-      {"#{flag.id}" => flag.flag_votes.map { |flag_vote| flag_vote.record_id } }
-    end
-  end
-
-  def record_ids_and_flags
-    FlagVote.all.reduce({}) do |votes, fv| 
-      votes.merge(fv.record_id => flags_by_record(fv.record_id))
-    end
-  end
-
-  def flags_by_record(record_id)
-    FlagVote.where(record_id: record_id).map { |fv| fv.flag_id }
-  end
-
-  def votes_and_records(flag_votes)
-    # See Blacklight::SearchHelper for def fetch
-    FlagVote.votes_and_records(flag_votes) do |record_id|
-      fetch_record(record_id)
-    end
-  end
-
-  def get_records(flag_votes)
-    FlagVote.records(flag_votes) do |record_id|
-      fetch_record(record_id)
-    end
-  end
-
   def fetch_record(record_id)
+    # See Blacklight::SearchHelper for def fetch
     fetch(record_id)
   rescue Blacklight::Exceptions::RecordNotFound
     Rails.logger.error "Blacklight::Exceptions::RecordNotFound: #{record_id}"
     []
   end
+
+  private
 
   # if user is logged in, return current_user, else return guest_user
   def current_or_guest_user

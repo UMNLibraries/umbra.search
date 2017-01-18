@@ -27,7 +27,7 @@ class RecordPresenter < BasePresenter
   # Flags are gathered exclusively from the production isntance
   # This allows us to index in dev and swap that index into prod
   def uri
-    @uri ||= URI.parse('https://www.umbrasearch.org/flag_votes.json?by_record_id=true')
+    @uri ||= URI.parse('https://www.umbrasearch.org/flag_votes.json?flags_by_record=true')
   end
 
   def keywords

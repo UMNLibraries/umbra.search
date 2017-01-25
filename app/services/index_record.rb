@@ -1,6 +1,6 @@
 class IndexRecord
   attr_accessor :record
-  def initialize(record: record)
+  def initialize(record: {})
     @record = record
   end
 

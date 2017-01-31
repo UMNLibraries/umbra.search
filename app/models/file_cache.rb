@@ -74,7 +74,7 @@ class FileCache < ActiveRecord::Base
 
   private
 
-  def current_path
+  def self.current_path
     Rails.root.to_s.gsub(/releases\/[0-9]*/, 'current')
   end
 

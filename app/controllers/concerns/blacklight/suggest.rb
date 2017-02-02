@@ -18,7 +18,7 @@ module Blacklight
     end
 
     def suggestions_service
-      Blacklight::SuggestSearch.new(params).suggestions
+      Blacklight::SuggestSearch.new(params)
     end
   end
 end

@@ -74,9 +74,9 @@ group :test, :development do
   gem 'meta_request'
   # Quite logs down by removing asset requests
   gem 'quiet_assets'
-  gem 'capistrano', '~> 3.2.0'
-  gem 'capistrano-rails', '~> 1.1'
-  gem 'capistrano-bundler', '~> 1.1.2'
+  gem 'capistrano'
+  gem 'capistrano-rails'
+  gem 'capistrano-bundler'
   gem 'capistrano-rvm'
   gem 'rspec-rails', '>3.0'
   gem 'capybara'

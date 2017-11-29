@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.7.1'
+gem 'rails', '4.2.10'
 
 gem 'mysql2'
 
@@ -40,7 +40,7 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 gem 'cancancan'
-gem 'blacklight', '~> 5.15.0'
+gem 'blacklight'
 gem 'blacklight_range_limit'
 gem 'rsolr', '~>1.0'
 gem 'rails_autolink'

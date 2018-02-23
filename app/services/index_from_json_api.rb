@@ -20,10 +20,12 @@ class IndexFromJsonApi
 
   def self.json_api_to_solr(result)
     attrs = result['attributes']
-    doc   =  enrich_doc_with_local_record(attrs['metadata']['HUBINDEX'])
-    doc.merge({'id' => attrs['record-hash'],
-               'import_job_name_ssi' => attrs['import-job-name'],
-               'tags_ssim' => attrs['import-job-tags']})
+    doc = {
+      'id' => attrs['record-hash'],
+      'import_job_name_ssi' => attrs['import-job-name'],
+      'tags_ssim' => attrs['import-job-tags']
+    }
+    enrich_doc_with_local_record(doc.merge(attrs['metadata']['HUBINDEX']))
   end
 
   def self.enrich_doc_with_local_record(doc)

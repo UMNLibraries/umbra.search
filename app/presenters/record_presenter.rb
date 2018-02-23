@@ -11,16 +11,16 @@ class RecordPresenter < BasePresenter
     @solr_doc = (doc.length > 0) ? doc : solr_doc
     solr_doc['editor_tags_ssim']  = normalize tags
     solr_doc['keywords_ssim']     = keywords
-    solr_doc['flags_isim']        = flags(solr_doc['id'])
+    solr_doc['flags_isim']        = flags[solr_doc['id'].to_s]
     solr_doc.delete('_version_')
     solr_doc
   end
 
   private
 
-  def flags(record_id)
+  def flags
     Rails.cache.fetch("flags_by_record", expires_in: 1.hour) do
-      JSON.parse(Net::HTTP.get(uri))[record_id.to_s]
+      JSON.parse(Net::HTTP.get(uri))
     end
   end
 

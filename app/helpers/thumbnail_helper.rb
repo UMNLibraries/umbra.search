@@ -16,8 +16,6 @@ module ThumbnailHelper
     document.has?(blacklight_config.view_config(document_index_view_type).thumbnail_field)
   end
 
-
-
   # Returns the cached thumbnail if it is available
   # Redirects to the original url if there is no cache
   # Raises ParameterMissing error if no :url is specified in request
@@ -31,7 +29,7 @@ module ThumbnailHelper
     else
 
       if @file_cache_record.content_valid?
-        return @file_cache_record.filepath.gsub(public_dir, '')
+        return @file_cache_record.filepath.gsub(File.join(current_path, 'public'), '')
       else
         return DEFAULT_THUMBNAIL
       end
@@ -39,7 +37,7 @@ module ThumbnailHelper
     end
   end
 
-  def public_dir
-    File.join(Rails.root, 'public')
+  def current_path
+    Rails.root.to_s.gsub(/releases\/[0-9]*/, 'current')
   end
 end

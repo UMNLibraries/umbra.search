@@ -17,6 +17,9 @@ append :linked_dirs, "log", "public/uploads"
 
 set :rails_env, "production"
 
+set :sidekiq_concurrency, 5
+set :sidekiq_processes, 1
+
 # set :branch, "maintenance"
 set :branch, "refactor/thumb_cache"
 

@@ -69,7 +69,10 @@ class FileCache < ActiveRecord::Base
   # Path to directory where temp files will be stored
   def self.local_tmp_dir
     #Platform independent way of showing a File path. Empty String ('') means the root
-    File.join(current_path, 'cache', 'thumbnails')
+    File.join(current_path,
+              'public',
+              'assets',
+              'thumbnails')
   end
 
   private

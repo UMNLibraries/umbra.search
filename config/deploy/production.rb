@@ -13,8 +13,7 @@ role :db,  "swadm@lib-umbra-prod.oit.umn.edu", :primary => true
 set :deploy_to, '/swadm/var/www/html/umbra.search'
 set :use_sudo,    false
 
-# set :linked_dirs, %w(public/uploads log cache tmp)
-append :linked_dirs, "log"
+append :linked_dirs, "log", "public/uploads"
 
 set :rails_env, "production"
 

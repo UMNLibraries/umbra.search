@@ -11,8 +11,8 @@ class CatalogController < ApplicationController
     @flags = Array.wrap(Flag.where(:published => true))
     respond_to do |format|
       format.html { store_preferred_view }
-      format.rss  { render :layout => false }
-      format.atom { render :layout => false }
+      # format.rss  { render :layout => false }
+      # format.atom { render :layout => false }
       format.json do
         render json: render_search_results_as_json, callback: params['callback']
       end
@@ -118,7 +118,7 @@ class CatalogController < ApplicationController
 
     # # Note: This tries to set assumed_boundaries for blacklight_range_limit, but it's not working.  Leaving the value set in case it gets fixed in future releases of blacklight_range_limit
     config.add_facet_field 'sourceResource_spatial_state_ssi', :label => 'Location', :limit => 10
-    # NOTE: Collection is HIDDEN SEARCH RESULTS BY A CSS RULE. We keep it in the config, because we still 
+    # NOTE: Collection is HIDDEN SEARCH RESULTS BY A CSS RULE. We keep it in the config, because we still
     # want to be able to produce a browse by collection facet page.
 
 
@@ -225,7 +225,7 @@ class CatalogController < ApplicationController
     # If there are more than this many search results, no spelling ("did you
     # mean") suggestion is offered.
     config.spell_max = 5
-    
+
     # Configuration for autocomplete suggestor
     config.autocomplete_path = 'suggest'
     config.autocomplete_enabled = true

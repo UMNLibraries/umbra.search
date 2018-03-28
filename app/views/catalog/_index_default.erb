@@ -15,5 +15,7 @@
   </div>
   <div class="panel-body"><%= render 'flags/flag_vote_buttons', document: document %></div>
 
-  <%= render 'records/tag', document: document_presenter %>
+  <% if can? :update, document_presenter.record %>
+    <%= render 'records/tag', document: document_presenter %>
+  <% end %>
 </div>

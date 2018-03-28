@@ -13,9 +13,8 @@
       <%= render 'list_results_metadata', :document => document, :document_counter => document_counter %>
     </div>
   </div>
-  <div class="panel-body"><%= render 'flags/flag_vote_buttons', document: document %></div>
-
   <% if can? :update, document_presenter.record %>
+    <div class="panel-body"><%= render 'flags/flag_vote_buttons', document: document %></div>
     <%= render 'records/tag', document: document_presenter %>
   <% end %>
 </div>

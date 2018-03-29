@@ -30,7 +30,7 @@
             = render 'pin_it_large', :document => show_document, :pinterest_image => '//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_red_28.png'
           %div.addthis_sharing_toolbox
             %a.addthis_button_twitter{"data-url" =>  catalog_url(show_document.document), "addthis:title" => show_document.display_title_short, class: "addthis-twitter"}
-              %img{"height": 42, "width": 42, "style": "margin-top: -4px", "src": "https://d3bqfbs46oeuvc.cloudfront.net/twitter_logo.png"}
+              %img{"height" => 42, "width" => 42, "style" => "margin-top: -4px", "src" => "https://d3bqfbs46oeuvc.cloudfront.net/twitter_logo.png"}
 
         %h2.h4{style:'color:#777777'}= render_document_show_field_value show_document.document, :field => 'sourceResource_creator_ssi'
 

@@ -78,7 +78,7 @@ group :test, :development do
   gem 'capistrano-rails'
   gem 'capistrano-bundler'
   gem 'capistrano-rvm'
-  gem 'rspec-rails', '>3.0'
+  gem 'rspec-rails'
   gem 'capybara'
   gem 'factory_girl_rails', '~> 4.4.1'
   gem 'faker'

@@ -1,0 +1,134 @@
+<% # See helpers/show_record_helper.rb %>
+<% set_page_title! %>
+<% content_for(:head) { render_link_rel_alternates } %>
+<% content_for(:secondary_navbar) {render partial:'show_nav'} %>
+<div class="metadata" data-metadata="<%= show_document.to_json %>" data-url="<%= request.original_url %>"></div>
+<section id="metadata">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 image-and-view-original">
+        <div class="row show-conent-top">
+          <h1 class="h3" style="font-style:italic;">
+            <%= show_document.display_title %>
+          </h1>
+          <div class="col-xs-12 col-sm-7">
+            <% if show_document.has_sound_without_image? %>
+              <div class="cover-image gallery-glyphs glyphs">
+                <%= link_to thumb_url, {target: '_blank'} do %>
+                  <span class="icon-headphones"></span>
+                <% end %>
+              </div>
+            <% else %>
+              <%= link_to show_document.thumb_url, {target: '_blank'} do %>
+                <img src="<%= thumbnail_src(show_document.document) %>"
+                     alt="Thumbnail for <%= show_document.document['title_ssi'] %>"
+                     class="thumbnail"
+                     onerror="this.onerror=null;this.src=noThumbnail('<%= show_document.document['id'] %>', '<%= show_document.document['object_ssi'] %>');" />
+              <% end %>
+            <% end %>
+          </div>
+          <div class="col-xs-12 col-sm-5 view-original-col">
+            <a class="btn btn-default btn-lg btn-primary btn-view-original view-original-full-record" href="<%= show_document.thumb_url %>" target="_blank">
+              <span class="glyphicon glyphicon-new-window"></span>
+              View
+            </a>
+            <div class="data-provider">
+              <%= raw show_document.view_original_provider_search %>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="pin-it-large">
+            <%= render 'pin_it_large', :document => show_document, :pinterest_image => '//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_red_28.png' %>
+          </div>
+          <div class="addthis_sharing_toolbox">
+            <a addthis:title="<%= show_document.display_title_short %>" class="addthis-twitter addthis_button_twitter" data-url="<%= catalog_url(show_document.document) %>">
+              <img height="42" src="https://d3bqfbs46oeuvc.cloudfront.net/twitter_logo.png" style="margin-top: -4px" width="42"/>
+            </a>
+          </div>
+        </div>
+        <h2 class="h4" style="color:#777777">
+          <%= render_document_show_field_value show_document.document, :field => 'sourceResource_creator_ssi' %>
+        </h2>
+        <% if show_document.description %>
+          <h3 class="h4">Description</h3>
+          <%= show_document.description %>
+        <% end %>
+        <div class="row"></div>
+        <div id="technical-metadata">
+          <% document_show_fields(show_document).each do |solr_fname, field| %>
+            <% if should_render_show_field? show_document.document, field %>
+              <dt class="blacklight-<%= solr_fname.parameterize %>">
+                <%= render_document_show_field_label show_document.document, :field => solr_fname %>
+              </dt>
+              <dd class="blacklight-<%= solr_fname.parameterize %>">
+                <div>
+                  <%= render_document_show_field_value show_document.document, :field => solr_fname %>
+                </div>
+              </dd>
+            <% end %>
+          <% end %>
+          <% if show_document.view_original %>
+            <dt class="blacklight-blacklight-isshownat_ssi">
+              View Original At:
+            </dt>
+            <dd class="blacklight-blacklight-isshownat_ssi">
+              <div>
+                <%= link_to show_document.view_original, show_document.view_original, {target: '_blank'} %>
+              </div>
+            </dd>
+          <% end %>
+        </div>
+        <% if show_document.collection %>
+          <h4>From Collection</h4>
+          <%= render_facet_link('sourceResource_collection_title_ssi', show_document.collection) %>
+        <% end %>
+        <% if show_document.data_provider %>
+          <h4 class="data-provider">Record Contributed By</h4>
+          <%= render_facet_link('dataProvider_ssi', show_document.data_provider) %>
+        <% end %>
+        <% if show_document.provider_name %>
+          <h4 class="provider">Record Harvested From</h4>
+          <%= render_facet_link('provider_name_ssi', show_document.provider_name) %>
+        <% end %>
+      </div>
+      <div class="col-xs-12 col-sm-5 col-sm-offset-1" style="border-left:1px solid #efefef;">
+        <div class="row" style="margin-top:20px;">
+          <div class="col-sm-12">
+            <% if show_document.subjects %>
+              <h3 class="h4">Keywords</h3>
+              <ol class="list-unstyled subjects">
+                <% show_document.keyword_links.each do |keyword_link| %>
+                  <li>
+                    <%= link_to keyword_link[:label], url_for(keyword_link[:path_options]), {class: "label label-default"} %>
+                  </li>
+                <% end %>
+              </ol>
+            <% end %>
+            <h4>Related Content</h4>
+            <div class="related">
+              <% show_document.document.more_like_this.each do |related_document| %>
+                <% if related_document.fetch('sourceResource_type_ssi', '') == 'sound' %>
+                  <div class="cover-image thumbnail">
+                    <%= link_to related_document do %>
+                      <span class="icon-headphones"></span>
+                    <% end %>
+                  </div>
+                <% else %>
+                  <%= link_to related_document do %>
+                      <img src="<%= thumbnail_src(related_document) %>"
+                           alt="<%= related_document['title_ssi'] %>"
+                           title="<%= related_document['title_ssi'] %>"
+                           nopin="nopin"
+                           class="thumbnail"
+                           onerror="this.onerror=null;this.src=noThumbnail('<%= related_document['id'] %>', '<%= related_document['object_ssi'] %>');" />
+                  <% end %>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,43 +1,27 @@
 module ThumbnailHelper
 
-  def cached_thumbnail_tag(document, image_options)
-    title = presenter(document).render_document_index_label document_show_link_field(document)
-    image_options = {class:"thumbnail", alt:title.strip, title:title.strip, property:"og:image"}.merge(image_options)
-    if has_thumbnail_field?(document)
-      image_tag cached_thumb_url(thumbnail_url(document)), image_options
-    else
-      image_tag DEFAULT_THUMBNAIL, image_options
-    end
+  def thumbnail_src(document)
+    return default_thumb_src unless has_thumbnail?(document)
+    cdn_url(Digest::SHA1.hexdigest(document['object_ssi']))
   end
 
-  # Allows us to not show the thumbnail at all if the document thumbnail field
-  # is altogether missing
-  def has_thumbnail_field?(document)
-    document.has?(blacklight_config.view_config(document_index_view_type).thumbnail_field)
+  def default_thumb_src
+    "#{ENV['NAILER_CDN_URI']}/default_thumbnail.gif"
   end
 
-  # Returns the cached thumbnail if it is available
-  # Redirects to the original url if there is no cache
-  # Raises ParameterMissing error if no :url is specified in request
-  def cached_thumb_url(url)
-    # uses calculated local filepath for url to prevent SQL injection through :url param
-    @file_cache_record = FileCache.find_by_filepath( FileCache.local_filepath_for(url))
+  def cdn_thumb(key)
+    "#{key}.png"
+  end
 
-    if @file_cache_record.nil?
-      FileCachePopulatorWorker.perform_async(url)
-      return url
-    else
-
-      if @file_cache_record.content_valid?
-        return @file_cache_record.filepath.gsub(File.join(current_path, 'public'), '')
-      else
-        return DEFAULT_THUMBNAIL
-      end
-
-    end
+  def cdn_url(key)
+    "#{ENV['NAILER_CDN_URI']}/#{cdn_thumb(key)}"
   end
 
   def current_path
     Rails.root.to_s.gsub(/releases\/[0-9]*/, 'current')
+  end
+
+  def has_thumbnail?(document)
+    document.fetch('object_ssi', false)
   end
 end

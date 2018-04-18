@@ -24,7 +24,8 @@ development:
 
 test:
   <<: *default
-  database: aath_search_test
+  host:     <%= ENV['AATH_SEARCH_DB_HOST'] %>
+  database: umbra_test
 
 production:
   <<: *default

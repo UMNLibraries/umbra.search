@@ -5,6 +5,6 @@
   %div.panel-heading
     = render 'view_original', :document => doc, :context => 'Gallery Search'
   %div.panel-body
-    .cover-image= render_thumbnail_tag(document, {:title => label, :alt => label}, {:counter => counter})
+    .cover-image= render 'thumbnail_default', :document => document, :document_counter => document_counter
     %div.title
       = link_to_document document, :counter => counter, :label=> label

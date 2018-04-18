@@ -75,9 +75,6 @@ class CatalogController < ApplicationController
     config.index.title_field = 'title_ssi'
     config.index.display_type_field = 'sourceResource_type_ssi'
     config.index.display_type_field = 'keywords_ssim'
-    config.index.thumbnail_method = :cached_thumbnail_tag
-    config.show.thumbnail_method = :cached_thumbnail_tag
-
     config.view.gallery.default = false
     config.view.gallery.partials = [:index]
     config.view.gallery.icon_class = "glyphicon-th"

@@ -1,0 +1,7 @@
+<%= link_to url_for_document(document), document_link_params(document, :counter => document_counter_with_offset(document_counter)) do %>
+  <img src="<%= thumbnail_src(document) %>"
+        class="thumbnail"
+        alt="<%= document['title_ssi'] %>"
+        title="<%= document['title_ssi'] %>"
+        onerror="this.onerror=null;this.src=noThumbnail('<%= document['id'] %>', '<%= document['object_ssi'] %>');" />
+<% end %>

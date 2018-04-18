@@ -105,27 +105,29 @@
                 <% end %>
               </ol>
             <% end %>
-            <h4>Related Content</h4>
-            <div class="related">
-              <% show_document.document.more_like_this.each do |related_document| %>
-                <% if related_document.fetch('sourceResource_type_ssi', '') == 'sound' %>
-                  <div class="cover-image thumbnail">
+            <% if show_document.document.more_like_this.length > 0 %>
+              <h4>Related Content</h4>
+              <div class="related">
+                <% show_document.document.more_like_this.each do |related_document| %>
+                  <% if related_document.fetch('sourceResource_type_ssi', '') == 'sound' %>
+                    <div class="cover-image thumbnail">
+                      <%= link_to related_document do %>
+                        <span class="icon-headphones"></span>
+                      <% end %>
+                    </div>
+                  <% else %>
                     <%= link_to related_document do %>
-                      <span class="icon-headphones"></span>
+                        <img src="<%= thumbnail_src(related_document) %>"
+                            alt="<%= related_document['title_ssi'] %>"
+                            title="<%= related_document['title_ssi'] %>"
+                            nopin="nopin"
+                            class="thumbnail"
+                            onerror="this.onerror=null;this.src=noThumbnail('<%= related_document['id'] %>', '<%= related_document['object_ssi'] %>');" />
                     <% end %>
-                  </div>
-                <% else %>
-                  <%= link_to related_document do %>
-                      <img src="<%= thumbnail_src(related_document) %>"
-                           alt="<%= related_document['title_ssi'] %>"
-                           title="<%= related_document['title_ssi'] %>"
-                           nopin="nopin"
-                           class="thumbnail"
-                           onerror="this.onerror=null;this.src=noThumbnail('<%= related_document['id'] %>', '<%= related_document['object_ssi'] %>');" />
                   <% end %>
                 <% end %>
-              <% end %>
-            </div>
+              </div>
+            <% end %>
           </div>
         </div>
       </div>

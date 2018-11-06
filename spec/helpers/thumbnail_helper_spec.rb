@@ -8,11 +8,4 @@ describe ThumbnailHelper, :type => :helper do
     helper.extend Blacklight::Controller
     allow(helper).to receive(:blacklight_config).and_return(blacklight_config)
   end
-  describe "cached_thumbnail_tag" do
-    it "should generate a url for requesting the cached thumb from the ThumbnailsController" do
-      rendered_text = helper.cached_thumbnail_tag(document, {})
-      rendered_html = Capybara::Node::Simple.new(rendered_text)
-      expect( rendered_html ).to have_xpath("//img[@src=\"#{cached_thumb_url(thumbnail_url)}\" and @title='Awesome Title' and @alt='Awesome Title']")
-    end
-  end
 end

@@ -1,8 +1,0 @@
-- document_presenter = presenter(document)
-- if has_thumbnail?(document) && tn = render_thumbnail_tag(document, {}, :counter => document_counter_with_offset(document_counter))
-  %div.search-thumbnail
-    - if document_presenter.has_sound_without_image?
-      = link_to(catalog_url(document)) do
-        %span.gallery-glyphs.glyphs.icon-headphones
-    - else
-      = tn

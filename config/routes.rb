@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   authenticate :user, lambda { |u| u.admin? } do
     mount Sidekiq::Web => '/sidekiq'
   end
- 
+
 
   get '/contributing-institutions' => "data_providers#index", as: 'data_providers'
   get '/contributing-institutions/:id' => "data_providers#show", as: 'data_provider'
@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   root :to => 'pages#home'
 
   blacklight_for :catalog
-  get 'thumbnail' => 'thumbnails#download', as: 'cached_thumbnail'
+
 
   get '/about', to: redirect('/pages/about')
   get '/about/partner', to: redirect('/pages/partner')
@@ -52,6 +52,8 @@ Rails.application.routes.draw do
   resources :featured_contents
 
   resources :suggest, only: :index, defaults: { format: 'json' }
+
+  get 'thumbnail_cache/:record_id' => 'thumbnail_cache#update', as: 'thumbnail_cache'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -33,7 +33,6 @@ services:
       MYSQL_DATABASE: umbra
     volumes:
       - db-data:/var/lib/mysql
-      - ./docker/data:/docker-entrypoint-initdb.d
   sidekiq:
     build: .
     command: bundle exec sidekiq -r /umbra.search
@@ -47,4 +46,6 @@ services:
     image: redis:latest
 volumes:
   db-data:
+    driver: local
+  db-data-test:
     driver: local

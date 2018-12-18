@@ -59,11 +59,11 @@
           <% document_show_fields(show_document).each do |solr_fname, field| %>
             <% if should_render_show_field? show_document.document, field %>
               <dt class="blacklight-<%= solr_fname.parameterize %>">
-                <%= render_document_show_field_label show_document.document, :field => solr_fname %>
+                <%= show_field_label(show_document.document, solr_fname) %>
               </dt>
               <dd class="blacklight-<%= solr_fname.parameterize %>">
                 <div>
-                  <%= render_document_show_field_value show_document.document, :field => solr_fname %>
+                <%= show_field_value(show_document.document, solr_fname) %>
                 </div>
               </dd>
             <% end %>

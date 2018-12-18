@@ -50,8 +50,9 @@ describe 'catalog/show.html.haml' do
   end
   it "renders related content from more_like_this" do
     render file: 'catalog/show'#, locals: { document: document }
+    # raise rendered.inspect
     expect(rendered).to have_selector(".related")
-    expect(rendered).to have_xpath("//img[@src=\"#{cached_thumbnail_url(url:related_document_url)}\" and @title='#{related_document_title}' and @alt='#{related_document_title}']")
+    expect(rendered).to have_xpath("//img[@src=\"/89be9cc9f8661292190009fc2df95112b2e7a530.png\" and @title=\"#{related_document_title}\" and @alt=\"#{related_document_title}\"]")
   end
 
 end

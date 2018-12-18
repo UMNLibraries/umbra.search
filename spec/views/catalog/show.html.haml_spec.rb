@@ -53,9 +53,13 @@ describe 'catalog/show.html.haml' do
     expect(rendered).to have_selector(".related")
     expect(rendered).to have_xpath("//img[@src=\"/89be9cc9f8661292190009fc2df95112b2e7a530.png\" and @title=\"#{related_document_title}\" and @alt=\"#{related_document_title}\"]")
   end
-
+  it "renders technical metadata" do
+    render file: 'catalog/show'#, locals: { document: document }
+    expect(rendered).to have_selector("#technical-metadata")
+    expect(rendered).to have_css("#technical-metadata dt:first-child", text: "\n                Type:\n              ")
+    expect(rendered).to have_css("#technical-metadata > dd.blacklight-sourceresource_type_ssi > div", text: "\n                Image\n                ")
+  end
 end
-
 def set_catalog_controller_double!
   controller.singleton_class.class_eval do
     protected

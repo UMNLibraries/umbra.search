@@ -33,6 +33,14 @@ require "support/features/sign_in"
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
+
+  # Fake it for SearchContextHelper::uri
+  config.before :each do |test|
+    if test.metadata[:type] == :view
+      allow_any_instance_of(ActionController::TestRequest).to receive(:original_url).and_return('')
+    end
+  end
+
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 

@@ -59,6 +59,11 @@ describe 'catalog/show.html.haml' do
     expect(rendered).to have_css("#technical-metadata dt:first-child", text: "\n                Type:\n              ")
     expect(rendered).to have_css("#technical-metadata > dd.blacklight-sourceresource_type_ssi > div", text: "\n                Image\n                ")
   end
+
+  it "presents a json link" do
+    render file: 'catalog/show'#, locals: { document: document }
+    expect(rendered).to have_link('json-link', href: '://:.json')
+  end
 end
 def set_catalog_controller_double!
   controller.singleton_class.class_eval do

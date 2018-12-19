@@ -22,4 +22,6 @@
   <%= render_document_index %>
 <%- end %>
 
+<%= json_result_link if !@response.empty? %>
+
 <%= render 'results_pagination' %>

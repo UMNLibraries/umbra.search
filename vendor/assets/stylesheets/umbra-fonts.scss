@@ -1,10 +1,11 @@
 @font-face {
   font-family: 'umbra-fonts';
-  src: url(font-path('umbra-fonts.eot?56346435'));
-  src: url(font-path('umbra-fonts.eot?56346435#iefix')) format('embedded-opentype'),
-       url(font-path('umbra-fonts.woff?56346435')) format('woff'),
-       url(font-path('umbra-fonts.ttf?56346435')) format('truetype'),
-       url(font-path('umbra-fonts.svg?56346435#umbra-fonts')) format('svg');
+  src: font-url('umbra-fonts.eot?90415007');
+  src: font-url('umbra-fonts.eot?90415007#iefix') format('embedded-opentype'),
+       font-url('umbra-fonts.woff2?90415007') format('woff2'),
+       font-url('umbra-fonts.woff?90415007') format('woff'),
+       font-url('umbra-fonts.ttf?90415007') format('truetype'),
+       font-url('umbra-fonts.svg?90415007#umbra-fonts') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -14,12 +15,12 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: 'umbra-fonts';
-    src: url('../font/umbra-fonts.svg?56346435#umbra-fonts') format('svg');
+    src: font-url('umbra-fonts.svg?90415007#umbra-fonts') format('svg');
   }
 }
 */
  
- [class^="icon-"]:before, [class*=" icon-"]:before {
+ %icon-base {
   font-family: "umbra-fonts";
   font-style: normal;
   font-weight: normal;
@@ -54,9 +55,16 @@
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 }
  
-.icon-physical-object:before { content: '\e800'; } /* '' */
-.icon-headphones:before { content: '\e801'; } /* '' */
-.icon-video:before { content: '\e802'; } /* '' */
-.icon-doc-text:before { content: '\e803'; } /* '' */
-.icon-picture:before { content: '\e804'; } /* '' */
-.icon-search:before { content: '\e805'; } /* '' */
+%icon-headphones:before { @extend %icon-base; content: '\e800'; } /* '' */
+%icon-doc-text:before { @extend %icon-base; content: '\e801'; } /* '' */
+%icon-video:before { @extend %icon-base; content: '\e802'; } /* '' */
+%icon-picture:before { @extend %icon-base; content: '\e803'; } /* '' */
+%icon-json:before { @extend %icon-base; content: '\e806'; } /* '' */
+%icon-physical-object:before { @extend %icon-base; content: '\e807'; } /* '' */
+
+.icon-headphones { @extend %icon-headphones; }
+.icon-doc-text { @extend %icon-doc-text; }
+.icon-video { @extend %icon-video; }
+.icon-picture { @extend %icon-picture; }
+.icon-json { @extend %icon-json; }
+.icon-physical-object { @extend %icon-physical-object; }

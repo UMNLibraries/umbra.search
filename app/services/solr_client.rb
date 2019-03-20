@@ -33,6 +33,21 @@ class SolrClient
     client.paginate page, rows, 'select', :params => {:fl => '*', :q => query}.merge(params)
   end
 
+  def self.backup(number_to_keep: 1)
+    client.get 'replication', params: {
+      command: 'backup',
+      location: ENV['SOLR_BACKUP_LOCATION'],
+      numberToKeep: number_to_keep
+    }
+  end
+
+  def self.restore
+    client.get 'replication', params: {
+      command: 'restore',
+      location: ENV['SOLR_BACKUP_LOCATION']
+    }
+  end
+
   def self.client
     SolrClient.connect
   end

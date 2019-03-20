@@ -32,4 +32,15 @@ namespace :solr do
   task :commit do
     SolrClient.commit
   end
+
+  desc "backup solr data locally"
+  task :backup, [:number_to_keep] => :environment  do |t, args|
+    keep = args[:number_to_keep].blank? ? 2 : args[:number_to_keep].to_i
+    SolrClient.backup(number_to_keep: keep)
+  end
+
+  desc "Restore latest backup"
+  task restore: [:environment]  do
+    SolrClient.restore
+  end
 end

@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.10'
+gem 'rails', '4.2.11'
 
 gem 'mysql2'
 
@@ -10,11 +10,6 @@ gem 'mysql2'
 gem 'sass-rails', '~> 5.0.3'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
-# Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# Had to downgrade therubyracer due to segfaults outlined here: https://github.com/metaskills/less-rails/issues/95
-gem 'therubyracer', '~> 0.11.3' unless RUBY_PLATFORM =~ /darwin/i
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -28,20 +23,8 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
 gem 'cancancan'
-gem 'blacklight'
-gem 'blacklight_range_limit'
+gem 'blacklight', '~> 5.18.0'
 gem 'rsolr', '~>1.0'
 gem 'rails_autolink'
 gem 'haml'

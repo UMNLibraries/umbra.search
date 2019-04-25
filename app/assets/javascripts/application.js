@@ -18,9 +18,6 @@
 // Required by Blacklight
 //= require blacklight/blacklight
 //
-// For blacklight_range_limit built-in JS, if you don't want it you don't need
-// this:
-//= require 'blacklight_range_limit'
 
 // For Cropping Avatar Images
 //= require jcrop/js/jquery.Jcrop

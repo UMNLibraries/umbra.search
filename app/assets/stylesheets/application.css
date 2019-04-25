@@ -12,8 +12,7 @@
  * For cropping user avatars
  *= require jcrop/css/jquery.Jcrop
  *
- * Used by blacklight_range_limit
- *= require 'blacklight_range_limit'
+
  *
  *= require 'jquery-ui/themes/smoothness/jquery-ui.min.css'
  *

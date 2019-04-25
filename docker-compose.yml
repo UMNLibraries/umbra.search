@@ -1,25 +1,20 @@
 version: '2'
 services:
   solr:
-    image: solr:6.3.0
+    image: lib-docker.artifactory.umn.edu/umbra_solr
     ports:
       - "8983:8983"
     volumes:
-      - ./cores:/opt/solr/server/solr/cores
-  solr_setup:
-    build: .
-    command: bundle exec rake sunrise:setup_dev
-    volumes:
-      - .:/umbra.search
+      - ./snapshots:/snapshots
   web:
     build: .
     env_file:
       - .env
-    command: bundle exec rails s -p 8000 -b '0.0.0.0'
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
     volumes:
       - .:/umbra.search
     ports:
-      - "8000:8000"
+      - "3000:3000"
     links:
       - solr
       - db
@@ -32,7 +27,7 @@ services:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: umbra
     volumes:
-      - db-data:/var/lib/mysql
+      - umbra-db-data:/var/lib/mysql
       - ./docker/data:/docker-entrypoint-initdb.d
   sidekiq:
     build: .
@@ -46,5 +41,5 @@ services:
   redis:
     image: redis:latest
 volumes:
-  db-data:
+  umbra-db-data:
     driver: local

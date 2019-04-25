@@ -1,6 +1,13 @@
-FROM ruby:2.1.1
-RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs
-RUN ln -s /usr/bin/nodejs /usr/bin/node
+FROM ruby:2.4.5
+
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash \
+    && apt-get update && apt-get install -qq -y --no-install-recommends \
+      build-essential nodejs
+
+COPY ./docker-entrypoint.sh /
+RUN chmod +x /docker-entrypoint.sh
+ENTRYPOINT ["/docker-entrypoint.sh"]
+
 RUN mkdir /umbra.search
 WORKDIR /umbra.search
 ADD . /umbra.search

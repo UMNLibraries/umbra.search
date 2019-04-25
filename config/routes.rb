@@ -27,7 +27,6 @@ Rails.application.routes.draw do
 
   get 'featured_board/preview' => 'featured_boards#preview', as: 'board_preview'
 
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, :controllers => { :registrations => "registrations" }
   root :to => 'pages#home'
 

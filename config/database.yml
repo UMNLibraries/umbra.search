@@ -13,21 +13,20 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: 5
-  database: <%= ENV['AATH_SEARCH_DB_NAME'] %>
-  username: <%= ENV['AATH_SEARCH_DB_USERNAME'] %>
-  password: <%= ENV['AATH_SEARCH_DB_PASSWORD'] %>
-  database: <%= ENV['AATH_SEARCH_DB_NAME'] %>
+  database: <%= ENV['MYSQL_DB_NAME'] %>
+  username: <%= ENV['MYSQL_DB_USER'] %>
+  password: <%= ENV['MYSQL_DB_PASSWORD'] %>
 
 development:
   <<: *default
-  host:     <%= ENV['AATH_SEARCH_DB_HOST'] %>
+  host:     <%= ENV['MYSQL_DB_HOST'] %>
 
 test:
   <<: *default
-  host:     <%= ENV['AATH_SEARCH_DB_HOST'] %>
+  host:     <%= ENV['MYSQL_DB_HOST'] %>
   database: umbra_test
 
 production:
   <<: *default
   pool: 20
-  host: <%= ENV['AATH_SEARCH_DB_HOST'] %>
+  host: <%= ENV['MYSQL_DB_HOST'] %>

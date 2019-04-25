@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161222191844) do
+ActiveRecord::Schema.define(version: 20180328205013) do
 
   create_table "api_keys", force: :cascade do |t|
     t.string   "access_token", limit: 255
@@ -55,18 +55,6 @@ ActiveRecord::Schema.define(version: 20161222191844) do
   end
 
   add_index "bookmarks", ["user_id"], name: "index_bookmarks_on_user_id", using: :btree
-
-  create_table "daily_searches", force: :cascade do |t|
-    t.string   "title",          limit: 255
-    t.string   "search",         limit: 255
-    t.date     "day"
-    t.text     "search_context", limit: 65535
-    t.string   "preview_image",  limit: 255
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
-  end
-
-  add_index "daily_searches", ["day"], name: "index_daily_searches_on_day", unique: true, using: :btree
 
   create_table "data_providers", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -112,6 +100,8 @@ ActiveRecord::Schema.define(version: 20161222191844) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "file_caches", ["filepath"], name: "index_file_caches_on_filepath", using: :btree
 
   create_table "flag_votes", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
@@ -201,7 +191,7 @@ ActiveRecord::Schema.define(version: 20161222191844) do
   create_table "records", force: :cascade do |t|
     t.string   "record_hash",      limit: 41
     t.text     "metadata",         limit: 4294967295
-    t.string   "ingest_name",      limit: 255
+    t.string   "ingest_name",      limit: 38
     t.string   "ingest_hash",      limit: 255
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
@@ -209,10 +199,11 @@ ActiveRecord::Schema.define(version: 20161222191844) do
   end
 
   add_index "records", ["data_provider_id"], name: "index_records_on_data_provider_id", using: :btree
+  add_index "records", ["ingest_name"], name: "ingest_name", using: :btree
   add_index "records", ["record_hash"], name: "index_records_on_record_hash", unique: true, using: :btree
 
   create_table "searches", force: :cascade do |t|
-    t.text     "query_params", limit: 16777215
+    t.text     "query_params", limit: 65535
     t.integer  "user_id",      limit: 4
     t.string   "user_type",    limit: 255
     t.datetime "created_at"

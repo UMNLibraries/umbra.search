@@ -47,3 +47,4 @@ blacklight_test
 uploads
 
 config/ga_keyfile.p12
+.env

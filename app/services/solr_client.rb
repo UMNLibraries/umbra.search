@@ -15,6 +15,10 @@ class SolrClient
     client.commit
   end
 
+  def self.optimize
+    client.commit
+  end
+
   # can pass multiple record_ids as an array
   def self.delete(record_id)
     client.delete_by_id record_id

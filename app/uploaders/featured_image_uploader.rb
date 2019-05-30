@@ -6,7 +6,6 @@ class FeaturedImageUploader < CarrierWave::Uploader::Base
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
   include Piet::CarrierWaveExtension
-  include CarrierWave::MimeTypes
 
 
   # Choose what kind of storage to use for this uploader:

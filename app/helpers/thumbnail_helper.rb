@@ -1,7 +1,7 @@
 module ThumbnailHelper
 
   def thumbnail_src(document)
-    return default_thumb_src unless has_thumbnail?(document)
+    return default_thumb_src unless thumbnail?(document)
     cdn_url(Digest::SHA1.hexdigest(document['object_ssi']))
   end
 
@@ -21,7 +21,7 @@ module ThumbnailHelper
     Rails.root.to_s.gsub(/releases\/[0-9]*/, 'current')
   end
 
-  def has_thumbnail?(document)
+  def thumbnail?(document)
     document.fetch('object_ssi', false)
   end
 end

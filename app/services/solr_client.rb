@@ -52,6 +52,12 @@ class SolrClient
     }
   end
 
+  def self.mlt(id)
+    client.get('mlt',
+               params: { rows: 20, q: "id:\"#{id}\"" }
+              ).fetch('response')
+  end
+
   def self.client
     SolrClient.connect
   end

@@ -1,7 +1,7 @@
 version: '2'
 services:
   solr:
-    image: lib-docker.artifactory.umn.edu/umbra_solr
+    image: umbra_solr:dev
     ports:
       - "8983:8983"
     volumes:
@@ -37,6 +37,12 @@ services:
       - .env
   redis:
     image: redis:latest
+  redis_cache:
+    image: redis:4.0.10
+    command: redis-server /usr/local/etc/redis/redis.conf
+    volumes:
+        - ./docker/redis-cache.conf:/usr/local/etc/redis/redis.conf
+
 volumes:
   umbra-db-data:
     driver: local

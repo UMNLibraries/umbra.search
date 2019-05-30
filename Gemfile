@@ -16,16 +16,17 @@ gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.0'
+gem 'jbuilder'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
+
+gem 'coffee-script'
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 
 gem 'cancancan'
-gem 'blacklight', '~> 5.19.2'
-gem 'rsolr', '~>1.0'
+gem 'blacklight', '~> 6.20.0'
 gem 'rails_autolink'
 gem 'haml'
 gem 'aws-sdk', '< 2'
@@ -38,7 +39,6 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'rmagick'
 gem 'rest-client', '~>1.8'
-gem 'rails_admin', '~> 1.3.0'
 gem 'piet'
 gem 'piet-binary'
 gem 'kaminari'
@@ -73,4 +73,16 @@ end
 group :test do
   gem 'test_after_commit'
   gem 'webmock'
+end
+group :development, :test do
+  gem 'solr_wrapper', '>= 0.3'
+end
+
+gem 'rsolr', '>= 1.0'
+group :development, :test do
+end
+
+gem 'bootstrap-sass', '~> 3.0'
+gem 'twitter-typeahead-rails', '0.11.1.pre.corejavascript'
+group :development, :test do
 end

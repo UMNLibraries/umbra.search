@@ -11,8 +11,11 @@
 # how to start up solr, generally for automated testing.
 
 development:
+  adapter: solr
   url: <%= ENV['AATH_SOLR_DEV_URL']  || "http://solr:8983/solr/cores" %>
 test: &test
+  adapter: solr
   url: <%= ENV['AATH_SOLR_TEST_URL'] || "http://solrtest:8889/solr/cores" %>
 production:
+  adapter: solr
   url: <%= ENV['AATH_SOLR_PROD_URL'] || "http://127.0.0.1:8983/solr/core" %>

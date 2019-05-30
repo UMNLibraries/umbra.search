@@ -1,13 +1,12 @@
 .twitter-typeahead {
-  float: left;
-  width: 100%;
-  z-index: 10000;
-  
-  .tt-input.form-control {
+  flex-grow: 2;
+  z-index: 2;
+
+  input.tt-input.form-control {
     width: 100%;
   }
-  
-  .tt-hint.form-control {
+
+  input.tt-hint.form-control {
     width: 100%;
   }
 
@@ -21,6 +20,7 @@
     border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
   }
+
 
   .tt-cursor {
     background-color: #fff;

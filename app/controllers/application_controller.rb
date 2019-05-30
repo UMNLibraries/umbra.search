@@ -1,10 +1,14 @@
 class ApplicationController < ActionController::Base
-  before_filter :configure_permitted_parameters, if: :devise_controller?
-  include Blacklight::Catalog::SearchContext
-  # Adds a few additional behaviors into the application controller 
+  # Adds a few additional behaviors into the application controller
   include Blacklight::Controller
-  # Please be sure to impelement current_user and user_session. Blacklight depends on 
-  # these methods in order to perform user specific actions. 
+  layout 'blacklight'
+
+  before_filter :configure_permitted_parameters, if: :devise_controller?
+  include Blacklight::SearchContext
+  # Adds a few additional behaviors into the application controller
+  include Blacklight::Controller
+  # Please be sure to impelement current_user and user_session. Blacklight depends on
+  # these methods in order to perform user specific actions.
 
   layout 'umbra' # use layouts/umbra instead of default layouts/blacklight
 
@@ -15,10 +19,10 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:username, :email, :password,
-      :password_confirmation, :remember_me) }
-    devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:username, :email, :password,
-      :password_confirmation, :current_password) }
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :email, :password,
+    :password_confirmation, :remember_me])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:username, :email, :password,
+    :password_confirmation, :current_password])
   end
 
   def devise_params

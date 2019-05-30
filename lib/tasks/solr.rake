@@ -1,5 +1,3 @@
-require "#{Rails.root}/lib/tasks/setup/setup_helper.rb"
-
 namespace :solr do
   desc "Delete by Query"
   task :delete_by_query, [:query] => [:environment] do |t, args|
@@ -29,7 +27,7 @@ namespace :solr do
   end
 
   desc "Restore latest backup"
-  task restore: [:environment] do
+  task :restore => [:environment] do
     SolrClient.restore
   end
 end

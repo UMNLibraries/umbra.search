@@ -6,6 +6,8 @@ en:
     application_name: 'Umbra'
     tagline: 'Search African American History'
     search:
+      form:
+        q: "Search"
       fields:
         editor_tags_ssim: "Editor Keyword Additions  (Editors Only)"
         sourceResource_type_ssi: "Type"

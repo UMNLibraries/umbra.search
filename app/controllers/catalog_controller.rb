@@ -3,24 +3,7 @@
 class CatalogController < ApplicationController
   protect_from_forgery unless: -> { request.format.json? }
   include Blacklight::Catalog
-  include BlacklightMoreLikeThis::SolrHelperExtension
-  include Flag::SolrHideFlagged
-
-  def index
-    (@response, @document_list) = search_results(params, search_params_logic)
-    @flags = Array.wrap(Flag.where(:published => true))
-    respond_to do |format|
-      format.html { store_preferred_view }
-      # format.rss  { render :layout => false }
-      # format.atom { render :layout => false }
-      format.json do
-        render json: render_search_results_as_json, callback: params['callback']
-      end
-
-      additional_response_formats(format)
-      document_export_formats(format)
-    end
-  end
+  before_action :flags, only: [:index]
 
   def about
     render :about
@@ -34,6 +17,10 @@ class CatalogController < ApplicationController
     render :contact
   end
 
+  # get search results from the solr index
+  def flags
+    @flags ||= Array.wrap(Flag.where(:published => true))
+  end
 
   # Override blacklights limit param for facets.
   # See: def solr_facet_params - blacklight-5.7.2/lib/blacklight/solr_helper.rb

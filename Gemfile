@@ -24,7 +24,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
 gem 'cancancan'
-gem 'blacklight', '~> 5.18.0'
+gem 'blacklight', '~> 5.19.2'
 gem 'rsolr', '~>1.0'
 gem 'rails_autolink'
 gem 'haml'
@@ -48,6 +48,7 @@ gem 'coderay', '~> 1.0.5'
 gem 'google-api-client', '0.8.6'
 gem 'activerecord-import'
 gem 'whenever', :require => false
+gem 'redis-rails'
 
 group :test, :development do
   # Debug seems to have trouble w/ Ruby 2.x, byebug is a replacment

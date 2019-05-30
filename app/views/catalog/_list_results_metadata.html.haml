@@ -11,7 +11,7 @@
     %ol.list-unstyled.subjects.subjects-search-results
       = document_presenter.keywords.sort.join("; ")
   = render 'view_original', :document => document_presenter, :context => 'List Search'
-  - if can?(:update, document_presenter.record) && document_presenter.has_editor_fields?
+  - if current_user && can?(:update, document_presenter.record) && document_presenter.has_editor_fields?
     %p
       %div.panel.panel-default
         %div.panel-heading

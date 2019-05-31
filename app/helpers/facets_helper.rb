@@ -27,23 +27,6 @@ module FacetsHelper
   end
 
   ##
-  # Look up the label for the facet field
-  def facet_field_label field
-    label = blacklight_config.facet_fields[field].label
-    label = browse_by_label(label) if params[:facet_view] == 'full'
-    solr_field_label(
-      label,
-      :"blacklight.search.fields.facet.#{field}",
-      :"blacklight.search.fields.#{field}"
-    )
-  end
-
-  def browse_by_label(label)
-    "Browse By: #{label}"
-  end
-
-
-  ##
   # Standard display of a SELECTED facet value (e.g. without a link and with a remove button)
   # @params (see #render_facet_value)
   def render_selected_facet_value(facet_solr_field, item)

@@ -20,6 +20,7 @@
 # Learn more: http://github.com/javan/whenever
 
 
-every 1.day, :at => '4:00 am' do
-  rake "google_stats:ingest"
+# Prevent search sessions from bloating our DB
+every 1.day, at: '12:15am' do
+  rake "blacklight_maintenance:truncate_searches"
 end

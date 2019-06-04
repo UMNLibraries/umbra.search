@@ -16,7 +16,7 @@ namespace :solr do
   end
 
   desc "Commit Indexed Records"
-  task :commit do
+  task :optimize do
     SolrClient.optimize
   end
 

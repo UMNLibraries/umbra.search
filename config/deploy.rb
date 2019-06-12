@@ -16,6 +16,8 @@ set :pty, true
 
 set :linked_dirs, fetch(:linked_dirs, [])
 
+append :linked_dirs, "log", "public/uploads", "tmp/pids"
+
 set :conditionally_migrate, true
 
 set :passenger_restart_with_touch, true

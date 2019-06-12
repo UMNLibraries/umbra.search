@@ -11,12 +11,12 @@ namespace :solr do
   end
 
   desc "Commit Indexed Records"
-  task :commit do
+  task commit: [:environment] do
     SolrClient.commit
   end
 
   desc "Commit Indexed Records"
-  task :optimize do
+  task optimize: [:environment] do
     SolrClient.optimize
   end
 
@@ -27,7 +27,7 @@ namespace :solr do
   end
 
   desc "Restore latest backup"
-  task :restore => [:environment] do
+  task restore:  [:environment] do
     SolrClient.restore
   end
 end

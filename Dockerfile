@@ -1,4 +1,4 @@
-FROM ruby:2.4.5
+FROM ruby:2.5.5
 
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash \
     && apt-get update && apt-get install -qq -y --no-install-recommends \

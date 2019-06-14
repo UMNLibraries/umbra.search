@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 services:
   solr:
     image: umbra_solr:dev

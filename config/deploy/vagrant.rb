@@ -4,4 +4,3 @@ set :use_sudo, false
 set :rails_env, "production"
 set :bundle_flags, '--deployment'
 set :keep_releases, 2
-set :branch, 'bl6.20'

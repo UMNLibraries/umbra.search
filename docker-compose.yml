@@ -1,7 +1,7 @@
 version: '3'
 services:
   solr:
-    image: umbra_solr:dev
+    image: cfennell/umbra_solr:dev
     ports:
       - "8983:8983"
     volumes:

@@ -1,19 +1,11 @@
-sudo: false
-language: ruby
-cache: bundler
-rvm:
-- 2.1.1
-- 2.1.0
+sudo: required
+services:
+  - docker
+dist: trusty
 env:
-  global:
-  - GOOGLE_KEY_FILE="$TRAVIS_BUILD_DIR/config/ga_keyfile.p12"
-  - secure: YwsBXkYk14OKUktZNM6FkUuhu7Y1xeDyDqb4Trkod18iAbH/h8ZzM62xQLWRL2mkPgtnc0nO9yW1S9V23HP9+SlqsyU9ShMa9DLRU8upx/ZM97okaCBn0CCAKjuTDzb28pMVFGRb1VNKSNuPRdbizCEUeNamD6YWq37pSPE6Cn0=
-  - secure: huNH8Nq2xZWHDA3NsDa9HVzJhtS/FHb7LwDEqF4nVRRU9afTSTcNAzpWPi0gA9WjJMHttUeE+Z7JAth0RuBlTdgNT/grr2emHO6n4x9ZPvtwpphObZhxhBf4CfSBWAVFxGZXwQHddF4kdis3mM/VJ10fQXCtqjmM6rzAAuFgZng=
-  - secure: ZfuNhHrRcL72bVdGtet/c51SeoKW+WYiHosJpkedPoIhJ9p68twMzhJTKrLeqaXI4oVbkOeHcYgAAyZgApLvwYjop3ZO0zpG+5OipyfhAgRaHHT35Bu5hsUq8QX8ZpwOW95HfN11wTsPc8XRfaFhmOjUXi/LgvvY5tj3ZlNyXuo=
-  - secure: r3eY4xMMv86pBWtNycZNnCkCMIdfVnWnrIPOcbarfkCo/hYgaJiblLFv+uGo3NsiEuGJxNVsVi2VzPESOpjkWkKlt2/nfR9l4E6mkFPJo2hzGpQPcn3ZsDNNAn0hq9j6UT8hIO10DYtGLQs0Oy55KJ5PFCw6agtOn+kuccQSrao=
+  - DOCKER_COMPOSE_VERSION=1.19.0
 before_script:
-- bundle exec rake solr:setup_test
-- mysql -e 'create database aath_search_test;'
+- mysql -e 'create database umbra_test;'
 - bundle exec rake db:migrate
 - bundle exec rake db:seed
 notifications:
@@ -22,5 +14,20 @@ notifications:
 global_env:
 - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
 before_install:
-- openssl aes-256-cbc -K $encrypted_997cf1aa5b08_key -iv $encrypted_997cf1aa5b08_iv
-  -in config/ga_keyfile.p12.enc -out config/ga_keyfile.p12 -d
+  - sudo apt-get update
+  # Force a docker update
+  - sudo apt-get install -o Dpkg::Options::="--force-confold" --force-yes -y docker-engine
+  - docker-compose --version
+  - sudo rm /usr/local/bin/docker-compose
+  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+  - chmod +x docker-compose
+  - sudo mv docker-compose /usr/local/bin
+install:
+  - mv .env-example .env
+  - docker-compose build
+  - docker-compose up -d
+script:
+  - docker-compose exec web bundle exec rspec
+after_script:
+  - docker-compose stop
+  - docker-compose rm -f

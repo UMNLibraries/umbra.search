@@ -3,19 +3,20 @@ require 'rails_helper'
 describe FacetsHelper, :type => :helper do
   let(:current_user) { create :user, :with_editor_role }
   let(:blacklight_config) { Blacklight::Configuration.new }
-  let(:test_item) { Blacklight::SolrResponse::Facets::FacetItem.new "test_item", 1 }
+  let(:test_item) { Blacklight::Solr::Response::Facets::FacetItem.new "test_item", 1 }
   let(:test_field_name) { 'test_field_ssi' }
-  let(:facet_item) { Blacklight::SolrResponse::Facets::FacetField.new test_field_name, test_item }
+  let(:facet_item) { Blacklight::Solr::Response::Facets::FacetField.new test_field_name, test_item }
 
   before(:each) do
     helper.extend Blacklight::Controller
     allow(helper).to receive(:current_user).and_return(current_user)
     allow(helper).to receive(:blacklight_config).and_return(blacklight_config)
+    allow(controller).to receive(:search_state_class).and_return(Blacklight::SearchState)
   end
 
   it "includes bootstrap style for displaying type facets" do
     type_facet_solr_field = "type_facet"
-    type_facet_item = Blacklight::SolrResponse::Facets::FacetItem.new "image", 38000
+    type_facet_item = Blacklight::Solr::Response::Facets::FacetItem.new(hits: '38000', value: 'image')
     expect(helper.render_selected_facet_value(type_facet_solr_field, type_facet_item)).to include('icon-picture')
     type_facet_item.value = "video"
     expect(helper.render_selected_facet_value(type_facet_solr_field, type_facet_item)).to include('icon-video')

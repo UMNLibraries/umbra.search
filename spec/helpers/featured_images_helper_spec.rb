@@ -1,13 +1,15 @@
 require 'rails_helper'
 
-describe FeaturedImagesHelper, :type => :helper do
+describe FeaturedImagesHelper, type: :helper do
   let(:featured_image) { FactoryGirl.build(:featured_image) }
   describe "published_status" do
     it "returns a styled div containing the publication status of the featured_image" do
       featured_image.published = false
-      expect(helper.published_status(featured_image)).to have_selector("div.text-warning", "Not published")
+      expect(helper.published_status(featured_image)).to have_selector(".text-warning")
+      expect(helper.published_status(featured_image)).to have_text("Not Published")
       featured_image.published = true
-      expect(helper.published_status(featured_image)).to have_selector("div.text-success", "Published")
+      expect(helper.published_status(featured_image)).to have_selector(".text-success")
+      expect(helper.published_status(featured_image)).to have_text("Published")
     end
   end
 
@@ -21,13 +23,14 @@ describe FeaturedImagesHelper, :type => :helper do
   describe "link_to_featured_record" do
     it "returns a link to the record with the given record_id" do
       puts helper.link_to_featured_record("a-record-id")
-      expect(helper.link_to_featured_record("a-record-id")).to have_link("a-record-id","/catalog/a-record-id")
+      expect(helper.link_to_featured_record("a-record-id")).to have_link("a-record-id", href: "/catalog/a-record-id")
     end
     it "lets you set the link text" do
-      expect(helper.link_to_featured_record("a-record-id", "My link!")).to have_link("My link!", "/catalog/a-record-id")
+      expect(helper.link_to_featured_record("a-record-id", "My link!")).to have_link("My link!", href: "/catalog/a-record-id")
     end
     it "displays a message if the record id is missing or empty" do
-      expect(helper.link_to_featured_record(nil)).to have_selector("span.text-danger","Unspecified")
+      expect(helper.link_to_featured_record(nil)).to have_selector("span.text-danger")
+      expect(helper.link_to_featured_record(nil)).to have_text("Unspecified")
     end
   end
 

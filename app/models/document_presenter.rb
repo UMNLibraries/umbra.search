@@ -18,4 +18,8 @@ class DocumentPresenter < Blacklight::DocumentPresenter
 
     safe_join(safe_values, (field_config.separator if field_config) || field_value_separator)
   end
+
+  def field_value_separator
+    ', '
+  end
 end

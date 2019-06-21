@@ -2,6 +2,10 @@ module BlacklightHelper
   include Blacklight::BlacklightHelperBehavior
 
   def presenter(document)
-    Umbra::DocumentPresenter.new(document, self)
+    presenter_class.new(document, self)
+  end
+
+  def presenter_class
+    Umbra::DocumentPresenter
   end
 end

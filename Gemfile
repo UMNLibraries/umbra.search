@@ -18,12 +18,12 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder'
 # bundle exec rake doc:rails generates the API under doc/api.
-gem 'sdoc', '~> 0.4.0',          group: :doc
+gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'coffee-script'
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-gem 'spring',        group: :development
+gem 'spring', group: :development
 
 gem 'cancancan'
 gem 'blacklight', '~> 6.20.0'
@@ -62,27 +62,23 @@ group :test, :development do
   gem 'capistrano-rails'
   gem 'capistrano-bundler'
   gem 'capistrano-rvm'
-  gem 'rspec-rails'
-  gem 'capybara'
-  gem 'factory_girl_rails', '~> 4.4.1'
-  gem 'faker'
   gem 'capistrano-sidekiq'
+  gem 'solr_wrapper', '>= 0.3'
 end
 
 # Gemfile (never include in :development !)
 group :test do
   gem 'test_after_commit'
   gem 'webmock'
-end
-group :development, :test do
-  gem 'solr_wrapper', '>= 0.3'
+  gem 'factory_girl_rails', '~> 4.4.1'
+  gem 'faker'
+  gem 'rspec-rails'
+  gem 'capybara', '>= 2.15', '< 4.0'
+  gem 'selenium-webdriver'
 end
 
 gem 'rsolr', '>= 1.0'
-group :development, :test do
-end
-
 gem 'bootstrap-sass', '~> 3.0'
 gem 'twitter-typeahead-rails', '0.11.1.pre.corejavascript'
-group :development, :test do
-end
+# Quite Rails logging down a bit:
+gem 'lograge', group: :production

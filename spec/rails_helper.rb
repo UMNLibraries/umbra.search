@@ -4,8 +4,26 @@ require 'spec_helper'
 require 'devise'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
-require 'capybara/rspec'
+
+#### CAPYBARA / SELENIUM
+# Capybara config with docker-compose environment vars
 require 'capybara/rails'
+require 'capybara/rspec'
+Capybara.app_host = "http://#{ENV['TEST_APP_HOST']}:#{ENV['TEST_PORT']}"
+Capybara.javascript_driver = :selenium
+Capybara.run_server = false
+
+# Configure the Chrome driver capabilities & register
+args = ['--no-default-browser-check', '--start-maximized', '--disable-gpu']
+caps = Selenium::WebDriver::Remote::Capabilities.chrome("chromeOptions" => {"args" => args})
+Capybara.register_driver :selenium do |app|
+  Capybara::Selenium::Driver.new(
+      app,
+      browser: :remote,
+      url: "http://#{ENV['SELENIUM_HOST']}:#{ENV['SELENIUM_PORT']}/wd/hub",
+      desired_capabilities: caps
+  )
+end
 
 require 'webmock/rspec'
 WebMock.allow_net_connect!
@@ -33,6 +51,9 @@ require "support/features/sign_in"
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
+
+  # Make the Capybara DSL available in all integration tests
+  config.include Capybara::DSL, :type => :feature
 
   # Fake it for SearchContextHelper::uri
   config.before :each do |test|

@@ -122,6 +122,8 @@ GEM
       timers (>= 4.1.1)
     celluloid-supervision (0.20.6)
       timers (>= 4.1.1)
+    childprocess (0.9.0)
+      ffi (~> 1.0, >= 1.0.11)
     chronic (0.10.2)
     coderay (1.0.9)
     coffee-script (2.4.1)
@@ -213,6 +215,11 @@ GEM
     kaminari-core (1.1.1)
     launchy (2.4.3)
       addressable (~> 2.3)
+    lograge (0.10.0)
+      actionpack (>= 4)
+      activesupport (>= 4)
+      railties (>= 4)
+      request_store (~> 1.0)
     loofah (2.2.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -309,6 +316,8 @@ GEM
     redis-store (1.6.0)
       redis (>= 2.2, < 5)
     regexp_parser (1.5.1)
+    request_store (1.4.1)
+      rack (>= 1.4)
     responders (2.4.1)
       actionpack (>= 4.2.0, < 6.0)
       railties (>= 4.2.0, < 6.0)
@@ -362,6 +371,9 @@ GEM
     sdoc (0.4.2)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    selenium-webdriver (3.14.0)
+      childprocess (~> 0.5)
+      rubyzip (~> 1.2)
     sidekiq (3.5.4)
       celluloid (~> 0.17.2)
       connection_pool (~> 2.2, >= 2.2.0)
@@ -445,7 +457,7 @@ DEPENDENCIES
   capistrano-rails
   capistrano-rvm
   capistrano-sidekiq
-  capybara
+  capybara (>= 2.15, < 4.0)
   carrierwave
   coderay (~> 1.0.5)
   coffee-script
@@ -459,6 +471,7 @@ DEPENDENCIES
   jbuilder
   jquery-rails
   kaminari
+  lograge
   meta_request
   mini_magick
   mysql2
@@ -475,6 +488,7 @@ DEPENDENCIES
   sanitize (~> 4.6.3)
   sass-rails (~> 5.0.3)
   sdoc (~> 0.4.0)
+  selenium-webdriver
   sidekiq (~> 3.5.4)
   sidekiq-failures
   sinatra

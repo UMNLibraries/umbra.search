@@ -12,11 +12,11 @@ class PopulateKeywordsField
   private
 
   def all_keyword_fields
-    (subject_field + editor_tags).uniq.flatten.compact
+    (keywords_ssim + editor_tags).uniq.flatten.compact
   end
 
-  def subject_field
-    solr_doc.fetch('subject_ssim', [])
+  def keywords_ssim
+    solr_doc.fetch('keywords_ssim', [])
   end
 
   def editor_tags

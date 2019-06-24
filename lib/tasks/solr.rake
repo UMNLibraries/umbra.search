@@ -4,6 +4,11 @@ namespace :solr do
     SolrClient.delete_by_query(args[:query].to_s)
   end
 
+  desc "Delete Search Index"
+  task :delete_index, [:query] => [:environment] do |t, args|
+    SolrClient.delete_by_query('*:*')
+  end
+
   # e.g. bundle exec rake solr:index_records['http://hub-client.lib.umn.edu/api/v2/records?filter[all_with_job_id]=62&page[size]=1000']
   desc "Index Records from JSON API"
   task :index_records,  [:url] => [:environment] do |t, args|

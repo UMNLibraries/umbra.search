@@ -2,7 +2,7 @@
 # understand how to search umbra. This object models the main components
 # of an example search: A title, the search itself, and the number of results
 # for a given example search
-class ExampleSearchPresenter  < BasePresenter
+class ExampleSearchPresenter < BasePresenter
   attr_accessor :solr, :params
   presents :search
   delegate :title, :thumbnail, :tour, to: :search

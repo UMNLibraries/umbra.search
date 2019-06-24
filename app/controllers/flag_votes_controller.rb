@@ -11,7 +11,7 @@ class FlagVotesController < ApplicationController
   def index
     respond_to do |format|
       format.html { @flag_votes = FlagVote.page(params[:page]).per(25) }
-      format.json do 
+      format.json do
         if params[:records_by_flag]
           render json: flag_report.records_by_flag
         elsif params[:flags_by_record]
@@ -27,16 +27,6 @@ class FlagVotesController < ApplicationController
     FlagVoteReport.new(flag_votes: FlagVote.all,
                        record_fetcher: FlagVotesController.new)
   end
-
-  def show
-    votes = FlagVote.where(flag_id: params[:id])
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render :json => get_records(votes).to_json }
-      format.text { render :text => get_records(votes).join("\n") }
-    end
-  end
-
 
   def create
     user_id = user_id(flag_vote_params[:user_id])

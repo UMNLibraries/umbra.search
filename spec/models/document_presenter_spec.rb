@@ -13,7 +13,7 @@ describe DocumentPresenter, :type => :model do
   it "should render urls as html links" do
     rendered_text = subject.render_field_value(value_with_urls)
     rendered_html = Capybara::Node::Simple.new(rendered_text)
-    expect( rendered_html ).to have_link("http://dc.lib.unc.edu/u?/ncmaps,1435","http://dc.lib.unc.edu/u?/ncmaps,1435")
-    expect( rendered_html ).to have_link("http://dc.lib.unc.edu/u?/ncmaps,9471","http://dc.lib.unc.edu/u?/ncmaps,9471")
+    expect( rendered_html ).to have_link("http://dc.lib.unc.edu/u?/ncmaps,1435", href: "http://dc.lib.unc.edu/u?/ncmaps,1435")
+    expect( rendered_html ).to have_link("http://dc.lib.unc.edu/u?/ncmaps,9471", href: "http://dc.lib.unc.edu/u?/ncmaps,9471")
   end
 end

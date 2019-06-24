@@ -62,8 +62,8 @@ class IndexBatchUrls
   def response
     start_time = Time.now
     http_klass.open(start_url, read_timeout: 601) { |http| http.read  }
-  rescue Exception => error
+  rescue StandardError => error
     elapsed = Time.now - start_time
-    raise "Request Failed for #{start_url} with error #{error} and elapsed time of #{elapsed}"
+    raise "Request Failed for #{start_url} with error #{error}"
   end
 end

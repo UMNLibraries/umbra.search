@@ -6,17 +6,29 @@ services:
       - "8983:8983"
     volumes:
       - ./snapshots:/snapshots
+  solr_test:
+    image: umbra_solr:dev
+    ports:
+      - "8984:8983"
+    volumes:
+      - ./snapshots:/snapshots
   web:
     build: .
     env_file:
       - .env
-    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    command: >
+      bash -c "
+        RAILS_ENV=test rails s -b 0.0.0.0 -p 3001 --pid `pwd`/tmp/pids/server-test.pid &
+        # Run web server
+        rails s -b 0.0.0.0 -p 3000"
     volumes:
-      - .:/umbra.search
+      - .:/app
     ports:
       - "3000:3000"
+      - "3001:3001"
     links:
       - solr
+      - solr_test
       - db
       - redis
     depends_on:
@@ -28,9 +40,9 @@ services:
       - ./docker/data:/docker-entrypoint-initdb.d
   sidekiq:
     build: .
-    command: bundle exec sidekiq -r /umbra.search
+    command: bundle exec sidekiq -r /app
     volumes:
-      - .:/umbra.search
+      - .:/app
     links:
       - redis
     env_file:
@@ -42,7 +54,11 @@ services:
     command: redis-server /usr/local/etc/redis/redis.conf
     volumes:
         - ./docker/redis-cache.conf:/usr/local/etc/redis/redis.conf
-
+  selenium:
+    image: selenium/standalone-chrome-debug:latest
+    ports: ['4444:4444', '5900:5900']
+    stdin_open: true
+    tty: true
 volumes:
   umbra-db-data:
     driver: local

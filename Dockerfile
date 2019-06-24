@@ -8,8 +8,8 @@ COPY ./docker-entrypoint.sh /
 RUN chmod +x /docker-entrypoint.sh
 ENTRYPOINT ["/docker-entrypoint.sh"]
 
-RUN mkdir /umbra.search
-WORKDIR /umbra.search
-ADD . /umbra.search
+RUN mkdir /app
+WORKDIR /app
+ADD . /app
 RUN bundle config build.nokogiri --use-system-libraries
 RUN bundle install --without production

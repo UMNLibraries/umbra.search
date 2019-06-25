@@ -1,37 +1,25 @@
-require 'rails_helper'
+  require 'rails_helper'
 
-context 'when visiting the site as a unauthenticated user' do
+context 'when visiting the site as a unauthenticated user', js: true do
+  it 'resolves footer links when they are clicked' do
+    visit '/'
+    find(:xpath, '//*[@id="footer"]/div/div/div[2]/ul/li[1]/a').click
+    expect(page).to have_content 'About Umbra'
+    visit '/'
+    find(:xpath, '//*[@id="footer"]/div/div/div[2]/ul/li[2]/a').click
+    expect(page).to have_content 'Get Involved'
+    visit '/'
+    find(:xpath, '//*[@id="footer"]/div/div/div[2]/ul/li[3]/a').click
+    expect(page).to have_content 'Contact Us'
+    visit '/'
+    find(:xpath, '//*[@id="footer"]/div/div/div[2]/ul/li[4]/a').click
+    expect(page).to have_content 'Welcome to #UmbraSearch'
+  end
 
-    it 'resolves footer links when they are clicked' do
-      pages = {
-        "about-foot-link" => "About Umbra",
-        "participate-foot-link" => "How to Participate",
-        "contact-foot-link" => "Contact Us",
-        "umlib-foot-link" => "Libraries",
-        "penumbra-foot-link" => "Penumbra Theatre",
-        "imls-foot-link" => "Institute of Museum and Library Services",
-        "dd-foot-link" => "Doris Duke Charitable Foundation"
-      }
-      pages.each do |link, content|
-        check_static_page(link, content)
-      end
-    end
-
-    it 'resolves help links when they are clicked' do
-      pages = {
-        "about-nav-link" => "About Umbra",
-        "participate-nav-link" => "How to Participate",
-        "contact-nav-link" => "Contact Us"
-      }
-      pages.each do |link, content|
-        check_static_page(link, content)
-      end
-    end
-
-    def check_static_page(link, content)
-      visit "/"
-      click_link link
-      expect(page).to have_content(content)
-    end
-
+  it 'resolves help links when they are clicked' do
+    visit '/'
+    find(:xpath, '//*[@id="primary-nav"]/li[2]/a').click
+    find(:xpath, '//*[@id="about-nav-link"]').click
+    expect(page).to have_content 'Contact Us'
+  end
 end

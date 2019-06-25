@@ -1,57 +1,11 @@
 require 'rails_helper'
 
-describe 'Browsing Facets' do
-  let(:solr_docs) {
-    docs = []
-    (0..300).each do
-      random_text = rand(500).to_s
-      docs << SolrDocument.new({
-        id: random_text,
-        title_ssi: random_text,
-        creator_ssim: [random_text],
-        keywords_ssim: [:foo, :bar].sample,
-        dataProvider_ssi: random_text,
-        sourceResource_spatial_state_ssi: random_text,
-        sourceResource_collection_title_ssi: random_text
-      }).to_h
-    end
-    docs
-  }
-
-  before(:each) { @routes = Blacklight::Engine.routes }
-
-  before do
-    Blacklight.default_index.connection.tap do |solr|
-      solr.delete_by_query("*:*", params: { commit: true })
-      solr.add solr_docs
-      solr.commit
-    end
-  end
-
-  it 'should browse each full facet view and receive 100 facet results sorted numerically' do
-    facets = {
-      "creator_ssim" => "Creator",
-      "dataProvider_ssi" => "Contributing Institution",
-      "sourceResource_spatial_state_ssi" => "Location",
-      "sourceResource_collection_title_ssi" => "Collection"
-    }
-    facets.each do |id, name|
-      browse_facet(id, name, 100)
-    end
-  end
-
-  context 'given the facet.mincount setting for subjects in catalog_controller.rb' do
-    it 'should browse the subject facet and recieve two results' do
-      visit "/catalog/facet/keywords_ssim?limit=100"
-      browse_facet('keywords_ssim', 'Keyword', 2)
-    end
-  end
-
-  def browse_facet(id, name, count)
-    visit "/catalog/facet/#{id}?limit=100"
-    expect(page).to have_content(name)
-    # expect(page).to have_selector('.facet-label', count: count)
-    expect(find('.top .sort_options > .active')).to have_content("Numerical Sort")
+describe 'Browsing Facets', js: true do
+  it "expands the keyword facet more link with an expanded list of clickable facets" do
+    visit '/catalog?utf8=✓&search_field=all_fields&q='
+    find(:xpath, '//*[@id="facet-keywords_ssim"]/div/ul/li[5]/div/a').click
+    find(:xpath, '//*[@id="ajax-modal"]/div/div/div[3]/div/ul/li[19]/span[1]/a').click
+    sleep 1
+    expect(page).to have_content 'Formal studio portrait of Ralph Metcalfe, 1932'
   end
 end
-

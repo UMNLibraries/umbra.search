@@ -26,7 +26,7 @@ module ApplicationHelper
   def record_count
     Rails.cache.fetch("record_count", expires_in: 1.day) do
       solr = Blacklight.default_index.connection
-      num_found = solr.get('select', :params => {:q => '*:*', :fl => '', :rows => 1})["response"]["numFound"]
+      num_found = solr.get('select', :params => {:q => '*:*', :fl => '', :rows => 1, :fq => '-flags_isim:[* TO *]'})["response"]["numFound"]
       number_with_delimiter(num_found, :delimiter => ',')
     end
   end

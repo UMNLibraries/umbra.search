@@ -81,4 +81,4 @@ gem 'rsolr', '>= 1.0'
 gem 'bootstrap-sass', '~> 3.0'
 gem 'twitter-typeahead-rails', '0.11.1.pre.corejavascript'
 # Quite Rails logging down a bit:
-gem 'lograge', group: :production
+gem 'lograge'

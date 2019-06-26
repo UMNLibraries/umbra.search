@@ -52,7 +52,7 @@ class FlagVote < ActiveRecord::Base
   end
 
   def update_record(doc)
-    SolrClient.add [doc]
+    SolrClient.add [doc.except('search_suggest')]
     SolrClient.commit
   end
 

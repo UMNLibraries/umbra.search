@@ -15,6 +15,10 @@ class SearchBuilder < Blacklight::SearchBuilder
   end
 
   def see_unpublished?
+    !missing_authorized_role?
+  end
+
+  def missing_authorized_role?
     [:editor, :admin, :subeditor].map do |role|
       current_user.has_role?(role)
     end.select { |has_role| has_role == true}.empty?

@@ -6,8 +6,6 @@ class FlagVotesController < ApplicationController
   before_action :require_management_permission, only: [:index, :show]
   skip_before_action :require_management_permission, if: :skip_require_flag_manager
 
-
-
   def index
     respond_to do |format|
       format.html { @flag_votes = FlagVote.page(params[:page]).per(25) }

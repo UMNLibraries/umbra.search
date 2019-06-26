@@ -33,7 +33,7 @@ class CatalogController < ApplicationController
 
     ## Default parameters to send to solr for all search-like requests. See also SolrHelper#solr_search_params
     config.default_solr_params = {
-      :qt => 'search_hub',
+      :qt => 'umbra_search',
       :fl => '*',
       :rows => 20,
       :bq => 'sourceResource_type_ssi:text^50.0'
@@ -89,7 +89,6 @@ class CatalogController < ApplicationController
     # :show may be set to false if you don't want the facet to be drawn in the
     # facet bar
 
-
     config.add_facet_field 'import_job_name_ssi', :label => 'Import Job Name', :restricted_to_roles => ['librarian', 'admin'], :limit => 200, index_range: 'A'..'Z'
     config.add_facet_field 'editor_tags_ssim', :label => 'Editor Keywords', :restricted_to_roles => ['librarian', 'admin', 'editor', 'subeditor'], :limit => 200, :collapse => false, index_range: 'A'..'Z'
     config.add_facet_field 'provider_name_ssi', :label => 'Provider', :restricted_to_roles => ['librarian', 'admin'], :limit => 200, index_range: 'A'..'Z'
@@ -104,7 +103,6 @@ class CatalogController < ApplicationController
     config.add_facet_field 'sourceResource_spatial_state_ssi', :label => 'Location', :limit => 10
     # NOTE: Collection is HIDDEN SEARCH RESULTS BY A CSS RULE. We keep it in the config, because we still
     # want to be able to produce a browse by collection facet page.
-
 
     # Have BL send all facet field names to Solr, which has been the default
     # previously. Simply remove these lines if you'd rather use Solr request
@@ -150,7 +148,6 @@ class CatalogController < ApplicationController
     # since we aren't specifying it otherwise.
 
     config.add_search_field 'all_fields', :label => 'All Fields'
-
 
     # Now we see how to over-ride Solr request handler defaults, in this
     # case for a BL "search field", which is really a dismax aggregate

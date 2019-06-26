@@ -19,8 +19,12 @@
 
 # Learn more: http://github.com/javan/whenever
 
-
 # Prevent search sessions from bloating our DB
 every 1.day, at: '12:15am' do
-  rake "blacklight_maintenance:truncate_searches"
+  rake 'blacklight_maintenance:truncate_searches'
+end
+
+# Build search suggestions
+every 1.day, at: '1:00am' do
+  rake 'solr:suggest_build'
 end

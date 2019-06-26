@@ -22,9 +22,14 @@ namespace :solr do
     SolrClient.commit
   end
 
-  desc "Commit Indexed Records"
+  desc "Optimize Indexed Records"
   task optimize: [:environment] do
     SolrClient.optimize
+  end
+
+  desc "Build Suggestions"
+  task suggest_build: [:environment] do
+    SolrClient.connect.get 'suggest', params: {build: true}
   end
 
   desc "backup solr data locally"

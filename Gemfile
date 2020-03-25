@@ -63,6 +63,7 @@ group :test, :development do
   gem 'capistrano-bundler'
   gem 'capistrano-rvm'
   gem 'capistrano-sidekiq'
+  gem 'capistrano-passenger'
   gem 'solr_wrapper', '>= 0.3'
 end
 

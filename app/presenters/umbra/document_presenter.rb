@@ -18,7 +18,7 @@ module Umbra
     def render_field_value value=nil, field=nil
       field_config = field_config(field)
       safe_values = Array(value).collect do |x|
-        Rails.logger.info(x)
+        Rails.logger.debug(x)
         x.respond_to?(:force_encoding) ? auto_link(x.force_encoding("UTF-8"), :link => :urls) : auto_link(x, :link => :urls)
       end
 

@@ -58,12 +58,6 @@ group :test, :development do
   gem 'meta_request'
   # Quite logs down by removing asset requests
   gem 'quiet_assets'
-  gem 'capistrano'
-  gem 'capistrano-rails'
-  gem 'capistrano-bundler'
-  gem 'capistrano-rvm'
-  gem 'capistrano-sidekiq'
-  gem 'capistrano-passenger'
   gem 'solr_wrapper', '>= 0.3'
 end
 

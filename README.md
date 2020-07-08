@@ -53,3 +53,6 @@ $ docker-compose exec -e "RAILS_ENV=test" web rake spec
 ```shell
 $ docker-compose exec db mysql -ppassword umbra
 ```
+
+----
+[UMN deploy](https://github.umn.edu/Libraries/umbra-deploy)

@@ -55,4 +55,4 @@ $ docker-compose exec db mysql -ppassword umbra
 ```
 
 ----
-[UMN deploy](https://github.umn.edu/Libraries/umbra-deploy)
+[UMN deploy and ingest docs](https://github.umn.edu/Libraries/umbra-deploy)

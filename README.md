@@ -39,6 +39,18 @@ $ docker-compose run web rake db:migrate
 $ docker-compose run web rake db:seed
 ```
 
+**Note:** You must rebuild the app's Docker image after any updates to the
+`Gemfile`. Doing a local `bundle update` will NOT affect Docker, and you may
+still be missing gems resulting in confusing errors from docker-compose when you
+believe you do have the necessary gems.
+
+```
+app_1          | Could not find rake-13.0.2 in any of the sources
+app_1          | Run `bundle install` to install missing gems.
+```
+
+Resolve with a new `docker-compose build` and restart the containers.
+
 ### Run Rspec tests
 ```shell
 # Ensure test database has been created

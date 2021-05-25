@@ -3,13 +3,13 @@ services:
   solr:
     image: umbra_solr:dev
     ports:
-      - "8983:8983"
+      - "127.0.0.1:8983:8983"
     volumes:
       - ./snapshots:/snapshots
   solr_test:
     image: umbra_solr:dev
     ports:
-      - "8984:8983"
+      - "127.0.0.1:8984:8983"
     volumes:
       - ./snapshots:/snapshots
   web:
@@ -24,8 +24,8 @@ services:
     volumes:
       - .:/app
     ports:
-      - "3000:3000"
-      - "3001:3001"
+      - "127.0.0.1:3000:3000"
+      - "127.0.0.1:3001:3001"
     links:
       - solr
       - solr_test
@@ -58,7 +58,7 @@ services:
         - ./docker/redis-cache.conf:/usr/local/etc/redis/redis.conf
   selenium:
     image: selenium/standalone-chrome-debug:latest
-    ports: ['4444:4444', '5900:5900']
+    ports: ['127.0.0.1:4444:4444', '127.0.0.1:5900:5900']
     stdin_open: true
     tty: true
 volumes:

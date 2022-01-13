@@ -2,12 +2,13 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.11'
+gem 'rails', '= 5.2.4.2'
 
 gem 'mysql2'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0.3'
+gem 'sass-rails'
+gem 'bootstrap', '~> 5.1'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
@@ -56,8 +57,6 @@ group :test, :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
-  # Quite logs down by removing asset requests
-  gem 'quiet_assets'
   gem 'solr_wrapper', '>= 0.3'
 end
 
@@ -67,13 +66,12 @@ group :test do
   gem 'webmock'
   gem 'factory_girl_rails', '~> 4.4.1'
   gem 'faker'
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~> 4.1.0'
   gem 'capybara', '>= 2.15', '< 4.0'
   gem 'selenium-webdriver'
 end
 
 gem 'rsolr', '>= 1.0'
-gem 'bootstrap-sass', '~> 3.0'
 gem 'twitter-typeahead-rails', '0.11.1.pre.corejavascript'
 # Quite Rails logging down a bit:
 gem 'lograge'

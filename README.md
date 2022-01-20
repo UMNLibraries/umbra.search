@@ -1,7 +1,3 @@
-# ACTIVE REPO IS AT https://github.com/UMNLibraries/umbra.search
-# DO NOT USE THIS
-**This repo is no in use on GitHub Enterprise. It is fully public on github.com, and deployment strategy is in https://github.umn.edu/Libraries/umbra-deploy**
-
 Umbra Search
 ======
 

@@ -41,11 +41,6 @@
           <div class="pin-it-large">
             <%= render 'pin_it_large', :document => show_document, :pinterest_image => '//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_red_28.png' %>
           </div>
-          <div class="addthis_sharing_toolbox">
-            <a addthis:title="<%= show_document.display_title_short %>" class="addthis-twitter addthis_button_twitter" data-url="<%= search_catalog_url(show_document.document) %>">
-              <img height="42" src="https://d3bqfbs46oeuvc.cloudfront.net/twitter_logo.png" style="margin-top: -4px" width="42"/>
-            </a>
-          </div>
         </div>
         <h2 class="h4" style="color:#777777">
           <%= show_field_value(show_document.document,'sourceResource_creator_ssi') %>

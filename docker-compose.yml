@@ -5,13 +5,23 @@ services:
     ports:
       - "127.0.0.1:8983:8983"
     volumes:
-      - ./snapshots:/snapshots
+      #- type: bind
+      - type: volume
+        #source: ./snapshots
+        source: snapshots
+        target: /snapshots
+    networks:
+      - umbra-net
   solr_test:
     image: umbra_solr:dev
     ports:
       - "127.0.0.1:8984:8983"
     volumes:
-      - ./snapshots:/snapshots
+      - type: bind
+        source: ./snapshots
+        target: /snapshots
+    networks:
+      - umbra-net
   web:
     build: .
     env_file:
@@ -26,41 +36,52 @@ services:
     ports:
       - "127.0.0.1:3000:3000"
       - "127.0.0.1:3001:3001"
-    links:
-      - solr
-      - solr_test
-      - db
-      - redis
     depends_on:
       - solr
+    networks:
+      - umbra-net
   db:
-    image: library/mysql:8
+    image: library/mysql:8.0.35
+    command: [ '--default-authentication-plugin=mysql_native_password' ]
     volumes:
       - umbra-db-data:/var/lib/mysql
       - ./docker/data:/docker-entrypoint-initdb.d
     env_file:
       - .env
+    networks:
+      - umbra-net
   sidekiq:
     build: .
     command: bundle exec sidekiq -r /app
     volumes:
       - .:/app
-    links:
-      - redis
     env_file:
       - .env
+    networks:
+      - umbra-net
   redis:
     image: redis:latest
+    networks:
+      - umbra-net
   redis_cache:
     image: redis:4.0.10
     command: redis-server /usr/local/etc/redis/redis.conf
     volumes:
         - ./docker/redis-cache.conf:/usr/local/etc/redis/redis.conf
-  selenium:
-    image: selenium/standalone-chrome-debug:latest
-    ports: ['127.0.0.1:4444:4444', '127.0.0.1:5900:5900']
-    stdin_open: true
-    tty: true
+    networks:
+      - umbra-net
+  # commenting out because it keeps crashing and I'm not worried about the tests rn
+  #selenium:
+  #  image: selenium/standalone-chrome-debug:latest
+  #  ports: ['127.0.0.1:4444:4444', '127.0.0.1:5900:5900']
+  #  stdin_open: true
+  #  tty: true
+  #  networks:
+  #    - umbra-net
 volumes:
   umbra-db-data:
     driver: local
+  snapshots:
+    driver: local
+networks:
+  umbra-net:

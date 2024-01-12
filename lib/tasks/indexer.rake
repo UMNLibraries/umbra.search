@@ -6,4 +6,11 @@ namespace :indexer do
       JsonApiIndexerWorker.perform_async(url)
     end
   end
+  desc "Index only a small subset of records for development and testing"
+  task :devrun => [:environment] do
+    umbra_records = 'https://www.umbrasearch.org/catalog.json?f[dataProvider_ssi][]=University+of+Oklahoma+Libraries'
+    IndexBatchUrls.new(start_url: umbra_records).to_a.map do |url|
+      JsonApiIndexerWorker.perform_async(url)
+    end
+  end
 end

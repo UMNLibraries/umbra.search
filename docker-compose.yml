@@ -34,7 +34,7 @@ services:
     depends_on:
       - solr
   db:
-    image: library/mysql:5.7
+    image: library/mysql:8
     volumes:
       - umbra-db-data:/var/lib/mysql
       - ./docker/data:/docker-entrypoint-initdb.d

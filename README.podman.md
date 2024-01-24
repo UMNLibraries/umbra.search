@@ -2,21 +2,30 @@
 
 At present, we are testing Podman as part of creating a development environment. Hence, these instructions are geared towards that use case.
 
-_helpful reminder_: you will need to rebuild the containers when you make changes to the application code ;)
+### Environment
 
-## Environment
+#### MacOS
 
-- Install [Podman Desktop](https://podman-desktop.io/downloads) for `podman` and `docker-compose` or use the package manager of your choice
-    - _MacOS_: using Podman Desktop is encouraged for simplicity's sake
+- Install [Podman Desktop](https://podman-desktop.io/downloads) for `podman` and `docker-compose`
+    - using Podman Desktop is encouraged for simplicity's sake
 - clone the relevant repositories if you haven't already
     - https://github.com/UMNLibraries/umbra.search
     - https://github.com/UMNLibraries/umbra_solr_core
 - for the `umbra.search` repository: `git checkout podman` 
 - ensure that the podman and docker-compose binaries are in your PATH.
-    - _MacOS_: `export PATH="/opt/podman/bin:/usr/local/bin:/usr/local/podman/helper/$USER:$PATH"`
-- MacOS users will need to create a podman VM with `podman machine init --cpus 2 --memory 4096`
+    -  `export PATH="/opt/podman/bin:/usr/local/bin:/usr/local/podman/helper/$USER:$PATH"`
+- Create a podman VM with `podman machine init --cpus 2 --memory 4096`
 
-## Building
+#### Linux
+
+- Install Podman per the [Podman Documentation](https://podman.io/docs/installation)
+    - Podman Desktop does not actually provide `podman` or `docker-compose` as it does on MacOS, it is however useful for managing images etc.
+- clone the relevant repositories if you haven't already
+    - https://github.com/UMNLibraries/umbra.search
+    - https://github.com/UMNLibraries/umbra_solr_core
+- for the `umbra.search` repository: `git checkout podman` 
+
+### Building
 
 1. Ensure your environment is correct as per the above
 2. _MacOS only_: ensure the podman machine is running with `podman machine start`
@@ -25,13 +34,32 @@ _helpful reminder_: you will need to rebuild the containers when you make change
 5. `cp .env-example .env`
 6. `mkdir thumbnails`
 7. `docker-compose build`
+    - _Linux_: if you recive an error `failed to receive status: rpc error...` append `DOCKER_BUILDKIT=0` 
+    - _Linux_: ensure that your docker `systemd` services are _disabled_ and that podman user services are running
     - this step may fail, if it does, simply run it again and it should succeed
     - this step will feature many scary depreciation warnings; for the time being, ignore them
 8. `docker-compose up`
-    - this will take a bit
-9. create the MySQL DB:  `docker-compose run web rake db:create`
-10. setup the DB: `docker-compose run web rake db:migrate && docker-compose run web rake db:seed
-11. navigate to `localhost:3000` in a browser, you should be greeted by a blank umbrasearch web interface
 
-## Everyone Loves Solr
+#### MySQL
 
+1. create the MySQL DB: `docker-compose run web rake db:create && docker-compose run web rake db:migrate && docker-compose run web rake db:seed`
+2. navigate to `localhost:3000` in a browser, you should be greeted by a blank umbrasearch web interface
+3. in a new tab `localhost:8983/solr/`
+4. sidekiq is running at `localhost:3000/sidekiq` if needed
+
+#### Everyone Loves Solr
+
+Once MySQL and the rest of the application is finished with setup as above, setup Solr:
+
+1. initate the OAI harvest: `docker-compose exec web bundle exec rake indexer:dev`
+    - this will harvest approximately 600 records (as of 2024-01)
+2. commit the records to solr: `docker-compose exec web bundle exec rake solr:commit`
+3. build solr suggestions: `docker-compose run web rake solr:suggest_build`
+4. backup the solr db: `docker-compose exec web bundle exec rake solr:backup`
+
+Solr's admin page should be running at `localhost:8983/solr/`
+ 
+### Reminders
+
+- you will need to rebuild the containers when you make changes to the application code
+- if something blows up that isn't related to changes you've made in code, restarting your podman machine (on MacOS) or restarting podman services might help. The reasons may remain a mystery.

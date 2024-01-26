@@ -25,9 +25,15 @@ At present, we are testing Podman as part of creating a development environment.
     - https://github.com/UMNLibraries/umbra_solr_core
 - for the `umbra.search` repository: `git checkout podman` 
 
+### Running on a server
+
 #### DBus/shell sessions
 
+what if you need to pretend you're logged in like a real user?
+
 #### SELinux
+
+If you have SELinux running on your machine (or on a RHEL9 VM), you will need to ensure the permissions are correct on the podman user's podman folders
 
 - ensure the SELinux stuff is correct on the podman folders in the home directory of the user running it ([https://github.com/containers/podman/issues/11109#issuecomment-891808665](per this GH comment)):
     - `sudo semanage fcontext -ae /var/lib/containers $HOME/.local/share/containers/storage`

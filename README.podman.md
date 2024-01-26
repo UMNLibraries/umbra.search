@@ -25,6 +25,14 @@ At present, we are testing Podman as part of creating a development environment.
     - https://github.com/UMNLibraries/umbra_solr_core
 - for the `umbra.search` repository: `git checkout podman` 
 
+#### DBus/shell sessions
+
+#### SELinux
+
+- ensure the SELinux stuff is correct on the podman folders in the home directory of the user running it ([https://github.com/containers/podman/issues/11109#issuecomment-891808665](per this GH comment)):
+    - `sudo semanage fcontext -ae /var/lib/containers $HOME/.local/share/containers/storage`
+    - `sudo restorecon -Rv $HOME/.local/share/containers/storage`
+
 ### Building
 
 1. Ensure your environment is correct as per the above

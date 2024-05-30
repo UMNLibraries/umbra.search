@@ -99,4 +99,7 @@ Rails.application.configure do
     password:             ENV['AATH_MAIL_PASSWORD'],
     authentication:       'plain',
     enable_starttls_auto: true  }
+
+  # Blacklight dumps enormous amounts of deprecations into error_log via Passenger's stdout
+  Deprecation.default_deprecation_behavior = :silence
 end

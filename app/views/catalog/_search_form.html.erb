@@ -4,13 +4,11 @@
     <div class="input-group <%= input_group_style %>">
     <% unless search_fields.empty? %>
       <span class="input-group-addon">
-        <label for="search_field" class="sr-only"><%= t('blacklight.search.form.search_field.label') %></label>
-        <%= select_tag(:search_field, options_for_select(search_fields, h(params[:search_field])), :title => t('blacklight.search.form.search_field.title'), :class=>"search_field") %>
+        <%= select_tag(:search_field, options_for_select(search_fields, h(params[:search_field])), :title => t('blacklight.search.form.search_field.title'), :class=>"search_field", :"aria-label" => t('blacklight.search.form.search_field.label') %>
         <span class="sr-only"><%= t('blacklight.search.form.search_field.post_label') %></span>
         </span>
       <% end %>
-        <label for="q" class="sr-only"><%= t('blacklight.search.form.q') %></label>
-         <%= text_field_tag :q, params[:q], :placeholder => t('blacklight.search.form.q'), :class => "search_q q form-control typeahead", :"aria-label" => "Search query", :id => "q", :autofocus => should_autofocus_on_search_box?, data: { autocomplete_enabled: CatalogController.blacklight_config.autocomplete_enabled, autocomplete_path: CatalogController.blacklight_config.autocomplete_path } %>
+         <%= text_field_tag :q, params[:q], :placeholder => t('blacklight.search.form.q'), :class => "search_q q form-control typeahead", :"aria-label" => t('blacklight.search.form.q'), :id => "q", :autofocus => should_autofocus_on_search_box?, data: { autocomplete_enabled: CatalogController.blacklight_config.autocomplete_enabled, autocomplete_path: CatalogController.blacklight_config.autocomplete_path } %>
 
       <span class="input-group-btn">
         <button type="submit" class="btn btn-primary search-btn" id="search" alt="Search" title="Search" autofocus>

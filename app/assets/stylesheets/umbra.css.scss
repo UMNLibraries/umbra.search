@@ -812,7 +812,8 @@ body.blacklight-pages-home {
 .pagination li.active span {
   z-index: 1;
 }
-.pagination li.disabled a {
+.pagination li.disabled a,
+.pagination li.disabled span {
   color: #333;
 }
 

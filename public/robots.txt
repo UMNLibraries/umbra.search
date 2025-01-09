@@ -17,4 +17,7 @@ User-agent: DataForSeoBot
 Disallow: /
 User-agent: Bytespider
 Disallow: /
-
+User-agent: amazonbot
+Disallow: /
+User-agent: facebookexternalhit
+Disallow: /

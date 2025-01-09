@@ -29,6 +29,10 @@ module Umbra
       safe_join(safe_values, (field_config.separator if field_config))
     end
 
+    def has_creator?
+      !!document['sourceResource_creator_ssi']
+    end
+
     def creator
       render_field_value document['sourceResource_creator_ssi'], 'sourceResource_creator_ssi'
     end

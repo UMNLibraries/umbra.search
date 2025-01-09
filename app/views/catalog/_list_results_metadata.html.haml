@@ -4,7 +4,8 @@
     =(document_counter + 1).to_s + "."
   %span.title
     = link_to document_presenter.display_title, document, document_link_params(document, :counter => document_counter_with_offset(document_counter))
-  %h2.h4.creator.metadata-field= document_presenter.creator
+  - if document_presenter.has_creator?
+    %h2.h4.creator.metadata-field= document_presenter.creator
   - if document_presenter.has_keywords?
     %h4.metadata-field
       Keywords:

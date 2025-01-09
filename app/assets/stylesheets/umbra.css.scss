@@ -812,6 +812,9 @@ body.blacklight-pages-home {
 .pagination li.active span {
   z-index: 1;
 }
+.pagination li.disabled {
+  color: #333;
+}
 
 h2.facets-heading {
   display: none;

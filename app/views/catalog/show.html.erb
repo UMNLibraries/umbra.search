@@ -3,6 +3,7 @@
 <% content_for(:head) { render_link_rel_alternates } %>
 <% content_for(:secondary_navbar) {render partial:'show_nav'} %>
 <div class="metadata" data-metadata="<%= show_document.to_json %>" data-url="<%= request.original_url %>"></div>
+<div id="content"></div>
 <section id="metadata">
   <div class="container">
     <div class="row">

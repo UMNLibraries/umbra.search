@@ -25,6 +25,7 @@ gem 'coffee-script'
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring', group: :development
 
+gem 'dotenv-rails'
 gem 'cancancan'
 gem 'blacklight', '~> 6.20.0'
 gem 'rails_autolink'

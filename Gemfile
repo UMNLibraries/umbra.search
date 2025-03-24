@@ -50,6 +50,9 @@ gem 'google-api-client', '0.8.6'
 gem 'activerecord-import'
 gem 'whenever', :require => false
 gem 'redis-rails'
+gem "puma", "~> 5.6"
+# Run puma with systemd integration
+gem 'sd_notify', '>= 0.1.0'
 
 group :test, :development do
   # Debug seems to have trouble w/ Ruby 2.x, byebug is a replacment

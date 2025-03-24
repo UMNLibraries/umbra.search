@@ -225,6 +225,7 @@ GEM
     multipart-post (2.1.1)
     mysql2 (0.5.2)
     netrc (0.11.0)
+    nio4r (2.7.3)
     nokogiri (1.10.3)
       mini_portile2 (~> 2.4.0)
     nokogumbo (1.5.0)
@@ -239,6 +240,8 @@ GEM
       png_quantizator
     png_quantizator (0.2.1)
     public_suffix (3.1.0)
+    puma (5.6.9)
+      nio4r (~> 2.0)
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
     rack (1.6.11)
@@ -351,6 +354,7 @@ GEM
     sassc (2.0.1)
       ffi (~> 1.9)
       rake
+    sd_notify (0.1.1)
     sdoc (0.4.2)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
@@ -453,6 +457,7 @@ DEPENDENCIES
   mysql2
   piet
   piet-binary
+  puma (~> 5.6)
   quiet_assets
   rails (= 4.2.11)
   rails_autolink
@@ -463,6 +468,7 @@ DEPENDENCIES
   rspec-rails
   sanitize (~> 4.6.3)
   sass-rails (~> 5.0.3)
+  sd_notify (>= 0.1.0)
   sdoc (~> 0.4.0)
   selenium-webdriver
   sidekiq (~> 3.5.4)

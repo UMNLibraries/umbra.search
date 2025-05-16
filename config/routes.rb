@@ -30,8 +30,8 @@ Rails.application.routes.draw do
   resources :flag_votes
   resources :records, only: [:show]
 
-  require 'sidekiq/web'
-  mount Sidekiq::Web => '/sidekiq'
+  #require 'sidekiq/web'
+  #mount Sidekiq::Web => '/sidekiq'
 
   get '/contributing-institutions' => "data_providers#index", as: 'data_providers'
   get '/contributing-institutions/:id' => "data_providers#show", as: 'data_provider'

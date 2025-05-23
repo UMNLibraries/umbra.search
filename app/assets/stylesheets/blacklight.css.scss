@@ -300,3 +300,12 @@ $grid-float-breakpoint: 992px;
 .static-page {
   min-height: 400px;
 }
+
+/* WAVE contrast report */
+.facet-label .glyphicon-remove {
+  color: #555;
+}
+/* hidden screen reader text for facet removal, blacklight puts explicit style */
+.facet-label .sr-only {
+  color: #555 !important;
+}

@@ -830,3 +830,14 @@ h2.facets-heading {
 .navbar-text strong {
   color: #444 !important;
 }
+
+/* Bootstrap Tour buttons for a11y contrast */
+.popover-navigation button {
+  background-color: #B05D49;
+  color: white;
+}
+.popover-navigation button.disabled, .popover-navigation button.disabled:hover {
+  background-color: #eee;
+  color: black !important;
+  cursor: not-allowed !important;
+}

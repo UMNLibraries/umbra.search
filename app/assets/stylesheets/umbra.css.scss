@@ -836,8 +836,13 @@ h2.facets-heading {
   background-color: #B05D49;
   color: white;
 }
-.popover-navigation button.disabled, .popover-navigation button.disabled:hover {
+.popover-navigation button.disabled, .popover-navigation button.disabled:hover, .alpha-filter a.disabled {
   background-color: #eee;
+  color: black !important;
+  cursor: not-allowed !important;
+}
+
+.prev_next_links .btn-disabled {
   color: black !important;
   cursor: not-allowed !important;
 }

@@ -301,6 +301,10 @@ body.blacklight-pages-home {
     margin-top: 15px;
   }
 
+  input[name=q] {
+    background-color: #ffffff !important;
+  }
+
   .alert-warning {
     display: none;
   }

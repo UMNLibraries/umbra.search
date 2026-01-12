@@ -46,6 +46,10 @@ $dark-background-color: #102826;
   }
 }
 
+input[name=q] {
+  background-color: #ffffff !important;
+}
+
 // Navbar
 .navbar {
   margin-bottom:0px;
@@ -299,10 +303,6 @@ body.blacklight-pages-home {
 
   .search-widgets .view-type {
     margin-top: 15px;
-  }
-
-  input[name=q] {
-    background-color: #ffffff !important;
   }
 
   .alert-warning {

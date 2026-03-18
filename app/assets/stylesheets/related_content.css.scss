@@ -7,8 +7,12 @@
   }
 
   .thumbnail.cover-image {
-    font-size: 3em;
+    font-size: 2em;
     padding: 5px 0 0 0;
     text-align: center
+  }
+
+  .thumbnail.cover-image .icon-desc-text {
+    font-size: 0.6em;
   }
 }
